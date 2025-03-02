@@ -116,39 +116,44 @@
 \newtheorem*{remark}{Замечание}
 \newtheorem*{offer}{Предложение}
 % \newtheorem{offernum}[offercount]{Предложение}
-\begin {document}
+\begin{document}
   \newpage
-  \begin {exercise} $A_pfi$ - матрица линейного отображения $phi: V_1 \to V_2$, dim($V_1$) = n, dim($V_2$) = m. Какой должна быть матрица $A_phi$, чтобы 
-    а) отображение $phi$ было инъективным
-    б) отображение $phi$ было сюръективным
-    в) отображение $phi$ было биекцией
-  \end {exercise}
-  \begin {definition} 
-    Отображение $phi: V \to V:$ называется линейным оператором (преобразованием).
-  \end {definition}
-  \begin {definition}
-    Матрицей линейного оператора $phi$ в базисе {$e_1$...$e_n$} называется матрица $A_{phi}$ = ($a_{ij}$) такая, что ($phi(e_1$), ..., $phi(e_n$)) = ($e_1$, ..., $e_n$)$A_{phi}$
-  \end {definition}
-  \begin {subtheorem}
-    Пусть $C$ - матрица перехода от базиса {$e_1$...$e_n$} к базису {$e'_1$...$e'_n$}, тогда матрица $A_{phi, e'}$ линейного оператора $phi$ в базисе {$e'_1$...$e'_n$} выражается через матрицу $A_{phi, e}$ линейного оператора $phi$ в базисе {$e_1$...$e_n$} и матрицу перехода.
-  \end {subtheorem}
-  \begin {proof}
+  \begin{exercise} $A_\phi$ - матрица линейного отображения $\phi: V_1 \to V_2$, dim($V_1$) = n, dim($V_2$) = m. Какой должна быть матрица $A_\phi$, чтобы 
+    а) отображение $\phi$ было инъективным
+    б) отображение $\phi$ было сюръективным
+    в) отображение $\phi$ было биекцией
+  \end{exercise}
+  \begin{theorem}
+    Пусть векторы $a_1$, ..., $a_n$ - л. н. з. векторы в $V_1$, $dimV_1$ = n, $b_1$, ..., $b_n$ - случайные векторы в $V_2$. Тогда $\exists$! \отображение $\phi: V_1 \to V_2$ : $\phi(a_j)$ = $b_j$
+  \end{theorem}
+  \begin{proof}
+    Пусть в базисе $E$ пространства $V_1$ $a_j$ = \begin{pmatrix}
+      $a_1$
+      $a_n$
+    \end{pmatrix}
+  \end{proof}
+  \begin{theorem}
+    Если $dimV_1$ = n и $\phi: V_1 \to V_2$ - линейное отображение, то $\phi(V_1)\cong$ фактор-пространству.
+  \end{theorem}
+  \begin{proof}
+
+  \end{proof}
+  \begin{definition}
+    Линейное отображение $\phi: V \to V$ называется линейным оператором.
+  \end{definition}
+  Если $\phi: V \to V$ - линейной оператор, то Ker$\phi$ и Im$\phi$ являются подпространствами V.
+  $\Longrightarrow$ Если $U$ - подпространство $V$ и $\phi: V \to V$ - линейный оператор, то Im$\phi$ - подпространство $V$.
+  \begin{definition}
+    Пусть $U$ - подпространство $V$, отображение $\phi: V \to V$ - линейный оператор, тогда если $\forall u \in U \phi(u) \in U$ 
+  \begin{definition}
+    Матрицей линейного оператора $\phi$ в базисе {$e_1$...$e_n$} называется матрица $A_{\phi}$ = ($a_{ij}$) такая, что ($\phi(e_1$), ..., $\phi(e_n$)) = ($e_1$, ..., $e_n$)$A_{\phi}$
+  \end{definition}
+  \begin{subtheorem}
+    Пусть $C$ - матрица перехода от базиса {$e_1$...$e_n$} к базису {$e'_1$...$e'_n$}, тогда матрица $A_{\phi, e'}$ линейного оператора $\phi$ в базисе {$e'_1$...$e'_n$} выражается через матрицу $A_{\phi, e}$ линейного оператора $\phi$ в базисе {$e_1$...$e_n$} и матрицу перехода.
+  \end{subtheorem}
+  \begin{proof}
     ($e'_1$, ..., $e'_n$) = ($e_1$, ..., $e_n$)$C$
-    $Longrightarrow$ в силу линейности оператора $phi$ ($phi(e'_1$), ..., ($phi(e'_n$))) = ($phi(e_1$), ..., ($phi(e_n$)))$C$ = ($e_1$...$e_n$)$AC$ = ($e'_1$...$e'_n$)$C^{-1}A_{phi, e}C$
-    $Longrightarrow$ $A_{phi, e'}$ = $C^{-1}A_{phi, e}C$.
-  \end {proof}
-  \begin {consequenses} 
-    1) $rkA_{phi, e}$ = $rkA_{phi, e'}$ (так как матрицы $A_{phi, e}$ и $C$ невырожденны)
-    2) $detA_{phi, e}$ = $detA_{phi, e'}$
-    3) $tzA_{phi, e}$ = $tzA_{phi, e'}$ (так как $tz(AC)$ = $tz(CA)$)
-  \end {consequenses}
-  \begin {theorem}
-    Пусть векторы $a_1$, ..., $a_n$ - л. н. з. векторы в $V_1$, $dimV_1$ = n, $b_1$, ..., $b_n$ - случайные векторы в $V_2$. Тогда \exists! \отображение $phi: V_1 \to V_2$ : $phi(a_j)$ = $b_j$
-  \end {theorem}
-  \begin {proof}
-    Пусть в базисе $E$ пространства $V_1$ $a_j$ = \begin {pmatrix}
-    $a_1$
-    $a_n$
-    \end {pmatrix}
-  \end {proof}
-\end {document}
+    $\Longrightarrow$ в силу линейности оператора $\phi$ ($\phi(e'_1$), ..., ($\phi(e'_n$))) = ($\phi(e_1$), ..., ($\phi(e_n$)))$C$ = ($e_1$...$e_n$)$AC$ = ($e'_1$...$e'_n$)$C^{-1}A_{\phi, e}C$
+    $\Longrightarrow$ $A_{\phi, e'}$ = $C^{-1}A_{\phi, e}C$.
+  \end{proof}
+\end{document}
