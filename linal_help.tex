@@ -1,0 +1,119 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+  
