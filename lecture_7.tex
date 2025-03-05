@@ -126,11 +126,11 @@
       \null \\ U
     \end{matrix}$($u$) = $\phi(u)$
   \end{definition}
-  Рассмотрим фактор-пространство $\bar{V}$ = $V|\begin{matrix}
+  Рассмотрим фактор-пространство $\overline{V}$ = $V|\begin{matrix}
     \null \\ U
   \end{matrix}$ : $\bar{v}$ = {$v$+$u$|$u \in U$}
   \begin{definition}
-    Оператор $\bar{\phi}: \overline{V} \to \overline{V}$ называется фактор-оператором.
+    Оператор $\overline{\phi}: \overline{V} \to \overline{V}$ называется фактор-оператором.
   \end{definition}
   $\forall v'$ = $v$+$u$, где $u \in U$, $\phi(v') = \phi(v)+\phi(u)$ $\Longrightarrow$ $\overline{\phi(v')} = \overline{\phi(v)}$ (так как $\phi(u) \in U$) $\Longrightarrow \overline{\phi}: \overline{V} \to \overline{V}$ - линейный оператор. 
   \begin{theorem}
@@ -184,9 +184,9 @@
     \end{matrix}$ имеет матрицу $B$, а $\phi$, $\phi|\begin{matrix}
       \null \\ W
     \end{matrix}$ имеет матрицу $C$.
-    Для первого случая: $\overline{e_j} = e_j$ + $U$, для $\overline{m+1, n}$, является базисом в фактор-пространстве $\bar{V}$ = $V|\begin{matrix}
+    Для первого случая: $\overline{e_j} = e_j$ + $U$, для $\overline{m+1, n}$, является базисом в фактор-пространстве $overline{V}$ = $V|\begin{matrix}
       \null \\ U
-    \end{matrix} \overline{\phi}(\bar{e_j})$ = $\phi(e_j) = \overline{\sum \limits_{i=1}^m a_{ij} e_i + \sum \limits_{k=m+1}^n a_{kj} e_k} = \sum \limits_{k=m+1}^n e_{kj} \overline_k}$ (так как первая сумма $\in U$ )
+    \end{matrix} \overline{\phi}(\bar{e_j})$ = $\phi(e_j) = \overline{\sum \limits_{i=1}^m a_{ij} e_i + \sum \limits_{k=m+1}^n a_{kj} e_k} = \sum \limits_{k=m+1}^n e_{kj} \overline{e_k}$ (так как первая сумма $\in U$ )
     $\Longrightarrow C = \begin{pmatrix}
       a_{m+1, m+1} & \cdots & a_{m+1, n}\\
       \vdots\\
@@ -196,8 +196,8 @@
   \begin{remark}
     В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{\phi}$ = \begin{pmatrix}
       B_1\\
-      \ddots\\
-       & B_s
+       & \ddots\\
+       & & B_s
     \end{pmatrix}, где $B_i$ - матрица $\phi|\begin{matrix}
       \null \\ U_i
     \end{matrix} \forall i = \bar{1, s}$ 
@@ -265,8 +265,8 @@
   \begin{example1}
     Пример 1.
     $V = D^{\infty}(\R)$ - множество бесконечно дифференцируемых функций.
-    $\phi \frac{d}{dx} \forall f(x) \phi(f) = f'(x)$.
-    $\forall\lambda\in\R (e^{\lambda x})' = \lambda^x$.
+    $\phi = \frac{d}{dx}$ $\forall f(x)$ $\phi(f) = f'(x)$.
+    $\forall\lambda\in\R (e^{\lambda x})' = \lambda e^x$.
     \begin{proof}
       Если $f'(x) = \lambda \cdot f(x)$, то $f(x) = C \cdot e^{\lambda x}$, где $C\neq0$.
       Рассмотрим $(f(x)e^{-\lambda x})' = f'(x)e^{-\lambda x} - \lambda f(x)e^{-\lambda x} = 0 \Longrightarrow f(x)e^{-\lambda x} = C$.
