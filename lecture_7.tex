@@ -156,7 +156,7 @@
   \end{theorem}
   \begin{proof}
     1. Обозначим dim$V$ = n, dim$U$ = m, 0 < m < n. Выберем базис в $U$ $e_1, \ldots, e_m$ и дополним его до базиса в $V$ произвольными векторами $e_{m+1}, \ldots, e_n$.
-    Тогда $\forall u \in U u$ = $\sum \limits_{i=1}^m u_i e_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^m u_i \phi(e_i)$
+    Тогда $\forall u\in U$ $u$ = $\sum \limits_{i=1}^m u_i e_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^m u_i \phi(e_i)$
     В частности, столбцы $\phi(e_1) \ldots \phi(e_m)$ имеют вид: \begin{pmatrix}
       a_{1i}\\
       \vdots\\
@@ -194,22 +194,22 @@
     \end{pmatrix}$ - матрица оператора $\bar{\phi}$.
   \end{proof}
   \begin{remark}
-    В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{phi}$ = \begin{matrix}
+    В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{phi}$ = \begin{pmatrix}
       B_1\\
       \ddots\\
-      B_s
-    \end{matrix}, где $B_i$ - матрица $\phi|\begin{matrix}
+          B_s
+    \end{pmatrix}, где $B_i$ - матрица $\phi|\begin{matrix}
       \null \\ U_i
     \end{matrix} \forall i = \bar{1, s}$ 
   \end{remark}
   \begin{example1}(Естественные примеры инвариантных подпространств (доказательство - упражнение))
     $\phi: V \to V$ - линейный оператор.
-    1. Ker$\phi$, Im$\phi$ и любое подпространство $U$: Im$\phi \subset U$, тогда $U$ инвариантно относительно $\phi$.
+    1. Ker$\phi$, Im$\phi$ и любое подпространство $U$ : Im$\phi \subset U$, тогда $U$ является инвариантным подпространством относительно $\phi$.
     2. Если $U_1$ и $U_2$ являются инвариантными подпространствами относительно оператора $\phi$, то $U_1+U_2$ и $U_1 \cap U_2$ также являются инвариантными относительно оператора $\phi$.
   \end{example1}
   \subsection{Действия над линейными отображениями и операторами}
   Пусть $\phi: V_1 \to V_2$ - линейное отображение, тогда:
-  1. $\forall \lambda \in F (\lambda\phi)(x) = \lambda\phi(x)$, $\forall x \in V_1$
+  1. $\forall \lambda \in \F (\lambda\phi)(x) = \lambda\phi(x)$, $\forall x \in V_1$
   2. Если $\psi: V_1 \to V_2$, то ($\phi+\psi)(x) = \phi(x)+\psi(x)$, $\forall x \in V_1$
   \begin{subtheorem} 1
     Относительно этих операций множество $L(V_1, V_2)$ линейных отображений из $V_1$ в $V_2$ является векторным пространством.
