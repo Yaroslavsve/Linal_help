@@ -134,14 +134,14 @@
   \end{definition}
   $\forall v'$ = $v$+$u$, где $u \in U$, $\phi(v') = \phi(v)+\phi(u)$ $\Longrightarrow$ $\bar{\phi(v')} = \bar{\phi(v)}$ (так как $\phi(u) \in U$) $\Longrightarrow \bar{\phi}: \bar{V} \to \bar{V}$ - линейный оператор. 
   \begin{theorem}
-    1. Если $\exists U \neq {0}$, $U$ - подпространство $V$, Im$\phi \subset U$, то в подходящем базисе $A_{\phi}$ = \begin{pmatrix}
+    1. Если $\exists U \neq${$0$}, $U$ - подпространство $V$, Im$\phi \subset U$, то в подходящем базисе $A_{\phi}$ = \begin{pmatrix}
       B & \vline & D \\
       \hline
       0 & \vline & C
     \end{pmatrix} (1),
     где $B_{m \times n}$ - матрица линейного оператора $\phi|\begin{matrix}
       \null \\ U
-    \end{matrix}$, где $m$ = dim$U$, а $C$ - матрица оператора $\bar{\phi}$.
+    \end{matrix}$, где $m$ = dim$U$, а $C$ - матрица оператора $\bar{\phi}$.\\
     2. Если $V$ = $U \oplus W$, где $U$ и $W$ - инвариантные подпространства относительно $\phi$, то в подходящем базисе $A_{\phi}$ = \begin{pmatrix}
       B & \vline & 0 \\
       \hline
@@ -188,16 +188,16 @@
       \null \\ U
     \end{matrix} \bar{\phi}(\bar{e_j})$ = $\phi(e_j) = \bar{\sum \limits_{i=1}^m a_{ij} e_i + \sum \limits_{k=m+1}^n a_{kj} e_k} = \sum \limits_{k=m+1}^n e_{kj} \bar{e_k}$ (так как первая сумма $\in U$ )
     $\Longrightarrow C = \begin{pmatrix}
-      a_{m+1, m+1} & \cdots & a_{n+1, n}\\
+      a_{m+1, m+1} & \cdots & a_{m+1, n}\\
       \vdots\\
       a_{n, m+1} & \cdots & a_{nn}
     \end{pmatrix}$ - матрица оператора $\bar{\phi}$.
   \end{proof}
   \begin{remark}
-    В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{phi}$ = \begin{pmatrix}
+    В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{\phi}$ = \begin{pmatrix}
       B_1\\
       \ddots\\
-          B_s
+       & B_s
     \end{pmatrix}, где $B_i$ - матрица $\phi|\begin{matrix}
       \null \\ U_i
     \end{matrix} \forall i = \bar{1, s}$ 
@@ -224,7 +224,7 @@
     $\forall j$ = $\bar{1, m} (\phi + \psi)(e_j) = \phi(e_j) + \psi(e_j) \Longrightarrow$ столбцы $A_{\phi + \psi}$ имеют вид $\phi(e_j) + \psi(e_j)$.
   \end{proof}
   Обозначение: $L(V_1, V_2) = \kappa(V_1, V_2) =$ Hom$(V_1, V_2)$.
-  $\kappa(V)$ - множество линейных операторов на $V$.
+  $\varkappa(V)$ - множество линейных операторов на $V$.
   \begin{definition}
     Произведением линейных операторов $\phi: V_1 \to V_2$ и $\psi: V_1 \to V_2$ называется их композиция $(\phi\circ\psi)(x) = \psi(\phi(x))$, где $x \in V_1$.
   \end{definition}
@@ -249,8 +249,8 @@
     Следует из утверждений 1 - 4.
   \end{proof}
   \begin{subtheorem}
-    Если $\phi$ - линейный оператор на $V$, то $\forall k \in \N$ подпространства Ker$\phi^k$ и Im$\phi^k$ - инварианты.
-    При этом {$0} \equiv Ker\phi \equiv Ker\phi^2 \equiv\ldots$
+    Если $\phi$ - линейный оператор на $V$, то $\forall k \in \N$ подпространства Ker$\phi^k$ и Im$\phi^k$ - инварианты.\\
+    При этом {$0$} $\equiv Ker\phi \equiv Ker\phi^2 \equiv\ldots$\\
     $V \supseteq Im\phi \supseteq Im\phi^2\ldots$
   \end{subtheorem}
   \subsection{Собственные векторы и собственные значения оператора}
