@@ -1,0 +1,286 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+\begin{document}
+  \newpage
+  Пусть $U$ инвариантное подпространство $V$ для линейного оператора $\phi: V \to V$.
+  \begin{definition}
+    Ограничением $\phi$ на подпространство $U$ называется отображение $\phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}$: $U \to U$ такое, что $\forall u \in U \phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}$($u$) = $\phi(u)$
+  \end{definition}
+  Рассмотрим фактор-пространство $\bar{V}$ = $V\begin{matrix}
+    \null \\ U
+  \end{matrix}$ : $\bar{v}$ = {$v$+$u$|$u \in U$}
+  \begin{definition}
+    Оператор $\bar{\phi}: \bar{V} \to \bar{V}$ называется фактор-оператором.
+  \end{definition}
+  $\forall v'$ = $v$+$u$, где $u \in U$, $\phi(v') = \phi(v)+\phi(u)$ $\Longrightarrow$ $\bar{\phi(v')} = \bar{\phi(v)}$ (так как $\phi(u) \in U$) $\Longrightarrow \bar{\phi}: \bar{V} \to \bar{V}$ - линейный оператор. 
+  \begin{theorem}
+    1. Если $\exists U \neq {0}$, $U$ - подпространство $V$, Im$\phi \subset U$, то в подходящем базисе $A_{\phi}$ = \begin{pmatrix}
+      B & \vline & D \\
+      \h line
+      0 & \vline & C
+    \end{pmatrix} (1),
+    где $B_{m \times n}$ - матрица линейного оператора $\phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}$, где $m$ = dim$U$, а $C$ - матрица оператора $\bar{\phi}$.
+    2. Если $V$ = $U \oplus W$, где $U$ и $W$ - инвариантные подпространства относительно $\phi$, то в подходящем базисе $A_{\phi}$ = \begin{pmatrix}
+      B & \vline & 0 \\
+      \hline
+      0 & \vline & C
+    \end{pmatrix} (2),
+    где $B$ = $A_{\phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}}$, $C$ = $A_{\phi|\begin{matrix}
+      \null \\ W
+    \end{matrix}}$.
+    3. Верны и обратные утверждения: если в некотором базисе $A_{\phi}$ имеет вид (1), то для $\phi$ существует инвариантое подпространство, а если $A_{\phi}$ имеет вид (2), то $V$ - прямая сумма двух инвариантных подпространств.  
+  \end{theorem}
+  \begin{proof}
+    1. Обозначим dim$V$ = n, dim$U$ = m, 0 < m < n. Выберем базис в $U$ $e_1, \ldots, e_m$ и дополним его до базиса в $V$ произвольными векторами $e_{m+1}, \ldots, e_n$.
+    Тогда $\forall u \in U u$ = $\sum \limits_{i=1}^m u_i e_i \Longrightarrow \phi(u) = \sum \limits_{i=1}^m u_i \phi(e_i)$
+    В частности, столбцы $\phi(e_1) \ldots \phi(e_m)$ имеют вид: \begin{matrix}
+      a_{1i}
+      \vdots
+      a_{mi}
+      0
+      \vdots
+      0
+    \end{matrix} $\Longrightarrow$ они составляют матрицу \begin{matrix}
+      B
+      \hline
+      0
+    \end{matrix}
+    Разбивка матрицы, составленной из столбцов образов базисных векторов $e_{m+1}, \ldots, e_n$, 
+    Видно, что $B$ = \begin{matrix}
+      a_{11} & \cdots & a_{1m}
+      \vdots
+      a_{m1} & \cdots & a_{mm}
+    \end{matrix} = $A_{\phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}}$.
+    2. Если $V$ = $U \oplus W$, векторы $e_{m+1}, \ldots, e_n$ надо выбирать в $W$, а остольное аналогично предыдущему пункту.
+    3. В обратную сторону для второго случая: если в базисе $e_1, \ldots, e_n$ матрица имеет вид (2), то положим в качестве $U$ = $\langle e_1, \ldots, e_m \rangle$, а $W$ = $\langle_{m+1}, \ldots, e_n \rangle$
+    Из определения матрицы $A_{\phi, e}$ следует, что $U$ и $W$ - инварианты относительно $\phi$, $\phi|\begin{matrix}
+      \null \\ U
+    \end{matrix}$ имеет матрицу $B$, а $\phi$, $\phi|\begin{matrix}
+      \null \\ W
+    \end{matrix}$ имеет матрицу $C$.
+    Для первого случая: $\bar{e_j} = e_j$ + $U$, для $\bar{m+1, n}$, является базисом в фактор-пространстве $\bar{V}$ = $V|\begin{matrix}
+      \null \\ U
+    \end{matrix} \bar{\phi}(\bar{e_j})$ = $\phi(e_j) = \bar{\sum \limits_{i=1}^m a_{ij} e_i + \sum \limits_{k=m+1}^n a_{kj} e_k} = \sum \limits_{k=m+1}^n e_{kj} \bar{e_k}$ (так как первая сумма $\in U$ )
+    $\Longrightarrow C = \begin{matrix}
+      a_{m+1, m+1} & \cdots & a_{n+1, n}
+      \vdots
+      a_{n, m+1} & \cdots & a_{nn}
+    \end{matrix}$ - матрица оператора $\bar{\phi}$.
+  \end{proof}
+  \begin{remark}
+    В общем случае, если $V = U_1 \oplus \ldots \oplus U_s$, то в некотором базисе, согласно разложению, $A_{phi}$ = \begin{matrix}
+      B_1
+      \ddots
+      B_s
+    \end{matrix}, где $B_i$ - матрица $\phi|\begin{matrix}
+      \null \\ U_i
+    \end{matrix} \forall i = \bar{1, s}$ 
+  \end{remark}
+  \begin{example1}(Естественные примеры инвариантных подпространств (доказательство - упражнение))
+    $\phi: V \to V$ - линейный оператор.
+    1. Ker$\phi$, Im$\phi$ и любое подпространство $U$: Im$\phi \subset U$, тогда $U$ инвариантно относительно $\phi$.
+    2. Если $U_1$ и $U_2$ являются инвариантными подпространствами относительно оператора $\phi$, то $U_1+U_2$ и $U_1 \cap U_2$ также являются инвариантными относительно оператора $\phi$.
+  \end{example1}
+  \begin{subsection} Действия над линейными отображениями и операторами
+    Пусть $\phi: V_1 \to V_2$ - линейное отображение, тогда:
+    1. $\forall \lambda \in F (\lambda\phi)(x) = \lambda\phi(x)$, $\forall x \in V_1$
+    2. Если $\psi: V_1 \to V_2$, то ($\phi+\psi)(x) = \phi(x)+\psi(x)$, $\forall x \in V_1$
+    \begin{subtheorem} 1
+      Относительно этих операций множество $L(V_1, V_2)$ линейных отображений из $V_1$ в $V_2$ является векторным пространством.
+    \end{subtheorem}
+    \begin{subtheorem} 2
+      Если dim$V_1 = n$, dim$V_2 = m$, то $L(V_1, V_2) \cong M_{m \times n}(/F)$
+    \end{subtheorem}
+    \begin{proof}
+      Зафиксируем базисы в $V_1$ и $V_2$ $e$ и $f$ соответственно, тогда $\forall \phi$ взаимооднозначно соответствует его матрица $A_{\phi, e, f}$ относительно базисов $e$ и $f$.
+      $A_{\lambda \phi} = \lambda A_{\phi} \forall \lambda \in F$
+      $(\lambda \phi)(e_j) = \lambda \phi(e_j) \Longrightarrow$ все столбцы $A_{\phi}$ умножаются на $\lambda \Longrightarrow A_{\phi}$ умножается на $\lambda$.
+      $\forall j$ = $\bar{1, m} (\phi + \psi)(e_j) = \phi(e_j) + \psi(e_j) \Longrightarrow$ столбцы $A_{\phi + \psi}$ имеют вид $\phi(e_j) + \psi(e_j)$.
+    \end{proof}
+    Обозначение: $L(V_1, V_2) = \kappa(V_1, V_2) =$ Hom$(V_1, V_2)$.
+    $\kappa(V)$ - множество линейных операторов на $V$.
+    \begin{definition}
+      Произведением линейных операторов $\phi: V_1 \to V_2$ и $\psi: V_1 \to V_2$ называется их композиция $(\phi\circ\psi)(x) = \psi(\phi(x))$, где $x \in V_1$.
+    \end{definition}
+    \begin{subtheorem} 3
+      Композиция линейных отображений является линейным отображением, а композиция линейных операторов - линейным оператором.
+    \end{subtheorem}
+    \begin{subtheorem} 4
+      Пусть $V_1, V_2, V_3$ - конечномерные векторные пространства, а $\psi: V_1 \to V_2$ и $\phi: V_2 \to V_3$ - линейные отображения, тогда, если зафиксировать базисы в этих пространствах, матрица композиции $A_{\psi\circ\phi} = A_{\psi} A_{\phi}$.
+    \end{subtheorem}
+    \begin{proof}
+      Утверждение 3 - упражнение.
+      Утверждение 4:
+      Пусть $e$ - базис в $V_1$, $f$ - базис в $V_2$, $g$ - базис в $V_3$.
+      $A_{\phi} = (\phi(e_1)\uparrow \ldots \phi(e_n)\uparrow)$ в базисе $f$, $A_{\psi} = (\psi(f_1)\uparrow \dots \psi(f_m)\uparrow)$ в базисе $g$.
+      $\forall x = e X$, обозначим $y = \phi(x)$, $z = \psi(y)$ со столбцами координат $Y$ и $Z$ соответственно.
+      Тогда $Y = A_{\phi}X$, $Z = A_{\psi}Y = A_{\psi}(A_{\phi}X) = (A_{\psi}A_{\phi})X = A_{\psi\circ\phi}X$.
+    \end{proof}
+    \begin{theorem}
+      Множество $\kappa(V)$ с операциями $+$, $\cdot\lambda $, $\cdot$ является ассоциативной алгеброй с единицей, равной Id$V$.
+      Если dim$V = n$, то $\kappa(V) \cong M_{n}(\F)$.
+    \end{theorem}
+    \begin{proof}
+      Следует из утверждений 1 - 4.
+    \end{proof}
+    \begin{subtheorem}
+      Если $\phi$ - линейный оператор на $V$, то $\forall k \in \N$ подпространства Ker$\phi^k$ и Im$\phi^k$ - инварианты.
+      При этом {$0} \equiv Ker\phi \equiv Ker\phi^2 \equiv\ldots$
+      $V \supseteq Im\phi \supseteq Im\phi^2\ldots$
+    \end{subtheorem}
+  \end{subsection}
+  \begin{subsection} Собственные векторы и собственные значения оператора
+    Пусть $\phi: V \to V$ - линейный оператор над полем $\F$.
+    \begin{definition}
+      Вектор $x \in V$ называется собственным вектором оператора $\phi$, если $\exists\lambda\in \F: \phi(x) = \lambda \cdot x$ и $x\neq0$. $\lambda$ называется собственным значением оператора $\phi$, соответствующим вектору $x$.
+    \end{definition}
+    Пусть dim$V = n$, $e$ - базис в $V$, в нём $\forall x = e\cdot X$, тогда равенство из вышеуказанного определения равносильно $A_{\phi}X = \lambda X \Longleftrightarrow (A_{\phi} - \lambda E)X = 0$ (2) - это СЛУ для нахождения вектора $x$, если известна $\lambda$.
+    Система (2) имеет ненулевое решение, только если det$(A_{\phi} - \lambda E) = 0$ (3).
+    Равенство (3) называется характеристическим уравненением.
+    Собственными значениями могут быть только корни характеристического уравнения.
+    \begin{example1}
+      Пример 1.
+      $V = D^{\infty}(\R)$ - множество бесконечно дифференцируемых функций.
+      $\phi \frac{d}{dx} \forall f(x) \phi(f) = f'(x)$.
+      $\forall\lambda\in\R (e^{\lambda x})' = \lambda^x$.
+      \begin{proof}
+        Если $f'(x) = \lambda \cdot f(x)$, то $f(x) = C \cdot e^{\lambda x}$, где $C\neq0$.
+        Рассмотрим $(f(x)e^{-\lambda x})' = f'(x)e^{-\lambda x} - \lambda f(x)e^{-\lambda x} = 0 \Longrightarrow f(x)e^{-\lambda x} = C$.
+      \end{proof}
+      Пример 2.
+      $A_{\phi} = \begin{matrix}
+        cos\phi -sin\phi
+        sin\phi  cos\phi
+      \end{matrix}$.
+      \begin{exercise}
+        Какие существуют собственные векторы и собственные значения у $\phi$?
+      \end{exercise}
+    \end{example1}
+  \end{subsection}
+\end{document}
