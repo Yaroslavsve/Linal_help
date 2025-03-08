@@ -119,7 +119,7 @@
 \begin{document}
   \newpage
   Существование двумерного инварантного подпространства для линейного оператора над $\R$, отвечающего мнимому корню характеристического многочлена.$\\$
-  Пусть $\phi: V \to V$ - линейный оператор, dim$V = n$, тогда в некотором базисе $V$ $\phi$ действует ма матрицей $Y = A_{\phi}X$, где $X\in \R^n$, а $Y$ - столбец образа этого вектора. Пусть $\lambda = \alpha+i\beta$ ($\beta\neq0$) - корень характеристического многочлена.\\
+  Пусть $\phi: V \to V$ - линейный оператор, dim$V = n$, тогда в некотором базисе $V$ $\phi$ действует матрицей $Y = A_{\phi}X$, где $X\in \R^n$, а $Y$ - столбец образа этого вектора. Пусть $\lambda = \alpha+i\beta$ ($\beta\neq0$) - корень характеристического многочлена.\\
   Рассмотрим линейный оператор над полем $\mathbb{C}$, действующий при той же матрице $A_{\phi} : \forall Z\in \mathbb{C}^n Z \to A_{\phi}Z$, соответствующий оператор будем обозначать той же буквой. Так как $\mathbb{C}$ алгебраически замкнуто, то $\exists$ собственный вектор $Z_0$, отвечающий выбранному $\lambda$. Это значит, что $A_{\phi}Z_{0} = \lambda Z_{0}$, $Z_{0} = X_{0}+iY_{0}$, где $X_0$ и $Y_0 \in \R^n$ $\Longrightarrow$ $A_{\phi}Z_0 = A_{\phi}X_0+iA_{\phi}Y_0 = (\alpha+i\beta)(X_0 + iY_0) = (\alpha X_0 - \beta Y_0)+i(\beta X_0 + \alpha Y_0) \Longrightarrow$ \\
   $\begin{cases}
     A_{\phi}X_0 = \alpha X_0-\beta Y_0\\
@@ -167,11 +167,53 @@
     Многочлен $f(t) = a_0+a_1t+\ldots+a_mt^m\in\F[t]$, где $a_1\ldots a_m\in\F$, называется анулирующим многочленом оператора $\phi$, если $f(\phi) = a_0Id+a_1\phi+\ldots+a_m\phi^m = 0$, то есть $f(A_{\phi}) = 0 \\
     \Longrightarrow A_{f(\phi)} = f\cdot A_{\phi} = a_0E+a_1A_{\phi}+\ldots+a_mA_{\phi}^m$.
   \end{definition}
-  \begin{example}
+  \begin{example1}
     $V = \R[t]_n$, $\phi = \frac{d}{dt}. \\
     \phi^n(t^n) = n!$, $\phi^{n+1}\equiv0 \Longrightarrow$ для $\phi = \frac{d}{dt}$ $t^{n+1}$ - анулирующий многочлен.
-  \end{example}
+  \end{example1}
   \begin{subtheorem}
-    Если dim$V = n$, то $\exists$ многочлен степени $\leq n^2$, анулирующий $\phi$. dim$L(V) = n^2$, $L(V) \cong M_n(\F) \Longrightarrow$ операторы 
+    Если dim$V = n$, то $\exists$ многочлен степени $\leq n^2$, анулирующий $\phi$. 
   \end{subtheorem}
+  \begin{proof}
+    dim$L(V) = n^2$, $L(V) \cong M_n(\F) \Longrightarrow$ операторы $Id$, $\phi$, $\phi^2$, $\ldots$, $\phi^{n^2}$ линейно зависимы, так как их больше $n^2$ $\Longrightarrow$ $\exists$ $a_0$, $\ldots$, $a_{n^2} \in \F$ : $a_0Id+a_1\phi+\ldots+a_{n^2}\phi^{n^2} = 0$ $\Longrightarrow$ $a_0+a_1t+\ldots+a_{n^2}t^{n^2}$ - многочлен анулирующий многочлен для $\phi$
+  \end{proof}
+  \begin{definition}
+    Могочленной матрицей (матричным многочленом) называется матрица $P = (P_{ij}(\lambda))$, где $P_{ij}(\lambda)$ - многочлены над полем, над которым задано векторное пространство.
+  \end{definition}
+  \begin{example1}
+    $P = \begin{pmatrix}
+      1-\lambda^2 && 2\lambda+1\\
+      3\lambda^2 && \lambda^2+\lambda+1
+    \end{pmatrix} = \begin{pmatrix}
+      1 && 1\\
+      0 && 1
+    \end{pmatrix}+\begin{pmatrix}
+      0 && 2\\
+      0 && 1
+    \end{pmatrix}\lambda+\begin{pmatrix}
+      -1 && 0\\
+      3 && 1
+    \end{pmatrix}\lambda^2$ - многочлен от $\lambda$ с матричными коэффициентами.
+  \end{example1}
+  \begin{definition}
+    Оператор $\phi V \to V$ называется нулевым оператором, если образом любого вектора является нулевой вектор.
+  \end{definition}
+  \begin{definition}
+    Для матрицы $A = (a_{ij})$ присоединённой матрицей называется матрица $\widehat{A} = (A_{ij})$, то есть $\widehat{a_{ij}} = A_{ji}$.
+  \end{definition}
+  \begin{properties1}
+    $A\cdot\widehat{A} = \begin{pmatrix}
+      |A|\\
+      \null && \ddots\\
+      \null && \null && |A|
+    \end{pmatrix} = |A|\cdot E$.
+  \end{properties1}
+  \begin{theorem} Гамильтона-Кэли
+    Характеристический многочлен $\chi_{\phi}(\lambda)$ является анулирующим многочленом для линейного оператора $\phi$, то есть $\chi_{\phi}(\phi) = 0$, где 0 - нулевой оператор.\\
+    В матричной форме:\\
+    $\forall A\in M_n(\F)$, $\chi_{\phi}(A) = 0$.
+  \end{theorem}
+  \begin{proof}
+    Пусть $A$ - данная матрица.
+  \end{proof}
 \end{document} 
