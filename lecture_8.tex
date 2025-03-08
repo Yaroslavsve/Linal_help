@@ -1,0 +1,177 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+\begin{document}
+  \newpage
+  Существование двумерного инварантного подпространства для линейного оператора над $\R$, отвечающего мнимому корню характеристического многочлена.$\\$
+  Пусть $\phi: V \to V$ - линейный оператор, dim$V = n$, тогда в некотором базисе $V$ $\phi$ действует ма матрицей $Y = A_{\phi}X$, где $X\in \R^n$, а $Y$ - столбец образа этого вектора. Пусть $\lambda = \alpha+i\beta$ ($\beta\neq0$) - корень характеристического многочлена.\\
+  Рассмотрим линейный оператор над полем $\mathbb{C}$, действующий при той же матрице $A_{\phi} : \forall Z\in \mathbb{C}^n Z \to A_{\phi}Z$, соответствующий оператор будем обозначать той же буквой. Так как $\mathbb{C}$ алгебраически замкнуто, то $\exists$ собственный вектор $Z_0$, отвечающий выбранному $\lambda$. Это значит, что $A_{\phi}Z_{0} = \lambda Z_{0}$, $Z_{0} = X_{0}+iY_{0}$, где $X_0$ и $Y_0 \in \R^n$ $\Longrightarrow$ $A_{\phi}Z_0 = A_{\phi}X_0+iA_{\phi}Y_0 = (\alpha+i\beta)(X_0 + iY_0) = (\alpha X_0 - \beta Y_0)+i(\beta X_0 + \alpha Y_0) \Longrightarrow$ \\
+  $\begin{cases}
+    A_{\phi}X_0 = \alpha X_0-\beta Y_0\\
+    A_{\phi}Y_0 = \beta X_0+\alpha Y_0
+  \end{cases}$
+  Обозначим $x_0$ и $y_0 \in V$ векторы со столбцами координат $X_0$ и $Y_0$ соответственно, тогда $\\$
+  $\begin{cases}
+    \phi(x_0) = \alpha x_0-\beta y_0 \\
+    \phi(y_0) = \beta x_0+\alpha y_0
+  \end{cases}$ $\longrightarrow$ подпространство $U = \langle x_0, y_0\rangle\subset V$ является инвариантным подпространством для $\phi$. \\
+  Теперь докажем, что dim$U = 2$. $\\$
+  \begin{proof}
+    Предположим, что dim$U = 1$, то есть $y_0 = \mu x_0$, где $\mu\in\R$. Тогда $\phi(x_0) = (\alpha-\beta\mu)x_0$ $\Longrightarrow$ если $x_0\neq0$, то $x_0$ - собственный вектор для $\phi$ (для $y_0$ аналогично). Но эти векторы не были собственными для $\phi$. \\
+    $A_{\phi\begin{matrix}
+        \null \\ U
+    \end{matrix}} = \begin{pmatrix}
+      \alpha && \beta\\
+      -\beta && \alpha
+    \end{pmatrix}$ имеет корни $\alpha\pm i\beta\notin\R$ - противоречие.
+  \end{proof}
+  \begin{theorem}
+    Любой линейный оператор в конечномерном вещественном векторным пространстве имеет одномерное или двумерное подпространство.
+  \end{theorem}
+  \begin{proof}
+    Если $\exists\lambda\in\R$ - корень характерического многочлена, ему отвечает собственный вектор $u_i\in V$, $u_i\neq0$, $\Longrightarrow$ $\langle u_i \rangle$ - одномерное инвариантное подпространство. $\\$
+    Если $\forall\lambda \in \mathbb{C}\setminus\R$, то $\exists U$ - двумерное инвариантное подпространство.
+  \end{proof}
+  Вместо диаганализируемости можно использовать следующее утверждение:$\\$
+  $A_{\phi} = \begin{pmatrix}
+    \lambda_1\\
+    \null && \ddots\\
+    \null && \null && \lambda_n\\
+    \null && \null && \null && \alpha_1 && \beta_1\\
+    \null && \null && \null && -\beta_1 && \alpha_1\\
+    \null && \null && \null && \null && \null && \ddots\\
+    \null && \null && \null && \null && \null && \null && \alpha_m && \beta_m\\
+    \null && && \null && \null && \null && \null && -\beta_m && \alpha_m
+  \end{pmatrix}$, где $\lambda_i\in\R$, $i = \overline{1,n}$, а $\beta_j\neq0$, $j = \overline{1,m}$
+  \subsection{Анулирующие многочлены линейных операторов}
+  Пусть $\phi: V\to V$ - линейный оператор над полем $\F$. $\\$
+  \begin{definition}
+    Линейный оператор $\phi: V\to V$ такой, что $\phi(v) = v$ $\forall v\in V$, называется тождественным оператором и обозначается Id.
+  \end{definition}
+  \begin{definition}
+    Многочлен $f(t) = a_0+a_1t+\ldots+a_mt^m\in\F[t]$, где $a_1\ldots a_m\in\F$, называется анулирующим многочленом оператора $\phi$, если $f(\phi) = a_0Id+a_1\phi+\ldots+a_m\phi^m = 0$, то есть $f(A_{\phi}) = 0 \\
+    \Longrightarrow A_{f(\phi)} = f\cdot A_{\phi} = a_0E+a_1A_{\phi}+\ldots+a_mA_{\phi}^m$.
+  \end{definition}
+  \begin{example}
+    $V = \R[t]_n$, $\phi = \frac{d}{dt}. \\
+    \phi^n(t^n) = n!$, $\phi^{n+1}\equiv0 \Longrightarrow$ для $\phi = \frac{d}{dt}$ $t^{n+1}$ - анулирующий многочлен.
+  \end{example}
+  \begin{subtheorem}
+    Если dim$V = n$, то $\exists$ многочлен степени $\leq n^2$, анулирующий $\phi$. dim$L(V) = n^2$, $L(V) \cong M_n(\F) \Longrightarrow$ операторы 
+  \end{subtheorem}
+\end{document} 
