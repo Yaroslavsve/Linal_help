@@ -53,7 +53,7 @@
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
-\newcommand{\C}{\mathbb C}
+\newcommand{\CC}{\mathbb C}
 \newcommand{\F}{\mathbb F}
 \newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -150,16 +150,17 @@
   Вместо диаганализируемости можно использовать следующее утверждение:$\\$
   $A_{\phi} = \begin{pmatrix}
     \lambda_1\\
-    \null && \ddots\\
-    \null && \null && \lambda_n\\
-    \null && \null && \null && \alpha_1 && \beta_1\\
-    \null && \null && \null && -\beta_1 && \alpha_1\\
-    \null && \null && \null && \null && \null && \ddots\\
-    \null && \null && \null && \null && \null && \null && \alpha_m && \beta_m\\
-    \null && && \null && \null && \null && \null && -\beta_m && \alpha_m
-  \end{pmatrix}$, где $\lambda_i\in\R$, $i = \overline{1,n}$, а $\beta_j\neq0$, $j = \overline{1,m}$
+    \null & \ddots\\
+    \null & \null & \lambda_n\\
+    \null & \null & \null & \alpha_1 & \beta_1\\
+    \null & \null & \null & -\beta_1 & \alpha_1\\
+    \null & \null & \null & \null & \null & \ddots\\
+    \null & \null & \null & \null & \null & \null & \alpha_m & \beta_m\\
+    \null & \null & \null & \null & \null & \null & -\beta_m & \alpha_m
+  \end{pmatrix}$,\\
+  где $\lambda_i\in\R$, $i = \overline{1,n}$, а $\beta_j\neq0$, $j = \overline{1,m}$
   \subsection{Анулирующие многочлены линейных операторов}
-  Пусть $\phi: V\to V$ - линейный оператор над полем $\F$. $\\$
+  Пусть $\phi: V\to V$ - линейный оператор над полем $\F$. \\
   \begin{definition}
     Линейный оператор $\phi: V\to V$ такой, что $\phi(v) = v$ $\forall v\in V$, называется тождественным оператором и обозначается Id.
   \end{definition}
@@ -208,12 +209,27 @@
       \null && \null && |A|
     \end{pmatrix} = |A|\cdot E$.
   \end{properties1}
-  \begin{theorem} Гамильтона-Кэли
+  \begin{theorem} Гамильтона-Кэли\\
     Характеристический многочлен $\chi_{\phi}(\lambda)$ является анулирующим многочленом для линейного оператора $\phi$, то есть $\chi_{\phi}(\phi) = 0$, где 0 - нулевой оператор.\\
     В матричной форме:\\
-    $\forall A\in M_n(\F)$, $\chi_{\phi}(A) = 0$.
+    $\forall A\in M_n(\F)$, $\chi_{A}(A) = 0$.
   \end{theorem}
   \begin{proof}
-    Пусть $A$ - данная матрица.
+    Пусть $A$ - данная матрица, $\chi_A(\lambda)|A-\lambda E| = \sum\limits_{i=0}^{n}p_i\lambda^i$, $p_i\in \F$, $p_n = (-1)^n$.\\
+    $\chi_A(A) = \sum\limits_{i=0}^np_iA^i$(считаем, что $A^0 = E$).\\
+    Составим матрицу $\widehat{A-\lambda E} = \sum\limits_{j=0}^{n-1}D_j\lambda^j$, где $D_j\in M_n(\F)$.\\
+    Рассмотрим равенство: $(A-\lambda E)(\widehat{A-\lambda E}) = \chi_A(\lambda)E$.\\
+    $(A-\lambda E)\cdot\sum\limits_{j=0}^{n-1}D_j\lambda^j = \sum\limits_{j=0}^{n-1}(AD_j\lambda^j)-\sum\limits_{j=0}^{n-1}D_j\lambda^{j+1} = AD_0+\sum\limits_{j=1}^{n-1}(AD_j-D_{j-1})\lambda^j-D_{n-1}\lambda^n = \chi_A(\lambda)E = (\sum\limits_{j=0}^{n}p_j\lambda^j)E$.\\
+    \newpage
+    Приравняем матричные коэффициенты при соответствующих степенях $\lambda$:\\
+    $\lambda^0:$    $E\cdot$ $\vline AD_0 = p_0E$\\
+    $\lambda^1:$    $A\cdot$ $\vline AD_1-D_0 = p_1E\\
+    \vdots$          $\vline\\
+    \lambda^j:$    $A^j\cdot$ $\vline AD_j -D_{j-1}= p_jE\\
+    \lambda^{j+1}:$ $A^{j+1}\cdot$ $\vline AD_{j+1} -D_{j}= p_{j+1}E\\
+    \vdots$                $\vline\\
+    \lambda^n:$    $A^n\cdot$ $\vline -D_{n-1} = p_nE$\\
+    Домножим равенства с любой стороны на соответствующие степени $A$ и сложим.\\
+    $\Longrightarrow$ $\chi_A(A)E = 0$.
   \end{proof}
 \end{document} 
