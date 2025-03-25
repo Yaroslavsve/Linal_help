@@ -137,9 +137,9 @@
     \end{center}
   \end{proof}
   \begin{subtheorem}
-    Билинейная функция $b(x,y)$ симметрична (кососимметрчна)$\Longleftrightarrow$ в любом базисе $e$ : $B_e^T=B_e$ ($B_e^T=-B_e$).
+    Билинейная функция $b(x,y)$ симметрична (кососимметрична)$\Longleftrightarrow$ в любом базисе $e$ : $B_e^T=B_e$ ($B_e^T=-B_e$).
   \end{subtheorem}
-  \begin{proof} (Докажем для симметрической, для кососимметрическойой аналогично)
+  \begin{proof} (Докажем для симметрической, для кососимметрической аналогично)
     $\underline{\Longrightarrow}$ Пусть $B = (b_{ij})$, тогда $b_{ij}=b(e_i, e_j)$. Если $\forall x$, $y\in V$, $b(x,y)= b(y,x)$, то $b(e_j, e_i) = b(e_i, e_j)$.\\
     $\underline{\Longleftarrow}$ $b(x,y)= X^TBY$, $b(y,x) = Y^TBX = (X^TB^TY)^T = (X^TBY)^T = b(x,y)$.
   \end{proof}
@@ -152,7 +152,7 @@
     $\forall$ квадратичной функции $\exists!$ симметрическая билинейная функция, которая её порождает.
   \end{theorem}
   \begin{proof}
-    Допустим, что $b(x,y) = b(y,x)$ - симметричексая билинейная функция и $k(x) = b(x,x)$. Тогда $\forall x, y\in V$\\ 
+    Допустим, что $b(x,y) = b(y,x)$ - симметрическая билинейная функция и $k(x) = b(x,x)$. Тогда $\forall x, y\in V$\\ 
     $k(x+y) = b(x+y, x+y) = b(x,x)+b(x,y)+b(y,x)+b(y,y)=\\ = b(x,x)+2b(x,y)+b(y,y) = k(x)+2b(x,y)+k(y)$.
     \\ Так как $char\F\neq2$, то\\ $b(x,y)=\frac{k(x+y)-k(x)-k(y)}{2}$.
   \end{proof}
@@ -182,7 +182,7 @@
     $V^{\perp}=\{y\in V$ | $b(x,y)=0$, $\forall x\in V\}$ - ядро формы.
   \end{definition}
   \begin{definition}
-    Билинейная функция $b(x,y)$ называется нневырожденной, если $Kerb=V^{\perp}=\{0\}$.
+    Билинейная функция $b(x,y)$ называется невырожденной, если $Kerb=V^{\perp}=\{0\}$.
   \end{definition}
   \begin{exercise}
     $b(x,y)$ - невырожденная функция $\Longleftrightarrow$ $\det B\neq0$.
@@ -207,7 +207,7 @@
     Пусть $x_i=x_i'+x_j'$ и $x_j=x_i'-x_j'$, тогда $x_ix_j = x_i'^2-x_j'^2$, то есть появился квадрат с коэффициентом, не равным нулю $\Longrightarrow$ можно перейти к общему случаю. 
   \end{proof}
   \begin{remark}
-    В благориатном случае, когда на первом шаге коэффициент при $x_1$ не равен нулю, на втором шаге коэффициент при $x_2$ не равен нулю и т.д., матрица замены будет иметь вид:\\
+    В благоприятном случае, когда на первом шаге коэффициент при $x_1$ не равен нулю, на втором шаге коэффициент при $x_2$ не равен нулю и т.д., матрица замены будет иметь вид:\\
     \begin{center}
       $C_{e\rightarrow e'}^{-1}=\begin{pmatrix}
         1 & \frac{b_{12}}{b_{11}} & \ldots & \frac{b{1n}}{b_{11}}\\
@@ -220,12 +220,12 @@
   \begin{definition}
     Форма $k(x_1,\ldots,x_n)$ называется канонической(нормальной), если:\\
     1. (над $\R$) в диагональном виде $\forall \alpha_i$ принимает только такие значения: -1, 0, 1.\\
-    2. (над $С$) в диагональном виде $\forall \alpha_i$ принимает только такие значения: 0, 1.
+    2. (над $\CC$) в диагональном виде $\forall \alpha_i$ принимает только такие значения: 0, 1.
   \end{definition}
   1. Пусть $\F=\R$ и $k(x)=b_{11}x_1^2+b_{22}x_2^2+\ldots+b_{nn}x_n^2 = \alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_nx_n^2$.\\ 
   Если $rkB=r$, то $k(x)=\alpha_1x_1^2+\alpha_2x_2^2+\ldots+\alpha_rx_r^2(\alpha_{r+1}=\ldots=\alpha_n=0)$.\\
-  Если $\alpha_i>0$, то введём обозначение $\widehat{x_i}=\sqrt{\alpha_i}x_i$ $\Longrightarrow$ $k=\widehat{x_1}^2+\ldots+\widehat{x_p}^2-\widehat{x_{p+1}}^2-\ldots-\widehat{x_r}^2$, где $p$ - количество коээфициентов $\alpha_i>0$.\\
+  Если $\alpha_i>0$, то введём обозначение $\widehat{x_i}=\sqrt{\alpha_i}x_i$ $\Longrightarrow$ $k=\widehat{x_1}^2+\ldots+\widehat{x_p}^2-\widehat{x_{p+1}}^2-\ldots-\widehat{x_r}^2$, где $p$ - количество коэффициентов $\alpha_i>0$.\\
   Если $\alpha_i < 0$, то $\widehat{x_i} = -\sqrt{\alpha_i}x_i$.\\
-  2. Пусть $\F=C$, тогда $\forall i=\overline{1,r}$ $\widehat{x_i}=\sqrt{\alpha_i}x_i$ $\Longrightarrow$ $k=\widehat{x_1}^2+\ldots+\widehat{x_r}$.
+  2. Пусть $\F=\CC$, тогда $\forall i=\overline{1,r}$ $\widehat{x_i}=\sqrt{\alpha_i}x_i$ $\Longrightarrow$ $k=\widehat{x_1}^2+\ldots+\widehat{x_r}$.
 \end{document}
   
