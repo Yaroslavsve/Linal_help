@@ -1,0 +1,138 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+\begin{document}
+  \newpage
+  \begin{definition}
+    Линейное отображение $\phi$ : $V_1 \to V_2$ называется изоморфизмом, если $\phi$ линейно и биективно. $V_1$ и $V_2$ называются изоморфными, если существует изоморфизм $\phi$ : $V_1 \to V_2$. Обозначается: $V_1 \cong V_2$.
+  \end{definition}
+  \begin{theorem}(Об изоморфизме)
+    Конечномерные векторные пространства $V_1$ и $V_2$ изоморфны тогда и только тогда, когда $dimV_1 = dimV_2$. 
+  \end{theorem}
+  \begin{proof}
+    $dimV_1=dimV_2=n$. Пусть $e_1$, $\ldots$, $e_n$ - базис в $V_1$, а $f_1$, $\ldots$, $f_n$ - базис в $V_2$, тогда $\forall v \in V_1$ $v=\sum\limits_{i=1}^nx_ie_i$.\\ Определим отображение $\phi$ : $V_1 \to V_2$ формулой $\phi(v):=\sum\limits_{i=1}^nx_if_i$.
+    \begin{enumerate}
+      \item (линейность) Пусть $v_1$, $v_2$ $\in V_1$, $v_1=\sum\limits_{i=1}^nx_ie_i$ и $v_2=\sum\limits_{i=1}^ny_ie_i$, тогда\\ $v_1+v_2=\sum\limits_{i=1}^n(x_i+y_i)e_i$ $\Longrightarrow$\\ $\Longrightarrow$ $\phi(v_1+v_2) = \sum\limits_{i=1}^n(x_i+y_i)f_i=\sum\limits_{i=1}^nx_if_i+\sum\limits_{i=1}^ny_if_i=\phi(v_1)+\phi(v_2)$.\\ $\forall\lambda\in\F$ и $\forall v\in V_1$ $\phi(\lambda v)=\sum\limits_{i=1}^n(\lambda x_i)f_i =\lambda\sum\limits_{i=1}^nx_if_i=\lambda\phi(v)$.
+      \item (инъективность) $Ker\phi = \{v\in V_1$ | $\phi(v)=0_{V_2}\}$. Пусть $v\in V_1$ и $v\in Ker\phi$, тогда $v=\sum\limits_{i=1}^n\alpha_ie_i$ $\Longrightarrow$\\$\Longrightarrow$ $\phi(v)=\sum\limits_{i=1}^n\alpha_if_i=0$, так как $f_1$, $\ldots$, $f_n$ - линейно независимы $\Longrightarrow$ $\forall i$ $\alpha_i=0$ $\Longrightarrow$ $v=\sum\limits_{i=1}^n\alpha_ie_i=0$ $\Longrightarrow$$Ker\phi=\{0\}$.
+      \item (сюръективность) $\forall w\in V_2$ $w=\sum\limits_{j=1}^n\alpha_jf_j$ $\Longrightarrow$ $w=\phi(v)$, $v=\sum\limits_{j=1}^n\alpha_je_j$ $\Longrightarrow$ $\phi(V_1)=V_2$.
+    \end{enumerate}
+    $\underline{\Longrightarrow}$ Пусть $V_1\cong V_2$, $dimV_1=n$, $\phi$ : $V_1 \to V_2$ - изоморфизм. Выберем базис $e_1$, $\ldots$, $e_n$ в $V_1$ и покажем, что $\phi(e_1)$, $\ldots$, $\phi(e_n)$ - базис в $V_2$.\\
+    $\forall w\in V_2$ $\exists v\in V_1$ : $\phi(v)=w$. Пусть $v=\sum\limits_{i=1}^nx_ie_i$, тогда $\phi(v)=w=\sum\limits_{i=1}^nx_i\phi(e_i)$ $\Longrightarrow$\\ $\Longrightarrow$ $V_2=\langle\phi(e_1),$ $\ldots$, $\phi(e_n)\rangle$. Проверим линейную независимость\\
+    Предположим, что $\exists\mu_i\in\F$ : $0_{V_2}=\sum\limits_{i=1}^n\mu_i\phi(e_i)=\phi(\sum\limits_{i=1}^n\mu_ie_i)$ $\Longrightarrow$ $\sum\limits_{i=1}^n\mu_ie_i\in Ker\phi=\{0\}$, так как $\phi$ - биекция.\\ Так как $\{e_i\}$ - линейно независимы $\Longrightarrow$ $\mu_i=0$ $\forall i$ $\Longrightarrow$ $\phi(e_1)$, $\ldots$, $\phi(e_n)$ - линейно независимы.
+  \end{proof}
+\end{document}
