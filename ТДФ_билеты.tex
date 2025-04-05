@@ -1,0 +1,245 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+\begin{document}
+  \newpage
+  \begin{center}
+    Билет 1
+  \end{center}
+  \begin{definition}
+    Функции $f$ и $g$ называются равными, если $D_f=D_g$ и $\forall x\in D_f$ $f(x)=g(x)$.
+  \end{definition}
+  \begin{definition}
+    Упорядоченный набор - функция, которая ставит в соответствие каждому элементому множества $\{1, \ldots, n\}$ элемент из множества $\{a_1,\ldots,a_n\}$ : $1\rightarrow a_1$, $\ldots$, $n\rightarrow a_n$.
+  \end{definition}
+  Декартовое произведение множеств $A_1\times\ldots\times A_n=(a_1, \ldots, a_n)$ : $a_i\in A_i$.
+  \begin{definition}
+    Пусть функция $f$ определена на $A_1\times\ldots\times A_n$, тогда $f$ - $n$-местная функция.
+  \end{definition}
+  \begin{definition}
+    Множество $B_n=E_2\times\ldots\times E_n$, где $E_i=\{0,1\}$, называется $n$-мерным булевым кубом.
+  \end{definition}
+  \begin{definition}
+    Функция $f:B_n \to E_2$ называется функцией алгебры логики. Множество всех таких функций обозначим $P_2$.
+  \end{definition}
+  Представление функции $f(x_1, \ldots, x_n)$ в виде таблицы, имеющей $n+1$ столбец:\\
+  $\begin{matrix}
+    x_1 & \ldots & x_{n-1} & x_n & f\\
+    0 & \ldots & 0 & 0 & 0\\
+    0 & \ldots & 0 & 0 & 1\\
+    0 & \ldots & 0 & 1 & 0\\
+    \vdots & \null & \vdots & \vdots & \vdots\\
+    1 & \ldots & 1 & 1 & 1 
+  \end{matrix}$\\
+  Так как число различных первых $n$ столбцов $2^n$, так как в каждой ячейке одного столбца может быть либо 0, либо 1. $\Longrightarrow$ число функций будет $2^{2^n}$, так как для каждого набора значение функции может быть либо 0, либо 1.
+  \begin{definition}
+    Переменная $x_i$ называется существенной, если существуют наборы $\alpha_1$, $\ldots$, $\alpha_{i-1}$, $1$, $\alpha_{i+1}$, $\ldots$, $\alpha_n$ и $\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n$, на которых функция принимает различные значения. В противном случае переменная $x_i$ называется несущественной (фиктивной).
+  \end{definition}
+  \begin{definition}
+    Пусть $x_i$ - фиктивная переменная, тогда если функция $f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, то функция $g$ называется полученной из $f$ добавлением фиктивной переменной. Функция удаления фиктивной переменной определяется аналогично.
+  \end{definition}
+  \begin{definition}
+    Функция называется симметрической, если при любых перестановках переменных $x_{i_1}, \ldots, x_{i_n}$ значение функции не меняется.
+  \end{definition}
+  Элементарные функции в алгебре логики:
+  \begin{enumerate}
+    \item константы 0, 1
+    \item тождественный $x$
+    \item отрицание $\overline{x}$
+    \item конъюнкция $x\wedge y$
+    \item дизъюнкция $x\vee y$
+    \item имплекация $x\rightarrow y$
+    \item штрих Шеффера $x|y$
+    \item стрелка Пирса $x\downarrow y$
+    \item сложение по модулю 2
+    \item эквивалентность
+  \end{enumerate}
+  \begin{center}
+    Билет 2
+  \end{center}
+  \begin{definition}
+    Формула - слово в некотором алфавите $A$.
+  \end{definition}
+  \begin{definition}
+    Алфавит - конечное или бесконечное множество.
+  \end{definition}
+  \begin{definition}
+    Произвольная функция, определённая на начальном отрезке натурального ряда и принимающая на нём значения из $A$.
+  \end{definition}
+  \begin{definition}
+    Пусть $F$ - множество функций алгебры логики, $S$ - множество символов, обозначающих функции из $F$, тогда отображение $\Sigma : S \to F$ - сигнатура для $F$.
+  \end{definition}
+  \begin{definition}
+    Пусть $X=\{x_1, \ldots\}$ - символы переменных.\\
+    База индукция: если $x_i$ - символ переменной, то однобуквенное слово, состоящее из $x_i$ - формула в сигнатуре $\Sigma$.\\
+    Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, $F_1, \ldots, F_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s(F_1, \ldots, F_n)$ - формула в сигнатуре $\Sigma$.  
+  \end{definition}
+  \begin{definition}
+    Пусть $F$ - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все формулы $F$, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
+    База индукции: $F$ - однобуквенное слово $x_{i_j}$, тогда $F[\tilde{x}, \tilde{\alpha}]=\alpha_j$ - значение фолмулы на ноборе $\tilde{\alpha}$.\\
+    Пусть $F$ - $s(F_1, \ldots, F_n)$, $f=\Sigma(s)$, причём $F_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, $F_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение функции на наборе значений переменных.
+  \end{definition}
+  \begin{definition}
+    Формула, определяющая функцию алгебры логики, определённую на $B_n$ такую, что $\forall$ набора $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)\in B_n$ $f(\tilde{\alpha})=F[\tilde{x}, \tilde{\alpha}]$.
+  \end{definition}
+  \begin{definition}
+    Формулы в сигнатуре, представляющие собой переменные, называются невырожденными, остальные - вырожденными. Если функция определяется вырожденной формулой в сигнатуре $\Sigma : S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
+  \end{definition}
+  \begin{definition}
+    (Другое определение суперпозиции) Если одну функцию можно получить с помощью конечного числа применений следующих трёх операций, то данная функция называется функцией, полученной суперпозициями над $F$.\\
+    Операции:\\
+    \begin{enumerate}
+      \item Операция подстановки переменных. Пусть $f(x_1$, $\ldots$, $x_n)\in P_2$, $g(x_1$, $\ldots$, $x_n)$ - функция, определённая на $B_n$ такая, что $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, где набор ($i_1$, $\ldots$, $i_n$) - набор элементов ($1$, $\ldots$, $n$) (они необязательно различны). Тогда $g$ получена из $f$ операцией подстановки переменных.
+      \item Операция подстановки функции в функцию. Пусть $f(x_1$, $\ldots$, $x_n)$, $g(x_1$, $\ldots$, $x_m)$, $h$ определена на $B_{n+m-1}$ и $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, тогда функция $h$ получена из функций $f$ и $g$ операцией подстановки одной функции в другую.
+      \item Операция добавления или удаления фиктивных переменных. Пусть $x_i$ - фиктивная переменная, тогда если функция $f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, то функция $g$ называется полученной из $f$ добавлением фиктивной переменной. Функция удаления фиктивной переменной определяется аналогично.
+    \end{enumerate}
+  \end{definition}
+  \begin{center}
+    Билет 3
+  \end{center}
+  \begin{definition}
+    Формулы $F_1$ и $F_2$ называются эквивалентными, если они определяют равные функции относительно объединения их переменных. Функции называются равными, если их области определения равны и $\forall x\in D_f(x)$ $f(x)=g(x)$. Слово $F_1=F_2$, если формулы $F_1$ и $F_2$ эквивалентны, называется тождеством. 
+  \end{definition}
+  Основные тождества:
+  \begin{enumerate}
+    \item Ассоциативность операций: $\wedge$, $\vee$, $\neg$, $\leftrightarrow$.
+    \item Дистрибутивности:
+    \begin{enumerate}
+      \item $(x\vee y)\wedge z=(x\wedge z)\vee(y\wedge z)$
+      \item $(x\wedge y)\vee z=(x\vee z)\wedge(y\vee z)$
+      \item $(x+y)\cdot z=x\cdot z+y\cdot z$
+    \end{enumerate}
+    \item Тождества для отрицания: 
+    \begin{enumerate}
+      \item $\overline{\overline{x}}=x$
+      \item $\overline{x\wedge y}=\overline{x}\vee \overline{y}$
+      \item $\overline{x\vee y}=\overline{x}\wedge \overline{y}$
+      \item $x\cdot\overline{x}=0$
+      \item $x\vee\overline{x}=1$
+      \item $\overline{x\rightarrow y}=x\cdot\overline{y}$
+    \end{enumerate}
+    \item Тождества для эдентичных операндов
+    \item Тождества с константным операндом
+  \end{enumerate}
+  \begin{definition}
+    Функции $f$ и $g$ называются двойственными, если $f(x_1$, $\ldots$, $x_n)=g(\overline{x_1}$, $\ldots$, $\overline{x_n})$. Обозначение $g=f*$.
+  \end{definition}
+  \begin{definition}
+    Если функция двойственна самой себе, то она называется самодвойственной.
+  \end{definition}
+\end{document}
