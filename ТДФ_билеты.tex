@@ -122,9 +122,6 @@
     Билет 1
   \end{center}
   \begin{definition}
-    Функции $f$ и $g$ называются равными, если $D_f=D_g$ и $\forall x\in D_f$ $f(x)=g(x)$.
-  \end{definition}
-  \begin{definition}
     Упорядоченный набор - функция, которая ставит в соответствие каждому элементому множества $\{1, \ldots, n\}$ элемент из множества $\{a_1,\ldots,a_n\}$ : $1\rightarrow a_1$, $\ldots$, $n\rightarrow a_n$.
   \end{definition}
   Декартовое произведение множеств $A_1\times\ldots\times A_n=(a_1, \ldots, a_n)$ : $a_i\in A_i$.
@@ -187,18 +184,18 @@
   \begin{definition}
     Пусть $X=\{x_1, \ldots\}$ - символы переменных.\\
     База индукция: если $x_i$ - символ переменной, то однобуквенное слово, состоящее из $x_i$ - формула в сигнатуре $\Sigma$.\\
-    Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, $F_1, \ldots, F_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s(F_1, \ldots, F_n)$ - формула в сигнатуре $\Sigma$.  
+    Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s($Ф$_1$, $\ldots$, Ф$_n)$ - формула в сигнатуре $\Sigma$.  
   \end{definition}
   \begin{definition}
-    Пусть $F$ - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все формулы $F$, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
-    База индукции: $F$ - однобуквенное слово $x_{i_j}$, тогда $F[\tilde{x}, \tilde{\alpha}]=\alpha_j$ - значение фолмулы на ноборе $\tilde{\alpha}$.\\
-    Пусть $F$ - $s(F_1, \ldots, F_n)$, $f=\Sigma(s)$, причём $F_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, $F_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение функции на наборе значений переменных.
+    Пусть Ф - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все формулы Ф, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
+    База индукции: Ф - однобуквенное слово $x_{i_j}$, тогда Ф$[\tilde{x}, \tilde{\alpha}]=\alpha_j$ - значение фолмулы на ноборе $\tilde{\alpha}$.\\
+    Пусть $F$ - $s($Ф$_1, \ldots, $Ф$_n)$, $f=\Sigma(s)$, причём Ф$_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение функции на наборе значений переменных.
   \end{definition}
   \begin{definition}
     Формула, определяющая функцию алгебры логики, определённую на $B_n$ такую, что $\forall$ набора $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)\in B_n$ $f(\tilde{\alpha})=F[\tilde{x}, \tilde{\alpha}]$.
   \end{definition}
   \begin{definition}
-    Формулы в сигнатуре, представляющие собой переменные, называются невырожденными, остальные - вырожденными. Если функция определяется вырожденной формулой в сигнатуре $\Sigma : S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
+    Формулы в сигнатуре, представляющие собой переменные, называются невырожденными, остальные - вырожденными. Если функция определяется вырожденной формулой в сигнатуре $\Sigma:S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
   \end{definition}
   \begin{definition}
     (Другое определение суперпозиции) Если одну функцию можно получить с помощью конечного числа применений следующих трёх операций, то данная функция называется функцией, полученной суперпозициями над $F$.\\
@@ -237,9 +234,67 @@
     \item Тождества с константным операндом
   \end{enumerate}
   \begin{definition}
-    Функции $f$ и $g$ называются двойственными, если $f(x_1$, $\ldots$, $x_n)=g(\overline{x_1}$, $\ldots$, $\overline{x_n})$. Обозначение $g=f*$.
+    Функция $g$ называется двойственной к $f$, если $g(x_1$, $\ldots$, $x_n)=\overline{f}(\overline{x_1}$, $\ldots$, $\overline{x_n})$. Обозначение $g=f^*$.
   \end{definition}
   \begin{definition}
-    Если функция двойственна самой себе, то она называется самодвойственной.
+    Если функция двойственна к самой себе, то она называется самодвойственной.
   \end{definition}
+  \begin{theorem}(принцип двойственности)
+    Если Ф - формула в сигнатуре $\Sigma: S\to F$, определяющая некоторую функцию $g$, то эта формула в сигнатуре $\Sigma^*: S\to F^*$ определяет двойственную функцию $g^*$.
+  \end{theorem}
+  \begin{proof}
+    База индукции: пусть $x_i$ - символ переменной, тогда однобуквенное слово, состоящее из $x_i$ - формула в сигатуре $\Sigma$, определяющая одноместную функцию $g$. Эта формула в сигнатуре $\Sigma^*$ имеет вид $\overline{x_i}$, то есть она определяет функцию, двойственную к $g$.\\
+    Пусть $s\in S$, $f=\Sigma(s)$ - формула от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s$(Ф$_1$, $\ldots$, Ф$_n$) - формула в сигнатуре $\Sigma$. В $\Sigma^*(s)=(\Sigma(s))^*=(\Sigma(s$(Ф$_1$, $\ldots$, Ф$_n$)))$^*=f^*$, то есть данная формула определяет в двойственной сигнатуре двойственнную функцию.
+  \end{proof}
+  \begin{center}
+    Билет 4
+  \end{center}
+  \begin{definition}
+    Выражение $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_n):f(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
+    $\begin{cases}
+      x_i,\sigma_i=1\\
+      \overline{x_i},\sigma_i=0
+    \end{cases}$.
+  \end{definition}
+  \begin{theorem}
+    Для любой функции $f(x_1$, $\ldots$, $x_n)$ алгебры логики верно равенство:\\
+    $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_m)\in B_m}x_1^{\sigma_1}\cdot\ldots\cdot x_m^{\sigma_m}\cdot f(\sigma_1$, $\ldots$, $\sigma_m$, $\sigma_{m+1}$, $\ldots$, $\sigma_n)$.
+  \end{theorem}
+  \begin{proof}
+    Рассмотрим прозвольный набор $(\alpha_1$, $\ldots$, $\alpha_m$), если $(\alpha_1$, $\ldots$, $\alpha_m)\neq(\sigma_1$, $\ldots$, $\sigma_m$), то $\exists \alpha_i\neq\sigma_i$ $\Longrightarrow$ $\alpha_i^{\sigma_i}=0$ $\Longrightarrow$ данное слагаемое будет равно нулю. Тогда единственным не нулевым членом будет $(\alpha_1^{\alpha_1}\cdot\ldots\cdot\alpha_m^{\alpha_m})\cdot f(\alpha_1$, $\ldots$, $\alpha_m$, $\alpha_{m+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_n$).
+  \end{proof}
+  \begin{theorem}
+    Любую функцию алгебры логики можно представить с помощью суперпозиций конъюнкции, дизъюнкции и отрицания.
+  \end{theorem}
+  \begin{proof}
+    Так как любая функция алгебры логики, кроме тождественного нуля, реализуется совершенной д.н.ф., значит она представима суперпозициями конъюнкции, дизъюнкции и отрицания. Тождественный ноль можно представить так: $x\wedge\overline{x}=0$.
+  \end{proof}
+  \begin{theorem}
+    Любая функция алгебры логики, кроме тождественной единицы, представима в виде совершенной конъюнктивной нормальной формы.
+  \end{theorem}
+  \begin{proof}
+    Так как любая функция алгебры логики, кроме тождественного нуля, представима в виде совершенной д.н.ф., тогда по принципу двойственности\\
+    $f(x_1$, $\ldots$, $x_n)=\bigwedge\limits_{(\sigma_1, \ldots,\sigma_n):f^*(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\vee\ldots\vee x_n^{\sigma_n}$ $\Longrightarrow$\\
+    $f(x_1$, $\ldots$, $x_n)=\bigwedge\limits_{(\delta_1, \ldots,\delta_n):f(\delta_1, \ldots,\delta_n)=1}x_1^{\overline{\delta}_1}\vee\ldots\vee x_n^{\overline{\delta}_n}$.
+  \end{proof}
+  \begin{center}
+    Блет 5
+  \end{center}
+  \begin{definition}
+    Система функций называется полной в $P_2$, если через них выражаются все функции в $P_2$.
+  \end{definition}
+  \begin{example}
+    \begin{enumerate}
+      \item $\wedge$ и $\neg$
+      \item $\vee$ и $\neg$
+      \item $x|y$
+      \item $x\downarrow y$
+    \end{enumerate}
+  \end{example}
+  \begin{definition}
+    Полиномы по модулю 2 вида: $\sum\limits_{\{i_1,\dots,i_s\}\subseteq{1,\ldots,n}}a_{i_1,\ldots,i_s}\cdot x_{i_1}\cdot\ldots\cdot x_{i_s}$ называются полиномами Жегалкина.
+  \end{definition}
+  \begin{theorem}
+    Любая функция представима полиномами Жегалкина, причём единственным образом.
+  \end{theorem}
 \end{document}
