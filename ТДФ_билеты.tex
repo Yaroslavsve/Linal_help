@@ -359,6 +359,29 @@
       $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, если функции $f$ и $h$ сохраняли ноль, то и функция $g$ будет сохранять ноль, если функции $f$ и $h$ сохраняли единицу, то и функция $g$ будет сохранять единицу.
       \item Операция добавления или удаления фиктивной переменной, не влияют на способность функции сохранять ноль или сохранять единицу.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты.
+    Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
+  \end{proof}
+  \begin{center}
+    Билет 8
+  \end{center}
+  Класс самодвойственных функций обозначим $S$.
+  \begin{theorem}
+    Класс $S$ замкнут.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item Операция подстановки переменных:\\
+      Пусть $f(x_1$, $\ldots$, $x_n)\in S$, $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, тогда $\overline{g}(\overline{x}_1$, $\ldots$, $\overline{x}_n)=\overline{f}(\overline{x}_{i_1}$, $\ldots$, $\overline{x}_{i_n})=f(x_{i_1}$, $\ldots$, $x_{i_n})=g(x_1$, $\ldots$, $x_n)$ $\Longrightarrow$ $g$ - самодвойственная функция.
+      \item Операция подстановки функции в функцию:\\
+      Пусть $f(x_1$, $\ldots$, $x_n)\in S$, $g(x_1$, $\ldots$, $x_m)\in S$, $h(x_1$, $\ldots$, $x_n$, $x_{n+1}$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, тогда $\overline{h}(\overline{x}_1$, $\ldots$, $\overline{x}_n$, $\overline{x}_{n+1}$, $\ldots$, $\overline{x}_{m+n-1})=\overline{f}(\overline{x}_1$, $\ldots$, $\overline{x}_{n-1}$, $g(\overline{x}_{n}$, $\ldots$, $\overline{x}_{m+n-1}))=\overline{f}(\overline{x}_1$, $\ldots$, $\overline{x}_{n-1}$, $\overline{g}(x_{n}$, $\ldots$, $x_{m+n-1}))=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_{n}$, $\ldots$, $x_{m+n-1}))=h(x_1$, $\ldots$, $x_n$, $x_{n+1}$, $\ldots$, $x_{m+n-1})$ $\Longrightarrow$ $h$ - самодвойственная функция.
+      \item Операция добавления или удаления фиктивных переменных:\\
+      Пусть $f(x_1$, $\ldots$, $x_n)\in S$, $g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$,  $x_n) = f(x_1$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $1$, $x_{i+1}$, $\ldots$,  $x_n)$, тогда $\overline{g}(\overline{x}_1$, $\ldots$, $\overline{x}_{i-1}$, $1$, $\overline{x}_{i+1}$, $\ldots$,  $\overline{x}_n) = f(x_1$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$,  $x_n)$ $\Longrightarrow$ $g$ - самодвойственная функция. 
+    \end{enumerate}
+  \end{proof}
+  \begin{theorem}
+    Если функция $f$ не является самодвойственной, то с помощью неё и функции отрицания можно получить константу.
+  \end{theorem}
+  \begin{proof}
+    Пусть $f(x_1$, $\ldots$, $x_n)\notin S$, тогда существует набор $(\alpha_1$, $\ldots$, $\alpha_n$) : $f(\alpha_1$, $\ldots$, $\alpha_n)=f(\overline{\alpha}_1$, $\ldots$, $\overline{\alpha}_n)$. Пусть $\phi_i=x^{\alpha_i}$, $\phi(x)=f(\phi_1(x)$, $\ldots$, $\phi_n(x))$
   \end{proof}
 \end{document}
