@@ -176,7 +176,7 @@
     Алфавит - конечное или бесконечное множество.
   \end{definition}
   \begin{definition}
-    Произвольная функция, определённая на начальном отрезке натурального ряда и принимающая на нём значения из $A$.
+    Слово - произвольная функция, определённая на начальном отрезке натурального ряда и принимающая на нём значения из $A$.
   \end{definition}
   \begin{definition}
     Пусть $F$ - множество функций алгебры логики, $S$ - множество символов, обозначающих функции из $F$, тогда отображение $\Sigma : S \to F$ - сигнатура для $F$.
@@ -187,7 +187,7 @@
     Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s($Ф$_1$, $\ldots$, Ф$_n)$ - формула в сигнатуре $\Sigma$.  
   \end{definition}
   \begin{definition}
-    Пусть Ф - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все формулы Ф, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
+    Пусть Ф - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все переменные формулы Ф, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
     База индукции: Ф - однобуквенное слово $x_{i_j}$, тогда Ф$[\tilde{x}, \tilde{\alpha}]=\alpha_j$ - значение фолмулы на ноборе $\tilde{\alpha}$.\\
     Пусть $F$ - $s($Ф$_1, \ldots, $Ф$_n)$, $f=\Sigma(s)$, причём Ф$_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение функции на наборе значений переменных.
   \end{definition}
@@ -195,7 +195,7 @@
     Формула, определяющая функцию алгебры логики, определённую на $B_n$ такую, что $\forall$ набора $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)\in B_n$ $f(\tilde{\alpha})=F[\tilde{x}, \tilde{\alpha}]$.
   \end{definition}
   \begin{definition}
-    Формулы в сигнатуре, представляющие собой переменные, называются невырожденными, остальные - вырожденными. Если функция определяется вырожденной формулой в сигнатуре $\Sigma:S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
+    Формулы в сигнатуре, представляющие собой переменные, называются вырожденными, остальные - невырожденными. Если функция определяется невырожденной формулой в сигнатуре $\Sigma:S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
   \end{definition}
   \begin{definition}
     (Другое определение суперпозиции) Если одну функцию можно получить с помощью конечного числа применений следующих трёх операций, то данная функция называется функцией, полученной суперпозициями над $F$.\\
@@ -356,7 +356,7 @@
       \item Операция подстановки переменных:\\
       $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, если функция $f$ сохраняла ноль, то и функция $g$ будет сохранять ноль, если функция $f$ сохраняла единицу, то и функция $g$ будет сохранять единицу.
       \item Операция подстановки одной функции в другую:\\
-      $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, если функции $f$ и $h$ сохраняли ноль, то и функция $g$ будет сохранять ноль, если функции $f$ и $h$ сохраняли единицу, то и функция $g$ будет сохранять единицу.
+      $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, если функции $f$ и $h$ сохраняли ноль, то и функция $g$ будет сохранять ноль, если функции $f$ и $g$ сохраняли единицу, то и функция $h$ будет сохранять единицу.
       \item Операция добавления или удаления фиктивной переменной, не влияют на способность функции сохранять ноль или сохранять единицу.
     \end{enumerate}
     Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
@@ -382,6 +382,39 @@
     Если функция $f$ не является самодвойственной, то с помощью неё и функции отрицания можно получить константу.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)\notin S$, тогда существует набор $(\alpha_1$, $\ldots$, $\alpha_n$) : $f(\alpha_1$, $\ldots$, $\alpha_n)=f(\overline{\alpha}_1$, $\ldots$, $\overline{\alpha}_n)$. Пусть $\phi_i=x^{\alpha_i}$, $\phi(x)=f(\phi_1(x)$, $\ldots$, $\phi_n(x))$
+    Пусть $f(x_1$, $\ldots$, $x_n)\notin S$, тогда существует набор $(\alpha_1$, $\ldots$, $\alpha_n$) :\\ 
+    \begin{center}
+      $f(\alpha_1$, $\ldots$, $\alpha_n)=f(\overline{\alpha}_1$, $\ldots$, $\overline{\alpha}_n)$.\\
+    \end{center} 
+    Пусть $\phi_i=x^{\alpha_i}$, $\phi(x)=f(\phi_1(x)$, $\ldots$, $\phi_n(x))$,\\ 
+    \begin{center}
+      тогда $\phi(0)= f(0^{\alpha_1}, \ldots, 0^{\alpha_n})=f(\overline{\alpha}_1, \ldots, \overline{\alpha}_n)=f(\alpha_1, \ldots, \alpha_n)=f(1^{\alpha_1}, \ldots, 1^{\alpha_n})=\phi(1)\Longrightarrow$\\
+    \end{center}
+      $\Longrightarrow$ $\phi(x)$ - константа, полученная из несамодвойственной функции и отрицания.
+  \end{proof}
+  \begin{center}
+    Билет 9
+  \end{center}
+  \begin{definition}
+    Пусть $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$, $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_n)$ - двоичные наборы, тогда $\tilde{\alpha}\leqslant\tilde{\beta}$, если $\forall i=\overline{1,n}$ $\alpha_i\leqslant\beta_i$.
+  \end{definition}
+  \begin{definition}
+    Функция алгебры логики называется монотонной, если $\forall$ двоичных наборов $\tilde{\alpha}$ и $\tilde{\beta}$ таких, что $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$.
+  \end{definition}
+  \begin{theorem}
+    Класс $M$ монотонных функций - замкнут.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item Операция подстановки переменных:\\
+      $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, если функция $f$ монотонна, то\\ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ $\Longrightarrow$ $\alpha_1\leqslant\beta_1$, $\ldots$, $\alpha_n\leqslant\beta_n$ $\Longrightarrow$\\
+      $\Longrightarrow$ $\alpha_{i_1}\leqslant\beta_{i_1}$, $\ldots$, $\alpha_{i_n}\leqslant\beta_{i_n}$ $\Longrightarrow$ $f(\alpha_{i_1}$, $\ldots$, $\alpha_{i_n})\leqslant f(\beta_{i_1}$, $\ldots$, $\beta_{i_n})$ $\Longrightarrow$\\
+      $\Longrightarrow$ $g(\alpha_{1}$, $\ldots$, $\alpha_{n})=f(\alpha_{i_1}$, $\ldots$, $\alpha_{i_n})\leqslant f(\beta_{i_1}$, $\ldots$, $\beta_{i_n})=g(\beta_{i_1}$, $\ldots$, $\beta_{i_n})$ $\Longrightarrow$ $g$ - монотонна.
+      \item Операция подстановки одной функции в другую:\\ 
+      $f(x_{1}$, $\ldots$, $x_{n})$, $g(x_{1}$, $\ldots$, $x_{m})$ - монотонные функции, $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, так как функции $f$ и $g$ монотонны, $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{m+n-1})$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{m+n-1})$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ и $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=g(\beta_n$, $\ldots$, $\alpha_{m+n-1})$ $\Longrightarrow$\\
+      $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
+      \item Операция добавления или удаления фиктивных переменных: 
+    \end{enumerate}
+    Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ класс $M$ - замкнут. 
   \end{proof}
 \end{document}
