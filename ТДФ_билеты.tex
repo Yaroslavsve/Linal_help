@@ -359,7 +359,7 @@
       $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, если функции $f$ и $h$ сохраняли ноль, то и функция $g$ будет сохранять ноль, если функции $f$ и $g$ сохраняли единицу, то и функция $h$ будет сохранять единицу.
       \item Операция добавления или удаления фиктивной переменной, не влияют на способность функции сохранять ноль или сохранять единицу.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
+    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
   \end{proof}
   \begin{center}
     Билет 8
@@ -413,8 +413,15 @@
       \item Операция подстановки одной функции в другую:\\ 
       $f(x_{1}$, $\ldots$, $x_{n})$, $g(x_{1}$, $\ldots$, $x_{m})$ - монотонные функции, $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, так как функции $f$ и $g$ монотонны, $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{m+n-1})$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{m+n-1})$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ и $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=g(\beta_n$, $\ldots$, $\alpha_{m+n-1})$ $\Longrightarrow$\\
       $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
-      \item Операция добавления или удаления фиктивных переменных: 
+      \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ монотонна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$,\\верно $f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.\\ Тогда $\tilde{\alpha}$, с добавленной фиктивной переменной; $\leqslant$ $\tilde{\beta}$, с добавленной фиктивной переменной $\Longrightarrow$ $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)=g(\beta_1$, $\ldots$, $\beta_{i-1}$, $0$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не пренадлежащую данному классу $\longrightarrow$ класс $M$ - замкнут. 
+    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ - замкнут. 
+  \end{proof}
+  \begin{theorem}
+    Если $f$ - немонотонная функция, то из неё и констант можно получить отрицание.
+  \end{theorem}
+  \begin{proof}
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$, а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$). Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
+    $\Longrightarrow$ $\tilde{\gamma}_{j-1}=(\delta_1$, $\ldots$, $\delta_{j-1}$, $0$, $\delta_{j+1}$, $\ldots$, $\delta_n)$, $\tilde{\gamma}_j=(\delta_1$, $\ldots$, $\delta_{j=1}$, $1$, $\delta_{j+1}$, $\ldots$, $\delta_n)$
   \end{proof}
 \end{document}
