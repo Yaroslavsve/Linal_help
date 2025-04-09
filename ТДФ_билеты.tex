@@ -415,7 +415,7 @@
       $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
       \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ монотонна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$,\\верно $f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.\\ Тогда $\tilde{\alpha}$, с добавленной фиктивной переменной; $\leqslant$ $\tilde{\beta}$, с добавленной фиктивной переменной $\Longrightarrow$ $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)=g(\beta_1$, $\ldots$, $\beta_{i-1}$, $0$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ замкнут. 
+    Следовательно, суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ замкнут. 
   \end{proof}
   \begin{theorem}
     Если $f$ - немонотонная функция, то из неё и констант можно получить отрицание.
@@ -444,13 +444,13 @@
       $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{n+m-1})=c_0+c_1\alpha_1+\ldots+c_{n-1}\alpha_{n-1}+c_ng(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=\\=c_0+c_1\alpha_1+\ldots+c_{n-1}\alpha_{n-1}+c_n(c'_1\alpha_n+\ldots+c'_m\alpha_{m+n-1})$ $\Longrightarrow$ функция $h$ является линейной.
       \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ линейна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ $f(\tilde{\alpha})=c_0+c_1\alpha_1+\ldots+c_{i-1}\alpha_{i-1}+c_{i+1}\alpha_{i+1}+\ldots+c_n\alpha_n$, тогда очевидно, что $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ тоже линейная функция. 
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $L$ замкнут. 
+    Следовательно, суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $L$ замкнут. 
   \end{proof}
   \begin{theorem}
-    Если функция $f$ нелинейна, то из неё, констант и отрицания можно получить коъюнкцию.
+    Если функция $f$ нелинейна, то из неё, констант и отрицания можно получить конъюнкцию.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда в полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
     $\Longrightarrow$ $f(x_1+\alpha$, $x_2+\beta)=(x_1+\alpha)(x_2+\beta)+\alpha(x_1+\alpha)+\beta(x_2+\beta)+\gamma=x_1x_2+\alpha\beta\gamma$, если $\alpha\beta\gamma=1$, то возьмём $\overline{f}(x_1+\alpha$, $x_2+\beta)=x_1x_2$,  так как данная функция получена из $f$ с помощью констант и отрцания, значит это искомая функция.
   \end{proof}
   \begin{center}
@@ -487,10 +487,10 @@
     Билет 13
   \end{center}
   \begin{theorem}
-    В любой полной системе алгебры логики можно выделить полную подсистему, состоящую из 4 ффункций.
+    В любой полной системе алгебры логики можно выделить полную подсистему, состоящую из 4 функций.
   \end{theorem}
   \begin{proof}
-    Пусть система $F$ полна, выберем в ней функции $f_1$, $f_2$, $f_3$, $f_4$, $f_5$ : $f_1\notin T_0$, $f_2\notin T_1$, $f_3\notin S$, $f_4\notin M$, $f_5\notin L$, по теореме Поста система из этих функций полна. Если $f_1\in T_1$, тогда $f_1\notin S$, тогда функцию $f_3$ можно выбрать равной $f_1$, а если $f_1(1$, $\ldots$, $1)=0$, то $f_1\notin M$, то есть $f_4$ можно выюрать равной $f_1$ $\Longrightarrow$ в обоих случаях мы получаем полную систему из четырёх функций.
+    Пусть система $F$ полна, выберем в ней функции $f_1$, $f_2$, $f_3$, $f_4$, $f_5$ : $f_1\notin T_0$, $f_2\notin T_1$, $f_3\notin S$, $f_4\notin M$, $f_5\notin L$, по теореме Поста система из этих функций полна. Если $f_1\in T_1$, тогда $f_1\notin S$, тогда функцию $f_3$ можно выбрать равной $f_1$, а если $f_1(1$, $\ldots$, $1)=0$, то $f_1\notin M$, то есть $f_4$ можно выбрать равной $f_1$ $\Longrightarrow$ в обоих случаях мы получаем полную систему из четырёх функций.
   \end{proof}
   \begin{center}
     Билет 14
