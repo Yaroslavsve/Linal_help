@@ -189,10 +189,10 @@
   \begin{definition}
     Пусть Ф - формула, $\tilde{x}$ - упорядоченный набор ($x_{i_1}, \ldots, x_{i_n})$, содержащий все переменные формулы Ф, $\tilde{\alpha}=(\alpha_1, \ldots, \alpha_n)$ - двоичный набор.\\
     База индукции: Ф - однобуквенное слово $x_{i_j}$, тогда Ф$[\tilde{x}, \tilde{\alpha}]=\alpha_j$ - значение формулы на наборе $\tilde{\alpha}$.\\
-    Пусть $F$ - $s($Ф$_1, \ldots, $Ф$_n)$, $f=\Sigma(s)$, причём Ф$_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение функции на наборе значений переменных.
+    Пусть $F$ - $s($Ф$_1, \ldots, $Ф$_n)$, $f=\Sigma(s)$, причём Ф$_1[\tilde{x}, \tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}, \tilde{\alpha}]=\beta_n$, тогда $f(\beta_1, \ldots, \beta_n)$ - значение формулы на наборе значений переменных.
   \end{definition}
   \begin{definition}
-    Формула, определяющая функцию алгебры логики, определённую на $B_n$ такую, что $\forall$ набора $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)\in B_n$ $f(\tilde{\alpha})=F[\tilde{x}, \tilde{\alpha}]$.
+    Формулой, определяющей функцию $f$ алгебры логики, определённой на $B_n$, называется формула Ф такая, что $\forall$ набора $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)\in B_n$ $f(\tilde{\alpha})=$Ф$[\tilde{x}, \tilde{\alpha}]$.
   \end{definition}
   \begin{definition}
     Формулы в сигнатуре, представляющие собой переменные, называются вырожденными, остальные - невырожденными. Если функция определяется невырожденной формулой в сигнатуре $\Sigma:S \to F$, то она получена суперпозициями над $F$, где $F$ - множество функций.
@@ -421,7 +421,7 @@
     Если $f$ - немонотонная функция, то из неё и констант можно получить отрицание.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$,\\ а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$).\\ Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$,\\ а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) $\alpha_j=\beta_j$.\\ Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
     $\Longrightarrow$ $\tilde{\gamma}_{j-1}=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $0$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$, $\tilde{\gamma}_j=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $1$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$.\\
     Тогда функция $\phi(f(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $x$, $\delta_{i_j+1}$, $\ldots$, $\delta_n))$, при $x=0$ функция равна 1, а при $x=1$, функция равна 0, то есть $\phi=\overline{x}$, а так как она получена с помощью функции $f$ и констант, значит это искомая функция.
   \end{proof}
@@ -510,4 +510,67 @@
   \begin{theorem}
     Число замкнутых классов в $P_2$ счётно. (Без доказательства)
   \end{theorem}
+  \begin{center}
+    Билет 15
+  \end{center}
+  \begin{definition}
+    Отображение $f:E_k\times\ldots\times E_k\to E_k$ - функция $k$-значной логики.
+  \end{definition}
+  Элементарные функции:
+  \begin{enumerate}
+    \item $\overline{x}=x+1(mod$ $k)$
+    \item $\sim x=k-1-x$
+    \item $J_i(x)=\begin{matrix}
+      k-1\textup{, если} x=i\\
+      0\textup{, если} x\neq i
+    \end{matrix}$
+    \item $j_i(x)=\begin{matrix}
+      1\textup{, если} x=i\\
+      0\textup{, если} x\neq i
+    \end{matrix}$
+    \item $min(x_1$, $x_2)$
+    \item $max(x_1$, $x_2)$
+    \item $x_1\cdot x_2(mod$ $k$)
+    \item $x_1+x_2(mod$ $k$)
+  \end{enumerate}
+  \begin{definition}
+    Отображение $\Sigma:S\to F$, где $S$ - множество символов, обозначующих функции из $P_k$, а $F$ - множество функций в $P_k$ называется сигнатурой.
+  \end{definition}
+  \begin{definition}
+    База индукции: пусть $x_i$ - символ переменной, тогда однобуквенное слово, состоящее из $x_i$ - формула в сигнатуре.\\
+    Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s($Ф$_1$, $\ldots$, Ф$_n$) - формула в сигнатуре $\Sigma$.
+  \end{definition}
+  \begin{definition}
+    Пусть Ф - формула, $\tilde{x}=(x_{i_1}$, $\ldots$, $x_{i_n})$ - упорядочный набор, содержащий все переменные формулы Ф, $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ - двоичный набор.\\
+    База индукции: Ф - однобуквенное слово $x_{i_j}$, тогда Ф$[\tilde{x}$, $\tilde{\alpha}]=\alpha_j$ - значение формулы на наборе.\\
+    Пусть $\in S$, $f=\Sigma(s)$, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре. Обозначим Ф$_1[\tilde{x}$, $\tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}$, $\tilde{\alpha}]=\beta_n$, тогда $f(\beta_1$, $\ldots$, $\beta_n)$ - значение формулы на наборе $\tilde{\alpha}$.
+  \end{definition}
+  \begin{definition}
+    Операции:
+    \begin{enumerate}
+      \item Операция подстановки переменных. Пусть $f(x_1$, $\ldots$, $x_n)\in P_k$, $g(x_1$, $\ldots$, $x_n)$ - функция, определённая на $B_n$ такая, что $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, где набор ($i_1$, $\ldots$, $i_n$) - набор элементов ($1$, $\ldots$, $n$) (они необязательно различны). Тогда $g$ получена из $f$ операцией подстановки переменных.
+      \item Операция подстановки функции в функцию. Пусть $f(x_1$, $\ldots$, $x_n)$, $g(x_1$, $\ldots$, $x_m)$, $h$ определена на $B_{n+m-1}$ и $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, тогда функция $h$ получена из функций $f$ и $g$ операцией подстановки одной функции в другую.
+      \item Операция добавления или удаления фиктивных переменных. Пусть $x_i$ - фиктивная переменная, тогда если функция $f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, то функция $g$ называется полученной из $f$ добавлением фиктивной переменной. Функция удаления фиктивной переменной определяется аналогично.
+    \end{enumerate}
+  \end{definition}
+  \begin{center}
+    Билет 16
+  \end{center}
+  ТОждества для функций в $P_k$:
+  \begin{enumerate}
+    \item операции $min(x_1$, $x_2)$, $max(x_1$, $x_2$), $x_1\cdot x_2(mod$ $k)$, $x_1+x_2(mod$ $k)$ ассоциативны и коммутативны
+    \item $min(max(x_1$, $x_2)$, $x_3)=max(min(x_1$, $x_3)$, $min(x_2$, $x_3))$
+    \item ($x_1+x_2)\cdot x_3=(x_1\cdot x_3)+(x_2\cdot x_3)$
+    \item $\sim(\sim x)=x$
+    \item $\sim min(x_1$, $x_2)=max(\sim x_1$, $\sim x_2)$
+  \end{enumerate}
+  \begin{definition}
+    Выражение $\bigvee\limits_{(\sigma_1,\ldots,\sigma_n)\in (E_k)^n}min(J_{\sigma_1}(x_1)$, $\ldots$, $J_{\sigma_n}(x_n)$, $f(\sigma_1$, $\ldots$, $\sigma_n))$ - аналог совершенной дизъюнктивной нормальной формы для $P_k$.
+  \end{definition}
+  \begin{theorem}
+    Любая функция, не являющаяся тождественно нулевой, имеет аналог совершенной д.н.ф.
+  \end{theorem}
+  \begin{proof}
+    Рассмотрим произвольный набор $(\alpha_1$, $\ldots$, $\alpha_n)$, так как $J_{\sigma_i}(\alpha_j)=0$ $\forall j\neq i$, а для $j=i$ $J_{\sigma_i}(\alpha_i)=k-1$, значит, все члены, кроме $\alpha_1=\sigma_1$, $\ldots$, $\alpha_n=\sigma_n$, будут равны нулю, а значит, останется тольго $min(J_{\sigma_1}(\alpha_1)$, $\ldots$, $J_{sigma_n}(\alpha_n)$, $f(\alpha_1$, $\ldots$, $\alpha_n))=f(\alpha_1$, $\ldots$, $\alpha_n)$.
+  \end{proof}
 \end{document}
