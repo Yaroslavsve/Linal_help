@@ -415,13 +415,45 @@
       $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
       \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ монотонна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$,\\верно $f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.\\ Тогда $\tilde{\alpha}$, с добавленной фиктивной переменной; $\leqslant$ $\tilde{\beta}$, с добавленной фиктивной переменной $\Longrightarrow$ $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)=g(\beta_1$, $\ldots$, $\beta_{i-1}$, $0$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ - замкнут. 
+    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ замкнут. 
   \end{proof}
   \begin{theorem}
     Если $f$ - немонотонная функция, то из неё и констант можно получить отрицание.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$, а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$). Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
-    $\Longrightarrow$ $\tilde{\gamma}_{j-1}=(\delta_1$, $\ldots$, $\delta_{j-1}$, $0$, $\delta_{j+1}$, $\ldots$, $\delta_n)$, $\tilde{\gamma}_j=(\delta_1$, $\ldots$, $\delta_{j=1}$, $1$, $\delta_{j+1}$, $\ldots$, $\delta_n)$
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$,\\ а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$).\\ Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
+    $\Longrightarrow$ $\tilde{\gamma}_{j-1}=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $0$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$, $\tilde{\gamma}_j=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $1$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$.\\
+    Тогда функция $\phi(f(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $x$, $\delta_{i_j+1}$, $\ldots$, $\delta_n))$, при $x=0$ функция равна 1, а при $x=1$, функция равна 0, то есть $\phi=\overline{x}$, а так как она получена с помощью функции $f$ и констант, значит это искомая функция.
   \end{proof}
+  \begin{center}
+    Билет 10
+  \end{center}
+  \begin{definition}
+    Функция $f$ называется линейной, если она представима полиномом Жегалкина степени 1.
+  \end{definition}
+  \begin{theorem}
+    Класс $L$ линейных функций замкнут.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item Операция подстановки переменных:\\
+      $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, если функция $f$ линейна, то $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ $f(\tilde{\alpha})=c_0+c_1\alpha_1+\ldots+c_n\alpha_n$, тогда\\
+      $g(\alpha_1$, $\ldots$, $\alpha_n)=c_0+c_1\alpha_{i_1}+\ldots+c_n\alpha_{i_n}$ $\Longrightarrow$ $g$ - линейная функция.
+      \item Операция подстановки одной функции в другую:\\ 
+      $f(x_{1}$, $\ldots$, $x_{n})$, $g(x_{1}$, $\ldots$, $x_{m})$ - линейные функции, $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, так как функции $f$ и $g$ линейны, $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{m+n-1})$ $f(\alpha_1$, $\ldots$, $\alpha_n)=c_0+c_1\alpha_1+\ldots+c_n\alpha_n$, $g(\alpha_1$, $\ldots$, $\alpha_m)=c'_0+c'_1\alpha_1+\ldots+c'_n\alpha_n$ $\Longrightarrow$\\
+      $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{n+m-1})=c_0+c_1\alpha_1+\ldots+c_{n-1}\alpha_{n-1}+c_ng(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=\\=c_0+c_1\alpha_1+\ldots+c_{n-1}\alpha_{n-1}+c_n(c'_1\alpha_n+\ldots+c'_m\alpha_{m+n-1})$ $\Longrightarrow$ функция $h$ является линейной.
+      \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ линейна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ $f(\tilde{\alpha})=c_0+c_1\alpha_1+\ldots+c_{i-1}\alpha_{i-1}+c_{i+1}\alpha_{i+1}+\ldots+c_n\alpha_n$, тогда очевидно, что $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ тоже линейная функция. 
+    \end{enumerate}
+    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $L$ замкнут. 
+  \end{proof}
+  \begin{theorem}
+    Если функция $f$ нелинейна, то из неё, констант и отрицания можно получить коъюнкцию.
+  \end{theorem}
+  \begin{proof}
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда в полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
+    $\Longrightarrow$ $f(x_1+\alpha$, $x_2+\beta)=(x_1+\alpha)(x_2+\beta)+\alpha(x_1+\alpha)+\beta(x_2+\beta)+\gamma=x_1x_2+\alpha\beta\gamma$, если $\alpha\beta\gamma=1$, то возьмём $\overline{f}(x_1+\alpha$, $x_2+\beta)=x_1x_2$,  так как данная функция получена из $f$ с помощью констант и отрцания, значит это искомая функция.
+  \end{proof}
+  \begin{center}
+    Билет 11
+  \end{center}
 \end{document}
