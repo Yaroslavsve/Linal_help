@@ -122,7 +122,7 @@
     Билет 1
   \end{center}
   \begin{definition}
-    Упорядоченный набор - функция, которая ставит в соответствие каждому элементому множества $\{1, \ldots, n\}$ элемент из множества $\{a_1,\ldots,a_n\}$ : $1\rightarrow a_1$, $\ldots$, $n\rightarrow a_n$.
+    Упорядоченный набор - функция, которая ставит в соответствие каждому элементу множества $\{1, \ldots, n\}$ элемент из множества $\{a_1,\ldots,a_n\}$ : $1\rightarrow a_1$, $\ldots$, $n\rightarrow a_n$.
   \end{definition}
   Декартовое произведение множеств $A_1\times\ldots\times A_n=(a_1, \ldots, a_n)$ : $a_i\in A_i$.
   \begin{definition}
@@ -201,7 +201,7 @@
     (Другое определение суперпозиции) Если одну функцию можно получить с помощью конечного числа применений следующих трёх операций, то данная функция называется функцией, полученной суперпозициями над $F$.\\
     Операции:\\
     \begin{enumerate}
-      \item Операция подстановки переменных. Пусть $f(x_1$, $\ldots$, $x_n)\in P_2$, $g(x_1$, $\ldots$, $x_n)$ - функция, определённая на $B_n$ такая, что $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, где набор ($i_1$, $\ldots$, $i_n$) - набор элементов ($1$, $\ldots$, $n$) (они необязательно различны). Тогда $g$ получена из $f$ операцией подстановки переменных.
+      \item Операция подстановки переменных. Пусть $f(x_1$, $\ldots$, $x_n)\in P_2$, $g(x_1$, $\ldots$, $x_n)$ - функция, определённая на $B_n$, такая, что $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, где набор ($i_1$, $\ldots$, $i_n$) - набор элементов ($1$, $\ldots$, $n$) (они необязательно различны). Тогда $g$ получена из $f$ операцией подстановки переменных.
       \item Операция подстановки функции в функцию. Пусть $f(x_1$, $\ldots$, $x_n)$, $g(x_1$, $\ldots$, $x_m)$, $h$ определена на $B_{n+m-1}$ и $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, тогда функция $h$ получена из функций $f$ и $g$ операцией подстановки одной функции в другую.
       \item Операция добавления или удаления фиктивных переменных. Пусть $x_i$ - фиктивная переменная, тогда если функция $f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, то функция $g$ называется полученной из $f$ добавлением фиктивной переменной. Функция удаления фиктивной переменной определяется аналогично.
     \end{enumerate}
@@ -305,7 +305,7 @@
     Билет 6
   \end{center}
   \begin{definition}
-    Множество функций, кторые можно пулучить из данного множества $M$ функций алгебры логики, называется замыканием множества $M$ и обозначается $[M]$.
+    Множество функций, которые можно пулучить из данного множества $M$ функций алгебры логики, называется замыканием множества $M$ и обозначается $[M]$.
   \end{definition}
   \begin{example}
     \begin{enumerate}
@@ -324,9 +324,9 @@
   \begin{proof}
     \begin{enumerate}
       \item По определению замыкания.
-      \item Из первого следует, что $[M]\subseteq[[M]]$, а $[[M]]\subseteq[M]$, так как в противном случае существовала бы функция, которая не выражается суперпозициями функций из $M$, но выражается суперпозициями функций, которые выражаются суперпозициями функций из $M$, а значит она выражается суерпозициями из $M$ $\Longrightarrow$ противоречие.
+      \item Из первого следует, что $[M]\subseteq[[M]]$, а $[[M]]\subseteq[M]$, так как в противном случае существовала бы функция, которая не выражается суперпозициями функций из $M$, но выражается суперпозициями функций, которые выражаются суперпозициями функций из $M$, а значит она выражается суперпозициями из $M$ $\Longrightarrow$ противоречие.
       \item Если функция получается суперепозициями из $M_1$, то её можно получить суперпозициями из $M_2$, так как все функции $M_1$ являются функциями $M_2$.
-      \item Пусть функция $f\in[M_1]\cap[M_2]$, тогда она получается суперпозициями из $M_1$ или из $M_2$, пусть для определённости она выражается суперпозициями из $M_1$, но тогда её можно получить суперпозициями из $M_1\cap M_2$, то есть $f\in[M_1\cap M_2]$
+      \item Пусть функция $f\in[M_1]\cap[M_2]$, тогда она получается суперпозициями из $M_1$ или из $M_2$, пусть для определённости она выражается суперпозициями из $M_1$, но тогда её можно получить суперпозициями из $M_1\cup M_2$, то есть $f\in[M_1\cup M_2]$
     \end{enumerate}
   \end{proof}
   \begin{definition}
@@ -357,9 +357,9 @@
       $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, если функция $f$ сохраняла ноль, то и функция $g$ будет сохранять ноль, если функция $f$ сохраняла единицу, то и функция $g$ будет сохранять единицу.
       \item Операция подстановки одной функции в другую:\\
       $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, если функции $f$ и $h$ сохраняли ноль, то и функция $g$ будет сохранять ноль, если функции $f$ и $g$ сохраняли единицу, то и функция $h$ будет сохранять единицу.
-      \item Операция добавления или удаления фиктивной переменной, не влияют на способность функции сохранять ноль или сохранять единицу.
+      \item Операция добавления или удаления фиктивной переменной, не влияет на способность функции сохранять ноль или сохранять единицу.
     \end{enumerate}
-    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
+    Следовательно суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ классы $T_0$ и $T_1$ - замкнуты. 
   \end{proof}
   \begin{center}
     Билет 8
@@ -413,7 +413,7 @@
       \item Операция подстановки одной функции в другую:\\ 
       $f(x_{1}$, $\ldots$, $x_{n})$, $g(x_{1}$, $\ldots$, $x_{m})$ - монотонные функции, $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, так как функции $f$ и $g$ монотонны, $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{m+n-1})$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{m+n-1})$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ и $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=g(\beta_n$, $\ldots$, $\alpha_{m+n-1})$ $\Longrightarrow$\\
       $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
-      \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ монотонна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$,\\верно $f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.\\ Тогда $\tilde{\alpha}$, с добавленной фиктивной переменной; $\leqslant$ $\tilde{\beta}$, с добавленной фиктивной переменной $\Longrightarrow$ $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)=g(\beta_1$, $\ldots$, $\beta_{i-1}$, $0$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.
+      \item Операция добавления или удаления фиктивных переменных:\\$f(x_1$, $\ldots$, $x_{i-1}$, $x_{i+1}$, $\ldots$, $x_n)=g(x_1$, $\ldots$, $x_{i-1}$, $0$, $x_{i+1}$, $\ldots$, $x_n)$, так как $f$ монотонна $\Longrightarrow$ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$,\\верно $f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.\\ Тогда $\tilde{\alpha}$, с добавленной фиктивной переменной, $\leqslant$ $\tilde{\beta}$, с добавленной фиктивной переменной $\Longrightarrow$ $g(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $0$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_{i-1}$, $\alpha_{i+1}$, $\ldots$, $\alpha_n)\leqslant f(\beta_1$, $\ldots$, $\beta_{i-1}$, $\beta_{i+1}$, $\ldots$, $\beta_n)=g(\beta_1$, $\ldots$, $\beta_{i-1}$, $0$, $\beta_{i+1}$, $\ldots$, $\beta_n)$.
     \end{enumerate}
     Следовательно, суперпозициями мы не сможем получить функцию, не принадлежащую данному классу $\Longrightarrow$ класс $M$ замкнут. 
   \end{proof}
@@ -421,9 +421,9 @@
     Если $f$ - немонотонная функция, то из неё и констант можно получить отрицание.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$,\\ а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) $\alpha_j=\beta_j$.\\ Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на наборах $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - немонотонная функция, тогда $\exists\tilde{\alpha}$ и $\tilde{\beta}$ : $\tilde{\alpha}\leqslant\tilde{\beta}$ и $f(\tilde{\alpha})=1$, а $f(\tilde{\beta})=0$. Так как наборы различны, то $\exists\alpha_{i_1}=\ldots=\alpha_{i_k}=0$ и $\beta_{i_1}=\ldots=\beta_{i_k}=1$,\\ а $\forall j\in(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) $\alpha_j=\beta_j$.\\ Пусть наборы $\tilde{\gamma}_0$, $\ldots$, $\tilde{\gamma}_k$ на позициях $(1$, $\ldots$, $n)\setminus(i_1$, $\ldots$, $i_k$) совпадает со значениями  набора $\tilde{\alpha}$, на позициях $i_1$, $\ldots$, $\i_j$ набор $\tilde{\gamma}_j=1$, а на позициях $i_{j+1}$, $\ldots$, $i_k$ принимает значение 0, тогда $\tilde{\gamma}_0=\tilde{\alpha}$, а $\tilde{\gamma_k}=\tilde{\beta}$ $\Longrightarrow$ $f(\tilde{\gamma}_0)=1$, $f(\tilde{\gamma}_k)=0$ $\Longrightarrow$ $\exists\tilde{\gamma}_j$ : $f(\tilde{\gamma_j})=0$, а $f(\tilde{\gamma_{j-1}})=1$ $\Longrightarrow$\\
     $\Longrightarrow$ $\tilde{\gamma}_{j-1}=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $0$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$, $\tilde{\gamma}_j=(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $1$, $\delta_{i_j+1}$, $\ldots$, $\delta_n)$.\\
-    Тогда функция $\phi(f(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $x$, $\delta_{i_j+1}$, $\ldots$, $\delta_n))$, при $x=0$ функция равна 1, а при $x=1$, функция равна 0, то есть $\phi=\overline{x}$, а так как она получена с помощью функции $f$ и констант, значит это искомая функция.
+    Тогда функция $\phi(f(\delta_1$, $\ldots$, $\delta_{i_j-1}$, $x$, $\delta_{i_j+1}$, $\ldots$, $\delta_n))$, при $x=0$ функция равна 1, а при $x=1$, функция равна 0, то есть $\phi=\overline{x}$, а так как она получена с помощью функции $f$ и констант, значит, это искомая функция.
   \end{proof}
   \begin{center}
     Билет 10
@@ -450,7 +450,7 @@
     Если функция $f$ нелинейна, то из неё, констант и отрицания можно получить конъюнкцию.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f1$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
     $\Longrightarrow$ $f(x_1+\alpha$, $x_2+\beta)=(x_1+\alpha)(x_2+\beta)+\alpha(x_1+\alpha)+\beta(x_2+\beta)+\gamma=x_1x_2+\alpha\beta\gamma$, если $\alpha\beta\gamma=1$, то возьмём $\overline{f}(x_1+\alpha$, $x_2+\beta)=x_1x_2$,  так как данная функция получена из $f$ с помощью констант и отрцания, значит это искомая функция.
   \end{proof}
   \begin{center}
@@ -462,7 +462,7 @@
   \begin{proof}
     $\underline{\Longrightarrow}$ Если ситсема $F$ функций алгебры логики полна, то $[F]=P_2$. Предположим, что $F\subseteq K$, где $K$ - один из этих классов, тогда $[F]\subseteq[K]\neq P_2$ - противоречие.\\
     $\underline{\Longleftarrow}$ Пусть $F$ не лежит ни в одном из этих классов, тогда $\exists f_1$, $f_2$, $f_3$, $f_4$, $f_5$ : $f_1\notin T_0$, $f_2\notin T_1$, $f_3\notin S$, $f_4\notin M$, $f_5\notin L$.\\
-    Рассмотрим $f_1\notin T_0$, тогда $f_1(0$, $\ldots$, $0)=1$. Есть два случая:\\
+    Рассмотрим $f_1\notin T_0$, тогда $f_1(0$, $\ldots$, $0)=1$. Есть два случая:
     \begin{enumerate}
       \item Пусть $f_1\notin T_1$, тогда $\phi(x)=f_1(x$, $\ldots$, $x)=\overline{x}$, то есть мы получили из $f_1$ функцию отрицания. Тогда по лемме о несамодвойственной функции из $f_3$ и $\overline{x}$ можно получить константы.
       \item Пусть $f_1\in T_1$, тогда $\phi(x)=f_1(x$, $\ldots$, $x)=1$, то есть $\phi(x)$ - константа 1. Рассмотрим $f_2\notin T_1$, тогда $f_2(f_1(x$, $\ldots$, $x))=0$, то есть мы получили константу 0.
@@ -541,7 +541,7 @@
     Пусть $s\in S$, $f=\Sigma(s)$ - функция от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s($Ф$_1$, $\ldots$, Ф$_n$) - формула в сигнатуре $\Sigma$.
   \end{definition}
   \begin{definition}
-    Пусть Ф - формула, $\tilde{x}=(x_{i_1}$, $\ldots$, $x_{i_n})$ - упорядочный набор, содержащий все переменные формулы Ф, $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ - двоичный набор.\\
+    Пусть Ф - формула, $\tilde{x}=(x_{i_1}$, $\ldots$, $x_{i_n})$ - упорядоченный набор, содержащий все переменные формулы Ф, $\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ - двоичный набор.\\
     База индукции: Ф - однобуквенное слово $x_{i_j}$, тогда Ф$[\tilde{x}$, $\tilde{\alpha}]=\alpha_j$ - значение формулы на наборе.\\
     Пусть $\in S$, $f=\Sigma(s)$, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре. Обозначим Ф$_1[\tilde{x}$, $\tilde{\alpha}]=\beta_1$, $\ldots$, Ф$_n[\tilde{x}$, $\tilde{\alpha}]=\beta_n$, тогда $f(\beta_1$, $\ldots$, $\beta_n)$ - значение формулы на наборе $\tilde{\alpha}$.
   \end{definition}
