@@ -556,7 +556,7 @@
   \begin{center}
     Билет 16
   \end{center}
-  ТОждества для функций в $P_k$:
+  Тождества для функций в $P_k$:
   \begin{enumerate}
     \item операции $min(x_1$, $x_2)$, $max(x_1$, $x_2$), $x_1\cdot x_2(mod$ $k)$, $x_1+x_2(mod$ $k)$ ассоциативны и коммутативны
     \item $min(max(x_1$, $x_2)$, $x_3)=max(min(x_1$, $x_3)$, $min(x_2$, $x_3))$
@@ -571,6 +571,68 @@
     Любая функция, не являющаяся тождественно нулевой, имеет аналог совершенной д.н.ф.
   \end{theorem}
   \begin{proof}
-    Рассмотрим произвольный набор $(\alpha_1$, $\ldots$, $\alpha_n)$, так как $J_{\sigma_i}(\alpha_j)=0$ $\forall j\neq i$, а для $j=i$ $J_{\sigma_i}(\alpha_i)=k-1$, значит, все члены, кроме $\alpha_1=\sigma_1$, $\ldots$, $\alpha_n=\sigma_n$, будут равны нулю, а значит, останется тольго $min(J_{\sigma_1}(\alpha_1)$, $\ldots$, $J_{sigma_n}(\alpha_n)$, $f(\alpha_1$, $\ldots$, $\alpha_n))=f(\alpha_1$, $\ldots$, $\alpha_n)$.
+    Рассмотрим произвольный набор $(\alpha_1$, $\ldots$, $\alpha_n)$, так как $J_{\sigma_i}(\alpha_j)=0$ $\forall j\neq i$, а для $j=i$ $J_{\sigma_i}(\alpha_i)=k-1$, значит, все члены, кроме $\alpha_1=\sigma_1$, $\ldots$, $\alpha_n=\sigma_n$, будут равны нулю, а значит, останется тольго $min(J_{\sigma_1}(\alpha_1)$, $\ldots$, $J_{\sigma_n}(\alpha_n)$, $f(\alpha_1$, $\ldots$, $\alpha_n))=f(\alpha_1$, $\ldots$, $\alpha_n)$.
+  \end{proof}
+  \begin{center}
+    Билет 17
+  \end{center}
+  \begin{definition}
+    Система $F$ функций в $P_k$ называется полной, если любая функция из $P_k$ получается суперпозициями из $F$.
+  \end{definition}
+  \begin{example}
+    \begin{enumerate}
+      \item $P_k$
+      \item $\{0$, $1$, $\ldots$, $k-1$, $J_0(x)$, $\ldots$, $J_{k-1}(x)$, $min(x_1$, $x_2$), $max(x_1$, $x_2)\}$
+      \item $max(x_1$, $x_2)$, $\overline{x}$
+      \item $min(x_1$, $x_2)$, $\overline{x}$
+      \item $\{0$, $1$, $\ldots$, $k-1$, $j_0(x)$, $\ldots$, $j_{k-1}(x)$, $x_1+x_2\}$
+      \item $V_k(x_1$, $x_2)=max(x_1$, $x_2)+1(mod$ $k$)
+    \end{enumerate}
+  \end{example}
+  Докажем полноту каждой из систем.
+  \begin{proof}
+    \begin{enumerate}
+      \item Так как в системе есть отрицание Поста, то из $\forall x$ можно получить $\{x$, $x+1$, $\ldots$, $x+k-1$\} все эти числа различны по $(mod$ $k$) $\Longrightarrow$ $max(x$, $\ldots$, $x+k-1)=k-1$, тогда из константы $k-1$ можно получить все остальные константы, используя отрицание Поста.\\
+      Рассмотрим набор $\{x$, $\ldots$, $x_{j-1}$, $x_{j+1}$, $\ldots$, $x_k$\}, тогда функция $\phi_j(x)=max(x$, $\ldots$, $x+j-1$, $x+j+1$, $\ldots$, $x+k-1)=\begin{matrix}
+        k-1, \textup{при} x+j\neq k-1\\
+        k-2, \textup{при} x+j=k-1
+      \end{matrix}$. Тогда функция $\psi_j(x)=max(x$, $\ldots$, $x+j-1$, $x+j+1$, $\ldots$, $x+k-1)+1$ (это ожно сделать благодаря отрицанию Поста) $\Longrightarrow$ $\psi_j(x)=\begin{matrix}
+        0, \textup{при} x+j\neq k-1\\
+        k-1, \textup{при} x+j=k-1
+      \end{matrix}$. То есть мы получили все константы, $J_i(x)$ $\forall i$, а значит, получили полную систему из примера 2.
+      \item Аналогично с предыдущим пунктом, с помощью отрицания Поста можно получить все константы, а значит, можем получить отрицание Лукашевича, а по одному из тождеств, $\sim min(x_1$, $x_2)=max(\sim x_1$, $\sim x_2)$, то есть мы получили поную систему из предыдущего пункта.
+      \item Из $V_k(x_1$, $x_2$) получим отрицание Поста: $V_k(x$, $x)=x+1=\overline{x}$ $\Longrightarrow$ можно получить $x+i$ $\forall i$, тогда $max(x_1$, $x_2)=V_k(x_1$, $x_2)+k-1$, то есть мы получили полную систему $\{max(x_1$, $x_2)$, $\overline{x}\}$.
+    \end{enumerate}
+  \end{proof}
+  \begin{center}
+    Билет 18
+  \end{center}
+  \begin{definition}
+    Замыканием множества $F$ в $P_k$ называется множество всех функций, которые можно получить суперпозициями из $F$.
+  \end{definition}
+  \begin{definition}
+    Если $[F]=F$, то множество $M$ называется замкнутым.
+  \end{definition}
+  \begin{definition}
+    Пусть $Q\subseteq E_k$. Множество функций $T_Q$ : $\forall \alpha_1$, $\ldots$, $\alpha_n\in Q$ $f(\alpha_1$, $\ldots$, $\alpha_n)\in Q$, называется функцией, сохраняющей множество $Q$.
+  \end{definition}
+  \begin{example}
+    \begin{enumerate}
+      \item $P_k$
+      \item $T_Q$
+    \end{enumerate}
+  \end{example}
+  \begin{theorem}
+    Класс $T_Q$ замкнут.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item Операция подстановки переменных:\\
+      Пусть функция $f(x_1$, $\ldots$, $x_n)$ сохраняет множество $Q$, тогда $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$ тоже будет сохранять множество $Q$, так как при перестановке одинаковых переменных ничего не поменяется.
+      \item Операция подстановки функции в функцию:\\
+      Пксть функции $f(x_1$, $\ldots$, $x_n)$ и $g(x_1$, $\ldots$, $x_m)$ сохраняют множесво $Q$, тогда $h(x_1$, $\ldots$, $x_{m+n-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{m+n-1}))$, так как функция $g$ сохраняет множество $Q$ $\Longrightarrow$ все переменные $f$ принимают одно и то же значение, а значит, и функция $h$ будет сохранять множество $Q$.
+      \item Операция добавления или удаления фиктивных переменных:\\
+      Очевидно.
+    \end{enumerate}
   \end{proof}
 \end{document}
