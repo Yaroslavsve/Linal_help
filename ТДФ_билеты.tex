@@ -729,4 +729,17 @@
   \begin{center}
     Билет 25
   \end{center}
+  \begin{definition}
+    Функция $f\in P_k$ называется существенной, если она имеет больше одной существенной переменной.
+  \end{definition}
+  \begin{theorem}
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - существенная функция, принимающая $l$ значений, где $l\geqslant3$, и пусть $x_1$ - её существенная переменная, тогда существуют наборы $(\alpha$, $\alpha_2$, $\ldots$, $\alpha_n)$, $(\beta$, $\alpha_2$, $\ldots$, $\alpha_n)$, $(\alpha$, $\gamma_2$, $\ldots$, $\gamma_n)$, на которых она принимает три различных значения.
+  \end{theorem}
+  \begin{proof}
+    Так как переменная $x_1$ является существенной, существуют значения $\alpha_2$, $\ldots$, $\alpha_n$ такие, что в следующем списке $S$: $f(0$, $\alpha_2$, $\ldots$, $\alpha_n)$, $f(1$, $\alpha_2$, $\ldots$, $\alpha_n)$, $\ldots$, $f(k-1$, $\alpha_2$, $\ldots$, $\alpha_n)$ - есть более одного значения. Рассмотрим два случая:
+    \begin{enumerate}
+      \item В $S$ меньше чем $l$ значений, тогда найдём набор, на котором функция $f$ принимает значение, не встречающееся в $S$, обозначим этот набор ($\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$. $f(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)\neq f(\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)$, так как $f(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)\notin S$, $f(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)\neq f(\beta$, $\alpha_2$, $\ldots$ $\alpha_n)$, где набор ($\beta$, $\alpha_2$, $\ldots$ $\alpha_n)\neq f(\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)$.
+      \item В $S$ ровно $l$ значений, тогда сущесввует такое $\alpha$, что $f(\alpha$, $x_2$, $\ldots$ $x_n)$ - не константа $\Longrightarrow$ $\exists (\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$. Так как $l\geqslant3$ $\exists\beta$ такое, что ($\beta$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$.
+    \end{enumerate}
+  \end{proof}
 \end{document}
