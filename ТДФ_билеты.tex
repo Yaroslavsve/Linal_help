@@ -742,4 +742,13 @@
       \item В $S$ ровно $l$ значений, тогда сущесввует такое $\alpha$, что $f(\alpha$, $x_2$, $\ldots$ $x_n)$ - не константа $\Longrightarrow$ $\exists (\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$. Так как $l\geqslant3$ $\exists\beta$ такое, что ($\beta$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)\neq(\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$.
     \end{enumerate}
   \end{proof}
+  \begin{center}
+    Билет 26
+  \end{center}
+  \begin{theorem}
+    Если $f(x_1$, $\ldots$, $x_n)$ - существенная функция в $P_k$, принимающая хотябы $l$ значений, где $l\geqslant3$, тогда существуют подмножества $G_1$, $\ldots$, $G_n$ множества $E_k$ такие, что $1\leqslant|G_1|\leqslant l-1$, $\ldots$, $1\leqslant|G_n|\leqslant l-1$, причём на множестве $G_1\times\ldots\times G_n$.
+  \end{theorem}
+  \begin{proof}
+    Без ограничения общности будем считать, что $x_1$ - существенная переменная. По лемме о трёх наборах существуют наборы ($\alpha$, $\alpha_2$, $\ldots$ $\alpha_n)$, ($\beta$, $\alpha_2$, $\ldots$ $\alpha_n)$, ($\alpha$, $\gamma_2$, $\ldots$ $\gamma_n)$, на которых функция принимает три различных значения. Пусть остальные $l-3$ значения функция принимает на наборах $\delta_i=(\delta_{i1}$, $\ldots$ $\delta_{in})$, тогда в качестве $G_1$ выберем набор ($\alpha$, $\beta$, $\delta_{11}$, $\ldots$ $\delta_{l-3,1})$, в качестве $G_2$, $\ldots$, $G_n$ выберем наборы ($\alpha_2$, $\gamma_2$, $\delta_{12}$, $\ldots$ $\delta_{l-3,2})$, $\ldots$, ($\alpha_n$, $\gamma_n$, $\delta_{1n}$, $\ldots$ $\delta_{l-3,n})$. Каждое из $G_j$ непусто и в каждом не больше $l-1$ элемента, а значит, мы получили искомые множества.
+  \end{proof}
 \end{document}
