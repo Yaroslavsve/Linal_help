@@ -244,18 +244,18 @@
   \end{proof}
   \section{Билет 4 (Совершенные д.н.ф. и к.н.ф)}
   \begin{definition}
-    Выражение $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_n):f(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
+    Выражение $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_n):f(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}\cdot f(\sigma_1,\ldots ,\sigma_n)$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
     $\begin{cases}
       x_i,\sigma_i=1\\
-      \overline{x_i},\sigma_i=0
+      \overline{x}_i,\sigma_i=0
     \end{cases}$.
   \end{definition}
   \begin{theorem}
-    Для любой функции $f(x_1$, $\ldots$, $x_n)$ алгебры логики верно равенство:\\
-    $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_m)\in B_m}x_1^{\sigma_1}\cdot\ldots\cdot x_m^{\sigma_m}\cdot f(\sigma_1$, $\ldots$, $\sigma_m$, $\sigma_{m+1}$, $\ldots$, $\sigma_n)$.
+    Для любой функции $f(x_1$, $\ldots$, $x_n)$ алгебры логики и $\forall m$ верно равенство:\\
+    $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_m)\in B_m}x_1^{\sigma_1}\cdot\ldots\cdot x_m^{\sigma_m}\cdot f(\sigma_1$, $\ldots$, $\sigma_m$, $x_{m+1}$, $\ldots$, $x_n)$.
   \end{theorem}
   \begin{proof}
-    Рассмотрим прозвольный набор $(\alpha_1$, $\ldots$, $\alpha_m$), если $(\alpha_1$, $\ldots$, $\alpha_m)\neq(\sigma_1$, $\ldots$, $\sigma_m$), то $\exists \alpha_i\neq\sigma_i$ $\Longrightarrow$ $\alpha_i^{\sigma_i}=0$ $\Longrightarrow$ данное слагаемое будет равно нулю. Тогда единственным не нулевым членом будет $(\alpha_1^{\alpha_1}\cdot\ldots\cdot\alpha_m^{\alpha_m})\cdot f(\alpha_1$, $\ldots$, $\alpha_m$, $\alpha_{m+1}$, $\ldots$, $\alpha_n)=f(\alpha_1$, $\ldots$, $\alpha_n$).
+    Рассмотрим прозвольный набор $(\alpha_1$, $\ldots$, $\alpha_m$), если $(\alpha_1$, $\ldots$, $\alpha_m)\neq(\sigma_1$, $\ldots$, $\sigma_m$), то $\exists \alpha_i\neq\sigma_i$ $\Longrightarrow$ $\alpha_i^{\sigma_i}=0$ $\Longrightarrow$ данное слагаемое будет равно нулю. Тогда единственным не нулевым членом будет $(\alpha_1^{\alpha_1}\cdot\ldots\cdot\alpha_m^{\alpha_m})\cdot f(\alpha_1$, $\ldots$, $\alpha_m$, $x_{m+1}$, $\ldots$, $x_n)=f(x_1$, $\ldots$, $x_n$).
   \end{proof}
   \begin{theorem}
     Любую функцию алгебры логики можно представить с помощью суперпозиций конъюнкции, дизъюнкции и отрицания.
@@ -577,7 +577,7 @@
     Замыканием множества $F$ в $P_k$ называется множество всех функций, которые можно получить суперпозициями из $F$.
   \end{definition}
   \begin{definition}
-    Если $[F]=F$, то множество $M$ называется замкнутым.
+    Если $[F]=F$, то множество $F$ называется замкнутым.
   \end{definition}
   \begin{definition}
     Пусть $Q\subseteq E_k$. Множество функций $T_Q$ : $\forall \alpha_1$, $\ldots$, $\alpha_n\in Q$ $f(\alpha_1$, $\ldots$, $\alpha_n)\in Q$, называется функцией, сохраняющей множество $Q$.
@@ -613,7 +613,7 @@
   \begin{proof}
     Пусть $F\subseteq P_k$ - конечное множество функций в $P_k$, $\Sigma:S\to F$ - сигнатура. Рассмотрим последовательность $G_1$, $G_2$, $\ldots$ такую, что $G_i$ - множество функций, определяемых невырожденными формулами в сигнатуре $\Sigma$, содержащими только переменные $x_1$, $x_2$ и имеющими глубину, меньшую $i$. Данную последовательность назовём последовательностью Кузнецова. Так как все формулы в соответствующем множестве $G_i$ имеют глубину, меньшую $i$ $\Longrightarrow$ $\varnothing\subseteq G_1\subseteq\ldots$. Так как число функций в $P_k$ от двух переменных равно $k^{k^2}$ $\Longrightarrow$ $|G_i|\leqslant k^{k^2}$ $\Longrightarrow$ последовательность Кузнецова стабилизируется на некотором шаге $G_m=G$, $G$ называется пределом последовательности Кузнецова. Свяжем с каждой функцией из $G_i$ некоторую формулу Ф$'_j$, содержащую только переменные $x_1$, $x_2$ и имеющую глубину, меньшую $i$. Рассмотрим функцию $f\in G_{i+1}\setminus G_i$, она определяется формулой Ф$=s($Ф$_1$, $\ldots$, Ф$_n$), где формулы Ф$_1$, $\ldots$, Ф$_n$ либо являются переменными, либо определяют некоторые функции в $G_i$, но эти функции мы уже определили формулами Ф$'_j$, тогда елси заменить в формуле Ф формулы Ф$_j$ на Ф$'_j$, то мы получим формулу Ф$'$, определяющую ту же самую функцию $f$ $\Longrightarrow$ для получения из $G_i$ $G_{i+1}$ достаточно рассмотреть все формулы Ф'$=s($Ф$'_1$, $\ldots$, Ф$'_n)$. Значит данную последовательность имеет смысл проверять до первого совпадения $G_i$ и $G_{i+1}$.\\
     \begin{lemma}
-      Система фнкций в $P_k$ полна тогда и только тогда, когда в предел последовательности входит функция Вебба.
+      Система функций в $P_k$ полна тогда и только тогда, когда в предел последовательности входит функция Вебба.
     \end{lemma}
     \begin{proof}
       $\underline{\Longleftarrow}$ Пусть $V_k(x_1$, $x_2)\in G$, тогда функция Вебба получается суперпозициями из функций данной системы $\Longrightarrow$ эта система полна.\\
