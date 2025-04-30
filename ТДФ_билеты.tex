@@ -851,4 +851,58 @@
       \item $k$ - составное число, тогда $k=k_1\cdot k_2$, где $k_1\geqslant k_2>1$ - натуральные числа. Предположим, что $j_0(x)=b_0+b_1+\ldots+b_sx^s(mod$ $k)$, тогда $j_0(0)=b_0(mod$ $k)=1$, $j_0(k_1)=1+b_1k_1+\ldots+b_sk_1^s(mod$ $k)=k_1k_2n$ $\Longrightarrow$ $1=k_1(k_2n-b_1-b_2k_1-\ldots-b_sk_1^{s-1})$ $\Longrightarrow$ $k_1=1$ - противоречие.
     \end{enumerate}
   \end{proof}
+  \section{Билет 32 (Основные определения, связанные с конечным автоматом)}
+  \begin{definition}
+    Конечный абстрактный детерминированный автомат - объект $V=(A,Q,B,\phi,\psi)$, где $A$, $Q$, $B$ - конечные множества; $\phi:Q\times A\rightarrow$; $\psi:Q\times A\rightarrow B$. Множества $A$, $Q$, $B$ называются входным алфавитом, алфавитом состояний и выходным алфавитом соответственно.
+  \end{definition}
+  Способы задания:\\
+  \begin{enumerate}
+    \item С помощью таблицы со строками $a_1$, $\ldots$, $a_m$ и столбцами $q_1$, $\ldots$, $q_n$, где на пересечении $i$-ой строки и $j$-ого столбца находится элемент $(\phi(q_j, a_i), \psi(q_j, a_i))$.
+    \item С помощью диграммы мура: (см. рисунок 8 лекции на странице 3)
+    \item С помощью системы уравнений $k$-значной логики.
+  \end{enumerate}
+  \begin{definition}
+    Слово в алфавите $A$ - входное слово, в алфавите $B$ - выходное слово, в алфавите $Q$ - слово состояний.
+  \end{definition}
+  Обозначения: $\Lambda$ - пустое слово, $|\alpha|$ - длина слова $\alpha$, $X^*$ - множество слов в алфавите $X$, $\alpha]_l$ - начало слова $\alpha$, имеющее длину $l$.
+  \begin{definition}
+    База индукции: $\phi(q, \Lambda)=q$\\
+    Пусть $\phi(q,\alpha)$ - состояние автомата, появляющееся при подаче на вход слова $\alpha$, $a$ - буква алфавита, тогда $\phi(q, \alpha a)=\phi(\phi(q,\alpha),a)$ - состояние автомата при подаче на вход слова $\alpha a$.\\
+    Так как для функции $\psi$ нужен, чтобы был хотя бы какой-нибудь символ на вход $\Longrightarrow$ сразу перейти к шагу индукции.
+    Пусть $\psi(q,\alpha)$ - значение выходного символа при подаче на вход слова $\alpha$, $a$ - буква алфавита, тогда $\psi(q,\alpha a)=\psi(\psi(q,\alpha),a)$ - выходной символ при подаче на вход слова $\alpha a$.
+  \end{definition}
+  \begin{properties}
+    \begin{enumerate}
+      \item $\phi(q,\alpha_1\alpha_2)=\phi(\phi(q,\alpha_1),\alpha_2)$
+      \item $\psi(q,\alpha_1\alpha_2)=\psi(\phi(q,\alpha_1),\alpha_2)$
+      \item $\overline{\psi}(q,\alpha_1\alpha_2)=\overline{\psi}(q,\alpha_1)\overline{\psi}(\phi(q,\alpha_1),\alpha_2)$
+    \end{enumerate}
+  \end{properties}
+  \section{Билет 33 (Инициальный конечный автомат и функции, реализуемые им)}
+  \begin{definition}
+    Инициальный конечный автомат - объект $V_{q_1}=(A$, $Q$, $B$, $\phi$, $\psi$, $q_1)$, где $A$, $Q$, $B$ - конечные множества, $\phi :Q\times A\rightarrow Q$, $\psi : Q\times A \rightarrow B$, $q_1\in Q$.
+  \end{definition}
+  \begin{definition}
+    Конечно-автоматная функция - функция, заданная инициальным конечным автоматом. Она задана на $A^*$ и определена равенством $f(\alpha)=\overline{\psi}(q_1,\alpha)$.
+  \end{definition}
+  $i$-ую букву слова $\alpha$ обозначим $\alpha(i)$, так как слово является функцией, определённой на отрезке натурального ряда.
+  \begin{definition}
+    Канонические уравнения - это соотношения вида:
+    $$\begin{matrix}
+      \kappa(1)=q_1\\
+      \kappa(t+1)=\phi(\kappa(t), \alpha(t))\\
+      \beta(t)=\psi(\kappa(t), \alpha(t))
+    \end{matrix}$$
+    где слово $\kappa=\overline{\phi}(q_1, \alpha)$, слово $\beta=\overline{\psi}(q_1,\alpha)$, $\kappa=\kappa(1)\ldots\kappa(s+1)$, $\beta=\beta(1)\ldots\beta(s)$, $\alpha=\alpha(1)\ldots\alpha(s)$.
+  \end{definition}
+  \section{Билет 34 (Преобразование бесконечных и периодических последовательностей)}
+  \begin{definition}
+    Пусть $V_q(A$, $Q$,$B$, $\phi$, $\psi$, $q_1$) - инициальный конечный автомат, $\alpha=\alpha(1)\alpha(2)\ldots$ - бесконечная последовательность символов алфавита $A$. Множество таких последовательностей обозначим $A^{\infty}$. Скажем, что инициальный конечный автомат $V_q$ преобразует входную последовательность $\alpha$ в выходную последовательность $\beta$, где $\beta=\overline{\psi}(q,\alpha)$, а $i$-ый элемент последовательности $\beta$ имеет вид: $\beta(i)=\psi(q$, $\alpha(1)$, $\ldots$, $\alpha(i))$.
+  \end{definition}
+  \begin{definition}
+    Последовательность $\alpha=\alpha(1)\alpha(2)\ldots\in A^{\infty}$ называется периодической, если $\exists\tau$ и $\tau'$ : $\forall i\geqslant\tau'+1$ $\Longrightarrow$ $\alpha(i)=\alpha(i+\tau)$. $\tau'$ - длина предпериода, $\tau$ - длина периода.
+  \end{definition}
+  \begin{theorem}
+    Конечный инициальный автомат $V_{q_1}(A$, $Q$, $B$, $\phi$, $\psi$, $q_1)$, имеющий $n$ состояний, прелбразует любую периодическую последовательность $\alpha\in A^{\infty}$, имеющую наименьшую длину периода $\tau$, в периодическую последовательность с наименьшей длиной периода вида $\theta\cdot m$, где $\theta|\tau$, $m\in \{1$, $\ldots$, $n\}$. Если $|A|\geqslant3$ и $|B|\geqslant2$, то каждое такое значение вида $\theta\cdot m$ достигается при некотором автомате $V_q$ и соответствующей последовательности $\alpha$.
+  \end{theorem}
 \end{document}
