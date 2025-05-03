@@ -999,4 +999,24 @@
     Пусть $D<C>\cup D\nsubseteq X$, тогда рассмотрим слово $\alpha$ минимальной длины такое, что $\alpha\in(D<C>\cup D)\setminus X$. Так как $X=XC\cup D$, то $\alpha\notin(XC\cup D)$ $\Longrightarrow$ $\alpha\notin D$ и $\alpha\notin XC$ $\Longrightarrow$ $\alpha\in D<C>$. Так как $D<C>=D(C<C>\cup C)=(D<C>\cup D)C$, то $\alpha=\alpha_1\alpha_2$, где $\alpha_1\in (D<C>\cup D)$, $\alpha_2\in C$ $\Longrightarrow$ $\alpha_1\in X$, так как $\alpha\notin X$ - слово минимальной длины $\Longrightarrow$ $\alpha_1\alpha_2\in XC$ $\Longrightarrow$ $\alpha\in XC$, а значит, $\alpha\in XC\cup D=X$ - противоречие.\\
     То есть $D<C>\cup D\subseteq X$ и $X\subseteq(D<C>\cup D)$, значит, $X=D<C>\cup D$.
   \end{proof}
+  \section{Билет 40 (Лемма о регулярных событиях)}
+  \begin{theorem}
+    Пусть события $R_{ij}$ являются регулярными, тогда события $X_1$, $\ldots$, $X_n$, которые  удавлетворяют системе уравнений:\\
+    $\begin{cases}
+      X_1=X_1R_{11}\cup\ldots\cup X_nR_{n1}\cup R_{01}\\
+      \vdots\\
+      X_n=X_1R_{1n}\cup\ldots\cup X_nR_{nn}\cup R_{0n}
+    \end{cases}$\\
+    являются регулярными.
+  \end{theorem}
+  \begin{proof}
+    База индукции: $n=1$ $X_1=X_1R_{11}\cup R_{01}$, тогда по лемме $X_1=R_{01}<R_{11}\cup R_{01}$, то есть событие $X_1$ получено из регулярных событий с помощью операций произведения, объединения и итерации, а значит, событие $X_1$ является регулярным.\\
+    Пусть события $X_1$, $\ldots$, $X_{n-1}$ являются регулярными, рассмотрим последнее уравнение $X_n=X_1R_{1n}\cup\ldots\cup R_{nn}X_n\cup R{0n}$. Решим это уравнение относительно $X_n$, тогда получим $$X_n=(X_1R_{1n}\cup\ldots\cup X_{n-1}R_{n-1,n}\cup R_{0n})<R_{nn}>\cup X_1R_{11}\cup\ldots\cup X_{n-1}R_{n-1,n}\cup R_{0n}=$$ $$=X_1(R_{1n}<R_{nn}>\cup R_{1n})\cup\ldots\cup X_{n-1}(R_{n-1,n}<R_{nn}>\cup R_{n-1,n})\cup R_{0n}<R_{nn}>\cup R_{0n}$$. Подставим $X_n$ в систему из $n-1$ уравнения и получим:\\
+    $\tiny\begin{cases}
+      X_1=X_1(R_{11}\cup R_{n1}(R_{1n}<R_{nn}>\cup R_{1n}))\cup\ldots\cup X_{n-1}(R_{n-1,1}\cup R_{1n}(R_{n-1,n}<R_{nn}>\cup R_{n-1,n}))\cup R_{n1}(R_{0n}<R_{nn}>\cup R_{0n})\cup R_{01}\\
+      \vdots\\
+      X_{n-1}=X_1(R_{1n-1}\cup R_{nn-1}(R_{1n}<R_{nn}>\cup R_{1n}))\cup\ldots\cup X_{n-1}(R_{n-1,n-1}\cup R_{n-1n}(R_{n-1n}<R_{nn}>\cup R_{n-1n}))\cup R_{n,n-1}(R_{0n}<R{nn}>\cup R_{0n})\cup R_{0n-1}\\
+    \end{cases}$\\
+    $\normalsize$ Так как коэффициенты перед $X_1$, $\ldots$, $X_{n-1}$ - регулярные события, то можно применить предположение индукции, что события $X_1$, $\ldots$, $X_{n-1}$ являются регулярными, если системе уравнений такого вида. А значит, событие $X_n$ также является регулярным событием, так как оно получено из регулярных событий с помощью операций умножения, объединения и итерации.
+  \end{proof}
 \end{document}
