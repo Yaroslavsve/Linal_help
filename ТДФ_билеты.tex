@@ -989,4 +989,14 @@
   \begin{definition}
     Событие $M\subseteq A^*$ называется регулярным, если его можно получить из событий $\varnothing$, $\{a\}\in A$ с помощью конечного числа применения операции объединения событий, произведения событий и итерации события.
   \end{definition}
+  \section{Билет 39 (Лемма о решении уравнений)}
+  \begin{theorem}
+    Соотнешение $X=XC\cup D$ выполняется для событий $C$, $D$, $X$ тогда и тольо тогда, когда $X=D<C>\cup D$.
+  \end{theorem}
+  \begin{proof}
+    $\underline{\Longleftarrow}$ $X=D<C>\cup D$, тогда $XC\cup D=(D<C>\cup D)C\cup D=D(<C>C\cup C)\cup D=D(C<C>\cup C)\cup D=D<C>\cup D=X$.\\
+    $\underline{\Longrightarrow}$ Пусть $X=XC\cup D$ и $X\nsubseteq D<C>\cup D$, тогда рассмотрим кратчайшее слово $\alpha\in X\setminus(D<C>\cup D)$ $\Longrightarrow$ $\alpha\in XC\cup D$ и $\alpha\notin D$ $\Longrightarrow$ $\alpha\in XC$ $\Longrightarrow$ $\alpha=\alpha_1\alpha_2$, где $\alpha_1\in X$, $\alpha_2\in C$. Так как $\alpha\in X\setminus(D<C>\cup D)$ - слово минимальной длины, то $\alpha_1\in (D<C>\cup D)$ $\Longrightarrow$ $\alpha_1\alpha_2\in (D<C>\cup D)C$ $\Longrightarrow$ $\alpha\in (D<C>\cup D)C$, причём $(D<C>\cup D)C=D<C>C\cup DC=D(<C>C\cup C)=D(C<C>\cup C)=D<C>$ - противоречие.\\
+    Пусть $D<C>\cup D\nsubseteq X$, тогда рассмотрим слово $\alpha$ минимальной длины такое, что $\alpha\in(D<C>\cup D)\setminus X$. Так как $X=XC\cup D$, то $\alpha\notin(XC\cup D)$ $\Longrightarrow$ $\alpha\notin D$ и $\alpha\notin XC$ $\Longrightarrow$ $\alpha\in D<C>$. Так как $D<C>=D(C<C>\cup C)=(D<C>\cup D)C$, то $\alpha=\alpha_1\alpha_2$, где $\alpha_1\in (D<C>\cup D)$, $\alpha_2\in C$ $\Longrightarrow$ $\alpha_1\in X$, так как $\alpha\notin X$ - слово минимальной длины $\Longrightarrow$ $\alpha_1\alpha_2\in XC$ $\Longrightarrow$ $\alpha\in XC$, а значит, $\alpha\in XC\cup D=X$ - противоречие.\\
+    То есть $D<C>\cup D\subseteq X$ и $X\subseteq(D<C>\cup D)$, значит, $X=D<C>\cup D$.
+  \end{proof}
 \end{document}
