@@ -1052,4 +1052,20 @@
     Если $R=R_1\cdot R_2$, $R_1=|G_1|$, $R_2=|G_2|$, то возьмём в качестве источника $G$ источник, состоящий из источников $G_1$ и $G_2$, вершин $v_1=v$, $w_1$, $v_2$, $w_2=w$ и ребра, соответтствующего пустому слову и соединяющего вершины $w_1$ и $v_2$.\\
     Если $R=<R_1>$, $|G_1|=R_1$, то в качестве источника $G$ выберем источник, состоящий из источника $G_1$ и  ребра, соответствующего пустуму словуи соединяющего конечную и начальную вершины источника $G_1$.
   \end{proof}
+  \section{Билет 43 (Теорема об общённом источнике)}
+  \begin{theorem}
+    Если $G$ - обобщённый источник, то $|G|$ - представимое событие.
+  \end{theorem}
+  \begin{proof}
+    Пусть $M=\{v_1$, $\ldots$, $v_n\}$ - множество вершин обобщённого источника $G$ в алфавите $A$. $v_1$ - начальная вершина, $v_n$ - финальная вершина, $Q$ - множество всех подмножеств множества $M$. Рассмотрим автомат $V_{\{v_1\}}=(A$, $Q$, $\{0,1\}$, $\phi$, $\psi$, $\{v_1\})$, где $\phi(q,a)=\bigcup\limits_{v\in q}\theta(v,a)$, где $\theta(v,a)$ - множество вершин $u'$, для которых существует путь от $u'$ к $v$, соответствующий слову $a$, $\psi(q,a)=\begin{cases}
+      1, \textup{ если } v_n\in \phi(q,a)\\
+      0, \textup{ иначе}
+    \end{cases}$ $\Longrightarrow$ $\forall\alpha\in A^*\setminus\{\Lambda\}$ $\psi(q,\alpha)=1$ $\Leftrightarrow$ $v_n\in\phi(q,\alpha)$. $\alpha=\alpha'a$, где $\alpha'\in A^*$, $a\in A$, тогда $\psi(q,\alpha)=\psi(\phi(q,\alpha'),a)$, $\phi(q,\alpha)=\phi(\phi(q,\alpha'),a)$ $\Longrightarrow$ $\psi(q,\alpha)=1$ $\Leftrightarrow$ $v_n\in\phi(\phi(q,\alpha'),a)$.\\
+    Докажем, что $\forall\alpha\in A^*\setminus\{\Lambda\}$ $\phi(\{v_1\},\alpha)=\theta(v_1,\alpha)$.\\
+    База индукции: $\alpha=a\in A$, тогда утверждение верно по определению.\\
+    Пусть утверждение верно для всех слов, длина которых небольше $l$, тогда рассмотрим слово $\alpha$ длины, равной $l+1$, $\alpha=\alpha'a$, где $a\in A$, $\alpha'\in A^*$, тогда по предположению индукции имеем: $$\phi(\{v_1\},\alpha)=\phi(\phi(\{v_1\},\alpha'),a)=\phi(\theta(v_1,\alpha'),a)=\bigcup\limits_{v\in \theta(v_1,\alpha')}\theta(v,a)$$. Докажем включение в обе стороны.\\
+    Пусть $w\in\theta(v_1,\alpha)$, тогда существует путь $\pi$ от $v_1$ к $w$ такой, что $[\pi]=\alpha$, так как $\alpha=\alpha'a$, то путь $\pi$ можно разбить на две части такие, что $[\pi_1]=\alpha'$, $[\pi_2]=a$. Путь $\pi_1$ ведёт от вершины $v_1$ к вершине $u$, а путь $\pi_2$ - от вершины $u$ к вершине $w$ $\Longrightarrow$ $u\in\theta(v_1,\alpha')$, $w\in\theta(u,a)$ $\Longrightarrow$ $w\in\bigcup\limits_{v\in\theta(v_1,\alpha')}\theta(v,a)$.\\
+    Пусть $w\in\bigcup\limits_{v\in\theta(v_1,\alpha')}\theta(v,a)$, тогда $\exists u\in\theta(v_1,\alpha')$ такая, что $w\in\theta(u,a)$. Рассмотрим путь $\pi_1$ от $v_1$ к $u$ такой, что $[\pi_1]=\alpha'$, а также рассмотри путь $\pi_2$ от $u$ к $w$ такой, что $[\pi_2]=a$, тогда $\pi=\pi_1\pi_2$ - путь от $v_1$ к $w$ и $[\pi]=\alpha'a=\alpha$, то есть $w\in\theta(v_1,\alpha)$.
+    Таким образом, $\phi(\{v_1\},\alpha)=\theta(v_1,\alpha)$ $\forall\alpha\in A^*\setminus\{\Lambda\}$, $\alpha\in|G|$ $\Leftrightarrow$ $v_n\in\bigcup\limits_{v\in\theta(v_1,\alpha')}\theta(v,a)$ $\Leftrightarrow$ $v_n\in\theta(v_1,\alpha)$ $\Leftrightarrow$ $v_n\in\phi(\{v_1\},\alpha)$ $\Leftrightarrow$ $\psi(\{v_1\},\alpha)=1$ $\Longrightarrow$ $\alpha$ принадлежит событию, представимому в автомате $V_{\{v_1\}}$ с помощью подмножества $\{1\}$.
+  \end{proof}
 \end{document}
