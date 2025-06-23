@@ -124,7 +124,7 @@
   \begin{definition}
     Упорядоченный набор - функция, которая ставит в соответствие каждому элементу множества $\{1, \ldots, n\}$ элемент из множества $\{a_1,\ldots,a_n\}$ : $1\rightarrow a_1$, $\ldots$, $n\rightarrow a_n$.
   \end{definition}
-  Декартовое произведение множеств $A_1\times\ldots\times A_n=(a_1, \ldots, a_n)$ : $a_i\in A_i$.
+  Декартово произведение множеств $A_1\times\ldots\times A_n=(a_1, \ldots, a_n)$ : $a_i\in A_i$.
   \begin{definition}
     Пусть функция $f$ определена на $A_1\times\ldots\times A_n$, тогда $f$ - $n$-местная функция.
   \end{definition}
@@ -230,7 +230,7 @@
     \item Тождества с константным операндом
   \end{enumerate}
   \begin{definition}
-    Функция $g$ называется двойственной к $f$, если $g(x_1$, $\ldots$, $x_n)=\overline{f}(\overline{x_1}$, $\ldots$, $\overline{x_n})$. Обозначение $g=f^*$.
+    Функция $g$ называется двойственной к $f$, если $$g(x_1, \ \ldots, \ x_n)=\overline{f}(\overline{x}_1, \ \ldots, \ \overline{x}_n)$$. Обозначение $g=f^*$.
   \end{definition}
   \begin{definition}
     Если функция двойственна к самой себе, то она называется самодвойственной.
@@ -239,12 +239,12 @@
     Если Ф - формула в сигнатуре $\Sigma: S\to F$, определяющая некоторую функцию $g$, то эта формула в сигнатуре $\Sigma^*: S\to F^*$ определяет двойственную функцию $g^*$.
   \end{theorem}
   \begin{proof}
-    База индукции: пусть $x_i$ - символ переменной, тогда однобуквенное слово, состоящее из $x_i$ - формула в сигатуре $\Sigma$, определяющая одноместную функцию $g$. Эта формула в сигнатуре $\Sigma^*$ имеет вид $\overline{x_i}$, то есть она определяет функцию, двойственную к $g$.\\
+    База индукции: пусть $x_i$ - символ переменной, тогда однобуквенное слово, состоящее из $x_i$ - формула в сигатуре $\Sigma$, определяющая одноместную функцию $g$. Эта формула в сигнатуре $\Sigma^*$ имеет вид $\overline{x}_i$, то есть она определяет функцию, двойственную к $g$.\\
     Пусть $s\in S$, $f=\Sigma(s)$ - формула от $n$ переменных, Ф$_1$, $\ldots$, Ф$_n$ - формулы в сигнатуре $\Sigma$, тогда слово $s$(Ф$_1$, $\ldots$, Ф$_n$) - формула в сигнатуре $\Sigma$. В $\Sigma^*(s)=(\Sigma(s))^*=(\Sigma(s$(Ф$_1$, $\ldots$, Ф$_n$)))$^*=f^*$, то есть данная формула определяет в двойственной сигнатуре двойственнную функцию.
   \end{proof}
   \section{Билет 4 (Совершенные д.н.ф. и к.н.ф)}
   \begin{definition}
-    Выражение $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_n):f(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}\cdot f(\sigma_1,\ldots ,\sigma_n)$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
+    Выражение $$f(x_1 \ \ldots \ x_n)=\bigvee\limits_{(\sigma_1, \ \ldots, \ \sigma_n):f(\sigma_1, \ \ldots, \ \sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}\cdot f(\sigma_1,\ldots ,\sigma_n)$$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
     $\begin{cases}
       x_i,\sigma_i=1\\
       \overline{x}_i,\sigma_i=0
@@ -255,13 +255,13 @@
     $f(x_1$, $\ldots$, $x_n)=\bigvee\limits_{(\sigma_1, \ldots,\sigma_m)\in B_m}x_1^{\sigma_1}\cdot\ldots\cdot x_m^{\sigma_m}\cdot f(\sigma_1$, $\ldots$, $\sigma_m$, $x_{m+1}$, $\ldots$, $x_n)$.
   \end{theorem}
   \begin{proof}
-    Рассмотрим прозвольный набор $(\alpha_1$, $\ldots$, $\alpha_m$), если $(\alpha_1$, $\ldots$, $\alpha_m)\neq(\sigma_1$, $\ldots$, $\sigma_m$), то $\exists \alpha_i\neq\sigma_i$ $\Longrightarrow$ $\alpha_i^{\sigma_i}=0$ $\Longrightarrow$ данное слагаемое будет равно нулю. Тогда единственным не нулевым членом будет $(\alpha_1^{\alpha_1}\cdot\ldots\cdot\alpha_m^{\alpha_m})\cdot f(\alpha_1$, $\ldots$, $\alpha_m$, $x_{m+1}$, $\ldots$, $x_n)=f(x_1$, $\ldots$, $x_n$).
+    Рассмотрим прозвольный набор $(\alpha_1$, $\ldots$, $\alpha_m$), если\\ $(\alpha_1$, $\ldots$, $\alpha_m)\neq(\sigma_1$, $\ldots$, $\sigma_m$), то $\exists \alpha_i\neq\sigma_i$ $\Longrightarrow$ $\alpha_i^{\sigma_i}=0$ $\Longrightarrow$ данное слагаемое будет равно нулю. Тогда единственным не нулевым членом будет $$(\alpha_1^{\alpha_1}\cdot\ldots\cdot\alpha_m^{\alpha_m})\cdot f(\alpha_1, \ \ldots, \ \alpha_m, \ x_{m+1}, \ \ldots, \ x_n)=f(x_1, \ \ldots, \ x_n)$$.
   \end{proof}
   \begin{theorem}
     Любую функцию алгебры логики можно представить с помощью суперпозиций конъюнкции, дизъюнкции и отрицания.
   \end{theorem}
   \begin{proof}
-    Так как любая функция алгебры логики, кроме тождественного нуля, реализуется совершенной д.н.ф., значит она представима суперпозициями конъюнкции, дизъюнкции и отрицания. Тождественный ноль можно представить так: $x\wedge\overline{x}=0$.
+    Так как любая функция алгебры логики, кроме тождественного нуля, реализуется совершенной д.н.ф., значит, она представима суперпозициями конъюнкции, дизъюнкции и отрицания. Тождественный ноль можно представить так: $x\wedge\overline{x}=0$.
   \end{proof}
   \begin{theorem}
     Любая функция алгебры логики, кроме тождественной единицы, представима в виде совершенной конъюнктивной нормальной формы.
@@ -290,7 +290,7 @@
     Любая функция алгебры логики представима полиномом Жегалкина, причём единственным образом.
   \end{theorem}
   \begin{proof}
-    Так как в каждом мономе полинома Жегалкина $n$ перменных, каждая из которых может быть либо 0, либо 1, а коэффициент перед каждым мономом может принимать значение 0 или 1 $\Longrightarrow$ всего есть $2^{2^n}$ различных полиномов Жегалкина.\\
+    Так как в каждом мономе полинома Жегалкина $n$ переменных, каждая из которых может быть либо 0, либо 1, а коэффициент перед каждым мономом может принимать значение 0 или 1 $\Longrightarrow$ всего есть $2^{2^n}$ различных полиномов Жегалкина.\\
     Пусть два различных полинома Жегалкина задают одну функцию, тогда мы получим ненулевой полином, задающий нулевую константу $\Longrightarrow$ противоречие $\Longrightarrow$  Любая функция алгебры логики представима полиномом Жегалкина, причём единственным образом.
   \end{proof}
   \section{Билет 6 (Замыкание множества и замкнутые классы)}
@@ -386,14 +386,14 @@
     Функция алгебры логики называется монотонной, если $\forall$ двоичных наборов $\tilde{\alpha}$ и $\tilde{\beta}$ таких, что $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$.
   \end{definition}
   \begin{theorem}
-    Класс $M$ монотонных функций - замкнут.
+    Класс $M$ монотонных функций замкнут.
   \end{theorem}
   \begin{proof}
     \begin{enumerate}
       \item Операция подстановки переменных:\\
       $g(x_1$, $\ldots$, $x_n)=f(x_{i_1}$, $\ldots$, $x_{i_n})$, если функция $f$ монотонна, то\\ $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_n)$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_n)$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ $\Longrightarrow$ $\alpha_1\leqslant\beta_1$, $\ldots$, $\alpha_n\leqslant\beta_n$ $\Longrightarrow$\\
       $\Longrightarrow$ $\alpha_{i_1}\leqslant\beta_{i_1}$, $\ldots$, $\alpha_{i_n}\leqslant\beta_{i_n}$ $\Longrightarrow$ $f(\alpha_{i_1}$, $\ldots$, $\alpha_{i_n})\leqslant f(\beta_{i_1}$, $\ldots$, $\beta_{i_n})$ $\Longrightarrow$\\
-      $\Longrightarrow$ $g(\alpha_{1}$, $\ldots$, $\alpha_{n})=f(\alpha_{i_1}$, $\ldots$, $\alpha_{i_n})\leqslant f(\beta_{i_1}$, $\ldots$, $\beta_{i_n})=g(\beta_{i_1}$, $\ldots$, $\beta_{i_n})$ $\Longrightarrow$ $g$ - монотонна.
+      $\Longrightarrow$ $g(\alpha_{1}$, $\ldots$, $\alpha_{n})=f(\alpha_{i_1}$, $\ldots$, $\alpha_{i_n})\leqslant f(\beta_{i_1}$, $\ldots$, $\beta_{i_n})=g(\beta_{i_1}$, $\ldots$, $\beta_{i_n})$ $\Longrightarrow$ $g$ - монотонная функция.
       \item Операция подстановки одной функции в другую:\\ 
       $f(x_{1}$, $\ldots$, $x_{n})$, $g(x_{1}$, $\ldots$, $x_{m})$ - монотонные функции, $h(x_1$, $\ldots$, $x_{n+m-1})=f(x_1$, $\ldots$, $x_{n-1}$, $g(x_n$, $\ldots$, $x_{n+m-1}))$, так как функции $f$ и $g$ монотонны, $\forall\tilde{\alpha}=(\alpha_1$, $\ldots$, $\alpha_{m+n-1})$ и $\tilde{\beta}=(\beta_1$, $\ldots$, $\beta_{m+n-1})$ : $\tilde{\alpha}\leqslant\tilde{\beta}$, $f(\tilde{\alpha})\leqslant f(\tilde{\beta})$ и $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1})=g(\beta_n$, $\ldots$, $\alpha_{m+n-1})$ $\Longrightarrow$\\
       $(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant (\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))$ $\Longrightarrow$ $h(\alpha_1$, $\ldots$, $\alpha_{m+n-1})=f(\alpha_1$, $\ldots$, $\alpha_{n-1}$, $g(\alpha_n$, $\ldots$, $\alpha_{m+n-1}))\leqslant f(\beta_1$, $\ldots$, $\beta_{n-1}$, $g(\beta_n$, $\ldots$, $\beta_{n+m-1}))=h(\beta_1$, $\ldots$, $\beta_{m+n-1})$.
@@ -432,8 +432,8 @@
     Если функция $f$ нелинейна, то из неё, констант и отрицания можно получить конъюнкцию.
   \end{theorem}
   \begin{proof}
-    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f1$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
-    $\Longrightarrow$ $f(x_1+\alpha$, $x_2+\beta)=(x_1+\alpha)(x_2+\beta)+\alpha(x_1+\alpha)+\beta(x_2+\beta)+\gamma=x_1x_2+\alpha\beta\gamma$, если $\alpha\beta\gamma=1$, то возьмём $\overline{f}(x_1+\alpha$, $x_2+\beta)=x_1x_2$,  так как данная функция получена из $f$ с помощью констант и отрицания, значит, это искомая функция.
+    Пусть $f(x_1$, $\ldots$, $x_n)$ - нелинейная функция, тогда полином Жегалкина без ограничения общности имеет вид: $x_1x_2f_1(x_3$, $\ldots$, $x_n)+x_1f_2(x_3$, $\ldots$, $x_n)+x_2f_3(x_3$, $\ldots$, $x_n)+f_4(x_3$, $\ldots$, $x_n)$. Так как $f_1$ не является тождественно нулевой функцией, существует набор $(\alpha_3$, $\ldots$, $\alpha_n)$ : $f_1(\alpha_3$, $\ldots$, $\alpha_n)=1$, тогда $f=x_1x_2+\alpha x_1+\beta x_2+\gamma$ $\Longrightarrow$\\
+    $\Longrightarrow$ $f(x_1+\beta$, $x_2+\alpha)=(x_1+\beta)(x_2+\alpha)+\alpha(x_1+\beta)+\beta(x_2+\alpha)+\gamma=x_1x_2+\alpha\beta+\gamma$, если $\alpha\beta+\gamma=1$, то возьмём $\overline{f}(x_1+\alpha$, $x_2+\beta)=x_1x_2$,  так как данная функция получена из $f$ с помощью констант и отрицания, значит, это искомая функция.
   \end{proof}
   \section{Билет 11 (Теорема Поста)}
   \begin{theorem}
@@ -468,7 +468,7 @@
   \begin{proof}
     Пусть система $F$ полна, выберем в ней функции $f_1$, $f_2$, $f_3$, $f_4$, $f_5$ : $f_1\notin T_0$, $f_2\notin T_1$, $f_3\notin S$, $f_4\notin M$, $f_5\notin L$, по теореме Поста система из этих функций полна. Если $f_1\in T_1$, тогда $f_1\notin S$, тогда функцию $f_3$ можно выбрать равной $f_1$, а если $f_1(1$, $\ldots$, $1)=0$, то $f_1\notin M$, то есть $f_4$ можно выбрать равной $f_1$ $\Longrightarrow$ в обоих случаях мы получаем полную систему из четырёх функций.
   \end{proof}
- \section{Билет 14 (Базис в $P_k$)}
+ \section{Билет 14 (Базис в $P_2$)}
   \begin{definition}
     Пусть $K$ - замкнутый класс, $F$ - система функций данного класса, тогда $F$ называется полной, если $[F]=K$.
   \end{definition}
