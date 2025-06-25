@@ -230,7 +230,7 @@
     \item Тождества с константным операндом
   \end{enumerate}
   \begin{definition}
-    Функция $g$ называется двойственной к $f$, если $$g(x_1, \ \ldots, \ x_n)=\overline{f}(\overline{x}_1, \ \ldots, \ \overline{x}_n)$$. Обозначение $g=f^*$.
+    Функция $g$ называется двойственной к $f$, если $$g(x_1, \ \ldots, \ x_n)=\overline{f}(\overline{x}_1, \ \ldots, \ \overline{x}_n).$$Обозначение: $g=f^*$.
   \end{definition}
   \begin{definition}
     Если функция двойственна к самой себе, то она называется самодвойственной.
@@ -244,7 +244,7 @@
   \end{proof}
   \section{Билет 4 (Совершенные д.н.ф. и к.н.ф)}
   \begin{definition}
-    Выражение $$f(x_1 \ \ldots \ x_n)=\bigvee\limits_{(\sigma_1, \ \ldots, \ \sigma_n):f(\sigma_1, \ \ldots, \ \sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}\cdot f(\sigma_1,\ldots ,\sigma_n)$$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
+    Выражение $$f(x_1 \ \ldots \ x_n)=\bigvee\limits_{(\sigma_1, \ \ldots, \ \sigma_n):f(\sigma_1, \ \ldots, \ \sigma_n)=1}x_1^{\sigma_1}\cdot\ldots\cdot x_n^{\sigma_n}$$ называется совершенной дизъюнктивной нормальной формой. $x_i^{\sigma_i}=$
     $\begin{cases}
       x_i,\sigma_i=1\\
       \overline{x}_i,\sigma_i=0
@@ -269,7 +269,7 @@
   \begin{proof}
     Так как любая функция алгебры логики, кроме тождественного нуля, представима в виде совершенной д.н.ф., тогда по принципу двойственности\\
     $f(x_1$, $\ldots$, $x_n)=\bigwedge\limits_{(\sigma_1, \ldots,\sigma_n):f^*(\sigma_1, \ldots,\sigma_n)=1}x_1^{\sigma_1}\vee\ldots\vee x_n^{\sigma_n}$ $\Longrightarrow$\\
-    $f(x_1$, $\ldots$, $x_n)=\bigwedge\limits_{(\delta_1, \ldots,\delta_n):f(\delta_1, \ldots,\delta_n)=1}x_1^{\overline{\delta}_1}\vee\ldots\vee x_n^{\overline{\delta}_n}$.
+    $f(x_1$, $\ldots$, $x_n)=\bigwedge\limits_{(\delta_1, \ldots,\delta_n):f(\delta_1, \ldots,\delta_n)=0}x_1^{\overline{\delta}_1}\vee\ldots\vee x_n^{\overline{\delta}_n}$.
   \end{proof}
   \section{Билет 5 (Полные системы в алгебре логики)}
   \begin{definition}
@@ -493,12 +493,12 @@
     \item $\overline{x}=x+1(mod$ $k)$
     \item $\sim x=k-1-x$
     \item $J_i(x)=\begin{cases}
-      k-1\textup{, если} x=i\\
-      0\textup{, если} x\neq i
+      k-1\textup{, если } x=i\\
+      0\textup{, если } x\neq i
     \end{cases}$
     \item $j_i(x)=\begin{cases}
-      1\textup{, если} x=i\\
-      0\textup{, если} x\neq i
+      1\textup{, если} \ x=i\\
+      0\textup{, если} \ x\neq i
     \end{cases}$
     \item $min(x_1$, $x_2)$
     \item $max(x_1$, $x_2)$
@@ -1168,16 +1168,16 @@
     Функция $\phi$ называется локальной функцией переходов однородной структуры.
   \end{definition}
   \begin{definition}
-    Глобальная функция $\Phi$ переходов однородной структуры - функция, определённая на множестве состояний однородной структуры и имеющая виде:\\
-    $$g(\alpha)=\phi(f(\alpha), \ f(\alpha+\alpha_1), \ \ldots, \ f(\alpha+\alpha_{h-1})) \ \forall\alpha\in Z^k$$, где $f$ - локальная функция однородной структуры.
+    Глобальная функция $\Phi$ переходов однородной структуры - функция, определённая на множестве состояний однородной структуры и имеющая вид:\\
+    $$g(\alpha)=\phi(f(\alpha), \ f(\alpha+\alpha_1), \ \ldots, \ f(\alpha+\alpha_{h-1})) \ \forall\alpha\in Z^k,$$где $f$ - локальная функция однородной структуры.
   \end{definition}
   \begin{definition}
-    Поведение ондородной структуры $\sigma$ - последовательность $f_0$, $f_1$, $\ldots$ её состояний таккая, что $f_{i+1}=\Phi(f_i)$ $\forall i=0, 1\ldots$.
+    Поведение однородной структуры $\sigma$ - последовательность $f_0$, $f_1$, $\ldots$ её состояний такая, что $f_{i+1}=\Phi(f_i)$ $\forall i=0, 1\ldots$.
   \end{definition}
   \begin{example1}
     Пусть $\sigma=(Z^2$, $E_2$, $V$, $\phi$), где $V=(\alpha_1$, $\ldots$, $\alpha_{h-1}$) - произвольный шаблон соседства, $\phi(x_0$, $\ldots$, $x_{h-1})=x_0+\ldots+x_{h-1}(mod$ $2)$. Данная однородная структура является двумерной, каждая её ячейка имеет состояние либо 0, либо 1. Предположим, что $f(\alpha)=f_1(\alpha)+f_2(\alpha)(mod$ $2)$ $\forall\alpha\in Z^2$, тогда по определению основной функции переходов $\Phi$ имеем:\\
     $$\Phi(f)(\alpha)=f(\alpha)+f(\alpha+\alpha_1)+\ldots+f(\alpha+\alpha_{h-1})(mod \ 2)=$$\\$$=f_1(\alpha)+f_1(\alpha+\alpha_1)+\ldots+f_1(\alpha+\alpha_{h-1})+f_2(\alpha)+f_2(\alpha+\alpha_1)+\ldots+f_2(\alpha+\alpha_{h-1})(mod \ 2)=$$\\$$=\Phi(f_1)(\alpha)+\Phi(f_2)(\alpha)(mod \ 2)$$\\
-    По индукции легко проверить, что $\Phi^n(f)(\alpha)=\Phi^n(f_1)(\alpha)+\Phi^n(f_2)(\alpha)(mod$ $2)$ $\Longrightarrow$ для получения поведения одородной структуры с начальным состоянием $f$ достаточно найти поведения однородной структуры с начальными состояниями $f_1$ и $f_2$ $\Longrightarrow$ для изучения поведения конфигураций достаточно изучить в ней поведения простейших конфигураций, имеющих ровно одну ячейку в состоянии 1.\\
+    По индукции легко проверить, что $\Phi^n(f)(\alpha)=\Phi^n(f_1)(\alpha)+\Phi^n(f_2)(\alpha)(mod$ $2)$ $\Longrightarrow$ для получения поведения однородной структуры с начальным состоянием $f$ достаточно найти поведения однородной структуры с начальными состояниями $f_1$ и $f_2$ $\Longrightarrow$ для изучения поведения конфигураций достаточно изучить в ней поведения простейших конфигураций, имеющих ровно одну ячейку в состоянии 1.\\
     Данная структура является примером структуры, не имеющей неконструируемых конфигураций.
   \end{example1}
   \section{Билет 47 (Теорема Мура)}
@@ -1191,7 +1191,7 @@
     Функция $\Phi_K$ - функция, определённая на состояниях квадрата $V(K)$ и принимающая в качестве своих значений состояния квадрата $K$. Состояния квадрата будем называть его конфигурациями.
   \end{definition}
   \begin{definition}
-    Если конфигурация $h$ квадрата $K$ не пренадлежит множеству значений $\Phi_K$, то она называется неконструируемой.
+    Если конфигурация $h$ квадрата $K$ не принадлежит множеству значений $\Phi_K$, то она называется неконструируемой.
   \end{definition}
   \begin{definition}
     Пусть $f_1$, $f_2$ - две конфигурации квадрата $V(V(K))$ и пусть для них выполнены следующие требования:\\
