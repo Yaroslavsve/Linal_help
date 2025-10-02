@@ -1,0 +1,423 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{import}
+
+% Корректность отображения всех шрифтов, кодировок и мат. символов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amssymb, amsmath, amsthm, mathtools}
+
+% Отображение содержания
+\usepackage{tocloft}
+
+% Вставка картинок
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{asymptote}
+
+\usepackage{wrapfig}        % Огибание картинок текстом
+\usepackage{cancel}         % Зачёркивания
+\usepackage{indentfirst}    % Отступ у первого абзаца
+\usepackage{xcolor}         % Цвета
+\setlength{\parskip}{.5ex}  % Отступы между абзацами
+\usepackage{enumitem}       % Работа со списками
+% \usepackage{minted}       % Вставка блоков кода
+
+\usepackage{hyperref}       % гиперссылки
+\definecolor{linkcolor}{HTML}{225ae2} % Цвет ссылок
+\definecolor{urlcolor}{HTML}{225ae2} % Цвет гиперссылок
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true}
+\setlength{\arrayrulewidth}{0.5mm} %Толщина линейки в таблицах
+\setlength{\tabcolsep}{18pt} %Разделение между столбцами в таблице
+
+% Отступы на странице
+\usepackage[left=2cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+\usepackage{cmap}            % Русский поиск в PDF документе
+\usepackage{etoolbox}
+\usepackage{soul}            % Разряженный текст \so{} и подчеркивание \ul{}
+\usepackage{soulutf8}        % Поддержка UTF8 в soul
+
+\usepackage{titlesec}        % Форматирование заголовков
+\titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\large\bfseries}{\thesubsubsection}{1em}{}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+
+% Подписи для матриц
+\newcommand\undermat[2]{\makebox[0pt][l]{$\smash{\underbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\newcommand\overmat[2]{\makebox[0pt][l]{$\smash{\overbrace
+{\phantom{\begin{matrix}#2\end{matrix}}}^{\text{$#1$}}}$}#2}
+
+% Значек "пусть"
+\newlength{\tempheight}  
+\newcommand{\Let}[0]{  
+\mathbin{\text{\settoheight{\tempheight}{\mathstrut}\raisebox{0.5\pgflinewidth}{%
+\tikz[baseline,line cap=round,line join=round] \draw (0,0) --++ (0.4em,0) --++ (0,1.5ex) --++ (-0.4em,0);
+}}}}
+
+
+% \newcounter{lemcount}
+% \newcounter{thcount}
+% \newcounter{offercount}
+% \newcounter{concount}
+% \newcounter{subthcount}
+% \newcounter{defcount}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Определение}
+% \newtheorem{definitionnum}[defcount]{Определение}
+\newtheorem*{example}{Примеры}
+\newtheorem*{example1}{Пример}
+\newtheorem*{exercise}{Упражнение}
+
+
+\theoremstyle{plain}
+\newtheorem*{theorem}{Теорема}
+% \newtheorem{theoremnum}[thcount]{Теорема}
+\newtheorem*{consequense}{Следствие}
+\newtheorem*{consequenses}{Следствия}
+% \newtheorem{consequensenum}[concount]{Следствие}
+\newtheorem*{lemma}{Лемма}
+% \newtheorem{lemmanum}[lemcount]{Лемма}
+\newtheorem*{subtheorem}{Утверждение}
+% \newtheorem{subtheoremnum}[subthcount]{Утверждение}
+\newtheorem*{algorithm}{Алгоритм}
+\newtheorem*{properties}{Свойства}
+\newtheorem*{properties1}{Свойство}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{offer}{Предложение}
+% \newtheorem{offernum}[offercount]{Предложение}
+\begin{document}
+  \tableofcontents
+  \fontsize{14pt}{20pt}\selectfont
+  \newpage
+  \section {Множества}
+  Построение множеств:
+  \begin{definition}
+    Множество - $\{x|A(x)\}$, где $A(x)$ - некоторое свойство.
+  \end{definition}
+  \begin{definition}
+    $A\subseteq B$, если все элементы $A$ принадлежат множеству $B$
+  \end{definition}
+  \begin{definition}
+    $A=B$, если множества $A$ и $B$ состоят из одинаковых элементов.
+  \end{definition}
+  \begin{definition}
+    $P(A)=\{B|B\subseteq A\}$ - множество всех подмножеств.
+  \end{definition}
+  \begin{example}
+    Парадокс Рассела: $R=\{x|x\notin x\}$ $R\in R$ и  $R\notin R$.
+  \end{example}
+  \begin{definition}
+    $(a,b):=\{\{a\}, \{a, b\}\}$ - упорядоченная пара.
+  \end{definition}
+  \begin{definition}
+    $A\times B:=\{(a, b)|a\in A\wedge b\in B\}$ - декартого произведение множеств $A$ и $B$.
+  \end{definition}
+  \begin{definition}
+    $R\subseteq A\times A$ - бинарное отношение на множестве $A$.
+  \end{definition}
+  \begin{definition}
+    \begin{enumerate}
+        \item Рефлексивность: $\forall x\in A$ $xRx$
+        \item Симметричность: $\forall x, y\in A$ ($xRy\to yRx)$
+        \item Транзитивность: $\forall x, y, z\in A$ ($xRy\wedge yRz\to xRz)$
+        \item Антисимметричность: $\forall x, y\in A$ ($xRy\wedge  yRx\to x=y)$ 
+    \end{enumerate}
+  \end{definition}
+  \begin{definition}
+    $R$ - отношение частичного порядка, если оно рефлексивно, транзитивно и антисимметрично.
+  \end{definition}
+  \begin{definition}
+    $R$ - отношение эквивалентности, если оно рефлексивно, транзитивно и симметрично.
+  \end{definition}
+  \begin{definition}
+    $R(x):=\{y|xRy\}$ - класс эквивалентности элемента $x$.\\
+    $A/R:=\{R(x)|x\in A\}$ - фактормножество.
+  \end{definition}
+  \begin{definition}
+    $\Gamma$ - разбиение множества $A$, если:
+    \begin{enumerate}
+        \item $\Gamma\subseteq P(A)$
+        \item $\forall B\in \Gamma$ $B\neq\varnothing$
+        \item $\forall x\in A$ $\exists!$ $B\in\Gamma$ : $x\in B$
+    \end{enumerate}
+  \end{definition}
+  \begin{theorem}
+    $A/R$ - разбиение. Если $\Gamma$ - разбиение $A$, то $\exists!$ $R$ : $\Gamma=A/R$.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate} 
+      \item $A/R\subseteq P(A)$
+      \item $\forall B\in A/R$ $B\neq\varnothing$, потому что $\forall x\in A$ $xRx$ $\Longrightarrow$ $x\in R(x)$
+      \item $\forall x\in A $ $\exists B\in A/R$ : $x\in B$. Из-за транзитивности класс $B$ единственный.
+    \end{enumerate}
+  \end{proof}
+  \begin{definition}
+    $f\subseteq A\times B$ - функция из множества $A$ в множество в $B$, если $\forall x\in A$ $\exists!$ $y\in B$ : $(x, y)\in f$.\\
+    Если $\forall x,x'\in A$ $(f(x)=f(x')\to x=x')$, то $f$ - инъекция.\\
+    Если $\forall y\in B$ $\exists$ $x\in A$ : $y=f(x)$, то $f$ - сюръекция.\\
+    $f$ - биекция $\Longleftrightarrow$ $f$ - инъекция и сюръекция.
+  \end{definition}
+  \begin{definition}
+    Множества $A$ и $B$ равномощны, если существует биекция $f:A\longrightarrow B$. Обозначение: $A\sim B$.
+  \end{definition}
+  \begin{subtheorem}
+    Ровномощность является отношением эквивалентности.
+  \end{subtheorem}
+  \begin{proof}
+    \begin{enumerate}
+        \item $A\sim A$, так как $f$ : $f(x)=x$ - биекция
+        \item $A\sim B$, тогда $\exists$ биекция $f:A\longrightarrow B$ $\Longrightarrow$ $f^{-1}$ - биекция из $B$ в $A$
+        \item Биекция из $A$ в $C$ - композиция биекций
+    \end{enumerate}
+  \end{proof}
+  \begin{definition}
+    Множество $A$ вложимо в $B$, если существует инъекция $f:A\longrightarrow B$.
+  \end{definition}
+  \begin{theorem}
+    Данное отношение является отношением порядка.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+        \item $A\preceq A$ (так как существует биекция, то существует и инъекция)
+        \item $A\preceq B\wedge B\preceq C\to A\preceq C$, так как композиция инъекций является инъекцией
+        \item $A\preceq B\wedge B\preceq A\to A\sim B$ (Теорема Кантора - Бернштейна)
+    \end{enumerate}
+  \end{proof}
+  Определим натуральные числа так:\\
+  $0=\varnothing$\\
+  $1=\{0\}$\\
+  $\vdots$\\
+  $n+1=n\cup\{n\}$
+  $\omega=\{0,1,2,3,\ldots\}$ - множество натуральных чисел.
+  Принцип индукции
+  Пусть $X\subseteq\omega$, и пусть выполнены свойства:
+  \begin{enumerate}
+    \item $0\in X$
+    \item $\forall n(n\in X\to (n+1)\in X)$
+  \end{enumerate}
+  Тогда $X=\omega$.
+  \begin{theorem}
+    Всякое не пустое подмножество $\omega$ имеет наименьший элемент.
+  \end{theorem}
+  \begin{proof}
+    Пусть $\varnothing\not= A\subseteq\omega$ и в $A$ нет наименьшего элемента, тогда
+    \begin{enumerate}
+      \item $0\notin A$, иначе $0$ - наименьший элемент
+      \item $\{0,1,2,\ldots,n\}\cap A=\varnothing$, тогда $n+1\notin A$, иначе $n+1$ - наименьший элемент
+    \end{enumerate}
+    Следовательно, по принципу математической индукции $\{0,1,2,\ldots,n\}\cap A=\varnothing$ $\forall n$ $\Longrightarrow$ $A=\varnothing$ - противоречие.
+  \end{proof}
+  \begin{definition}
+    Множество называется конечным, если равномощно некоторому натуральному числу.
+  \end{definition}
+  \begin{lemma}
+    Если $m\in n$, то $n\setminus\{m\}\sim(n-1)$
+  \end{lemma}
+  \begin{proof}
+    База индукции:\\
+    $n=0$, доказывать нечего.\\
+    Пусть верно для $n$, докажем для $n+1$. Возьмём $m\in (n+1)=n\cup\{n\}$. Если $m=n$, то $(n+1)\setminus \{m\}=n$. Если $m\in n$, то применяем предположение индукции, что $n\setminus\{m\}\sim (n-1)$, то есть существует биекция между $n\setminus\{m\}$ и $(n-1)$. Отобразим $n\to (n-1)$, тем самым продлив биекцию до $(n+1)\setminus\{m\}\to n$.
+  \end{proof}
+  \begin{theorem}(Принцип Дирихле)
+    $\forall m, \ n\in\omega(m\sim n\to m=n)$.
+  \end{theorem}
+  \begin{proof}
+    $\Phi(n):=\forall m\{m\sim n\to m=n)\}$.
+    База индукции:\\
+    $n=0$ $\Longrightarrow$ $m\sim\varnothing$ $\Longrightarrow$ $m=\varnothing$.
+    Пусть верно $\Phi(n)$, докажем $\Phi(n+1)$. Предположим $(n+1)\sim m$, тогда существует биекция $f$ : $n\cup\{n\}\to m$. Пусть $k=f(n)$, тогда $g$ : $n\to m\setminus\{k\}$ - биекция $\Longrightarrow$ $n\sim m\setminus\{k\}$. По лемме $m\setminus\{k\}\sim(m-1)$ $\Longrightarrow$ по транзитивности $n\sim m-1$. По предположению индукции $n=m-1$ $\Longrightarrow$ $n+1=m$.
+  \end{proof}
+  \begin{definition}
+    Для конечного множества $x$ полагаем, что $|x|=n$, если $x\sim n$. 
+  \end{definition}
+  \begin{definition}
+    Для $m, n\in\omega$ $m<n:=m\in n$, $m\leqslant n:=m<n\vee m=n$.
+  \end{definition}
+  \begin{properties}
+    \begin{enumerate}
+      \item $m<n\wedge n<k\to m<k$(транзитивность)
+      \item $m\leqslant n\to m\subseteq n$
+      \item $n\not< n$(иррефлексивность)
+      \item $n<m\leftrightarrow n+1\leqslant m$ (дискретность вверх)
+      \item $n<m\vee m<n\vee m=n$
+    \end{enumerate}
+  \end{properties}
+  \begin{lemma}
+    Если $A$ конечно, то $A\cup\{x\}$ конечно. 
+  \end{lemma}
+  \begin{proof}
+    Если $x\in A$, то $A\cup\{x\}=A$ конечно.
+    Пусть $x\notin A$, $A\sim n$, тогда $A\cup\{x\}\sim n+1$ 
+  \end{proof}
+  \begin{lemma}
+    Если $A$ конечно, то $\forall n\in\omega$ $A\cup n$ конечно.
+  \end{lemma}
+  \begin{proof}
+    База индукции: $n=0$, $A\cup\varnothing=A$ конечно.
+    Пусть $A\cup n$ конечно. Запишем $A\cup(n+1)=A\cup(n\cup\{n\})=(A\cup n)\cup\{n\}$ - конечное множество по предположению индукции и по предыдущей лемме, последний переход по транзитивности.
+  \end{proof}
+  \begin{lemma}
+    Если множества $A$ и $B$ конечны и $A\cap B=\varnothing$, то $A\cup B$ конечно.
+  \end{lemma}
+  \begin{proof}
+    Так как $B$ конечно, то $B\sim n\in\omega$, то есть существует биекция $f:B\to n$ $\Longrightarrow$ существует биекция $g: A\cup B\to A\cup n$, тождественная на $A$ и совпадает с $f$ на $B$. По транзитивности и предыдущй лемме имеем, что $A\cup B$ конечно.
+  \end{proof}
+  \begin{theorem}
+    Если множества $A$ и $B$ конечны, то $A\cup B$ конечно.
+  \end{theorem}
+  \begin{proof}
+    $A\cup B=(A\setminus B)\cup B$. Докажем, что $A\setminus B$ - конечное множество. $A\setminus B\subseteq A$ и докажем, что любое подмножество $C$ конечного множества конечно.\\
+    База индукции: $|A|=0$, тогда $|C|=0$. Пусть верно для $|A|=n$. Рассмотрим $|A|=n+1$, если $C=A$, то $C$ конечно. Пусть $C\subset A$, тогда $\exists a\in A$ и $a\notin C$ $\Longrightarrow$ $|A\setminus\{a\}|=n$ $\Longrightarrow$ $C\subseteq A\setminus\{a\}$ $\Longrightarrow$ по предположению индукции $C$ конечно. Значит, $A\setminus B$ конечно. По последней лемме $A\cup B$ конечно.
+  \end{proof}
+  \begin{theorem}
+    Если множества $A$ и $B$ конечны, то $A\times B$ конечно.
+  \end{theorem}
+  \begin{proof}
+    База индукции: $|B|=0$, тогда 
+  \end{proof}
+  \begin{definition}
+    $m+n:=|A\cup B|$, где $|A|=m$, $|B|=n$, $A\cap B=\varnothing$.
+    $m\cdot n:=|A\times B|$, где $|A|=m$, $|B|=n$.
+    $B^A:=\{f|f\textup{ - функция из A в B}\}$.
+  \end{definition}
+  \begin{lemma}
+    $\forall n\in\omega$ $B^{n+1}\sim B^n\times B$.
+  \end{lemma}
+  \begin{proof}
+    Пусть $f: n\to B$, $b\in B$, тогда построим функцию $g:(n+1)\to B$, которая совпадает с $f$ на множестве $n$ и переводит $n+1$ в $b$. Она задаёт биекцию между $B^n\times B\to B^{n+1}$.
+  \end{proof}
+  \begin{lemma}
+    Если множество $B$ конечно, то $\forall n\in\omega$ $B^n$ конечно.
+  \end{lemma}
+  \begin{proof}
+    По последней теореме и предыдущей лемме по индукции получаем данное утверждение.
+  \end{proof}
+  \begin{lemma}
+    Если $A\sim C$, то $B^A\sim B^C$.
+  \end{lemma}
+  \begin{proof}
+    Пусть дана биекция $g:A\to C$. По функции $f:C\to B$ строим композицию $(f\cdot g): A\to B$. Это задаёт биекцию $B^C$ на $B^A$.
+  \end{proof}
+  \begin{theorem}
+    Если множества $A$ и $B$ конечны, то $B^A$ конечно.
+  \end{theorem}
+  \begin{proof}
+    Из двух последних лемм получаем данное утверждение.
+  \end{proof}
+  \begin{definition}
+    $m^n:=|B^A|$, где $|B|=m$, $|A|=n$.
+  \end{definition}
+  \begin{definition}
+    Характеристической функцией для любого подмножества $A$ множества $X$ называется функция $f$ такая, что $f(x)=\begin{cases}
+      1\textup{, если } x\in A\\
+      0\textup{, если } x\notin A
+    \end{cases}$ $\forall x\in X$
+  \end{definition}
+  \begin{theorem}
+    $2^A\sim P(A)$.
+  \end{theorem}
+  \begin{proof}
+    Между подмножествами множества $A$ и их характеристическими функция существует биекция, а множество всех характеристических функций равно $2^A$.
+  \end{proof}
+  \begin{theorem}{Теорема Кнтора}
+    $|A|<|P(A)|$.
+  \end{theorem}
+  \begin{proof}
+    $A\preceq P(A):$ инъекция $a\to\{a\}$. Предполодим, что $f:A\to P(A)$ - биекция, и рассмотрим $B=\{a|a\notin f(a)\}$.
+  \end{proof}
+  \begin{theorem}
+    Даны множество $Y$, $y_0\in Y$, функция $h:Y\to Y$. Тогда существует единственная функция $f:\omega\to Y$ такая, что
+    \begin{enumerate}
+      \item $f(0)y_0$
+      \item $\forall n$ $f(n+1)=h(f(n))$
+    \end{enumerate} 
+  \end{theorem}
+  \begin{proof}
+    Назовём $m$-функцией такую же функцию, как в формулировке теоремы, но заданную на множестве $m+1$.\\
+    База индукции: $\{(0, y_0)\}$ единственная 0-функция.\\
+    Шаг индукции: если $g$ - $m$-функция, то, добавив $\{(m+1,h(g(m)))\}$, получим $m+1$-функцию.\\Объединив все $m$-функции, получим искомую $\omega$-функцию $f$.
+  \end{proof}
+  \begin{definition}
+    Множество $A$ называется счётным, если $A\sim\omega$.
+  \end{definition}
+  \begin{theorem}
+    \begin{enumerate}
+      \item Если $A$ конечно, $B$ счётно, то $A\prec B$.
+      \item Если $A$ счётно, $B\subseteq A$, то $B$ конечно или счётно.
+      \item Если $A$ счётно, $B$ конечно или счётно, то $A\cup B$ счётно.
+      \item Если $A$ счётно, $B$ конечно или счётно, то $A\times B$ счётно.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item По транзитивности $A\preceq B$. Пусть $A\sim B$, тогда $\omega\sim n$ по транзитивности. Из того что $n+1\subseteq\omega$ следует, что $n+1\preceq n$, что противоречит принципу Дирихле.
+      \item Пусть $A=\omega$, $B\subseteq A$ бесконечно. По рекурсии построим биекцию $f:\omega\to B$. Сначала построим функцию $F$ такую, что $F(0)=\{min(B)\}$, $F(n+1)=F(n)\cup min(B\setminus F(n))$.
+      \item Пусть $A$ и $B$ счётны и не пересекаются, тогда предъявим обход по элементам как было в курсе математического анализа в первом семестре.
+      \item $\omega\times\omega\sim\omega$: канторовская нумерация.
+    \end{enumerate}
+  \end{proof}
+  \begin{definition}
+    Множество бесконечно по Дедекинду (D-бесконечно), если оно равномощно какому-нибудь своему собственному подмножеству.
+  \end{definition}
+  \begin{theorem}
+    \begin{enumerate}
+      \item Конечное множество D-конечно.
+      \item Счётное множество D-бесконечно.
+      \item Если $A$ счётно, $A\subseteq B$, то $B$ D-бесконечно.
+      \item $A$ D-бесконечно $\Longleftrightarrow$ $A$ содержит счётное подмножество.
+      \item Если $A$ D-бесконечно, $B$ конечно, то $A\cup B\sim A\setminus B\sim A$.
+      \item Если $A$ D-бесконечно, $B$ счётно, то $A\cup B\sim A$.
+    \end{enumerate}
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+      \item По принципу Дирихле.
+      \item Пусть $A$ счётно, тогда $\omega\subseteq A$ и $A\sim\omega$ $\Longrightarrow$ по определению $A$ D-бесконечно.
+      \item Построим отображение из $B$ в $A$,
+      \item $\underline{\Longleftarrow}$ По утверждению 3.\\
+      $\underline{\Longrightarrow}$ Пусть $f:A\to B$ - биекция, где $B\subset A$. Если $A\in A\setminus B$, то рассмотрим $\{f(a),f(f(a)),\ldots\}$. Таким образом получили искомое счётное множество.
+      \item Если $C\subseteq A$ - счётное множество, $B\cap A=\varnothing$ и $B\sim n$, то строим биекцию из $A\cup B$ на $A$: сдвигаем все элементы $C$ на $n$, а на освободившиеся места отображаем $B$. $A=(A\setminus B)\cup B$, тогда по утверждению 3 $A\setminus B$ D-бесконечно, так как оно содержит счётное подмножество $C\setminus B$, а по уже доказанному в утверждении пункту получаем, что $A\sim A\setminus B$.
+      \item Если $C\subseteq A$ счётно, $B\cap A=\varnothing$ и $B\sim\omega$, то строим биекуию из $A\cup B$ на $A$: удваиваем номера всех элементов $C$, а на нечётные места отображаем $B$.
+    \end{enumerate}
+  \end{proof}
+  \begin{theorem}
+    Всякое бесконечное множество D-бесконечно.
+  \end{theorem}
+  \begin{proof}
+    Построим инъекцию между бесконечным множеством и $\omega$, тогда по утверждению 4 данное множество D-бесконечно.
+  \end{proof}
+  \begin{definition}
+    $c:=2^{\omega}$ - континуум.
+  \end{definition}
+\end{document}
