@@ -420,4 +420,43 @@
   \begin{definition}
     $c:=2^{\omega}$ - континуум.
   \end{definition}
+  \begin{definition}
+    Пусть $X\not=\varnothing$, $\leqslant$ - бинарное отношение на $X$
+    \begin{enumerate}
+      \item $\leqslant$ - (частичный) порядок, если $\leqslant$ - рефлексивно, транзитивно и антисимметрично;
+      \item $\leqslant$ - линейный порядок, если $\leqslant$ - частичный порядок, а также $\forall x, y\in X$ $(x\leqslant y\vee y\leqslant x)$;
+      \item $\leqslant$ - полный порядок, если $\leqslant$ - частичный порядок, а также любое непустое подмножество $X$ имеет наименьший элемент.
+    \end{enumerate}
+    Обозначение: $x<y:=x\leqslant y\wedge x\neq y$.
+    Соответствующие пары $(X,\leqslant)$ называются:
+    \begin{enumerate}
+      \item (частично) упорядоченным множеством
+      \item линейно упорядоченным множеством
+      \item вполне упорядоченным множеством (ВУМ)
+    \end{enumerate}
+  \end{definition}
+  \begin{definition}
+    Пусть $\alpha=(X,\leqslant)$, $\beta=(X',\leqslant')$ - вполне упорядоченные множества. Изоморфизмом $\alpha$ на $\beta$ называется отображение $f:X\to X'$, которое является биекцией и сохраняет порядок, то есть $x\leqslant y\to f(x)\leqslant f(y)$.
+  \end{definition}
+  \begin{lemma}{Свойства изоморфизмов}
+    \begin{enumerate}
+      \item $x<y\to f(x)<f(y)$
+      \item Если $f$ - изоморфизм $\alpha$ на $\beta$, то обратная функция $f^{-1}$ - изоморфизм $\beta$ на $\alpha$
+      \item Композиция изоморфизмов - изоморфизм
+    \end{enumerate}
+  \end{lemma}
+  \begin{definition}
+    Пусть $\alpha$, $\beta$ - вполне упорядоченные множества, тогда $\alpha$ изоморфно $\beta$, если существует изоморфизм $\alpha$ на $\beta$. Обозначение: $\alpha\cong\beta$.
+  \end{definition}
+  \begin{lemma}
+    \begin{enumerate}
+      \item $\alpha\cong\alpha$
+      \item Если $\alpha\cong\beta$, то $\beta\cong\alpha$
+      \item Если $\alpha\cong\beta$ и $\beta\cong\gamma$, то $\alpha\cong\gamma$
+    \end{enumerate}
+  \end{lemma}
+  \begin{definition}
+    Пусть $(X,\leqslant)$ - вполне упорядоченное множество. Начальный отрезок $\alpha$ - подмножество $Y\subseteq X$, замкнутое по убыванию: $\forall y\in Y$ $\forall x\in X$ $(x<y\to x\in Y)$.
+  \end{definition}
+  
 \end{document}
