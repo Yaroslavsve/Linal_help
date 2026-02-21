@@ -301,14 +301,22 @@
             -k & 0 & a_{23}\\
             0 & -a_{23} & 0
         \end{pmatrix}$. Обозначим $-a_{23}=\kappa$. Тогда из равенства $Q'=A\cdot Q$ следуют пункты 2 и 3.\\
-        Рассмотрим $-(n', \ b)=k\cdot(v, \ b)+\kappa\cdot(b, \ b)=\kappa$
+        Рассмотрим $-(n', \ b)=k\cdot(v, \ b)+\kappa\cdot(b, \ b)=\kappa$, значит, $\kappa(s)$ --- гладкая функция.
     \end{proof}
     \begin{definition}
         Функция $\kappa(s)$ называется фуннкцией кручения кривой $\gamma$.
     \end{definition}
     \begin{exercise}
-        Доказать, что существует вектор $\omega(s)$ такой, что $v'=\omega v$, $n'=\omega n$, $b'=\omega b$
+        Доказать, что существует вектор $\omega(s)$ такой, что $v'=[\omega, \ v]$,\\$n'=[\omega, \ n]$, $b'=[\omega, \ b]$.
     \end{exercise}
+    \begin{proof}
+        Рассмотрим вектор $\omega=-\kappa\cdot v-k\cdot b$ и проверим, что он удовлетворяет нужным условиям.
+        \begin{enumerate}
+            \item $[\omega, \ v]=[(-\kappa\cdot v-k\cdot b), \ v]=-\kappa[v, \ v]-k[b, \ v]=-k[[v, \ n], \ v]$ (из определения вектора $b$), тогда $[\omega, \ v]=-k(v\cdot(n, \ v)-n\cdot(v, \ v))=k\cdot n=v'$.
+            \item $[\omega, \ n]=[(-\kappa\cdot v-k\cdot b), \ n]=-\kappa[v, \ n]-k[b, \ n]=-\kappa\cdot b-k[[v, \ n], \ n]$ (из определения вектора $b$), тогда $[\omega, \ n]=-\kappa\cdot b-k(v\cdot(n, \ n)-n\cdot(v, \ n))=-\kappa\cdot b-k\cdot v=n'$.
+            \item $[\omega, \ b]=[(-\kappa\cdot v-k\cdot b), \ v]=-\kappa[v, \ b]-k[b, \ b]=-\kappa[v, [v, \ n]]$ (из определения вектора $b$), тогда $[\omega, \ b]=-\kappa(v\cdot(v, \ n)-n\cdot(v, \ v))=\kappa\cdot n=b'$.
+        \end{enumerate}
+    \end{proof}
     \begin{definition}
         Кривая $\gamma$ бирегулярна, если $\forall s \ r''(s)\neq0$.
     \end{definition}
