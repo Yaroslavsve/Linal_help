@@ -418,6 +418,7 @@
         Касательный вектор к $M$ в точке $P$ --- это вектор скорости некоторой кривой, лежащей на $M$ и проходящей через точку $P$.
     \end{definition}
     \begin{subtheorem}
+        \hypertarget{5}{}
         Множество всех касательных векторов к $M$ в точке $P$ образует векторное пространство, причём базисом этого пространства являются векторы $r_1(P)$, $\ldots$, $r_n(P)$, где $r_i=\frac{\partial r}{\partial x^i}$.
     \end{subtheorem}
     \begin{proof}
@@ -442,4 +443,127 @@
             \item Пусть $\gamma$ и $\tilde{\gamma}$ --- две кривые на поверхности $M$ и пусть они пересекаются в точке $P$. $\gamma: x^i=x^i(t)$, $\tilde{\gamma}:\tilde{x}^i=\tilde{x}^i(t)$. Так как кривые пересекаются, то $x^i(t_0)=\tilde{x}^i(\tau_0)$ для некотырых $t_0$ и $\tau_0$. Тогда $\cos(\phi)=\frac{(\dot{\gamma}, \ \dot{\tilde{\gamma}})}{|\dot{\gamma}|\cdot|\dot{\tilde{\gamma}}|}$.
         \end{enumerate}
     \end{remark}
+    \begin{definition}
+        Ковариантное ускорение кривой $\gamma$ --- это ортогональная проекция вектора ускорения на касательную плоскость $T_{\gamma}M$. Обозначается $\nabla_{\dot{\gamma}}\dot{\gamma}$.
+    \end{definition}
+    \begin{definition}
+        Кривая называется геодезической, если $\nabla_{\dot{\gamma}}\dot{\gamma}\equiv0$.
+    \end{definition}
+    \subsection{Ковариантное дифференцирование векторных полей}
+    \begin{definition}
+        Пусть $M$ --- $n$-мерная поверхность. $f:M\to\R$ --- гладкая функция, если для любой системы координат $x^1, \ \ldots, \ x^n$ $f(x^1, \ \ldots, \ x^n)\in C^{\infty}$.
+    \end{definition}
+    \begin{definition}
+        Пусть $P\in M$ --- точка на поверхности $M$, $X\in T_PM$ --- касательный вектор. Рассмотрим кривую $\gamma:[a, \ b]\to M$ такую, что $\gamma(t_0)=P$ и $\dot{\gamma}(t_0)=X$ для некоторого $t_0\in[a, \ b]$. Производной функции $f$ вдоль вектора $X$ называется $\partial_Xf=\frac{\partial}{\partial t}f(\gamma(t))$.
+    \end{definition}
+    \begin{subtheorem}
+        $\partial_Xf$ не зависит от $\gamma$.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть $z=r(x)$, $\gamma: x=x(t)$, $f=f(x)$, $r_1$, ..., $r_n$ --- базис касательного пространства, тогда $X=\sum\limits_{i=1}^nX^ir_i(P)$, $X^i=\dot{x}^i$
+        $$\partial_Xf=\frac{\partial}{\partial t}\vert_{t=t_0}=\sum\limits_{i=1}^{n}X^i\frac{\partial f}{\partial x^i}$$
+        Легко видеть, что полученное выражение не зависит от кривой $\gamma$.
+    \end{proof}
+    \begin{definition}
+        Гладкое векторное поле на поверхности $M$ --- это соответствие, сопоставляющее каждой точке $P\in M$ вектор $X(P)\in T_PM$.
+    \end{definition}
+    \begin{definition}
+        Ковариантная производная поля $X$ в точке $P$ вектора $Y$ --- это $\nabla_YX=\Pi\left(\frac{\partial}{\partial t}\vert_{t=t_0}X(\gamma(t))\right)$.
+    \end{definition}
+    \begin{subtheorem}
+        Ковариантная производная не зависит от $\gamma$.
+    \end{subtheorem}
+    \begin{proof}
+        $M:z=r(x)$ --- заданная поверхность, $X=\sum\limits_{i=1}^nX^i(x)\cdot r_i(x)$, $Y=\sum\limits_{j=1}^nY^j(P)\cdot r_j(P)$, $\gamma:x=x(t)$, $Y^j=\dot{x}^j(t_0)$, где $x(t_0)=P$.\\
+        Тогда $$\nabla_YX=\Pi\left(\frac{d}{dt}\vert_{t=t_0}\sum\limits_{i=1}^nX^i(x(t))r_i(x(t))\right)=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial t}r_i+X^i\cdot\frac{\partial r^i}{\partial t}\right)\right)=$$
+        $$=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot\dot{x}^jr_i+X^i\cdot\frac{\partial r^i}{\partial x^j}\dot{x}^j\right)\right)=Y^j(\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot r_i+X^i\cdot\frac{\partial r^i}{\partial x^j}\right)\right)$$
+        Легко видеть, что последнее выражение не зависит от кривой $\gamma$, значит, ковариантная производная не зависит от кривой $\gamma$.
+    \end{proof}
+    \begin{remark}
+        Пусть $r_{ij}=\frac{\partial^2 r}{\partial x^i\partial x^j}=\frac{\partial r_i}{\partial x^j}$, тогда, пользуясь тем, что векторы $r_i$ образуют базис касательного пространства \hyperlink{5}{по утверждению 2.1 и соответствующему определению}, получим $$\nabla_YX=Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}r_i+\Pi\left(X^i\frac{\partial r_i}{\partial x^j}\right)\right)=Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}r_k+X^k\Pi(r_{jk})\right)$$
+        Сделаем замену $\Pi(r_{jk})=\sum\limits_{i=1}^n\Gamma_{jk}^i(x)r_i$. Тогда формула ковариантной прямой будет иметь вид:
+        $$Y^j\sum\limits_{i,k=1}^n\left(\frac{\partial X^i}{\partial x^j}+\Gamma_{jk}^i(x)\cdot X^k\right)r_i$$
+    \end{remark}
+    \begin{definition}
+        Коэффициенты $\Gamma_{jk}^i$ называются символами Кристоффеля второго рода, а коэффициенты $\Gamma_{ij, \ m}=(r_{ij}, \ r_m)$ --- символами Кристоффеля первого рода.
+    \end{definition}
+    \begin{subtheorem}
+        $\Gamma_{ij, \ m}=\frac{1}{2}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g_{ij}=((r_i, \ r_j))$ --- матрица первой фундаментальной формы.\\
+        $\Gamma_{ij}^k=\frac{1}{2}g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g^{km}=g_{ij}^{-1}$.
+    \end{subtheorem}
+    \begin{proof}
+        $$\frac{\partial g_{ij}}{\partial x^m}=(r_{im}, \ r_{j})+(r_{jm}, \ r_i)=\Gamma_{im, \ j}+\Gamma_{jm, \ i}$$
+        Переставим переменные по циклу $(i, \ j, \ m)$
+        $$\frac{\partial g_{jm}}{\partial x^i}=(r_{ji}, \ r_{m})+(r_{mi}, \ r_j)=\Gamma_{ji, \ m}+\Gamma_{mi, \ j}$$
+        $$\frac{\partial g_{mi}}{\partial x^j}=(r_{mj}, \ r_{i})+(r_{ij}, \ r_m)=\Gamma_{mj, \ i}+\Gamma_{ij, \ m}$$
+        Отсюда получим
+        $$\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}=\Gamma_{jm, \ i}+\Gamma_{ij, \ m}+\Gamma_{ij, \ m}+\Gamma_{im, \ j}-\Gamma_{im, \ j}-\Gamma_{jm, \ i}=2\Gamma_{ij, \ m}$$
+        Введём обозначения: $\hat{\Gamma}_{ij}=\begin{pmatrix}
+            \Gamma_{ij}^1\\
+            \vdots\\
+            \Gamma_{ij}^n
+        \end{pmatrix}$, $\hat{G}_{ij}=\begin{pmatrix}
+            \Gamma_{ij, \ 1}\\
+            \vdots\\
+            \Gamma_{ij, \ n}
+        \end{pmatrix}$
+        $$\Gamma_{ij, \ m}\overset{(1)}{=}(r_{ij}, \ r_m)\overset{(2)}{=}(\Pi(r_{ij}), \ r_m)\overset{(3)}{=}(\Gamma_{ij}^kr_k, \ r_m)=g_{km}\Gamma_{ij}^k$$
+        (1) : по определению\\
+        (2) : так как векторы $r_m$ являются векторами касательного пространства\\
+        (3) : по определению
+        $$\hat{G}_{ij}=g_{km}\hat{\Gamma}_{ij} \ \Longrightarrow \ \Gamma_{ij}^k=\frac{1}{2}g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$$
+    \end{proof}
+    \subsubsection{Параллельный перенос касательных векторов}
+    \begin{definition}
+        Гладким семейством векторов, касательных к $M$ в точках кривой $\gamma$, называется соответствие, сопоставляющее каждому $t\in[a, \ b]$ вектор $X(t)\in T_{\gamma(t)}M$ и гладко зависящее от $t$.
+    \end{definition}
+    \begin{definition}
+        Ковариантная производная гладкого семейства $X(t)$ в точке $t_0$ вдоль кривой $\gamma$ --- это $\nabla_{\dot{\gamma}}X=\Pi(\dot{X}(t_0))$.
+    \end{definition}
+    Пусть $x=(x^1, \ \ldots, x^n)$, $\gamma: x=x(t)$, $X=\sum\limits_{i=1}^nX^i(t)r_i(x(t))$, тогда $$\nabla_{\dot{\gamma}(t)}X=\Pi\left(\sum\limits_{i=1}^n(\dot{X}^ir_i)+\sum\limits_{k=1}^nX^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=$$
+    $$=\sum\limits_{i=1}^n(\dot{X}^ir_i)+\Pi\left(\sum\limits_{k=1}^nX^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=\sum\limits_{i,k=1}^n\left((\dot{X}^i+\Gamma_{jk}^i\dot{x}^jX^k)r_i\right)$$
+    Последняя формула является формулой ковариантной производной.
+    \begin{definition}
+        Гладкое семейство $X(t)$ параллельно кривой $\gamma$, если его ковариантная производная тождественно равна нулю.
+    \end{definition}
+    \begin{remark}
+        Гладкое семейство параллельно кривой $\gamma$, если $\dot{X}^i+\Gamma_{jk}^i\dot{x}^jX^k\equiv0 \ \forall i\in\{1, \ \ldots, \ n\}$
+    \end{remark}
+    \begin{subtheorem}
+        Пусть $P=\gamma(a)$, $X_0\in T_PM$, тогда существует единственное семейство касательных векторов $X(t)$ такое, что
+        \begin{enumerate}
+            \item $X(t)$ параллельно кривой $\gamma$
+            \item $X(a)=X_0$
+        \end{enumerate}
+    \end{subtheorem}
+    \begin{proof}
+        $$\begin{cases}
+            X^i(a)=X_0^i\\
+            \dot{X}^i+\Gamma_{jk}^i\dot{x}^jX^k=0
+        \end{cases}$$
+        Данная система является системой линейных однородных дифференциальных уравнений с начальными условиями, значит, по теореме Коши она имеет единственное решение.
+    \end{proof}
+    \begin{definition}
+        Это семейство является результатом параллельного переноса вектора $X_0$ по кривой $\gamma$.
+    \end{definition}
+    \begin{definition}
+        Поверхности $M$ и $N$ касаются вдоль кривой $\gamma$, если $\gamma$ лежит на $M$ и на $N$ и $\forall t \ T_{\gamma(t)}M=T_{\gamma(t)}N$
+    \end{definition}
+    \begin{propertes}[параллельного переноса]\tab
+        \begin{enumerate}
+            \item Параллельный перенос линейно зависит от $X_0$.
+            \item Параллельный перенос сохранят скалярное произведение.
+            \item Если $M$ и $N$ --- касаются вдоль кривой $\gamma$, то $X(t)$ являестя результатом параллельного переноса вдоль кривой $\gamma$ на $M$ тогда и только тогда, когда оноявляестя результатом параллельного переноса вдоль кривой $\gamma$ на $N$.
+        \end{enumerate}
+    \end{propertes}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item 
+            \item Рассмотрим $X(t)$ и $Y(t)$ вдоль кривой $\gamma$, тогда $((X, \ Y))'_t=(\dot{X}, \ Y)+(X, \ \dot{Y})=$ $=(\Pi(\dot{X}), \ Y)+(X, \ \Pi(\dot{Y}))=(\nabla_{\dot{\gamma}}X, \ Y)+(\nabla_{\dot{\gamma}}Y, \ X)=0$
+            \item 
+        \end{enumerate}
+    \end{proof}
+    \begin{consequence}
+        Параллельный перенос сохраняет длины и углы.
+    \end{consequence}
 \end{document}
