@@ -289,9 +289,13 @@
     \end{theorem}
     \begin{proof}
         Рассмотрим матрицу $Q(s)=\begin{pmatrix}
-            v\uparrow & n\uparrow & b\uparrow
+            \vec{v}\\
+            \vec{n}\\
+            \vec{b}
         \end{pmatrix}$, тогда $$Q'(s)=\begin{pmatrix}
-            v'\uparrow & n'\uparrow & b'\uparrow
+            \vec{v}'\\
+            \vec{n}'\\
+            \vec{b}'
         \end{pmatrix}=A\cdot Q$$\hyperlink{3}{По первому пункту леммы 1.2} $A$ --- кососимметрическая матрица.\\Пусть $A=\begin{pmatrix}
             0 & a_{12} & a_{13}\\
             -a_{12} & 0 & a_{23}\\
@@ -340,9 +344,13 @@
                 -k & 0 & -\varkappa\\
                 0 & -\varkappa & 0
             \end{pmatrix}$, рассмотрим матрицу $Q(s)$ такую, что $\dot{Q}(s)=A(s)\cdot Q(s)$ и $Q(0)=\begin{pmatrix}
-                v_0\uparrow & n_0\uparrow & b_0\uparrow
+                \vec{v}_0\\
+                \vec{n}_0\\
+                \vec{b}_0
             \end{pmatrix}$. Последнее уравнение является системой линейных дифференциальных уравнений с начальными условиями, тогда по теореме Коши существования и единственности решения существует единственное решение $Q(s)=\begin{pmatrix}
-                v(s)\uparrow & n(s)\uparrow & b(s)\uparrow
+                \vec{v}(s)\\
+                \vec{n}(s)\\
+                \vec{b}(s)
             \end{pmatrix}$. Рассмотрим $r(s)=\int\limits_0^sv(s_1)ds_1+r_0$ и рассмотрим кривую $\gamma \ : \ z=r(s)$. $r'(s)=v(s)$, значит, эта кривая $\gamma$ является гладкой и регулярной, причём $s$ --- нормальный параметр. Так как $r''=v'=k_0\cdot n$, то $|v'|=k_0$, то есть $k_0$ --- кривизна кривой $\gamma$. \hyperlink{4}{По второй пространственной формуле Френе} $n'=-k_0v-\varkappa_0b$ $\Longrightarrow$ $-\varkappa_0=(n', \ b)$.
             \item Пусть $\gamma_1$ и $\gamma_2$ --- две бирегулярные кривые, у которых кривизна и кручение совпадают. Рассмотрим сдвиг, соединяющий начальные точки. Теперь рассмотрим реперы Френе этих кривых $\{v_1, \ n_1, \ b_1\}$ и $\{v_2, \ n_2, \ b_2\}$ соответственно и поворот, переводящий репер первой кривой в репер второй кривой. \hyperlink{4}{Из пространственных формул Френе} имеем:
             $$v'_j=k\cdot n_j$$
@@ -550,6 +558,7 @@
         Поверхности $M$ и $N$ касаются вдоль кривой $\gamma$, если $\gamma$ лежит на $M$ и на $N$ и $\forall t \ T_{\gamma(t)}M=T_{\gamma(t)}N$
     \end{definition}
     \begin{propertes}[параллельного переноса]\tab
+        \hypertarget{6}{}
         \begin{enumerate}
             \item Параллельный перенос линейно зависит от $X_0$.
             \item Параллельный перенос сохранят скалярное произведение.
@@ -566,4 +575,106 @@
     \begin{consequence}
         Параллельный перенос сохраняет длины и углы.
     \end{consequence}
+    Пусть дана некоторая поверхность $M$, $P$ и $Q$ --- точки на этой поверхности. Обозначим отображение $p_{\gamma}:T_PM\to T_QM$.
+    \begin{definition}
+        Рассмотрим кривую $\gamma$, которая является петлёй, то есть существуют такие значения $a$ и $b$, что $\gamma(a)=\gamma(b)=P$, тогда оператор $p_{\gamma}:T_PM\to T_PM$ называется оператором голономии, который соответствует кривой $\gamma$.
+    \end{definition}
+    \begin{remark}
+        Семейство данных операторов образует группу, которая называется группой голономий.
+    \end{remark}
+    Пусть $M$ --- поверхность, $\gamma\subset M$ --- геодезическая кривая, тогда по определению $\Pi(\ddot{\gamma})\equiv0 \ \Longrightarrow \ \nabla_{\dot{\gamma}}\dot{\gamma}\equiv0$.
+    \begin{remark}
+        Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости не меняет направление.
+    \end{remark}
+    Введём $X^i=\dot{x}^i$ и рассмотрим систему дифференциальных уравнений $$\begin{cases}
+        \dot{X}^i+\Gamma^i_{jk}(x)X^jX^k=0\\
+        \dot{x}^i-X^i=0\\
+        x^i(0)=x_0^i\\
+        X^i(0)=X_0^i
+    \end{cases}$$
+    Здесь $t\in[0, \ T]$. По теореме Коши эта система имеет единственное решение.
+    \begin{propertes}[геодезической кривой]\tab
+        \begin{enumerate}
+            \item Через каждую точку в направлении каждого касательного вектора проходит одна геодезическая кривая.
+            \item Если $\gamma$ --- геодезическая кривая, то $|\dot{\gamma}|=const$.
+            \item При параллельном переносе вектора $X(t)$ вдоль геодезической кривой сохраняется угол между этой кривой и вектором $X$.
+            \item Если поверхности $M$ и $Q$ касаются вдоль кривой $\gamma$, то $\gamma$ геодезическая на $M$ тогда и только тогда, когда $\gamma$ геодезическая на $Q$.
+        \end{enumerate}
+    \end{propertes}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item Следует из теоремы Коши.
+            \item По определению кривая $\gamma$ геодезическая, если $\Pi(\ddot{\gamma})\equiv0$. Рассмотрим $(|\dot{\gamma}|^2)'=2(\dot{\gamma}, \ \ddot{\gamma})=2(\dot{\gamma}, \ \Pi(\ddot{\gamma})+\ddot{\gamma}_{\perp})=2(\dot{\gamma}, \ \ddot{\gamma}_{\perp})=0$ (так как $\dot{\gamma}$ --- касательный вектор). Значит, $|\dot{\gamma}|^2=const$, то есть $|\dot{\gamma}|=const$.
+            \item Рассмотрим $(X, \ \dot{\gamma})'=(\nabla_{\dot{\gamma}}X, \ \dot{\gamma})+(X, \ \nabla_{\dot{\gamma}}\dot{\gamma})=0$ (первое слагаемое равно нулю по определению параллельного переноса, второе из определения геодезической кривой.
+            \item \hyperlink{6}{Из свойства 3 параллельного переноса} и из свойства 2 геодезической кривой следует данное утверждение.
+        \end{enumerate}
+    \end{proof}
+    \subsection{Изометрии поверхностей}
+    \subsubsection{Дифференциал гладкого отображения поверхностей}
+    \begin{definition}
+        Пусть $M\subset\R^n$ и $Q\subset\R^k$ --- поверхности в $\R^N$. Пусть $M:z=r(x)$, $x=(x^1, \ \ldots, \ x^n$, $Q:w=\rho(y)$, $y=(y^1, \ \ldots, \ r^k)$. Рассмотрим отображение $f:M\to Q$ такое, что $y^i=f^i(x^1, \ \ldots, \ x^n)$ $\forall i=\overline{1,k}$. Тогда отображение $f$ называется гладким, если $\forall i$, $f^i\in C^{\infty}$.
+    \end{definition}
+    \begin{subtheorem}
+        Пусть $X=\dot{\gamma}(t_0)$, $Y=\frac{d}{dt}|_{t=t_0}f(\gamma)$. Тогда $Y$ не зависит от выбора кривой $\gamma$. Более того, соответствие $X\longrightarrow Y$ является линейным отображением из $T_PM$ в $T_{f(P)}Q$.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть $\gamma:x^i=x^i(t)$, $X^i=\dot{x}_j(t_0)$, $x=(x^1, \ \ldots, \ x^n)$, $f(\gamma):y^i=f^i(x(t))$, $Y^i=\frac{d}{dt}|_{t=t_0}f^i(x(t))$, $y=(y^1, \ \ldots, \ r^k)$. Тогда $Y^i=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}_j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$
+    \end{proof}
+    \begin{definition}
+        Построенное отображение называется дифференциалом $f$ в точке $P$ и обозначается $Y=d_Pf(X)$.
+    \end{definition}
+    \begin{definition}
+        Гладкое отображение $f:M\to Q$ называется изометрией, если:
+        \begin{enumerate}
+            \item $f$ --- биекция, $f^{-1}$ --- гладкое отображение, то есть $f$ --- диффеоморфизм.
+            \item $\forall P\in M$, $X$, $Y\in T_PM$ $(X, \ Y)=(d_Pf(X), \ d_Pf(Y))$.
+        \end{enumerate}
+    \end{definition}
+    \begin{definition}
+        Поверхности $M$ и $Q$ называются изометричными, если существует изометрия $f:M\to Q$.
+    \end{definition}
+    \begin{exercise}
+        Доказать следующие свойства изометрии:
+        \begin{enumerate}
+            \item Изометрия сохраняет длины кривых и углы между кривыми.
+            \item Параллельные семейства векторов переходят в параллельные.
+            \item Геодезические кривые переходят в геодезические.
+        \end{enumerate}
+    \end{exercise}
+    \begin{exercise}
+        Доказать, что развёртки цилиндра и конуса на плоскость являются изометрией.
+    \end{exercise}
+    \begin{definition}
+        Поверхности $M$ и $Q$ называются локально изометричными, если $\forall\in P$ существует $P\in U\subset M$ такая, что существует изометрия $f:U\to V\subset Q$.
+    \end{definition}
+    \begin{remark}
+        Пусть $x\in M$ $x=(x^1, \ \ldots, \ x^n)$, $Y^i=f^i(x^1, \ \ldots, \ x^n)$, $X=r_i=\frac{\partial r}{\partial x^i}$, $Y=r_j=\frac{\partial r}{\partial x^j}$, $(X, \ Y)=(df(X), \ df(Y))$. Тогда $df(r_i)=\frac{\partial Y_k}{\partial x^i}\rho_k$, $df(r_j)=\frac{\partial Y_s}{\partial x^j}\rho_s$ $g_{ij}(x)=\frac{\partial y_k}{\partial x^i}\cdot\frac{\partial y_s}{\partial x^j}\cdot\tilde{g}_{ks}(y(x))$. Последнее равенство является условием изометричности.
+    \end{remark}
+    \begin{definition}
+        $n$-мерная поверхность в пространстве размерности $N$ называется гиперплоскостью, если $n=N-1$.
+    \end{definition}
+    \begin{definition}
+        Нормальное сечение поверхности $M$ в точке $P$ --- это пересечение $M$ с двумерной плоскостью.
+    \end{definition}
+    \begin{exercise}
+        Доказать, что в окрестности точки $P$ нормальное сечение является гладкой регулярной кривой. Указание: использовать теорему о неявной функции.
+    \end{exercise}
+    \begin{remark}
+        Каждое нормальное сечение определяет и определяется касательным вектором.
+    \end{remark}
+    Введём обозначение: $\tilde{k}(x)$ --- кривизна в точке $P$ нормального сечения, проведённого в направлении вектора $x$.
+    \begin{theorem}
+        $b(x)=|x|^2\cdot\tilde{k}(x)$ --- квадратичная форма на $T_PM$.
+    \end{theorem}
+    \begin{proof}
+        Пусть $\gamma$ --- нормальное сечение, $t$ --- натуральный параметр, $X=\dot{\gamma}$. Пусть $M:z=r(x)$, $\gamma:x=x(t)$, тогда $\gamma:z=r(x(t))$.\\
+        $\dot{\gamma}=\frac{\partial r}{\partial x^i}\dot{x}^i$, $\ddot{\gamma}=\frac{\partial^2r}{\partial x^i\partial x^j}\cdot\dot{x}^i\cdot\dot{x}^j+r_i\ddot{x}^i$.\\
+        Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=(\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{X}^i\cdot\dot{X}^j=b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
+    \end{proof}
+    \begin{remark}
+        В каноническим базисе матрица формы $b$ есть $b_{ij}=(r_{ij}, \ n)$.
+    \end{remark}
+    \begin{definition}
+        Матрица $b$ --- вторая фундаментальная форма $M$ в точке $P$.
+    \end{definition}
 \end{document}
