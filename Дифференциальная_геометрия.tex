@@ -443,7 +443,7 @@
     \begin{definition}
         Первая фундаментальная форма поверхности --- это соответствие, сопоставляющее каждой точке $P$ этой поверхности симметричную положительно определённую билинейную форму в $T_PM$ --- ограничение скалярного произведения из $\R^N$.
     \end{definition}
-    \begin{remark}
+    \begin{remark}\tab
         \begin{enumerate}
             \item Пусть $X$, $Y\in T_PM$, $x=\sum\limits_{j=1}^nx^jr_j$, $x=(x^1, \ \ldots, \ x^n)$, тогда $(X, \ Y)=\sum\limits_{i,j=1}^{n}g_{ij}x^iy^j$
             \item $|X|=\sqrt{(X, \ X)}$, $\cos(\phi_{xy})=\frac{(X, \ Y)}{|X|\cdot|Y|}$
@@ -495,7 +495,7 @@
     \begin{definition}
         Коэффициенты $\Gamma_{jk}^i$ называются символами Кристоффеля второго рода, а коэффициенты $\Gamma_{ij, \ m}=(r_{ij}, \ r_m)$ --- символами Кристоффеля первого рода.
     \end{definition}
-    \begin{subtheorem}
+    \begin{subtheorem}\hypertarget{10}{}
         $\Gamma_{ij, \ m}=\frac{1}{2}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g_{ij}=((r_i, \ r_j))$ --- матрица первой фундаментальной формы.\\
         $\Gamma_{ij}^k=\frac{1}{2}g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g^{km}=g_{ij}^{-1}$.
     \end{subtheorem}
@@ -583,8 +583,8 @@
         Семейство данных операторов образует группу, которая называется группой голономий.
     \end{remark}
     Пусть $M$ --- поверхность, $\gamma\subset M$ --- геодезическая кривая, тогда по определению $\Pi(\ddot{\gamma})\equiv0 \ \Longrightarrow \ \nabla_{\dot{\gamma}}\dot{\gamma}\equiv0$.
-    \begin{remark}
-        Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости не меняет направление.
+    \begin{remark}\hypertarget{9}{}
+        Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости остаётся параллельным самому себе (параллельно переносится вдоль кривой $\gamma$).
     \end{remark}
     Введём $X^i=\dot{x}^i$ и рассмотрим систему дифференциальных уравнений $$\begin{cases}
         \dot{X}^i+\Gamma^i_{jk}(x)X^jX^k=0\\
@@ -618,7 +618,7 @@
         Пусть $X=\dot{\gamma}(t_0)$, $Y=\frac{d}{dt}|_{t=t_0}f(\gamma)$. Тогда $Y$ не зависит от выбора кривой $\gamma$. Более того, соответствие $X\longrightarrow Y$ является линейным отображением из $T_PM$ в $T_{f(P)}Q$.
     \end{subtheorem}
     \begin{proof}
-        Пусть $\gamma:x^i=x^i(t)$, $X^i=\dot{x}_j(t_0)$, $x=(x^1, \ \ldots, \ x^n)$, $f(\gamma):y^i=f^i(x(t))$, $Y^i=\frac{d}{dt}|_{t=t_0}f^i(x(t))$, $y=(y^1, \ \ldots, \ r^k)$. Тогда $Y^i=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}_j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$
+        Пусть $\gamma:x^i=x^i(t)$, $X^i=\dot{x}_i(t_0)$, $x=(x^1, \ \ldots, \ x^n)$, $f(\gamma):y^i=f^i(x(t))$, $Y^i=\frac{d}{dt}|_{t=t_0}f^i(x(t))$, $y=(y^1, \ \ldots, \ y^k)$. Тогда $Y^i=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}_j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$
     \end{proof}
     \begin{definition}
         Построенное отображение называется дифференциалом $f$ в точке $P$ и обозначается $Y=d_Pf(X)$.
@@ -641,6 +641,13 @@
             \item Геодезические кривые переходят в геодезические.
         \end{enumerate}
     \end{exercise}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item $|X|^2=(X, \ X)=(d_Pf(X), \ d_Pf(X))=|d_PX|^2$, $\cos(\phi_1)=\frac{(d_Pf(X), \ d_Pf(Y))}{|d_Pf(X)|\cdot|d_Pf(Y)|}=\frac{(X, \ Y)}{|X|\cdot|Y|}=\cos(\phi_0)$
+            \item Пусть $\tilde{\gamma} = f \circ \gamma: [0,1] \to Q$, $\nabla_{\dot{\gamma}(t)} X(t) = 0$ (параллельный перенос вектора $X$ вдоль кривой $\gamma$), тогда $\dot{\tilde{\gamma}}(t) = d_{\gamma(t)}f(\dot{\gamma}(t))$, $\tilde{X}(t) = d_{\gamma(t)}f(X(t)) \in T_{\tilde{\gamma}(t)}Q$, $d_Pf(\nabla_X Y) = \tilde{\nabla}_{d_Pf(X)} d_Pf(Y)$, $\tilde{\nabla}_{\dot{\tilde{\gamma}}(t)} \tilde{X}(t)\tilde{\nabla}_{d_{\gamma(t)}f(\dot{\gamma}(t))}d_{\gamma(t)}f(X(t))=d_{\gamma(t)}f(\nabla_{\dot{\gamma}(t)}X(t))= d_{\gamma(t)}f(0)= 0$, то есть изометрия сохраняет параллельный перенос, а значит, параллельные семейства переходят в параллельные.
+            \item Из предыдущего пункта знаем, что изометрия сохраняет параллельный перенос, а значит, \hyperlink{9}{по замечанию 14} $f(\gamma)$ геодезическая.
+        \end{enumerate}
+    \end{proof}
     \begin{exercise}
         Доказать, что развёртки цилиндра и конуса на плоскость являются изометрией.
     \end{exercise}
@@ -648,7 +655,7 @@
         Поверхности $M$ и $Q$ называются локально изометричными, если $\forall\in P$ существует $P\in U\subset M$ такая, что существует изометрия $f:U\to V\subset Q$.
     \end{definition}
     \begin{remark}
-        Пусть $x\in M$ $x=(x^1, \ \ldots, \ x^n)$, $Y^i=f^i(x^1, \ \ldots, \ x^n)$, $X=r_i=\frac{\partial r}{\partial x^i}$, $Y=r_j=\frac{\partial r}{\partial x^j}$, $(X, \ Y)=(df(X), \ df(Y))$. Тогда $df(r_i)=\frac{\partial Y_k}{\partial x^i}\rho_k$, $df(r_j)=\frac{\partial Y_s}{\partial x^j}\rho_s$ $g_{ij}(x)=\frac{\partial y_k}{\partial x^i}\cdot\frac{\partial y_s}{\partial x^j}\cdot\tilde{g}_{ks}(y(x))$. Последнее равенство является условием изометричности.
+        Пусть $x\in M$ $x=(x^1, \ \ldots, \ x^n)$, $Y^i=f^i(x^1, \ \ldots, \ x^n)$, $X=r_i=\frac{\partial r}{\partial x^i}$, $Y=r_j=\frac{\partial r}{\partial x^j}$, $(X, \ Y)=(df(X), \ df(Y))$. Тогда $df(r_i)=\frac{\partial Y_k}{\partial x^i}\rho_k$, $df(r_j)=\frac{\partial Y_s}{\partial x^j}\rho_s$, $g_{ij}(x)=\frac{\partial y_k}{\partial x^i}\cdot\frac{\partial y_s}{\partial x^j}\cdot\tilde{g}_{ks}(y(x))$. Последнее равенство является условием изометричности.
     \end{remark}
     \begin{definition}
         $n$-мерная поверхность в пространстве размерности $N$ называется гиперплоскостью, если $n=N-1$.
@@ -672,9 +679,180 @@
         Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=(\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{X}^i\cdot\dot{X}^j=b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
     \end{proof}
     \begin{remark}
-        В каноническим базисе матрица формы $b$ есть $b_{ij}=(r_{ij}, \ n)$.
+        В каноническом базисе матрица формы $b$ есть $b_{ij}=(r_{ij}, \ n)$.
     \end{remark}
     \begin{definition}
         Матрица $b$ --- вторая фундаментальная форма $M$ в точке $P$.
     \end{definition}
+    Пусть $P\in M\subset\R^n$, $P\in\gamma$, где $\gamma$ --- регулярная кривая, $x=\dot{\gamma}$.
+    \begin{theorem}[Менье]
+        Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$, тогда $k\cos(\phi)=\tilde{k}$.
+    \end{theorem}
+    \begin{proof}
+        Проведём натуральную параметризацию, тогда $|x|=1$, $t$ --- натуральный параметр. Пусть $x=(x^1, \ \ldots, \ x^n)$, $\gamma : x^i=x^i(t)$, $z=\rho(t)=r(x(t))$.\\Тогда $\dot{\rho}=\frac{\partial r}{\partial x^i}\cdot\dot{x}^i=r_i\dot{x}^i$, $\ddot{\rho}=\frac{\partial r_i}{\partial x^j}\cdot\dot{x}^j\cdot\dot{x}^i+r_i\cdot\ddot{x}^i=r_{ij}X^iX^j+r_i\ddot{x}^i$. Тогда $b_{ij}X^iX^j=b(x)$.
+    \end{proof}
+    \begin{theorem}
+        Пусть $P$ --- точка на поверхности $M$, тогда в касательном пространстве $T_PM$ существует набор касательных векторов $\{e_1, \ \ldots, \ e_n\}$, которые образуют ортонормированный базис в этом пространстве такой, что матриица $b$ второй фундаментальной формы является диагональной матрицей, где на диагонали стоят собственные значения.
+    \end{theorem}
+    \begin{proof}
+        См. конспект курса лекций по линейной алгебре.
+    \end{proof}
+    \begin{definition}
+        Числа $\lambda_j$ называются главными кивизнами, а направления векторов $e_j$ --- главными направлениями.
+    \end{definition}
+    \begin{remark}
+        Пусть $r_1$, $\ldots$, $r_n$ --- базис в $T_PM$, $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальной формы соответственно. Тогда корни характеристического многочлена $\chi=det(b-\lambda g)$ являются главными кривизнами, а векторы $e_j$ такие, что $(b-\lambda_jg)e_j=0$ являются главными направлениями.
+    \end{remark}
+    \begin{theorem}[\hypertarget{7}{Формула Эйлера}]
+        $\sum\limits_{j=1}^n\lambda_j\cos^2(\alpha_j)$, где $\lambda_j$ --- главные кривизны, $\alpha_j$ --- углы между вектором $x$ и $j$-м главным направлением.
+    \end{theorem}
+    \begin{proof}
+        Пусть $|x|=1$, тогда $\tilde{k}(x)=b(x)=\sum\limits_{j=1}^n\lambda_j(\tilde{x}_j)^2$, $\tilde{x}_j=(x, \ e_j)=\cos(\alpha_j)$ (так как $|x|=1$ и $|e_j|=1$).
+    \end{proof}
+    \begin{consequence}
+        $\tilde{k}(e_i)=\lambda_i$.
+    \end{consequence}
+    \begin{consequence}
+        Пусть $\lambda^+=\max(\lambda_1, \ \ldots, \ \lambda_n)$, $\lambda^-=\min(\lambda_1, \ \ldots, \ \lambda_n)$, тогда\\$\lambda^+=\max(\tilde{k}(x))$ и $\lambda^-=\min(\tilde{k}(x))$.
+    \end{consequence}
+    \begin{proof}
+        Без ограничения общности будем считать, что $\lambda^+=\lambda_1$, тогда \hyperlink{7}{по теореме 2.4} $\tilde{k}(x)=\lambda_1\cos^2(\alpha_1)+\sum\limits_{j=2}^n\lambda_j\cos^2(\alpha_j)$. $\cos^2(\alpha_1)=1-\sum\limits_{j=2}^n\cos^2(\alpha_j)$ $\Longrightarrow$ $\tilde{k}(x)=\lambda^++\sum\limits_{j=2}^n(\cos^2(\alpha_j)(\lambda_j-\lambda^+)\leqslant\lambda^+$. Для $\lambda^-$ аналогично.
+    \end{proof}
+    \begin{definition}
+        Гауссовой кривизной называется число $k=\lambda_1\cdot\ldots\cdot\lambda_n$, средней кривизной называется число $h=\sum\limits_{j=1}^n\lambda_j$.
+    \end{definition}
+    \begin{remark}
+        $det(bg^{-1}-\lambda E)=0$ $\Longrightarrow$ $k=\frac{det(b)}{det(g)}$, $h=tz(bg^{-1})$
+    \end{remark}
+    \begin{definition}
+        Отклонение точки $Q$ от касательной плоскости к поверхности $M$ в точке $P$ --- это $\delta(x)=(r(Q)-r(P), \ n(P))$.
+    \end{definition}
+    \begin{subtheorem}\tab
+        \begin{enumerate}
+            \item Если $P$ --- критическая точка, то $\frac{\partial\delta}{\partial x^j}=0$.
+            \item Если $\frac{\partial^2\delta}{\partial x^i\partial x^j}=b_{ij}$, то $d_P^2\delta=b$, $d_P\delta=0$.
+        \end{enumerate}
+    \end{subtheorem}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item $$\frac{\partial\delta}{\partial x^j}=\left(\frac{\partial r}{\partial x^j}, \ n(P)\right)=(r_j, \ n(P))=0$$
+            \item $$\frac{\partial^2\delta}{\partial x^i\partial x^j}=(r_{ij}, \ n(P))=b_{ij}$$
+        \end{enumerate}
+    \end{proof}
+    \begin{remark}
+        Пусть вторая фундаментальная форма в точке $P$ знакоопределена, тогда $P$ --- экстремум по теореме из математического анализа. Значит, существует окрестность точки $P$ располагается по одну сторону от касательной плоскости.
+    \end{remark}
+    \begin{remark}
+        Пусть $b$ знакопеременная, тогда любая окрестность точки $P$ лежит по обе стороны касательной плоскости.
+    \end{remark}
+    \begin{definition}
+        Пусть $n=2$, тогда точка $P\in M$ называется элиптической, если $k>0$, гиперболической, если $k<0$ и параболической, если $k=0$.
+    \end{definition}
+    \begin{subtheorem}[\hypertarget{8}{Деривационные формулы Гаусса-Вейнгартена}]
+        $$\frac{\partial r_i}{\partial x^j}=\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}n$$
+        $$\frac{\partial n}{\partial x^i}=-\sum\limits_{k}B_i^kr_k, \  \textup{где} \ B_i^k=g^{kj}b_{ij}, \ g^{kj}\textup{ - матрица, обратная к }g_{kj}$$
+    \end{subtheorem}
+    \begin{proof}
+        $$\frac{\partial r_i}{\partial x^j}=r_{ij}=\Pi(r_{ij})+(n, \ r_{ij})n=\sum\limits_k\Gamma_{ij}^kr_k+b_{ij}n$$
+        $$\frac{\partial n}{\partial x^i}=-\sum\limits_kB_i^kr_k, \ (n, \ r_{j})=0=(n, \ r_j)'=\left(\frac{\partial n}{\partial x^i}, \ r_j\right)+(n, \ r_{ij})=-\sum\limits_{k}B_i^kg_{kj}+b_{ij}$$
+        $$b=Bg \ \Longrightarrow \ B=bg^{-1}$$ 
+    \end{proof}
+    \begin{definition}
+        Оператор $B$ называется оператором Вейнгартена.
+    \end{definition}
+    \begin{theorem}
+        Пусть $M$ и $\tilde{M}$ --- две гиперповерхности в $\R^{n+1}$, $M:z=r(x)$, $\tilde{M}:z=\tilde{r}(x)$, $x\in D\subset\R^n$, $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальной формы поверхности $M$ соответственно, $\tilde{g}_{ij}$, $\tilde{b}_{ij}$ --- матрицы первой и второй фундаментальной формы поверхности $\tilde{M}$ соответственно. Если $g_{ij}=\tilde{g}_{ij}$ и $b_{ij}=\tilde{b}_{ij}$, то существует движение $f$ объемлющего пространства такое, что $f(M)=\tilde{M}$.
+    \end{theorem}
+    \begin{proof}
+        Пусть $x_0\in D$. Рассмотрим сдвиг на вектор $\tilde{r}(x_0)-r(x_0)$.\\Пусть $r_1(x_0), \ \ldots, \ r_n(x_0), \ m$ --- базис для $M$, $\tilde{r}_1(x_0), \ \ldots, \ \tilde{r}_n(x_0), \ \tilde{m}$ --- базис для $\tilde{M}$. Заметим, что матрицы Грамма (матрицы скалярных произведений) совпадают. Тогда существует единственное ортогональное преобразование, переводящее один базис в другой. Применим его и проверим, что поверхности совпали.\\
+        $r(x_0)=\tilde{r}(x_0)$\\
+        \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\frac{d}{dt}r_i(x(t))=\frac{\partial r_i}{\partial x^j}\dot{x}^j=\left(\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}m\right)\dot{x}^j$$
+        $$\frac{d}{dt}m(x(t))=\frac{\partial m}{\partial x^j}\cdot\dot{x}^j=\left(-\sum\limits_{k}B_j^kr_k\right)\dot{x}^j$$
+        Так первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
+    \end{proof}
+    Введём обозначения: $\frac{\partial y}{\partial x^j}=f_j(x, \  y)$, $\frac{\partial^2 y}{\partial x^i\partial x^j}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot\frac{\partial y^{\alpha}}{\partial x^i}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot f_i^{\alpha}$
+    \begin{definition}
+        Пусть $x\in U\subset\R^n$, $x=(x^1, \ \ldots, \ x^n)$, $y\in V\subset\R^m$, $y=(y^1, \ \ldots, \ y^m)$, где  $y^i$ --- гладкие функции, $f:U\times V\to\R^m$ --- гладкое отображение. Говорят, что отображение $f$ удовлетворяет условиям совместности, если $$\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot f^{\alpha}_i=\frac{\partial f_i}{\partial x^j}+\frac{\partial f_i}{\partial y^{\alpha}}\cdot f^{\alpha}_j$$
+        где $f_j=\frac{\partial y}{\partial x^j}$, $f^{\alpha}_j=\frac{\partial y^{\alpha}}{\partial x^j}$.
+    \end{definition}
+    \begin{theorem}
+        Пусть функции $f_j$ удовлетворяют условиям совместности, тогда задача Коши для системы $$\begin{cases}
+            \frac{\partial y}{\partial x^j}=f_j(x, \ y)\\
+            y(x_0)=y_0
+        \end{cases}$$
+        имеет единственное решение в некоторой окрестности точки $x_0$.
+    \end{theorem}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item $\underline{\textup{Существование}}$\\
+            Зафиксируем все переменные, кроме первой, тогда $$\begin{cases}
+                \frac{\partial y^{(1)}}{\partial x^1}=f_1(x^1, \ x_0^2, \ \ldots, \ x_0^n, \ y^{(1)})\\
+                y^{(1)}|_{x^1=x_0^1}=y_0
+            \end{cases}$$
+            По теореме существования и единственности в окрестности точки $x_0^1$ существует единственное решение.\\
+            Теперь освободим переменную $x^2$, тогда
+            $$\begin{cases}
+                \frac{\partial y^{(2)}}{\partial x^2}=f_2(x^1, \ x^2, \ x_0^3, \ \ldots, \ x_0^n, \ y^{(1)})\\
+                y^{(2)}|_{x^2=x_0^2}=y^{(1)}(x^1)\\
+                y^{(2)}|_{x^2=x_0^2, \ x^1=x_0^1}=y_0
+            \end{cases}$$
+            Пусть $\frac{\partial y^{(2)}}{\partial x^1}-f_1=g$ $\Longrightarrow$
+            $$\frac{\partial g}{\partial x^2}=\frac{\partial^2 y^{(2)}}{\partial x^2\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial}{\partial x^1}f_2-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
+            $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
+            $$=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$$
+            (1) По условиям совместности
+            Отсюда $\frac{\partial g}{\partial x^2}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$, приичём $g|_{x^2=x_0^2}=\frac{\partial y^{(1)}}{\partial x^1}-f_1(x^1, \ x_0^2, \ x^3_0, \ \ldots, \ x_0^n, \ y^{(1)})=0$\\
+            Теперь повторяем операции выше для трёх и более свободных переменных, пока не дойдём до $n$. Тем самым докажем существование.
+            \item $\underline{\textup{Единственность}}$\\
+            Рассмотрим $y(x^1, \ x^2_0, \ \ldots, \ x_0^n)$, тогда по первому пункту он удовлетворяет первому уравнению, а значит, по теореме существования и единственности решения задачи Коши $y=y_1$.\\
+            Пусть $y(x^1, \ x^2, \ x^3_0 \ \ldots, \ x_0^n)$, тогда по первому пункту он удовлетворяет второму уравнению, и при фиксированном $x_0^2$ мы получаем $y_1$, значит, решение единственно.
+        \end{enumerate}
+    \end{proof}
+    \begin{subtheorem}
+        Пусть $M$ --- гиперповерхность в $\R^{n+1}$, $g_{ij}(x)$ и $b_{ij}(x)$ --- первая и вторая фундаментальная формы на $M$, тогда выполнены следующие соотношения:
+        \begin{enumerate}
+            \item $$r_k: \ \frac{\partial\Gamma^k_{js}}{\partial x^i}-\frac{\partial\Gamma_{is}^k}{\partial x^j}+\Gamma_{js}^l\cdot\Gamma_{li}^k-\Gamma_{is}^l\cdot\Gamma^k_{lj}-B_i^k\cdot b_{js}+B_j^k\cdot b_{is}=0\textup{ (соотношение Гаусса)}$$
+            \item $$m: \ \frac{\partial b_{js}}{\partial x^i}-\frac{\partial b_{is}}{\partial x^j}+\Gamma_{js}^l\cdot b_{li}-\Gamma_{is}^l\cdot b_{lj}=0 \textup{ (соотношение Петерсона-Майнарди-Кодацци)}$$
+        \end{enumerate}
+    \end{subtheorem}
+    \begin{proof}
+        Рассмотрим гиперповерхность $M$ и базис $r_1$, $\ldots$, $r_n$, $m$.\\
+        \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\begin{cases}
+            \frac{\partial r_s}{\partial x^j}=\sum\limits_{k}\Gamma_{js}^kr_k+b_{js}m\\
+            \frac{\partial m}{\partial x^j}=-\sum\limits_{k}B_j^kr_k
+        \end{cases}$$
+        Продифференцируем эти равенства
+        $$\frac{\partial^2 r_s}{\partial x^i\partial x^j}=\sum\limits_{k}\frac{\partial\Gamma_{js}^k}{\partial x^i}r_k+\sum\limits_{l}\Gamma_{js}^l\frac{\partial r_l}{\partial x^i}+\frac{\partial b_{js}}{\partial x^i}m+b_{js}\frac{\partial m}{\partial x^i}\overset{(1)}{=}$$
+        $$\overset{(1)}{=}\sum\limits_{k}\frac{\partial\Gamma_{js}^k}{\partial x^i}r_k+\sum\limits_{l}\Gamma_{js}^l\left(\sum\limits_k\Gamma^k_{li}r_k+b_{li}m\right)+\frac{\partial b_{js}}{\partial x^i}m+b_{js}\frac{\partial m}{\partial x^i}\overset{(2)}{=}$$
+        $$\overset{(2)}{=}\sum\limits_{k}\frac{\partial\Gamma_{js}^k}{\partial x^i}r_k+\sum\limits_{l}\Gamma_{js}^l\left(\sum\limits_k\Gamma^k_{li}r_k+b_{li}m\right)+\frac{\partial b_{js}}{\partial x^i}m-b_{js}\cdot\sum\limits_{k}B_i^kr_k$$
+        (1) Разложили вектор $\frac{\partial r_j}{\partial x^i}$ в сумму проекции на касательную плоскость и нормаль и подставили определение символа Кристоффеля\\
+        (2) Подставили вторую деривационную формулу\\
+        Перепишем полученное равенство, поменяв местами индексы $i$ и $j$
+        $$\frac{\partial^2 r_s}{\partial x^j\partial x^i}=\sum\limits_{k}\frac{\partial\Gamma_{is}^k}{\partial x^j}r_k+\sum\limits_{l}\Gamma_{is}^l\left(\sum\limits_k\Gamma^k_{lj}r_k+b_{lj}m\right)+\frac{\partial b_{is}}{\partial x^j}m-b_{is}\cdot\sum\limits_{k}B_j^kr_k$$
+        Так как $\frac{\partial^2 r_s}{\partial x^i\partial x^j}=\frac{\partial^2 r_s}{\partial x^j\partial x^i}$, то, приравняв полученные равенства и приведя подобные слагаемые, получим соотношение Гаусса. Соотношение Петерсона-Майнарди-Кодаццы получается аналогично, только ещё используется $B_j^k=g^{kj}b_{ij}$.
+    \end{proof}
+    \begin{exercise}
+        Доказать, что если выполнены соотношения Гаусса и Петерсона-Майнарди-Кодацци, то уравнения Гаусса-Вейнгартена удовлетворяют условиям совместности.
+    \end{exercise}
+    \begin{theorem}
+        Пусть в окрестности точки $x_0\in\R^n$ заданы $g_{ij}(x)$ и $b_{ij}(x)$ --- гладкие $n\times n$ матричные функции, причём $g_{ij}=g_{ji}$, $b_{ij}=b_{ji}$. Пусть они удовлетворяют соотношениям Гаусса и Петерсона-Майнарди-Кодацци, тогда существует поверхность $M$, задаваемая уравнениями $z=r(x)$, где $x\in B(x_0)$, причём $g_{ij}$ и $b_{ij}$ --- её первая и вторая фундаментальные формы соответственно.
+    \end{theorem}
+    \begin{proof}
+        Пусть $r_s(x_0)=r^0_s$, $m(x_0)=m^0$ и пусть $(r^0_s, \ r_0^k)=g_{sk}(x_0)$, $(m^0, \ r_s^0)=0$, $(m^0, \ m^0)=1$. Рассмотрим систему $r_j(x)=\frac{\partial r}{\partial x^j}$ с начальными условиями $r(x_0)=r^0$, тогда существует единственное решение $r(x)$ из предыдущей теоремы (условия совместности очевидно выполнены).\\
+        Зададим поверхность параметрическими уравнениями $M: z=r(x)$. $r(x)\in C^{\infty}$ по построению. Рассмотрим $G_{sk}=(r_s, \ r_k)$ и $q_s=(m, \ r_s)$, $\lambda=(m, \ m)$.\\
+        $$\frac{\partial G_{sk}}{\partial x^j}=\frac{\partial r_s}{\partial x^j}r_k+\frac{\partial r_k}{\partial x^j}r_s\overset{(1)}{=}\sum\limits_l\Gamma^l_{sj}G_{lk}+b_{sj}q_k+\sum\limits_l\Gamma^l_{kj}G_{sl}+b_{kj}q_s$$
+        $$\frac{\partial q_s}{\partial x^j}=\frac{\partial m}{\partial x^j}r_s+\frac{\partial r_s}{\partial x^j}m\overset{(2)}{=}-B_j^lG_{ls}+\sum\limits_l\Gamma^l_{sj}q_l+b_{sj}\lambda$$
+        $$\frac{\partial\lambda}{\partial x^j}=2\left(\frac{\partial m}{\partial x^j}, \ m\right)\overset{(3)}{=}-2\sum\limits_kB_j^k(r_k, \ m)=-2\sum\limits_kB_j^kq_k$$
+        (1) \hyperlink{8}{Из первой деривационной формулы Гаусса-Вейнгартена}\\
+        (2) \hyperlink{8}{Из первой и второй деривационной формул Гаусса-Вейнгартена}\
+        (3) \hyperlink{8}{Из второй деривационной формулы Гаусса-Вейнгартена}\\
+        $G_{sk}(x_0)=g_{sk}(x_0)$, $q_s(x_0)=0$, $\lambda(x_0)=1$. $b_{sj}-B_l^jg_{ls}=0$, что равносильно определению $B^j_l$, $\frac{\partial G_{sk}}{\partial x^j}=\sum\limits_l\left(\Gamma^l_{sj}g_{lk}+\Gamma_{kj}^lg_{sl}\right)$. Тогда \hyperlink{10}{Из утверждения 2.4}
+        $$\Gamma_{sj}^l=\frac{1}{2}g^{lm}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)$$ где $g^{lm}=g_{sj}^{-1}$. Отсюда
+        $$\frac{\partial G_{sk}}{\partial x^j}=\frac{1}{2}\sum\limits_l\left(g^{lm}g_{lk}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)+g^{lm}g_{sl}\left(\frac{\partial g_{km}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^k}-\frac{\partial g_{kj}}{\partial x^m}\right)\right)\overset{(1)}{=}$$
+        $$\overset{(1)}{=}\frac{1}{2}\left(2\frac{\partial g_{sk}}{\partial x^j}\right)=\frac{\partial g_{sk}}{\partial x^j}$$
+        (1) Положим $\sum\limits_lg^{lm}g_{lk}=S_k^m$, $\sum\limits_lg^{lm}g_{ls}=S_s^m$ и подставим в первую сумму $m=k$, а во вторую $m=s$.\\
+        Из этого следует, что $G_{sk}(x)=g_{sk}(x)$.\\
+        Остаётся проверить, что если положить $G_{sk}(x)=g_{sk}(x)$, $q_s=0$, $\lambda=1$, то получим искомую поверхность, у которой $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальных форм соответственно.
+        Проверим это, $g_{ij}(x)=(r_i, \ r_j)$, $(m, \ r_j)=0$, $(m, \ m)=1$, причём $\frac{\partial r_s}{\partial x^j}=\frac{\partial^2 r}{\partial x^s\partial x^j}=\sum\limits_k\Gamma^k_{sj}r_k+b_{sj}m$ $\Longrightarrow$ $b_{js}=(m, \ r_{js})$, значит, $b_{js}$ --- матрица второй фундаментальной формы поверхности $M$.
+    \end{proof}
 \end{document}
