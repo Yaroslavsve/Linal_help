@@ -686,7 +686,7 @@
     \end{definition}
     Пусть $P\in M\subset\R^n$, $P\in\gamma$, где $\gamma$ --- регулярная кривая, $x=\dot{\gamma}$.
     \begin{theorem}[Менье]
-        Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$, тогда $k\cos(\phi)=\tilde{k}$.
+        Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$ в точке $P$, $k=\frac{1}{|\ddot{\gamma}|}$ --- кривизна кривой $\gamma$, тогда $k\cos(\phi)=\tilde{k}$, где $\tilde{k}$ --- кривизна нормального сечения в точке $P$.
     \end{theorem}
     \begin{proof}
         Проведём натуральную параметризацию, тогда $|x|=1$, $t$ --- натуральный параметр. Пусть $x=(x^1, \ \ldots, \ x^n)$, $\gamma : x^i=x^i(t)$, $z=\rho(t)=r(x(t))$.\\Тогда $\dot{\rho}=\frac{\partial r}{\partial x^i}\cdot\dot{x}^i=r_i\dot{x}^i$, $\ddot{\rho}=\frac{\partial r_i}{\partial x^j}\cdot\dot{x}^j\cdot\dot{x}^i+r_i\cdot\ddot{x}^i=r_{ij}X^iX^j+r_i\ddot{x}^i$. Тогда $b_{ij}X^iX^j=b(x)$.
@@ -698,7 +698,7 @@
         См. конспект курса лекций по линейной алгебре.
     \end{proof}
     \begin{definition}
-        Числа $\lambda_j$ называются главными кивизнами, а направления векторов $e_j$ --- главными направлениями.
+        Числа $\lambda_j$ называются главными кривизнами, а направления векторов $e_j$ --- главными направлениями.
     \end{definition}
     \begin{remark}
         Пусть $r_1$, $\ldots$, $r_n$ --- базис в $T_PM$, $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальной формы соответственно. Тогда корни характеристического многочлена $\chi=det(b-\lambda g)$ являются главными кривизнами, а векторы $e_j$ такие, что $(b-\lambda_jg)e_j=0$ являются главными направлениями.
@@ -768,7 +768,7 @@
         $r(x_0)=\tilde{r}(x_0)$\\
         \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\frac{d}{dt}r_i(x(t))=\frac{\partial r_i}{\partial x^j}\dot{x}^j=\left(\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}m\right)\dot{x}^j$$
         $$\frac{d}{dt}m(x(t))=\frac{\partial m}{\partial x^j}\cdot\dot{x}^j=\left(-\sum\limits_{k}B_j^kr_k\right)\dot{x}^j$$
-        Так первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
+        Так первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит,и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
     \end{proof}
     Введём обозначения: $\frac{\partial y}{\partial x^j}=f_j(x, \  y)$, $\frac{\partial^2 y}{\partial x^i\partial x^j}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot\frac{\partial y^{\alpha}}{\partial x^i}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot f_i^{\alpha}$
     \begin{definition}
@@ -800,7 +800,7 @@
             $$\frac{\partial g}{\partial x^2}=\frac{\partial^2 y^{(2)}}{\partial x^2\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial}{\partial x^1}f_2-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
             $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
             $$=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$$
-            (1) По условиям совместности
+            (1) По условиям совместности $\frac{\partial f_2}{\partial x^1}-\frac{\partial f_1}{\partial x^2}=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}$\\
             Отсюда $\frac{\partial g}{\partial x^2}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$, приичём $g|_{x^2=x_0^2}=\frac{\partial y^{(1)}}{\partial x^1}-f_1(x^1, \ x_0^2, \ x^3_0, \ \ldots, \ x_0^n, \ y^{(1)})=0$\\
             Теперь повторяем операции выше для трёх и более свободных переменных, пока не дойдём до $n$. Тем самым докажем существование.
             \item $\underline{\textup{Единственность}}$\\
