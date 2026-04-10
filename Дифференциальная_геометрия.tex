@@ -493,7 +493,7 @@
     \begin{remark}
         Пусть $r_{ij}=\frac{\partial^2 r}{\partial x^i\partial x^j}=\frac{\partial r_i}{\partial x^j}$, тогда, пользуясь тем, что векторы $r_i$ образуют базис касательного пространства \hyperlink{5}{по утверждению 2.1 и соответствующему определению}, получим $$\nabla_YX=Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}r_i+\Pi\left(X^i\frac{\partial r_i}{\partial x^j}\right)\right)=Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}r_k+X^k\Pi(r_{jk})\right)$$
         Сделаем замену $\Pi(r_{jk})=\sum\limits_{i=1}^n\Gamma_{jk}^i(x)r_i$. Тогда формула ковариантной прямой будет иметь вид:
-        $$Y^j\sum\limits_{i,k=1}^n\left(\frac{\partial X^i}{\partial x^j}+\Gamma_{jk}^i(x)\cdot X^k\right)r_i$$
+        $$Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}+\sum\limits_{k=1}^n\left(\Gamma_{jk}^i(x)\cdot X^k\right)\right)r_i$$
     \end{remark}
     \begin{definition}
         Коэффициенты $\Gamma_{jk}^i$ называются символами Кристоффеля второго рода, а коэффициенты $\Gamma_{ij, \ m}=(r_{ij}, \ r_m)$ --- символами Кристоффеля первого рода.
@@ -570,7 +570,7 @@
     \end{propertes}
     \begin{proof}\tab
         \begin{enumerate}
-            \item Очевидно следует из $\dot{X}^i+\Gamma_{jk}^i\dot{x}^jX^k=0$
+            \item Очевидно следует из $\dot{X}^i+\sum\limits_{k=1}^n(\Gamma_{jk}^i\dot{x}^jX^k)=0$
             \item Рассмотрим $X(t)$ и $Y(t)$ вдоль кривой $\gamma$, тогда $((X, \ Y))'_t=(\dot{X}, \ Y)+(X, \ \dot{Y})=$ $=(\Pi(\dot{X}), \ Y)+(X, \ \Pi(\dot{Y}))=(\nabla_{\dot{\gamma}}X, \ Y)+(\nabla_{\dot{\gamma}}Y, \ X)=0$
             \item $\forall X\in T_{\gamma(t)}M$ $X\in T_{\gamma(t)}N$, $\nabla_{\dot{\gamma}}X=\Pi(\dot{X})$
         \end{enumerate}
@@ -590,7 +590,7 @@
         Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости остаётся параллельным самому себе (параллельно переносится вдоль кривой $\gamma$).
     \end{remark}
     Введём $X^i=\dot{x}^i$ и рассмотрим систему дифференциальных уравнений $$\begin{cases}
-        \dot{X}^i+\Gamma^i_{jk}(x)X^jX^k=0\\
+        \dot{X}^i+\sum\limits_{k=1}^n(\Gamma^i_{jk}(x)X^jX^k)=0\\
         \dot{x}^i-X^i=0\\
         x^i(0)=x_0^i\\
         X^i(0)=X_0^i
@@ -615,7 +615,7 @@
     \subsection{Изометрии поверхностей}
     \subsubsection{Дифференциал гладкого отображения поверхностей}
     \begin{definition}
-        Пусть $M\subset\R^n$ и $Q\subset\R^k$ --- поверхности в $\R^N$. Пусть $M:z=r(x)$, $x=(x^1, \ \ldots, \ x^n$, $Q:w=\rho(y)$, $y=(y^1, \ \ldots, \ r^k)$. Рассмотрим отображение $f:M\to Q$ такое, что $y^i=f^i(x^1, \ \ldots, \ x^n)$ $\forall i=\overline{1,k}$. Тогда отображение $f$ называется гладким, если $\forall i$, $f^i\in C^{\infty}$.
+        Пусть $M\subset\R^n$ и $Q\subset\R^k$ --- поверхности в $\R^N$. Пусть $M:z=r(x)$, $x=(x^1, \ \ldots, \ x^n)$, $Q:w=\rho(y)$, $y=(y^1, \ \ldots, \ y^k)$. Рассмотрим отображение $f:M\to Q$ такое, что $y^i=f^i(x^1, \ \ldots, \ x^n)$ $\forall i=\overline{1,k}$. Тогда отображение $f$ называется гладким, если $\forall i$, $f^i\in C^{\infty}$.
     \end{definition}
     \begin{subtheorem}
         Пусть $X=\dot{\gamma}(t_0)$, $Y=\frac{d}{dt}|_{t=t_0}f(\gamma)$. Тогда $Y$ не зависит от выбора кривой $\gamma$. Более того, соответствие $X\longrightarrow Y$ является линейным отображением из $T_PM$ в $T_{f(P)}Q$.
@@ -646,15 +646,133 @@
     \end{exercise}
     \begin{proof}\tab
         \begin{enumerate}
-            \item $|X|^2=(X, \ X)=(d_Pf(X), \ d_Pf(X))=|d_PX|^2$, $\cos(\phi_1)=\frac{(d_Pf(X), \ d_Pf(Y))}{|d_Pf(X)|\cdot|d_Pf(Y)|}=\frac{(X, \ Y)}{|X|\cdot|Y|}=\cos(\phi_0)$
-            \item 
-            %Пусть $\tilde{\gamma} = f \circ \gamma: [0,1] \to Q$, $\nabla_{\dot{\gamma}(t)} X(t) = 0$ (параллельный перенос вектора $X$ вдоль кривой $\gamma$), тогда $\dot{\tilde{\gamma}}(t) = d_{\gamma(t)}f(\dot{\gamma}(t))$, $\tilde{X}(t) = d_{\gamma(t)}f(X(t)) \in T_{\tilde{\gamma}(t)}Q$, $d_Pf(\nabla_X Y) = \tilde{\nabla}_{d_Pf(X)} d_Pf(Y)$, $\tilde{\nabla}_{\dot{\tilde{\gamma}}(t)} \tilde{X}(t)\tilde{\nabla}_{d_{\gamma(t)}f(\dot{\gamma}(t))}d_{\gamma(t)}f(X(t))=d_{\gamma(t)}f(\nabla_{\dot{\gamma}(t)}X(t))= d_{\gamma(t)}f(0)= 0$, то есть изометрия сохраняет параллельный перенос, а значит, параллельные семейства переходят в параллельные.
-            \item Из предыдущего пункта знаем, что изометрия сохраняет параллельный перенос, а значит, \hyperlink{9}{по замечанию 14} $f(\gamma)$ геодезическая.
+            \item $|X|^2=(X, \ X)=(d_Pf(X), \ d_Pf(X))=|d_PX|^2$, $\cos(\phi_1)=\frac{(d_Pf(X), \ d_Pf(Y))}{|d_Pf(X)|\cdot|d_Pf(Y)|}=\frac{(X, \ Y)}{|X|\cdot|Y|}=\cos(\phi_0)$. Значит, длина вектора не меняется при изометрии, а значит, $|\dot{\gamma}|$ не меняется, следовательно по определению длина кривой тоже не меняется. Так как углы между векторами сохраняются, то и углы между кривыми сохраняются.
+            \item Два семейства векторов $\{X_t\}$ и $\{Y_t\}$ называются параллельными, если $\forall t$ $X_t\upuparrows Y_t$, то есть существует гладкая функция $\lambda(t)$ такая, что $X_t=\lambda(t)Y_t$. Рассмотрим $d_Pf(X_t)=d_Pf(\lambda(t)Y_t)=\lambda(t)d_Pf(Y_t)$, тогда по второму пункту определения получим данное утверждение.
+            \item Пусть кривая $\gamma$ геодезическая, то есть $\Pi(\ddot{\gamma})=0$. Рассмотрим $X\in T_PM$ $\frac{d}{dt}(\dot{\gamma}, \ X)=(\Pi(\ddot{\gamma}), \ X)+(\dot{\gamma}, \ \Pi(\dot{X}))=0$, $(\dot{\gamma}, \ X)=(d_Pf(\dot{\gamma}), \ d_Pf(X))=const$.
         \end{enumerate}
     \end{proof}
     \begin{exercise}
         Доказать, что развёртки цилиндра и конуса на плоскость являются изометрией.
     \end{exercise}
+    \begin{proof}
+        Пусть цилиндр лежит на некоторой плоскости. Проведём ось цилиндра и обозначим точками $A$ и $B$ начало и конец орезка этой оси, который полностью лежит внутри цилиндра и имеет длину, равную его высоте. Каждую точку цилиндра будем определять двумя параметрами: первый параметр --- это угол между вектором, соединяющим ближейшую точку на оси с данной, и вектором, соединяющим эту ближайшую точку с ближайшей точкой касания цилиндра и плоскости (угол будем отсчитывать только против часовой стрелки), а второй параметр --- расстояние этой ближайшей точки от точки $A$. Для этого задаим параметризацию $r(\alpha, \ h)=\begin{pmatrix}
+            R\cos\alpha\\
+            R\sin\alpha\\
+            h
+        \end{pmatrix}$ (стандартные цилиндрические координаты с центром в точке $A$). Зададим плоскость, начало координат на которой помещено в точку $A$, ось $Oy$ будет сонаправлена с вектором $\overline{AB}$, а ось $Ox$ выберем так, чтобы выполнялась положительная ориентация. Тогда развёрткой будет являться отображение, которое каждой точке с координатами $(\alpha, \ h)$, будет сопоставлять точку на плоскости с координатами $(\alpha R, \ h)$, где $R$ --- радиус цилиндра. Данное отображение биективно, непрерывно, обратное отображение тоже непрерывно, то есть остаётся проверить сохранение скалярного произведения для дифференциала этого отображения. Для этого вычислим первую фундаментпльную форму. На цилиндре
+        $$\frac{\partial r}{\partial\alpha}=\begin{pmatrix}
+            -R\sin\alpha\\
+            R\cos\alpha\\
+            0
+        \end{pmatrix}, \ \frac{\partial r}{\partial h}=\begin{pmatrix}
+            0\\
+            0\\
+            1
+        \end{pmatrix}$$
+        $$g=\begin{pmatrix}
+            R^2 & 0\\
+            0 & 1
+        \end{pmatrix}$$
+        На плоскости $g=E=\begin{pmatrix}
+            1 & 0\\
+            0 & 1
+        \end{pmatrix}$.
+        Матрица дифференциала (матрица якоби) будет иметь вид $$\begin{pmatrix}
+            \frac{\partial x}{\partial\alpha} & \frac{\partial x}{\partial h}\\
+            \frac{\partial y}{\partial\alpha} & \frac{\partial y}{\partial h}
+        \end{pmatrix}=\begin{pmatrix}
+            R & 0\\
+            0 & 1
+        \end{pmatrix}$$
+        Пусть $X=a\frac{\partial r}{\partial\alpha}+b\frac{\partial r}{\partial h}$, $Y=c\frac{\partial r}{\partial\alpha}+d\frac{\partial r}{\partial h}$, тогда $(X, \ Y)=\begin{pmatrix}
+            a & b\\
+        \end{pmatrix}\begin{pmatrix}
+            R^2 & 0\\
+            0 & 1
+        \end{pmatrix}\begin{pmatrix}
+            c\\
+            d
+        \end{pmatrix}=acR^2+bd$\\
+        $(d_Pf(X), \ d_Pf(Y))=\begin{pmatrix}
+            aR & b\\
+        \end{pmatrix}\begin{pmatrix}
+            1 & 0\\
+            0 & 1
+        \end{pmatrix}\begin{pmatrix}
+            cR\\
+            d
+        \end{pmatrix}=acR^2+bd$\\
+        Таким образом, получили, что дифференциал отображения сохраняет скалярное произведение, а значит, по определению данное отображение является изометрией.
+    \end{proof}
+    \begin{exercise}
+        Доказать, что развёртка конуса является изометрией.
+    \end{exercise}
+    \begin{proof}
+        Аналогично с цилиндром. Пусть $O$ --- вершина конуса, $A$ --- конец образующей, лежащей на данной плоскости (плоскости, на которую будем разворачивать конус), $\alpha$ --- угол между осью и любой образуещей конуса. Рассмотрим аналог сферической системы координат $r(s, \ \phi)=\begin{pmatrix}
+            s\cos\alpha\cos\phi\\
+            s\cos\alpha\sin\phi\\
+            s\sin\alpha
+        \end{pmatrix}$, где $s$ --- длина отрезка образующей, соединяющей точку $O$ с данной точкой, $\phi$ --- угол между касательной плоскостью в данной точке и исходной плоскостью (так же как и в случае с цилиндром угол отсчитываем против часовой стрелки). На плоскости зададим полярные координаты $(\rho, \ \theta)$ с центром в точке $O$. Точке с координатами $(s, \ \phi)$ сопоставим точку с координатами $(s, \ k\phi)$. Коэффициент $k=\sin\alpha$, так как длина окружности на конусе на расстоянии $s$ от вершины $l_s=2\pi s\sin\alpha$, а при развёртке она должна сохраниться, то есть $l_s=l_{\rho}=2\pi s\cdot\frac{\psi}{2\pi}=s\psi=2\pi s\sin\alpha$ $\Longrightarrow$ $\psi=2\pi\sin\alpha$, то есть $\frac{\psi}{2\pi}=\sin\alpha$, а значит, $\theta=\phi\sin\alpha$.\\
+        Вычислим частные производные
+        $$\frac{\partial r}{\partial s}=\begin{pmatrix}
+            \cos\alpha\cos\phi\\
+            \cos\alpha\sin\phi\\
+            \sin\alpha
+        \end{pmatrix}, \ \frac{\partial r}{\partial\phi}=\begin{pmatrix}
+            -s\cos\alpha\sin\phi\\
+            s\cos\alpha\cos\phi\\
+            0
+        \end{pmatrix}$$
+        Тогда $$g=\begin{pmatrix}
+            1 & 0\\
+            0 & s^2\cos^2\alpha
+        \end{pmatrix}$$
+        Для полярных координат на плоскости имеем $\begin{pmatrix}
+            x\\
+            y
+        \end{pmatrix}=\begin{pmatrix}
+            \rho\cos\theta\\
+            \rho\sin\theta
+        \end{pmatrix}$. Тогда
+        $$\frac{\partial \tilde{r}}{\partial\rho}=\begin{pmatrix}
+            \cos\theta\\
+            \sin\theta
+        \end{pmatrix}, \ \frac{\partial \tilde{r}}{\partial\theta}=\begin{pmatrix}
+            -\rho\sin\theta\\
+            \rho\cos\theta
+        \end{pmatrix}$$
+        Тогда $$\tilde{g}=\begin{pmatrix}
+            1 & 0\\
+            0 & \rho^2
+        \end{pmatrix}$$
+        Матрица дифференциала (матрица якоби) имеет вид
+        $$\begin{pmatrix}
+            \frac{\partial\rho}{\partial s} & \frac{\partial\rho}{\partial\phi}\\
+            \frac{\partial\theta}{\partial s} & \frac{\partial\theta}{\partial\phi}
+        \end{pmatrix}=\begin{pmatrix}
+            1 & 0\\
+            0 & \sin\alpha
+        \end{pmatrix}$$
+        Пусть $X=a\frac{\partial r}{\partial s}+b\frac{\partial r}{\partial\phi}$, $Y=c\frac{\partial r}{\partial s}+d\frac{\partial r}{\partial\phi}$, тогда $$(X, \ Y)=\begin{pmatrix}
+            a & b\\
+        \end{pmatrix}\begin{pmatrix}
+            1 & 0\\
+            0 & s^2\cos^2\alpha
+        \end{pmatrix}\begin{pmatrix}
+            c\\
+            d
+        \end{pmatrix}=ac+bds^2\cos^2\alpha$$
+        $$(d_Pf(X), \ d_Pf(Y))=\begin{pmatrix}
+            a & b\sin\alpha\\
+        \end{pmatrix}\begin{pmatrix}
+            1 & 0\\
+            0 & \rho^2
+        \end{pmatrix}\begin{pmatrix}
+            c\\
+            d\sin\alpha
+        \end{pmatrix}=ac+bd\rho^2\sin^2\alpha=ac+bds^2\sin^2\alpha$$
+        Таким образом, дифференциал отображения сохраняет скалярное произведение, а значит, по определению отображение является изометрией.
+    \end{proof}
     \begin{definition}
         Поверхности $M$ и $Q$ называются локально изометричными, если $\forall P\in M$ существует $P\in U\subset M$ такая, что существует изометрия $f:U\to V\subset Q$.
     \end{definition}
@@ -775,7 +893,7 @@
         $r(x_0)=\tilde{r}(x_0)$\\
         \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\frac{d}{dt}r_i(x(t))=\frac{\partial r_i}{\partial x^j}\dot{x}^j=\left(\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}m\right)\dot{x}^j$$
         $$\frac{d}{dt}m(x(t))=\frac{\partial m}{\partial x^j}\cdot\dot{x}^j=\left(-\sum\limits_{k}B_j^kr_k\right)\dot{x}^j$$
-        Так как первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит,и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
+        Так как первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит, и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
     \end{proof}
     Введём обозначения: $\frac{\partial y}{\partial x^j}=f_j(x, \  y)$, $\frac{\partial^2 y}{\partial x^i\partial x^j}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot\frac{\partial y^{\alpha}}{\partial x^i}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot f_i^{\alpha}$
     \begin{definition}
@@ -836,7 +954,7 @@
         (2) Подставили вторую деривационную формулу\\
         Перепишем полученное равенство, поменяв местами индексы $i$ и $j$
         $$\frac{\partial^2 r_s}{\partial x^j\partial x^i}=\sum\limits_{k}\frac{\partial\Gamma_{is}^k}{\partial x^j}r_k+\sum\limits_{l}\Gamma_{is}^l\left(\sum\limits_k\Gamma^k_{lj}r_k+b_{lj}m\right)+\frac{\partial b_{is}}{\partial x^j}m-b_{is}\cdot\sum\limits_{k}B_j^kr_k$$
-        Так как $\frac{\partial^2 r_s}{\partial x^i\partial x^j}=\frac{\partial^2 r_s}{\partial x^j\partial x^i}$, то, приравняв полученные равенства и приведя подобные слагаемые, получим соотношение Гаусса. Соотношение Петерсона-Майнарди-Кодаццы получается аналогично, только ещё используется $B_j^k=g^{kj}b_{ij}$.
+        Так как $\frac{\partial^2 r_s}{\partial x^i\partial x^j}=\frac{\partial^2 r_s}{\partial x^j\partial x^i}$, то, приравняв полученные равенства и приведя подобные слагаемые, получим соотношение Гаусса. Соотношение Петерсона-Майнарди-Кодацци получается аналогично, только ещё используется $B_j^k=g^{kj}b_{ij}$.
     \end{proof}
     \begin{exercise}
         Доказать, что если выполнены соотношения Гаусса и Петерсона-Майнарди-Кодацци, то уравнения Гаусса-Вейнгартена удовлетворяют условиям совместности.
@@ -862,4 +980,172 @@
         Остаётся проверить, что если положить $G_{sk}(x)=g_{sk}(x)$, $q_s=0$, $\lambda=1$, то получим искомую поверхность, у которой $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальных форм соответственно.
         Проверим это, $g_{ij}(x)=(r_i, \ r_j)$, $(m, \ r_j)=0$, $(m, \ m)=1$, причём $\frac{\partial r_s}{\partial x^j}=\frac{\partial^2 r}{\partial x^s\partial x^j}=\sum\limits_k\Gamma^k_{sj}r_k+b_{sj}m$ $\Longrightarrow$ $b_{js}=(m, \ r_{js})$, значит, $b_{js}$ --- матрица второй фундаментальной формы поверхности $M$.
     \end{proof}
+    \begin{consequence}[Из соотношения Гаусса]
+        $$\frac{\partial\Gamma^k_{js}}{\partial x^i}-\frac{\partial\Gamma_{is}^k}{\partial x^j}+\Gamma_{js}^l\cdot\Gamma_{li}^k-\Gamma_{is}^l\cdot\Gamma^k_{lj}=B_i^k\cdot b_{js}-B_j^k\cdot b_{is}$$
+        Так как левая часть равенства характеризует внутреннюю геометрию поверхности, а правая --- внешнюю, то данное уравнение показывает связь внешней и внутренней геометрии.\\
+        Обозначим $R_{ij, \ s}^k=B_i^k\cdot b_{js}-B_j^k\cdot b_{is}$. Этот тензор называется тензором Римана. Сделаем из него скалярную величину.
+        $$R=\sum\limits_{j, \ s}g^{js}R_{kj, \ s}^k=\sum\limits_{j, \ s}g^{js}\left(\sum\limits_k\left(B^k_kb_{js}-B^k_jb_{ks}\right)\right)=\sum\limits_{k, \ j}\left(B_k^kB_j^j-B_j^kB^j_k\right)=(tr B)^2-tr(B^2)=$$
+        $$=\left(\sum\limits_{j=1}^n\lambda_j\right)^2-\sum\limits_{j=1}^n\lambda_j^2=2\sum\limits_{i<j}\lambda_i\lambda_j$$
+    \end{consequence}
+    \begin{subtheorem}[Блистательная теорема Гаусса]
+        Пусть $n=2$, тогда $k=\frac{R}{2}$, где $k$ --- гауссова кривизна.
+    \end{subtheorem}
+    \section{Гладкие многообразия}
+    \subsection{Напоминаниме (На экзамене скорее всего доказывать не потребуется)}
+    \begin{definition}
+        Топологическое пространство - множество $X$ вместе с семейством $\tau$ его подмножеств, удовлетворяющее следующим условиям:\begin{enumerate}
+            \item $\varnothing\in\tau$, $X\in\tau$
+            \item если $\mathcal{U}\subset\tau$, то $\bigcup\mathcal{U}\in\tau$ ($\mathcal{U}$ --- семейство подмножеств $X$)
+            \item $\forall U$, $V\in\tau$ $U\cap V\in\tau$
+        \end{enumerate}
+    \end{definition}
+    \begin{definition}
+        Окрестностью точки $x$ назовём любое открытое множество, содержащее $x$.
+    \end{definition}
+    \begin{definition}
+        Пусть $X$ и $Y$ --- два топологических пространства, тогда отображение $f:X\to Y$ называется непрерывным в точке $x_0\in X$, если для любой открытой окрестности $U$ точки $x_0$ существует открытая окрестность $V$ точки $f(x_0)$ такая, что $f(U)\subset V$.
+    \end{definition}
+    \begin{subtheorem}
+        Отображение $f$ двух топологических пространств непрерывно $\Longleftrightarrow$ прообраз любого открытого множества открыт.
+    \end{subtheorem}
+    \begin{proof}
+        $\underline{\Longrightarrow}$ Пусть $f: X \to Y$ и пусть $A \subset Y$ открыто. Рассмотрим $f^{-1}(A)$. Докажем, что $f^{-1}(A)$ открыто в $X$. Пусть $x_0 \in f^{-1}(A)$, тогда $f(x_0) \in A$ $\Longrightarrow \exists U$ — открытая окрестность $x_0$ (по определению непрерывности): $f(U) \subset A \Longrightarrow U \subset f^{-1}(A) \Longrightarrow x_0$ — внутренняя точка $f^{-1}(A)$. В силу произвольности $x_0$ получаем, что $f^{-1}(A)$ открыто. \\
+        $\underline{\Longleftarrow}$ Пусть прообраз любого открытого множества открыт. Пусть $x_0 \in X \Longrightarrow f(x_0) \in Y$. Возьмём $V \subset Y$, которое будет открыто: $f(x_0) \in V \Longrightarrow f^{-1}(V)$ — открытое множество и $x_0 \in f^{-1}(V) \Longrightarrow U := f^{-1}(V)$. Тогда $U$  — открытая окрестность $x_0$ и $f(U) = f(f^{-1}(V)) \subset V$. Получается, для любой окрестности $V$ точки $f(x_0)$ найдена окрестность $U$ точки $x_0$ такая, что $f(U) \subset V$ — это и есть определение непрерывности $f$ в точке $x_0$. Так как $x_0$ произвольна, то $f$ непрерывна на всём $X$.
+    \end{proof}
+    \begin{definition}
+        Множество $Y\subset X$ называется компактным, если в любом его покрытии можно выделить конечное подпокрытие.
+    \end{definition}
+    \begin{subtheorem}
+        Непрерывный образ компакта --- компакт.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть $f: X \to Y$ непрерывно. Покрываем образ открытыми множествами $\{U_{\alpha}\}$: $Im f \subseteq \bigcup\limits_{\alpha} U_{\alpha}$ — покрытие.
+        $X \subset \bigcup\limits_{\alpha} f^{-1}(U_{\alpha})$ — открытое покрытие $X$ (т.к. $f$ непрерывно).
+        $X \subset \bigcup\limits_{i = 1}^{n} f^{-1}(U_{i})$ — конечное подпокрытие (поскольку $X$ — компакт по условию).
+        Тогда $Imf \subset \bigcup\limits_{i = 1}^n U_{i}$. Действительно, для любого $y \in f(X)$ существует $x \in X$ такой, что $f(x) = y$. Этот $x$ принадлежит некоторому $f^{-1}(U_{\alpha_i}) \Longrightarrow y \in U_{\alpha_i}$.
+        %Пользуемся компактностью $X$: $\Img f \subset \bigcup_{i = 1}^{n} f(U_{i})$
+    \end{proof}
+    \begin{theorem} [Критерии замкнутости множества]
+        Следующие условия эквивалентны:
+        \begin{itemize}
+            \item[(0)] $A\subset \R$ - замкнуто. 
+            \item[(1)] $\partial A\subset A$,
+            \item[(2)] Все точки прикосновения содержатся в $A$,
+            \item[(3)] $A^{\prime}\subset A$.
+        \end{itemize}
+    \end{theorem}
+    \begin{proof}
+        Докажем по цепочке $(0)\Rightarrow (1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (0)$.
+        \begin{enumerate}
+            \item $(0)\Rightarrow (1):A$ - замкнуто $\Rightarrow \R\setminus A$ - открыто $\Rightarrow \partial A \not\subset\R\setminus A \Rightarrow \partial A\subset A$.
+            \item $(1)\Rightarrow (2):$ Все точки прикосновения являются граничными или внутренними. Поскольку $\partial A\subset A$ то все точки прикосновения содержатся в $A$.
+            \item $(2)\Rightarrow (3):$ Если $x$ - предельная, то $x\in A$ или $x$ - точка прикосновения. Поскольку все точки прикосновения содержатся в $A$, то и все предельные точки содержатся в $A$.
+            \item $(3)\Rightarrow (0): A^{\prime}\subset A\Rightarrow \forall x\in \R\setminus A: x\not\in A^{\prime}\Rightarrow \forall x\in\R\setminus A\ \exists\ \mathring{B}_{\epsilon}: \mathring{B}_{\epsilon}(x)\cap A=\emptyset\\
+            \Rightarrow B_{\epsilon}(x)\cap A=\emptyset\ (\text{т.к}\ x\not\in A) \Rightarrow x$ - внешняя точка $A,\ B_{\epsilon}(x)\subset\R\setminus A\\
+            \Rightarrow \R\setminus A$ - открыто $\Rightarrow A$ - замкнуто. 
+        \end{enumerate}
+    \end{proof}
+    \begin{lemma}
+        Пусть $K$ компакт, тогда любая бесконечная последовательность $\{x_k\}\subset K$ имеет хотя бы одну предельную точку, принадлежащую $K$.
+    \end{lemma}
+    \begin{proof}
+        Предположим, что существует бесконечная последовательность $\{x_k\}\subset K$, которая не имеет предельных точек, принадлежащих $K$, тогда любая точка $x\in K$ имеет окрестность $U(x, \ \epsilon)$, внутри которой не будет точек из этой последовательности (по определению предельной точки, если точка $x$ --- не предельная точка последовательности, то любая её окрестность содержит конечное число точек из этой последовательности, значит, можно выбрать окрестность, не содержащую другие точки последовательности), кроме, возможно, самой точки $x$. Тогда семейство всех таких окрестностей образует покрытие множества $K$ (так как любая точка $x\in K$ имеет окрестность из данного семейства), значит, по определению компакта существует конечное подпокрытие. Так как никакая из окрестностей, семейство которых образует покрытие, не может содержать больше одной точки из последовательности, то в любом подпокрытии должны быть все окрестности с центрами в точках $x\in\{x_k\}$, но тогда в существующем конечном подпокрытии должны быть все окрестности с центрами $x\in\{x_k\}$, а значит, число точек этой последовательности, принадлежащих $K$, конечное число --- противоречие.
+    \end{proof}
+    \begin{subtheorem}
+        Подмножество в $\R^n$ компактно тогда и только тогда, когда оно замкнуто и ограничено.
+    \end{subtheorem}
+    \begin{proof}
+        $\underline{\Longrightarrow}$ Пусть $K\subset\R^n$ --- компакт, рассмотрим точку $x_0\in K$, тогда семейство шаров вида $U_n=O(x_0, \ k)$ (шары с центром в точке $x_0$ и радиуса $k$) покрывает всё $\R^n$ (так как это база топологии метризуемого пространства). Тогда по определению компакта существует конечное подсемейство таких шаров, покрывающих $K$, а значит, существует множество $U=\bigcup\limits_{k=1}^NU_k$ такое, что $K\subset U$, то есть $K$ ограничено.\\
+        Пусть $x_0$ --- предельная точка компакта $K$, тогда по определению существует последовательность точек $\{x_k\}\subset K$ такая, что $x_k\neq x_m$ при $k\neq m$ и $x_k\to x_0$ при $k\to\infty$. Тогда по лемме $x_0\in K$, а значит, по критерию замкнутости множества $K$ замкнуто.\\
+        $\underline{\Longleftarrow}$ Предположим, что $K$ замкнуто, ограничено, но не компакт. Пусть $K\subset\Pi$, где $\Pi$ некоторый куб, и пусть в некотором его открытом покрытии нельзя выделить конечное открытое подпокрытие. Рассмотрим разбиение этого куба на $2^k$ кубов, выберем из них куб, не имеющий конечного подпокрытия, и повторим операцию. Получим последовательность вложенных кубов, которая сходится к некоторой точке $x_0$, то есть $x_0$ --- предельная точка $K$, причём $x_0\in K$ по критерию замкнутости. Рассмотрим некоторую окрестность $U$ точки $x_0$, тогда она покрывает некоторый куб $\Pi_N$ из построенной последовательности, но тогда он имеет конечное покрытие --- противоречие.
+    \end{proof}
+    \begin{definition}
+        Топологическое пространство $X$ называется \textit{связным}, если не существует двух открытых непустых непересекающихся множеств $A$ и $B$ таких, что $X = A \cup B$.
+    \end{definition}
+    \begin{subtheorem}
+        Непрерывный образ связного пространства связен.
+    \end{subtheorem}
+    \begin{proof}
+        $f: X \to Y$, где $X$ связно. От противного. Пусть образ несвязен. Тогда $Imf := f(X) = A \cup B$, где A, B — открытые и непустые множества, $A \cap B = \emptyset$. Рассмотрим прообразы $f^{-1}(A)$ и $f^{-1}(B)$, которые открыты в силу непрерывности отображения. Если множества не пересекаются, то и их образы не пересекаются (иначе существовала бы точка $x \in f^{-1}(A) \cap f^{-1}(B) \Longrightarrow f(x) \in A \cap B$, но $A \cap B = \emptyset$). Так как множества не пусты, то и их образы не пусты. $f^{-1}(A) \cup f^{-1}(B) = X \Longrightarrow X$ не связно — противоречие. 
+    \end{proof}
+    \begin{definition}
+        Топологическое пространство называется \textit{линейно связным}, если любые две его точки можно соединить кривой.
+    \end{definition}
+    \begin{subtheorem}
+        Непрерывный образ линейно связного пространства линейно связен.
+    \end{subtheorem}
+    \begin{proof}
+    % Композиция непрерывных отображений непрерывна:
+    % $$\gamma: [\alpha, \beta] \to X, \ f: X \to Y.$$
+        Пусть $y_1, y_2 \in f(X)$ — произвольные точки в образе пространства $X$. Тогда $$\exists x_1, x_2 \in X: \ f(x_1) = y_1, \ f(x_2) = y_2.$$
+        Так как $X$ линейно связно, то существует непрерывный путь 
+        \[\gamma: [0,1] \to X,\]
+        соединяющий $x_1, x_2$, то есть $\gamma(0) = x_1, \ \gamma(1) = x_2$.
+        Рассмотрим композицию
+        \[f \circ \gamma: [0,1] \to Y.\]
+        Эта композиция непрерывна как композиция непрерывных отображений и соединяет $y_1, y_2$, потому что 
+        \[(f \circ \gamma)(0) = f(\gamma(0)) = f(x_1) = y_1,\]
+        \[(f \circ \gamma)(1) = f(\gamma(1)) = f(x_2) = y_2.\]
+        Получаем, что для любых двух точек $y_1, y_2 \in f(X)$ мы нашли непрерывный путь в $f(X)$, их соединяющий. Следовательно, $f(X)$ линейно связно.
+    \end{proof}
+    \begin{definition}
+        Топологическое пространство $X$ называется \textit{хаусдорфовым}, если у любых двух его различных точек существуют непересекающиеся окрестности.
+    \end{definition}
+    Далее рассматриваем только хаусдорфовы пространства.
+    \begin{definition}
+        Отображение $f:X\to Y$ двух топологических пространств называется гомеоморфизмом, если оно биективно, непрерывно и обратное к нему тоже непрерывно.
+    \end{definition}
+    \begin{definition}
+        Пусть $M$ --- топологическое пространство, причём $M$ хаусдорфово и обладает счётной базой. $M$ называется топологическим многообразием, если у любой точки существует окрестность, гомеоморфная открытой области в $\R^n$.
+    \end{definition}
+    \begin{definition}
+        Пусть $M$ --- $n$-мерное топологическое многообразие. Картой многообразия $M$ называется пара $(U, \ \phi)$, где $\phi:U\to\R^n$ --- гомеоморфизм.
+    \end{definition}
+    \begin{definition}
+        Система $\{(U_{\alpha}, \ \phi_{\alpha})\}$, где $\bigcup\limits_{\alpha}U_{\alpha}\subset M$, называется атласом.
+    \end{definition}
+    Пусть заданы две карты $(U_{\alpha}, \ \phi_{\alpha})$ и $(U_{\beta}, \ \phi_{\beta})$, $U_{\alpha\beta}=U_{\alpha}\cap U_{\beta}\neq\varnothing$, $V_{\alpha\beta}=\phi_{\alpha}(U_{\alpha\beta})$, $V_{\beta\alpha}=\phi_{\beta}(U_{\alpha\beta})$. Рассмотрим $\phi_{\alpha\beta}:V_{\alpha\beta}\to V_{\beta\alpha}$, $\phi_{\beta\alpha}:V_{\beta\alpha}\to V_{\alpha\beta}$, $\phi_{\alpha\beta}=\phi_{\beta}\circ\phi_{\alpha}^{-1}$, $\phi_{\beta\alpha}=\phi_{\alpha}\circ\phi_{\beta}^{-1}=\phi_{\alpha\beta}^{-1}$.
+    \begin{definition}
+        Функции $\phi_{\alpha\beta}$ и $\phi_{\beta\alpha}$ называются функциями склейки поверхности $M$ или функциями перехода из $U_{\alpha}$ в $U_{\beta}$.
+    \end{definition}
+    \begin{definition}
+        Пусть $(U_{\alpha}, \ \phi_{\alpha})$ --- атлас. Атлас называется гладким, если все функции склейки между его картами являются бесконечно дифференцируемыми.
+    \end{definition}
+    \begin{remark}
+        Пусть $(U_{\alpha}, \ \phi_{\alpha})$ --- гладкий атлас и $x_{\beta}=x_{\beta}(x_{\alpha})$ --- функция склейки, тогда $det\left(\frac{\partial x_{\beta}}{\partial x_{\alpha}}\right)\neq0$ (якобиан).
+    \end{remark}
+    \begin{definition}
+        Пусть $\{U^1_{\alpha}, \ \phi^1_{\alpha}\}$, $\{U^2_{\alpha}, \ \phi^2_{\alpha}\}$ --- два гладких атласа. Скажем, что эти два атласа эквивалентны (согласованы), если их объединение --- гладкий атлас
+    \end{definition}
+    \begin{definition}
+        Гладкая структура на многообразии $M$ --- это класс эквивалентности гладких атласов.
+    \end{definition}
+    \begin{examples}\tab
+        \begin{enumerate}
+            \item $\R^n$
+            \item $S^1\subset\R^2:x^2+y^2=1$ с функциями склейки --- стереографическими проекциями через северный и южный полюс.
+            \item $\R P^2:$ $(x_0, \ x_1, \ x_2)\sim(\lambda x_0, \ \lambda x_1, \ \lambda x_2)$ для $\lambda\neq0$ и $(x_0, \ x_1, \ x_2)\neq0$.
+            Тогда рассмотрим $U_1$ --- множество прямых, пересекающих плоскость $x_1=1$, $U_2$ --- множество прямых, пересекающих плоскость $x_2=1$, $U_3$ --- множество прямых, пересекающих плоскость $x_3=1$. Рассмотрим отображения $\phi_i:U_i\to\R^2$. Эти отображения являются гомеоморфизмом.\\
+            Пусть $l\in U_1\cap U_2$, тогда она пересекает $P_1$ в точке $(1, \ y_2, \ y_3)$ и $P_2$ в точке $(y_1, \ 1, \ y_3)$ $\Longrightarrow$ $y_1=\frac{1}{y_2}$, $y_3=y_3$. Это отображение гладкое, значит, склейка $U_1$ и $U_2$ гладкая. Аналогично для двух других. Значит, построенный атлас является гладким, а значит, мы построили гладкую структуру.
+        \end{enumerate}
+    \end{examples}
+    \begin{exercise}
+        Построить гладкий атлас на $S^n\subset\R^{n+1}:\sum\limits_{k=1}^{n+1}x_k^2=1$.
+    \end{exercise}
+    \begin{exercise}
+        Построить гладкий атлас на $\R P^n$.
+    \end{exercise}
+    \begin{definition}
+        Гладкое многообразие --- пара $\{M, \ \textup{гладкая структура}\}$
+    \end{definition}
+    Таблица зависимости числа гладких структур от размерности пространства:
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$\\
+            \hline
+            $1$ & $1$ & $1$ & $\geqslant1$ & $1$ & $1$ & $28$ & $2$ & $8$ & $6$ & $992$ & $1$ & $3$ & $2$ & $62561$ & $2$ & $16$ & $16$ & $523264$ & $24$\\
+            \hline
+        \end{tabular}
+    \end{center}
 \end{document}
