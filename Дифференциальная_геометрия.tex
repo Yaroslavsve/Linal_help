@@ -487,20 +487,20 @@
     \begin{proof}
         $M:z=r(x)$ --- заданная поверхность, $X=\sum\limits_{i=1}^nX^i(x)\cdot r_i(x)$, $Y=\sum\limits_{j=1}^nY^j(P)\cdot r_j(P)$, $\gamma:x=x(t)$, $Y^j=\dot{x}^j(t_0)$, где $x(t_0)=P$.\\
         Тогда $$\nabla_YX=\Pi\left(\frac{d}{dt}\vert_{t=t_0}\sum\limits_{i=1}^nX^i(x(t))r_i(x(t))\right)=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial t}r_i+X^i\cdot\frac{\partial r^i}{\partial t}\right)\right)=$$
-        $$=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot\dot{x}^jr_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\dot{x}^j\right)\right)=Y^j\cdot\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot r_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\right)\right)$$
+        $$=\Pi\left(\sum\limits_{i, \ j}\left(\frac{\partial X^i}{\partial x^j}\cdot\dot{x}^jr_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\dot{x}^j\right)\right)=\sum\limits_j\left(Y^j\cdot\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot r_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\right)\right)\right)$$
         Легко видеть, что последнее выражение не зависит от кривой $\gamma$, значит, ковариантная производная не зависит от кривой $\gamma$.
     \end{proof}
     \begin{remark}
-        Пусть $r_{ij}=\frac{\partial^2 r}{\partial x^i\partial x^j}=\frac{\partial r_i}{\partial x^j}$, тогда, пользуясь тем, что векторы $r_i$ образуют базис касательного пространства \hyperlink{5}{по утверждению 2.1 и соответствующему определению}, получим $$\nabla_YX=Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}r_i+\Pi\left(X^i\frac{\partial r_i}{\partial x^j}\right)\right)=Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}r_k+X^k\Pi(r_{jk})\right)$$
+        Пусть $r_{ij}=\frac{\partial^2 r}{\partial x^i\partial x^j}=\frac{\partial r_i}{\partial x^j}$, тогда, пользуясь тем, что векторы $r_i$ образуют базис касательного пространства \hyperlink{5}{по утверждению 2.1 и соответствующему определению}, получим $$\nabla_YX=\sum\limits_{j=1}^n\left(Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}r_i+\Pi\left(X^i\frac{\partial r_i}{\partial x^j}\right)\right)\right)=\sum\limits_{j=1}^n\left(Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}r_k+X^k\Pi(r_{jk})\right)\right)$$
         Сделаем замену $\Pi(r_{jk})=\sum\limits_{i=1}^n\Gamma_{jk}^i(x)r_i$. Тогда формула ковариантной прямой будет иметь вид:
-        $$Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}+\sum\limits_{k=1}^n\left(\Gamma_{jk}^i(x)\cdot X^k\right)\right)r_i$$
+        $$\sum\limits_{j=1}^n\left(Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}+\sum\limits_{k=1}^n\left(\Gamma_{jk}^i(x)\cdot X^k\right)r_i\right)\right)$$
     \end{remark}
     \begin{definition}
         Коэффициенты $\Gamma_{jk}^i$ называются символами Кристоффеля второго рода, а коэффициенты $\Gamma_{ij, \ m}=(r_{ij}, \ r_m)$ --- символами Кристоффеля первого рода.
     \end{definition}
     \begin{subtheorem}\hypertarget{10}{}
         $\Gamma_{ij, \ m}=\frac{1}{2}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g_{ij}=((r_i, \ r_j))$ --- матрица первой фундаментальной формы.\\
-        $\Gamma_{ij}^k=\frac{1}{2}g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$, где $g^{km}=g_{ij}^{-1}$.
+        $\Gamma_{ij}^k=\frac{1}{2}\sum\limits_m\left(g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)\right)$, где $g^{km}=g_{ij}^{-1}$.
     \end{subtheorem}
     \begin{proof}
         $$\frac{\partial g_{ij}}{\partial x^m}=(r_{im}, \ r_{j})+(r_{jm}, \ r_i)=\Gamma_{im, \ j}+\Gamma_{jm, \ i}$$
@@ -522,7 +522,7 @@
         (1) : по определению\\
         (2) : так как векторы $r_m$ являются векторами касательного пространства\\
         (3) : по определению
-        $$\hat{G}_{ij}=g_{km}\hat{\Gamma}_{ij} \ \Longrightarrow \ \Gamma_{ij}^k=\frac{1}{2}g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)$$
+        $$\hat{G}_{ij}=g_{km}\hat{\Gamma}_{ij} \ \Longrightarrow \ \Gamma_{ij}^k=\frac{1}{2}\sum\limits_m\left(g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)\right)$$
     \end{proof}
     \subsubsection{Параллельный перенос касательных векторов}
     \begin{definition}
@@ -531,14 +531,14 @@
     \begin{definition}
         Ковариантная производная гладкого семейства $X(t)$ в точке $t_0$ вдоль кривой $\gamma$ --- это $\nabla_{\dot{\gamma}}X=\Pi(\dot{X}(t_0))$.
     \end{definition}
-    Пусть $x=(x^1, \ \ldots, x^n)$, $\gamma: x=x(t)$, $X=\sum\limits_{i=1}^nX^i(t)r_i(x(t))$, тогда $$\nabla_{\dot{\gamma}(t)}X=\Pi\left(\sum\limits_{i=1}^n(\dot{X}^ir_i)+\sum\limits_{k=1}^nX^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=$$
-    $$=\sum\limits_{i=1}^n(\dot{X}^ir_i)+\Pi\left(\sum\limits_{k=1}^nX^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=\sum\limits_{i=1}^n\left((\dot{X}^i+\sum\limits_{k=1}^n\left(\Gamma_{jk}^i\dot{x}^jX^k\right))r_i\right)$$
+    Пусть $x=(x^1, \ \ldots, x^n)$, $\gamma: x=x(t)$, $X=\sum\limits_{i=1}^nX^i(t)r_i(x(t))$, тогда $$\nabla_{\dot{\gamma}(t)}X=\Pi\left(\sum\limits_{i=1}^n(\dot{X}^ir_i)+\sum\limits_{j, \ k}X^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=$$
+    $$=\sum\limits_{i=1}^n(\dot{X}^ir_i)+\Pi\left(\sum\limits_{k, \ j}X^k\frac{\partial r_k}{\partial x^j}\dot{x}^j\right)=\sum\limits_{i=1}^n\left((\dot{X}^i+\sum\limits_{k, \ j}\left(\Gamma_{jk}^i\dot{x}^jX^k\right))r_i\right)$$
     Последняя формула является формулой ковариантной производной.
     \begin{definition}
         Гладкое семейство $X(t)$ параллельно кривой $\gamma$, если его ковариантная производная тождественно равна нулю.
     \end{definition}
     \begin{remark}
-        Гладкое семейство параллельно кривой $\gamma$, если $\dot{X}^i+\sum\limits_{k=1}^n\Gamma_{jk}^i\dot{x}^jX^k\equiv0 \ \forall i\in\{1, \ \ldots, \ n\}$
+        Гладкое семейство параллельно кривой $\gamma$, если $\dot{X}^i+\sum\limits_{k, \ j}\Gamma_{jk}^i\dot{x}^jX^k\equiv0 \ \forall i\in\{1, \ \ldots, \ n\}$
     \end{remark}
     \begin{subtheorem}
         Пусть $P=\gamma(a)$, $X_0\in T_PM$, тогда существует единственное семейство касательных векторов $X(t)$ такое, что
@@ -550,7 +550,7 @@
     \begin{proof}
         $$\begin{cases}
             X^i(a)=X_0^i\\
-            \dot{X}^i+\sum\limits_{k=1}^n\Gamma_{jk}^i\dot{x}^jX^k=0
+            \dot{X}^i+\sum\limits_{k, \ j}\Gamma_{jk}^i\dot{x}^jX^k=0
         \end{cases}$$
         Данная система является системой линейных однородных дифференциальных уравнений с начальными условиями, значит, по теореме Коши она имеет единственное решение.
     \end{proof}
@@ -570,7 +570,7 @@
     \end{propertes}
     \begin{proof}\tab
         \begin{enumerate}
-            \item Очевидно следует из $\dot{X}^i+\sum\limits_{k=1}^n(\Gamma_{jk}^i\dot{x}^jX^k)=0$
+            \item Очевидно следует из $\dot{X}^i+\sum\limits_{k, \ j}(\Gamma_{jk}^i\dot{x}^jX^k)=0$
             \item Рассмотрим $X(t)$ и $Y(t)$ вдоль кривой $\gamma$, тогда $((X, \ Y))'_t=(\dot{X}, \ Y)+(X, \ \dot{Y})=$ $=(\Pi(\dot{X}), \ Y)+(X, \ \Pi(\dot{Y}))=(\nabla_{\dot{\gamma}}X, \ Y)+(\nabla_{\dot{\gamma}}Y, \ X)=0$
             \item $\forall X\in T_{\gamma(t)}M$ $X\in T_{\gamma(t)}N$, $\nabla_{\dot{\gamma}}X=\Pi(\dot{X})$
         \end{enumerate}
@@ -590,7 +590,7 @@
         Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости остаётся параллельным самому себе (параллельно переносится вдоль кривой $\gamma$).
     \end{remark}
     Введём $X^i=\dot{x}^i$ и рассмотрим систему дифференциальных уравнений $$\begin{cases}
-        \dot{X}^i+\sum\limits_{k=1}^n(\Gamma^i_{jk}(x)X^jX^k)=0\\
+        \dot{X}^i+\sum\limits_{k, \ j}(\Gamma^i_{jk}(x)X^jX^k)=0\\
         \dot{x}^i-X^i=0\\
         x^i(0)=x_0^i\\
         X^i(0)=X_0^i
@@ -621,7 +621,7 @@
         Пусть $X=\dot{\gamma}(t_0)$, $Y=\frac{d}{dt}|_{t=t_0}f(\gamma)$. Тогда $Y$ не зависит от выбора кривой $\gamma$. Более того, соответствие $X\longrightarrow Y$ является линейным отображением из $T_PM$ в $T_{f(P)}Q$.
     \end{subtheorem}
     \begin{proof}
-        Пусть $\gamma:x^i=x^i(t)$, $X^i=\dot{x}^i(t_0)$, $x=(x^1, \ \ldots, \ x^n)$, $f(\gamma):y^i=f^i(x(t))$, $Y^i=\frac{d}{dt}|_{t=t_0}f^i(x(t))$, $y=(y^1, \ \ldots, \ y^k)$. Тогда $Y^i=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}^j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$
+        Пусть $\gamma:x^i=x^i(t)$, $X^i=\dot{x}^i(t_0)$, $x=(x^1, \ \ldots, \ x^n)$, $f(\gamma):y^i=f^i(x(t))$, $Y^i=\frac{d}{dt}|_{t=t_0}f^i(x(t))$, $y=(y^1, \ \ldots, \ y^k)$. Тогда $Y^i=\sum\limits_j\left(\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}^j(t_0)\right)=\sum\limits_j\left(\frac{\partial f^i}{\partial x^j}(P)\cdot X^j\right)$
     \end{proof}
     \begin{definition}
         Построенное отображение называется дифференциалом $f$ в точке $P$ и обозначается $Y=d_Pf(X)$.
@@ -817,8 +817,8 @@
     \end{theorem}
     \begin{proof}
         Пусть $\gamma$ --- нормальное сечение, $t$ --- натуральный параметр, $X=\dot{\gamma}$. Пусть $M:z=r(x)$, $\gamma:x=x(t)$, тогда $\gamma:z=r(x(t))$.\\
-        $\dot{\gamma}=\frac{\partial r}{\partial x^i}\dot{x}^i$, $\ddot{\gamma}=\frac{\partial^2r}{\partial x^i\partial x^j}\cdot\dot{x}^i\cdot\dot{x}^j+r_i\ddot{x}^i$.\\
-        Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=(\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{X}^i\cdot\dot{X}^j=b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
+        $\dot{\gamma}=\sum\limits_i\frac{\partial r}{\partial x^i}\dot{x}^i$, $\ddot{\gamma}=\sum\limits_{i, \ j}\left(\frac{\partial^2r}{\partial x^i\partial x^j}\cdot\dot{x}^i\cdot\dot{x}^j\right)+\sum\limits_ir_i\ddot{x}^i$.\\
+        Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=\sum\limits_{i, \ j}\left((\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{X}^i\cdot\dot{X}^j\right)=\sum\limits_{i, \ j}b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
     \end{proof}
     \begin{remark}
         В каноническом базисе матрица формы $b$ есть $b_{ij}=(r_{ij}, \ n)$.
@@ -831,7 +831,7 @@
         Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$ в точке $P$, $k=\frac{1}{|\ddot{\gamma}|}$ --- кривизна кривой $\gamma$, тогда $k\cos(\phi)=\tilde{k}(x)=\frac{b(x)}{|X|^2}$, где $\tilde{k}$ --- кривизна нормального сечения в точке $P$, $X=\dot{\gamma}$.
     \end{theorem}
     \begin{proof}
-        Проведём натуральную параметризацию, тогда $|x|=1$, $t$ --- натуральный параметр. Пусть $x=(x^1, \ \ldots, \ x^n)$, $\gamma : x^i=x^i(t)$, $z=\rho(t)=r(x(t))$.\\Тогда $\dot{\rho}=\frac{\partial r}{\partial x^i}\cdot\dot{x}^i=r_i\dot{x}^i$, $\ddot{\rho}=\frac{\partial r_i}{\partial x^j}\cdot\dot{x}^j\cdot\dot{x}^i+r_i\cdot\ddot{x}^i=r_{ij}X^iX^j+r_i\ddot{x}^i$. Тогда $b_{ij}X^iX^j=b(x)$.
+        Проведём натуральную параметризацию, тогда $|x|=1$, $t$ --- натуральный параметр. Пусть $x=(x^1, \ \ldots, \ x^n)$, $\gamma : x^i=x^i(t)$, $z=\rho(t)=r(x(t))$.\\Тогда $\dot{\rho}=\sum\limits_i\left(\frac{\partial r}{\partial x^i}\cdot\dot{x}^i\right)=\sum\limits_i\left(r_i\dot{x}^i\right)$, $\ddot{\rho}=\sum\limits_i\left(\sum\limits_j\left(\frac{\partial r_i}{\partial x^j}\cdot\dot{x}^j\right)\cdot\dot{x}^i+r_i\cdot\ddot{x}^i\right)=\sum\limits_{i, \ j}\left(r_{ij}X^iX^j\right)+\sum\limits_i\left(r_i\ddot{x}^i\right)$. Тогда $\sum\limits_{i, \ j}b_{ij}X^iX^j=b(x)$.
     \end{proof}
     \begin{theorem}
         Пусть $P$ --- точка на поверхности $M$, тогда в касательном пространстве $T_PM$ существует набор касательных векторов $\{e_1, \ \ldots, \ e_n\}$, которые образуют ортонормированный базис в этом пространстве такой, что матриица $b$ второй фундаментальной формы является диагональной матрицей, где на диагонали стоят собственные значения.
@@ -892,7 +892,7 @@
     \end{definition}
     \begin{subtheorem}[\hypertarget{8}{Деривационные формулы Гаусса-Вейнгартена}]
         $$\frac{\partial r_i}{\partial x^j}=\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}n$$
-        $$\frac{\partial n}{\partial x^i}=-\sum\limits_{k}B_i^kr_k, \  \textup{где} \ B_i^k=g^{kj}b_{ij}, \ g^{kj}\textup{ - матрица, обратная к }g_{kj}$$
+        $$\frac{\partial n}{\partial x^i}=-\sum\limits_{k}B_i^kr_k, \  \textup{где} \ B_i^k=\sum\limits_jg^{kj}b_{ij}, \ g^{kj}\textup{ - матрица, обратная к }g_{kj}$$
     \end{subtheorem}
     \begin{proof}
         $$\frac{\partial r_i}{\partial x^j}=r_{ij}=\Pi(r_{ij})+(n, \ r_{ij})n=\sum\limits_k\Gamma_{ij}^kr_k+b_{ij}n$$
@@ -908,8 +908,8 @@
     \begin{proof}
         Пусть $x_0\in D$. Рассмотрим сдвиг на вектор $\tilde{r}(x_0)-r(x_0)$.\\Пусть $r_1(x_0), \ \ldots, \ r_n(x_0), \ m$ --- базис для $M$, $\tilde{r}_1(x_0), \ \ldots, \ \tilde{r}_n(x_0), \ \tilde{m}$ --- базис для $\tilde{M}$. Заметим, что матрицы Грамма (матрицы скалярных произведений) совпадают. Тогда существует единственное ортогональное преобразование, переводящее один базис в другой. Применим его и проверим, что поверхности совпали.\\
         $r(x_0)=\tilde{r}(x_0)$\\
-        \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\frac{d}{dt}r_i(x(t))=\frac{\partial r_i}{\partial x^j}\dot{x}^j=\left(\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}m\right)\dot{x}^j$$
-        $$\frac{d}{dt}m(x(t))=\frac{\partial m}{\partial x^j}\cdot\dot{x}^j=\left(-\sum\limits_{k}B_j^kr_k\right)\dot{x}^j$$
+        \hyperlink{8}{Из деривационных формул Гаусса-Вейнгартена} имеем $$\frac{d}{dt}r_i(x(t))=\sum\limits_j\left(\frac{\partial r_i}{\partial x^j}\dot{x}^j\right)=\sum\limits_j\left(\left(\sum\limits_{k}\Gamma_{ij}^kr_k+b_{ij}m\right)\dot{x}^j\right)$$
+        $$\frac{d}{dt}m(x(t))=\sum\limits_j\left(\frac{\partial m}{\partial x^j}\cdot\dot{x}^j\right)=\sum\limits_j\left(\left(-\sum\limits_{k}B_j^kr_k\right)\dot{x}^j\right)$$
         Так как первая и вторая фундаментальные формы совпадают, то совпадают матрицы $b_{ij}$ и $g^{kj}$, а значит, и матрицы $B_j^k$. Причём $\tilde{r}_i$ удовлетворяют той же системе линейных дифференциальных уравнений, что и $r_i$. Тогда по теореме существования и единственности решения системы линейных дифференциальных уравнений $r_i=\tilde{r}_i$. Тогда $r=\tilde{r}+r_0$, а так как $r(x_0)=\tilde{r}(x_0)$, то $r_0=0$, то есть поверхности совпадают.
     \end{proof}
     Введём обозначения: $\frac{\partial y}{\partial x^j}=f_j(x, \  y)$, $\frac{\partial^2 y}{\partial x^i\partial x^j}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot\frac{\partial y^{\alpha}}{\partial x^i}=\frac{\partial f_j}{\partial x^i}+\frac{\partial f_j}{\partial y^{\alpha}}\cdot f_i^{\alpha}$
@@ -1002,8 +1002,8 @@
         (2) \hyperlink{8}{Из первой и второй деривационной формул Гаусса-Вейнгартена}\\
         (3) \hyperlink{8}{Из второй деривационной формулы Гаусса-Вейнгартена}\\
         $G_{sk}(x_0)=g_{sk}(x_0)$, $q_s(x_0)=0$, $\lambda(x_0)=1$. $b_{sj}-B_l^jg_{ls}=0$, что равносильно определению $B^j_l$, $\frac{\partial G_{sk}}{\partial x^j}=\sum\limits_l\left(\Gamma^l_{sj}g_{lk}+\Gamma_{kj}^lg_{sl}\right)$. Тогда \hyperlink{10}{Из утверждения 2.4}
-        $$\Gamma_{sj}^l=\frac{1}{2}g^{lm}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)$$ где $g^{lm}=g_{sj}^{-1}$. Отсюда
-        $$\frac{\partial G_{sk}}{\partial x^j}=\frac{1}{2}\sum\limits_l\left(g^{lm}g_{lk}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)+g^{lm}g_{sl}\left(\frac{\partial g_{km}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^k}-\frac{\partial g_{kj}}{\partial x^m}\right)\right)\overset{(1)}{=}$$
+        $$\Gamma_{sj}^l=\frac{1}{2}\sum\limits_m\left(g^{lm}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)\right)$$ где $g^{lm}=g_{sj}^{-1}$. Отсюда
+        $$\frac{\partial G_{sk}}{\partial x^j}=\frac{1}{2}\sum\limits_{l, \ m}\left(g^{lm}g_{lk}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)+g^{lm}g_{sl}\left(\frac{\partial g_{km}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^k}-\frac{\partial g_{kj}}{\partial x^m}\right)\right)\overset{(1)}{=}$$
         $$\overset{(1)}{=}\frac{1}{2}\left(2\frac{\partial g_{sk}}{\partial x^j}\right)=\frac{\partial g_{sk}}{\partial x^j}$$
         (1) Положим $\sum\limits_lg^{lm}g_{lk}=S_k^m$, $\sum\limits_lg^{lm}g_{ls}=S_s^m$ и подставим в первую сумму $m=k$, а во вторую $m=s$.\\
         Из этого следует, что $G_{sk}(x)=g_{sk}(x)$.\\
@@ -1011,7 +1011,7 @@
         Проверим это, $g_{ij}(x)=(r_i, \ r_j)$, $(m, \ r_j)=0$, $(m, \ m)=1$, причём $\frac{\partial r_s}{\partial x^j}=\frac{\partial^2 r}{\partial x^s\partial x^j}=\sum\limits_k\Gamma^k_{sj}r_k+b_{sj}m$ $\Longrightarrow$ $b_{js}=(m, \ r_{js})$, значит, $b_{js}$ --- матрица второй фундаментальной формы поверхности $M$.
     \end{proof}
     \begin{consequence}[Из соотношения Гаусса]
-        $$\frac{\partial\Gamma^k_{js}}{\partial x^i}-\frac{\partial\Gamma_{is}^k}{\partial x^j}+\Gamma_{js}^l\cdot\Gamma_{li}^k-\Gamma_{is}^l\cdot\Gamma^k_{lj}=B_i^k\cdot b_{js}-B_j^k\cdot b_{is}$$
+        $$r_k: \ \frac{\partial\Gamma^k_{js}}{\partial x^i}-\frac{\partial\Gamma_{is}^k}{\partial x^j}+\sum\limits_l\left(\Gamma_{js}^l\cdot\Gamma_{li}^k-\Gamma_{is}^l\cdot\Gamma^k_{lj}\right)=B_i^k\cdot b_{js}-B_j^k\cdot b_{is}\textup{ (соотношение Гаусса)}$$
         Так как левая часть равенства характеризует внутреннюю геометрию поверхности, а правая --- внешнюю, то данное уравнение показывает связь внешней и внутренней геометрии.\\
         Обозначим $R_{ij, \ s}^k=B_i^k\cdot b_{js}-B_j^k\cdot b_{is}$. Этот тензор называется тензором Римана. Сделаем из него скалярную величину.
         $$R=\sum\limits_{j, \ s}g^{js}R_{kj, \ s}^k=\sum\limits_{j, \ s}g^{js}\left(\sum\limits_k\left(B^k_kb_{js}-B^k_jb_{ks}\right)\right)=\sum\limits_{k, \ j}\left(B_k^kB_j^j-B_j^kB^j_k\right)=(tr B)^2-tr(B^2)=$$
@@ -1257,7 +1257,7 @@
         Касательный вектор $Y\in T_{f(P)}Q$ не зависит от кривой $\gamma$.
     \end{subtheorem}
     \begin{proof}
-        Пусть $x=(x^1, \ \ldots, \ x^n)$, $y(y^1, \ \ldots, \ y^n)$, тогда $f:y^i=f^i(x^1, \ \ldots, \ x^n)$. $\gamma:x^i=x^i(t)$, $X^i=\dot{x}^i(t_0)$, $f(\gamma):y^i=y^i(t)=f^i(x(t))$. Тогда $$Y^i=\frac{\partial}{\partial t}f^i(x(t))=\frac{\partial f^i}{\partial x^j}(P)\cdot\frac{\partial x^j}{\partial t}(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}^j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$$
+        Пусть $x=(x^1, \ \ldots, \ x^n)$, $y=(y^1, \ \ldots, \ y^n)$, тогда $f:y^i=f^i(x^1, \ \ldots, \ x^n)$. $\gamma:x^i=x^i(t)$, $X^i=\dot{x}^i(t_0)$, $f(\gamma):y^i=y^i(t)=f^i(x(t))$. Тогда $$Y^i=\frac{\partial}{\partial t}f^i(x(t))=\frac{\partial f^i}{\partial x^j}(P)\cdot\frac{\partial x^j}{\partial t}(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}^j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$$
     \end{proof}
     \begin{remark}
         Отображение $d_Pf(P):T_PM\to T_{f(P)}Q$ является линейным отображением. Его матрица в паре канонических базисов является матрицей якоби.
