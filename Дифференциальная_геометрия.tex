@@ -861,10 +861,10 @@
         Без ограничения общности будем считать, что $\lambda^+=\lambda_1$, тогда \hyperlink{7}{по теореме 2.4} $\tilde{k}(x)=\lambda_1\cos^2(\alpha_1)+\sum\limits_{j=2}^n\lambda_j\cos^2(\alpha_j)$. $\cos^2(\alpha_1)=1-\sum\limits_{j=2}^n\cos^2(\alpha_j)$ $\Longrightarrow$ $\tilde{k}(x)=\lambda^++\sum\limits_{j=2}^n(\cos^2(\alpha_j)(\lambda_j-\lambda^+)\leqslant\lambda^+$. Для $\lambda^-$ аналогично.
     \end{proof}
     \begin{definition}
-        Гауссовой кривизной называется число $k=\lambda_1\cdot\ldots\cdot\lambda_n$, средней кривизной называется число $h=\sum\limits_{j=1}^n\lambda_j$.
+        Гауссовой кривизной называется число $K=\lambda_1\cdot\ldots\cdot\lambda_n$, средней кривизной называется число $H=\sum\limits_{j=1}^n\lambda_j$.
     \end{definition}
     \begin{remark}
-        $det(bg^{-1}-\lambda E)=0$ $\Longrightarrow$ $k=\frac{det(b)}{det(g)}$, $h=tz(bg^{-1})$
+        $det(bg^{-1}-\lambda E)=0$ $\Longrightarrow$ $K=\frac{det(b)}{det(g)}$, $H=tz(bg^{-1})$
     \end{remark}
     \begin{definition}
         Отклонение точки $Q$ от касательной плоскости к поверхности $M$ в точке $P$ --- это $\delta(Q)=(r(Q)-r(P), \ n(P))$.
@@ -1018,7 +1018,7 @@
         $$=\left(\sum\limits_{j=1}^n\lambda_j\right)^2-\sum\limits_{j=1}^n\lambda_j^2=2\sum\limits_{i<j}\lambda_i\lambda_j$$
     \end{consequence}
     \begin{subtheorem}[Блистательная теорема Гаусса]
-        Пусть $n=2$, тогда $k=\frac{R}{2}$, где $k$ --- гауссова кривизна.
+        Пусть $n=2$, тогда $K=\frac{R}{2}$, где $K$ --- гауссова кривизна.
     \end{subtheorem}
     \section{Гладкие многообразия}
     \subsection{Напоминаниме (На экзамене скорее всего доказывать не потребуется)}
@@ -1121,11 +1121,33 @@
     \begin{definition}
         Топологическое пространство $X$ называется \textit{хаусдорфовым}, если у любых двух его различных точек существуют непересекающиеся окрестности.
     \end{definition}
+    \begin{lemma}
+        Компакт $M$ в хаусдорфовом пространстве $X$ является замкнутым множеством.
+    \end{lemma}
+    \begin{proof}
+        Пусть $M \subset X$, $M$ — компакт;
+        $x_0 \in X \setminus M$, $y \in M$.
+
+        Пользуемся хаусдорфовостью: $x_0 \in U_{x_0}^y, \ y \in V_y, \ U_{x_0}^y \cap V_y = \emptyset$, где $U_{x_0}^y$ — открытая окрестность точки $x_0$, а $V_y$ — открытая окрестность точки $y$.
+
+        $\bigcup_{y \in M} V_y$ — открытое покрытие всего множества $M$.
+
+        Пользуемся компактностью: выберем конечное подпокрытие $M \subset \bigcup_{i = 1}^n V_{y_i}$, $\ y_i \in M$.
+        $\bigcap_{i = 1}^n U_{x_0}^{y_i} = U$, $x_0 \in U$, $U \cap V_{y_i} = \emptyset$, $U$ открытое (конечное пересечение открытых множеств открыто) $\Longrightarrow X \setminus M$ открыто $\Longrightarrow M$ замкнуто.
+    \end{proof}
+
+    \begin{subtheorem}
+        $f: X \to Y$, $f$ — непрерывная биекция, $X$ — компакт, $Y$ — хаусдорфово топологическое пространство $\Longrightarrow$ $f$ — гомеоморфизм.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть $f: X \to Y$, $X$ — компакт, $M \subset X$, $M$ замкнуто $\Longrightarrow M$ компактно (по теореме о том, что замкнутое подмножество компакта есть компакт) $\Longrightarrow f(M) \subset Y$, где $f(M)$ тоже компактно (т.к. $f$ непрерывно) $\Longrightarrow f(M)$ замкнуто в $Y$ (по лемме, которая была выше). 
+    \end{proof}
     Далее рассматриваем только хаусдорфовы пространства.
     \begin{definition}
         Отображение $f:X\to Y$ двух топологических пространств называется гомеоморфизмом, если оно биективно, непрерывно и обратное к нему тоже непрерывно.
     \end{definition}
     \subsection{Гладкие многообразия и структуры}
+    В данном разделе рассматриваем только хаусдорфовы пространства.
     \begin{definition}
         Пусть $M$ --- топологическое пространство, причём $M$ хаусдорфово и обладает счётной базой. $M$ называется топологическим многообразием, если у любой точки существует окрестность, гомеоморфная открытой области в $\R^n$.
     \end{definition}
@@ -1190,7 +1212,7 @@
         Гладкая функция на гладком многообразии --- гладкое отображение $f:M\to\R$.
     \end{definition}
     \begin{definition}
-        Пусть $f:M\to Q$ --- гомеоморфизм, тогда $f$ называется диффеоморфизмом, если $f$ и $f^{-1}$ непрерывны.
+        Пусть $f:M\to Q$ --- гомеоморфизм, тогда $f$ называется диффеоморфизмом, если $f$ и $f^{-1}$ --- гладкие функции.
     \end{definition}
     \begin{definition}
         Гладкая кривая на многообразии --- гладкое отображение $\gamma:[a, \ b]\to M$. Это соответствие, сопоставляющей каждой точке $t\in[a, \ b]$ точку $\gamma(t)\in M$.
@@ -1260,7 +1282,7 @@
         Пусть $x=(x^1, \ \ldots, \ x^n)$, $y=(y^1, \ \ldots, \ y^n)$, тогда $f:y^i=f^i(x^1, \ \ldots, \ x^n)$. $\gamma:x^i=x^i(t)$, $X^i=\dot{x}^i(t_0)$, $f(\gamma):y^i=y^i(t)=f^i(x(t))$. Тогда $$Y^i=\frac{\partial}{\partial t}f^i(x(t))=\frac{\partial f^i}{\partial x^j}(P)\cdot\frac{\partial x^j}{\partial t}(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot\dot{x}^j(t_0)=\frac{\partial f^i}{\partial x^j}(P)\cdot X^j$$
     \end{proof}
     \begin{remark}
-        Отображение $d_Pf(P):T_PM\to T_{f(P)}Q$ является линейным отображением. Его матрица в паре канонических базисов является матрицей якоби.
+        Отображение $d_Pf(P):T_PM\to T_{f(P)}Q$ является линейным отображением. Его матрица в паре канонических базисов является матрицей Якоби.
     \end{remark}
     \begin{definition}
         Это отображение называется дифференциалом.
@@ -1274,6 +1296,146 @@
     \end{definition}
     Пусть $M$ --- $n$-мерное гладкое многообразие, $Q$ --- $m$-мерное гладкое многообразие, $f:M\to Q$ --- гладкое отображение, $n\leqslant m$, $P\in M$, $f(P)\in Q$.
     \begin{definition}
-        Отображение $f:M\to Q$ называется гладким погружением, если $\forall P\in M$ $Ker(d_Pf(P))=\{0\}$.
+        Отображение $f:M\to Q$ называется гладким погружением (погружением), если $\forall P\in M$ $Ker(d_Pf(P))=\{0\}$.
     \end{definition}
+    \begin{exercise}
+        Построить отображение из окружности в лемнискату.
+    \end{exercise}
+    \begin{definition}
+        Отображение $f$ называется влодением, если $f$ --- погружение и $f:M\to f(M)$ --- гомеормеорфизм.
+    \end{definition}
+    \begin{exercise}
+        Доказать, что если $M$ --- компакт, то $f:M\to Q$ --- вложение тогда и только тогда, когда
+        \begin{enumerate}
+            \item $f$ --- погружение
+            \item $f$ --- биекция
+        \end{enumerate}
+    \end{exercise}
+    \begin{proof}
+        $\underline{\Longrightarrow}$ Пусть $f:M\to Q$ --- вложение, тогда из определения $f$ является погружением. А так как $f$ --- гомеоморфизм, то $f$ --- биекция.\\
+        $\underline{\Longleftarrow}$ Пусть $f:M\to Q$ --- биекция, $f$ --- погружение, $M$ --- компакт, тогда по определению погружения $f$ непрерывно. Рассмотрим обратное отображение $f^{-1}$ и замкнутое подмножество $C\subset M$, тогда по свойству компакта $C$ --- компакт и $f(C)$ --- компакт, так как $f$ непрерывно. Так как мы в начале раздела сказали, что рассматриваем, только хаусдорфовы пространства, то по свойству непрерывного отображения в хаусдорфово пространство имеем, что $f(C)$ замкнуто в $Q$, то есть образ замкнутого множества замкнут. Значит, обратное отображение тоже непрерывно. Тогда по определению $f$ --- гомеоморфизм.
+    \end{proof}
+    \begin{theorem}
+        Пусть $M$ --- гладкое компактное $n$-мерное многообразие, тогда существует вложение $M$ в евклидово пространство $\R^N$.
+    \end{theorem}
+    \begin{proof}
+        Проведём доказательство методом срезающих функций.\\
+        Рассмотрим отображение $w(t)=\begin{cases}
+            e^{-\frac{1}{t}}, \ t>0\\
+            0, \ t\leqslant 0
+        \end{cases}$ и отображение $\psi(t)=\frac{w(b-a)}{w(t-a)+w(b-t)}$ на отрезке $[a, \ b]$, $0<a<b$ (такая функция называется срезающей функцией).\\
+        Пусть $M$ --- гладкое компактное многообразие. Выберем атлас $\{U_{\alpha}, \ \phi_{\alpha}\}$, где $\phi_{\alpha}:U_{\alpha}\to\R^n$, $\alpha\in\{1, \ \ldots, \ N\}$. В силу компактности выберем конечное число его элементов, покрывающих данное многообразие.\\
+        Рассмотрим отображение $\chi:M\to\R^{n(N+1)}$, $P\in M$ такое, что $\chi(P)=\begin{pmatrix}
+            \phi_{\alpha_1}(P)\cdot\psi(|\phi_{\alpha_1}(P)|)\\
+            \vdots\\
+            \phi_{\alpha_{_N}}(P)\cdot\psi(|\phi_{\alpha_{_N}}(P)|)\\
+            \psi(|\phi_{\alpha_1}(P)|)\\
+            \vdots\\
+            \psi(|\phi_{\alpha_{_N}}(P)|)\\
+        \end{pmatrix}$
+        В первых $N$ строках образом является вектор в $\R^n$, в последних $N$ строках образом являются числами.\\
+        Рассмотрим $\tilde{U}_{\alpha}\subset U_{\alpha}$ такое, что $\chi(P)=0$, если $P\notin\tilde{U}_{\alpha}$. Теперь $\psi(|\phi_{\alpha}(P)|)=1 \ \Longleftrightarrow \ P\in\tilde{U}_{\alpha}$.\\
+        Докажем, что $\chi$ --- вложение.
+        \begin{enumerate}
+            \item Существует $P\in M$ такое, что $P\in \tilde{U}_{\alpha}$ для некоторого $\tilde{U}_{\alpha}$, значит, $\chi(P)=\begin{pmatrix}
+                \vdots\\
+                \begin{pmatrix}
+                    x^1\\
+                    \vdots\\
+                    x^n
+                \end{pmatrix}\\
+                \vdots
+            \end{pmatrix} \ \Longrightarrow d_P\chi=\begin{pmatrix}
+                \vdots\\
+                E\\
+                \vdots
+            \end{pmatrix}$. Значит, $rk \ d_P\chi\geqslant n$ $\Longrightarrow$ это погружение.
+            \item Предположим, что существуют $P$ и $Q$ такие, что $\chi(P)=\chi(Q)$ и $P\neq Q$. Так как $P$ и $Q$ принадлежат поверхности $M$, тогда для некоторого $\tilde{U}_{\alpha_i}$, то есть $\psi(|\phi_{\alpha_i}(P)|)>0$ и $\psi(|\phi_{\alpha_i}(Q)|)>0$, тогда $\phi_{\alpha_i}(P)\cdot\psi(|\phi_{\alpha_i}(P)|)=\phi_{\alpha_i}(Q)\cdot\psi(|\phi_{\alpha_i}(Q)|)$ и $\psi(|\phi_{\alpha_i}(P)|)=\psi(|\phi_{\alpha_i}(Q)|)$. Разделим предпоследнее равенство на $\psi(|\phi_{\alpha_i}(Q)|)$, тогда $\phi_{\alpha_i}(P)=\phi_{\alpha_i}(Q)$. Так как $\phi_{\alpha_i}$ --- гомеоморфизм, то $P=Q$.
+        \end{enumerate}
+    \end{proof}
+    \begin{remark}\tab
+        \begin{enumerate}
+            \item Теорема верна для гладких многообразий со счётной базой.
+            \item На размерность пространства, в которое можно погрузить данное многообразие существуют ограничения:
+            \begin{enumerate}
+                \item Гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n+1}$ и погрузить в $\R^{2n}$ (Слабая теорема Уитни).
+                \item Гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n}$ и погрузить в $\R^{2n-1}$ (Сильная теорема Уитни).
+            \end{enumerate}
+        \end{enumerate}
+    \end{remark}
+    \subsection{Геометрия на сфере}
+    $M^2:z_1^2+z_2^2+z_3^2=R^2$
+    \begin{subtheorem}
+        Геодезические на сфере --- это дуги больших окружностей.
+    \end{subtheorem}
+    \begin{proof}
+        Так как для любой точки на любой дуге на сфере радиус, проведённый в эту точку, ортогонален касательной плоскости в этой точке, то дуги больших окружностей являются геодезическими, так как их векторы ускорения направлены к центру сферы.\\
+        Так как через каждую точку на сфере проходит большой круг, а значит, другие кривые, проходящие через данную точку не геодезические, так как их векторы ускорения, направленные к центрам своих окружностей будут не ортогональны касательной плоскости в данной точке, так как вектор нормали для плоскости задан однозначно.
+    \end{proof}
+    \begin{definition}
+        Пусть $M$ --- риманово многообразие. Расстоянием между точками $P$ и $Q$ называется $|PQ|=\inf\limits_{\gamma}|\gamma|$, $\gamma$ --- геодезическая кривая, соединяющая точки $P$ и $Q$.
+    \end{definition}
+    \begin{subtheorem}
+        Пусть $X$ и $Y$ --- радиус-векторы, проведённые к точкам $P$ и $Q$ соответственно. Тогда $\cos\left(\frac{|PQ|}{R}\right)=\frac{(X, \ Y)}{R^2}$.
+    \end{subtheorem}
+    \begin{proof}
+        $$(X, \ Y)=R^2\cos\alpha \ \Longrightarrow \ \cos\alpha=\frac{(X, \ Y)}{R^2}$$
+    \end{proof}
+    \begin{definition}
+        Окружностью радиуса $a$ с центром в точке $P\in S^2$ называется множество точек $Q\in S^2$ таких, что  $|PQ|=a$.
+    \end{definition}
+    \begin{theorem}
+        Пусть $l(a)$ --- длина окружности радиуса $a$ на $S^2$, тогда $l(a)=R\cdot\sin\left(\frac{a}{R}\right)\cdot2\pi\sim 2\pi a+\overline{\overline{o}}\left(\frac{1}{R}\right)$.
+    \end{theorem}
+    \begin{proof}
+        Рассмотрим окружность $a$ на сфере, пусть $P$ --- точка её пересечения со сферой, $O$ --- центр сферы, $O'$ --- центр этой окружности. Пусть угол между векторами $OO'$ и $OP$ равен $\alpha$, тогда из геометрических соображений $r=R\sin\alpha$, где $r$ --- радиус окружности. Тогда $l(a)=2\pi r=2\pi R\sin\alpha$. Пусть $Q$ --- точка, диаметрально противоположная точке $P$ относительно окружности, тогда длина дуги $PQ$ равна $\alpha=\frac{a}{R}$. значит, $l(a)=R\cdot\sin\left(\frac{a}{R}\right)\cdot2\pi$. Если устремить $R\to\infty$, то по формуле Тейлора получим $2\pi a+\overline{\overline{o}}\left(\frac{1}{R}\right)$.
+    \end{proof}
+    \begin{theorem}[Теорема косинусов для кривалинейного треугольника на сфере]
+        $$\cos\left(\frac{a}{R}\right)=\cos\left(\frac{b}{R}\right)\cdot\cos\left(\frac{c}{R}\right)+\sin\left(\frac{b}{R}\right)\cdot\sin\left(\frac{c}{R}\right)\cos\alpha$$
+    \end{theorem}
+    \begin{proof}
+        Рассмотрим радиус-векторы $\xi_{_A}$ в точку $A$, $\xi_{_B}$ в точку $B$, $\xi_{_C}$ в точку $C$ и рассмотрим два касательных вектора к кривым $c$ и $b$ $\eta_{_B}$ и $\eta_{_C}$ в направлении вершин $B$ и $C$ соответственно из вершины $A$. Тогда $\eta_{_B}=\xi_{_B}+\lambda_{_B}\xi_{_A}$, $\eta_{_C}=\xi_{_C}+\lambda_{_C}\xi_{_A}$.\\
+        Рассмотрим $\left(\eta_{_B}, \ \xi_{_A}\right)\overset{(1)}{=}0=\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_A}\right)\overset{(2)}{=}|\xi_{_B}|\cdot|\xi_{_A}|\cdot\cos\left(\frac{2\pi c}{2\pi R}\right)+\lambda_{_B}|\xi_{_A}|^2=R^2\left(\lambda_{_B}+\cos\left(\frac{c}{R}\right)\right)$.\\
+        Значит, $\lambda_{_B}=-\cos\left(\frac{c}{R}\right)$.\\
+        Аналогично через скалярное произведение для второго равенства с $\xi_{_A}$ получаем $\lambda_{_C}=-\cos\left(\frac{b}{R}\right)$.\\
+        Рассмотрим $\left(\eta_{_B}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \eta_{_B}\right)+\lambda_{_B}\left(\xi_{_A}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \xi_{_B}\right)+2\lambda_{_B}\left(\xi_{_A}, \ \xi_{_B}\right)+\lambda_{_B}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=R^2\left(1+\lambda_{_B}^2+2\lambda_{_B}\cos\left(\frac{c}{R}\right)\right)=R^2\left(1+\cos^2\left(\frac{c}{R}\right)-2\cos\left(\frac{c}{R}\right)\cdot\cos\left(\frac{c}{R}\right)\right)=R^2\sin^2\left(\frac{c}{R}\right)$\\
+        Аналогично $\left(\eta_{_C}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \eta_{_C}\right)+\lambda_{_C}\left(\xi_{_A}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \xi_{_C}\right)+2\lambda_{_C}\left(\xi_{_A}, \ \xi_{_C}\right)+\lambda_{_C}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=R^2\left(1+\lambda_{_C}^2+2\lambda_{_C}\cos\left(\frac{b}{R}\right)\right)=R^2\left(1+\cos^2\left(\frac{b}{R}\right)-2\cos\left(\frac{b}{R}\right)\cdot\cos\left(\frac{b}{R}\right)\right)=R^2\sin^2\left(\frac{b}{R}\right)$\\
+        Рассмотрим $\left(\eta_{_B}, \ \eta_{_C}\right)=|\eta_{_B}|\cdot|\eta_{_C}|\cdot\cos\alpha=R\sin\left(\frac{c}{R}\right)\cdot R\sin\left(\frac{b}{R}\right)\cos\alpha$\\
+        $\left(\eta_{_B}, \ \eta_{_C}\right)=\left(\xi_{_B}, \ \eta_{_C}\right)+\lambda_{_B}\left(\xi_{_A}, \ \eta_{_C}\right)=\left(\xi_{_B}, \ \xi_{_C}\right)+\lambda_{_C}\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_C}\right)+\lambda_{_B}\lambda_{_C}\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=R^2\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)-\cos\left(\frac{c}{R}\right)\cos\left(\frac{b}{R}\right)+\cos\left(\frac{c}{R}\right)\cos\left(\frac{b}{R}\right)\right)=$\\ $=R^2\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)$.\\
+        Тогда $R^2\sin\left(\frac{c}{R}\right)\cdot \sin\left(\frac{b}{R}\right)\cos\alpha=R^2\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)$, а значит,\\$\sin\left(\frac{c}{R}\right)\cdot \sin\left(\frac{b}{R}\right)\cos\alpha=\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)$.
+    \end{proof}
+    \begin{remark}
+        Если устремить $R$ к бесконечности, то получится обычная теорема косинусов с точностью до $\overline{\overline{o}}(1)$.
+    \end{remark}
+    \begin{exercise}
+        Доказать теорему синусов: $\frac{\sin\alpha}{\sin\left(\frac{a}{R}\right)}=\frac{\sin\beta}{\sin\left(\frac{b}{R}\right)}=\frac{\sin\gamma}{\sin\left(\frac{c}{R}\right)}$.
+    \end{exercise}
+    \begin{proof}
+        $$\cos\left(\frac{a}{R}\right)=\cos\left(\frac{b}{R}\right)\cdot\cos\left(\frac{c}{R}\right)+\sin\left(\frac{b}{R}\right)\cdot\sin\left(\frac{c}{R}\right)\cos\alpha$$
+        $$\cos\left(\frac{b}{R}\right)=\cos\left(\frac{a}{R}\right)\cdot\cos\left(\frac{c}{R}\right)+\sin\left(\frac{a}{R}\right)\cdot\sin\left(\frac{c}{R}\right)\cos\beta$$
+        $$\frac{\sin\left(\frac{b}{R}\right)}{\sin\left(\frac{a}{R}\right)}$$
+        Возьведём в квадрат оба равенства и вычтем из первого второе, параллельно применив основное тригонометрическое тождество для углов $\alpha$ и $\beta$.
+        $$\left(\cos^2\left(\frac{a}{R}\right)-\cos^2\left(\frac{b}{R}\right)\right)\sin^2\left(\frac{c}{R}\right)=\left(\cos^2\left(\frac{a}{R}\right)-\cos^2\left(\frac{b}{R}\right)\right)\sin^2\left(\frac{c}{R}\right)+$$
+        $$+\left(\sin^2(\beta)\sin^2\left(\frac{a}{R}\right)-\sin^2(\alpha)\sin^2\left(\frac{b}{R}\right)\right)\sin^2\left(\frac{c}{R}\right)$$
+        $$\sin^2(\beta)\sin^2\left(\frac{a}{R}\right)=\sin^2(\alpha)\sin^2\left(\frac{b}{R}\right)$$
+        $$\frac{\sin\alpha}{\sin\left(\frac{a}{R}\right)}=\frac{\sin\beta}{\sin\left(\frac{b}{R}\right)}$$
+        (модуль при извлечении корня можем убрать, так как $0<\alpha<\pi$, так как угол между векторами определён от $0$ до $\pi$, а так как длина дуги не может превышать $\pi R$, иначе это не кратчайшее растояние между точками, то $\frac{a}{R}$ и $\frac{b}{R}\in(0, \ \pi$). Второе равенство доказывается аналогично.
+    \end{proof}
+    \begin{definition}
+        Полярным к данному треугольнику $ABC$ на сфере называется треугольник с вершинами $A'$, $B'$, $C'$ такими, что $A'$ является полюсом полусферы, образованной окружностью дуги $BC$, (самой отдалённой точкой от плоскости, в которой лежит окружность дуги $BC$) причём в этой полусфере должна лежать вершина $A$. Остальные вершины выбираются аналогично.
+    \end{definition}
+    \begin{theorem}[Двойственная теорема косинусов]
+        $$\cos\alpha=-\cos\beta\cdot\cos\gamma+\sin\beta\cdot\sin\gamma\cos\left(\frac{a}{R}\right)$$
+    \end{theorem}
+    \begin{proof}
+        Рассмотрим треугольник $ABC$ и двойственный к нему $A'B'C'$, тогда $(\xi_{_{A'}}, \ \xi_{_B})=0$ и $(\xi_{_{A'}}, \ \xi_{_C})=0$ (так как $OA'$ перпендикулярно данной окружности по построению).\\
+        Из построения имеем $\alpha=\pi-\frac{a'}{R}$, $\beta=\pi-\frac{b'}{R}$, $\gamma=\pi-\frac{c'}{R}$, $\frac{a}{R}=\pi-\alpha'$
+        Из теоремы косинусов для полярного треугольника имеем
+        $$\cos\left(\frac{a'}{R}\right)=\cos\left(\frac{b'}{R}\right)\cdot\cos\left(\frac{c'}{R}\right)+\sin\left(\frac{b'}{R}\right)\cdot\sin\left(\frac{c'}{R}\right)\cos\alpha'$$
+        Тогда объединив полученные выражения получим
+        $$\cos\alpha=-\cos\beta\cdot\cos\gamma+\sin\beta\cdot\sin\gamma\cos\left(\frac{a}{R}\right)$$
+    \end{proof}
 \end{document}
