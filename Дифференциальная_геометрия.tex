@@ -270,10 +270,10 @@
         Вектор $b$ называется вектором бинормали. Тройка векторов $\{v, \ n, \ b\}$ является ортонормированным репером с центром в точке $s_0$.
     \end{definition}
     \begin{lemma}\hypertarget{3}{}
-        Пусть $A(t)$ и $B(t)$ --- это $n\times n$ гладкие матричные функции, заданные на отрезке $[a, \ b]$, причём $\dot{Q}=A\cdot Q$, тогда
+        Пусть $A(t)$ и $Q(t)$ --- это $n\times n$ гладкие матричные функции, заданные на отрезке $[a, \ b]$, причём $\dot{Q}=A\cdot Q$, тогда
         \begin{enumerate}
             \item если $\forall t\in[a, \ b] \ Q(t)\cdot Q^T(t)=E$, то $\forall t\in[a, \ b] \ A^T(t)=-A(t)$.
-            \item если $\forall t\in[a, \ b] \ A^T(t)=-A(t)$ --- ортогональная матрица и $Q(t)$ --- ортогональная матрица хотя бы в одной точке, тогда $\forall t\in[a, \ b] \ Q(t)$ --- ортогональная матрица.
+            \item если $\forall t\in[a, \ b] \ A^T(t)=-A(t)$ --- кососимметричная матрица и $Q(t)$ --- ортогональная матрица хотя бы в одной точке, тогда $\forall t\in[a, \ b] \ Q(t)$ --- ортогональная матрица.
         \end{enumerate}
     \end{lemma}
     \begin{proof}
@@ -1469,26 +1469,62 @@
         $$\cos\alpha=-\cos\beta\cdot\cos\gamma+\sin\beta\cdot\sin\gamma\cos\left(\frac{a}{R}\right)$$
     \end{proof}
     \begin{remark}
-        Если рассмотрим предел при $R\to\infty$ получим $\cos\alpha=-\cos\beta\cdot\cos\gamma+\sin\beta\cdot\sin\gamma$. Тогда $\cos\alpha=-\cos(\beta+\gamma)$, что равносильно $\cos\left(\frac{\alpha+\beta+\gamma}{2}\right)\cos\left(\frac{\alpha-\beta-\gamma}{2}\right)=0$. Второй косинус не может быть равен нулю, так как иначе $\alpha>\pi$.\\Значит, $\alpha+\beta+\gamma=\pi$.
+        Если рассмотрим предел при $R\to\infty$, то получим $\cos\alpha=-\cos\beta\cdot\cos\gamma+\sin\beta\cdot\sin\gamma$. Тогда $\cos\alpha=-\cos(\beta+\gamma)$, что равносильно $\cos\left(\frac{\alpha+\beta+\gamma}{2}\right)\cos\left(\frac{\alpha-\beta-\gamma}{2}\right)=0$. Второй косинус не может быть равен нулю, так как иначе $\alpha>\pi$.\\Значит, $\alpha+\beta+\gamma=\pi$.
     \end{remark}
+    \begin{exercise}
+        Вычислить радиус описанной окружности для треугольника на сфере.
+    \end{exercise}
+    \begin{proof}
+        $$\cos\left(\frac{r}{R}\right)=\cos\left(\frac{r}{R}\right)\cos\left(\frac{c}{R}\right)+\sin\left(\frac{r}{R}\right)\sin\left(\frac{c}{R}\right)\cos\alpha_1$$
+        $$\cos\left(\frac{r}{R}\right)=\cos\left(\frac{r}{R}\right)\cos\left(\frac{b}{R}\right)+\sin\left(\frac{r}{R}\right)\sin\left(\frac{b}{R}\right)\cos\alpha_2$$
+        $$1=\cos\left(\frac{c}{R}\right)+tg\left(\frac{r}{R}\right)\sin\left(\frac{c}{R}\right)\cos\alpha_1$$
+        $$1=\cos\left(\frac{b}{R}\right)+tg\left(\frac{r}{R}\right)\sin\left(\frac{b}{R}\right)\cos\alpha_2$$
+        $$\cos\alpha_1=\frac{1-\cos\left(\frac{c}{R}\right)}{tg\left(\frac{r}{R}\right)\sin\left(\frac{c}{R}\right)}$$
+        $$\cos\alpha_2=\frac{1-\cos\left(\frac{b}{R}\right)}{tg\left(\frac{r}{R}\right)\sin\left(\frac{b}{R}\right)}$$
+        $$\sin^2\alpha_1=1-\frac{\left(1-\cos\left(\frac{c}{R}\right)\right)^2}{tg^2\left(\frac{r}{R}\right)\sin^2\left(\frac{c}{R}\right)}=1-\frac{1-\cos\left(\frac{c}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}$$
+        $$\sin^2\alpha_2=1-\frac{\left(1-\cos\left(\frac{b}{R}\right)\right)^2}{tg^2\left(\frac{r}{R}\right)\sin^2\left(\frac{b}{R}\right)}=1-\frac{1-\cos\left(\frac{b}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)}$$
+        $$\cos(\alpha_1+\alpha_2)=\cos\alpha_1\cos\alpha_2-\sin\alpha_1\sin\alpha_2=\cos\alpha$$
+        $$\cos\alpha=\frac{\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)}{\sin\left(\frac{b}{R}\right)\sin\left(\frac{c}{R}\right)}$$
+        $$\left(\cos\alpha_1\cos\alpha_2-\frac{\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)}{\sin\left(\frac{b}{R}\right)\sin\left(\frac{c}{R}\right)}\right)^2=\sin^2\alpha_1\sin^2\alpha_2=$$
+        $$=\left(1-\frac{1-\cos\left(\frac{c}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}\right)\left(1-\frac{1-\cos\left(\frac{b}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)}\right)=$$
+        $$1-\frac{2-2\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}+\frac{1-\cos\left(\frac{b}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)}\cdot\frac{1-\cos\left(\frac{c}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}=$$
+        $$=\left(\frac{1-\cos\left(\frac{c}{R}\right)}{tg\left(\frac{r}{R}\right)\sin\left(\frac{c}{R}\right)}\cdot\frac{1-\cos\left(\frac{b}{R}\right)}{tg\left(\frac{r}{R}\right)\sin\left(\frac{b}{R}\right)}-\frac{\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)}{\sin\left(\frac{b}{R}\right)\sin\left(\frac{c}{R}\right)}\right)^2=$$
+        $$=\frac{\left(1-\cos\left(\frac{b}{R}\right)\right)\left(1-\cos\left(\frac{c}{R}\right)\right)}{tg^4\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}-\frac{2\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}+$$
+        $$+\frac{\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)^2}{\sin^2\left(\frac{b}{R}\right)\sin^2\left(\frac{c}{R}\right)}$$
+        $$1-\frac{2-2\cos\left(\frac{a}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}=\frac{\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)^2}{\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)}$$
+        $$\frac{2-2\cos\left(\frac{a}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}=$$
+        $$=\frac{1-\cos^2\left(\frac{a}{R}\right)-\cos^2\left(\frac{b}{R}\right)-\cos^2\left(\frac{c}{R}\right)+2\cos\left(\frac{a}{R}\right)\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)}{\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)}$$
+
+        $$\cos^2\alpha=\frac{\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)^2}{\sin^2\left(\frac{b}{R}\right)\sin^2\left(\frac{c}{R}\right)}$$
+        $$\left(1-\sin^2\alpha\right)\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)=\left(\cos\left(\frac{a}{R}\right)-\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)\right)^2$$
+        $$1-\cos^2\left(\frac{a}{R}\right)-\cos^2\left(\frac{b}{R}\right)-\cos^2\left(\frac{c}{R}\right)+2\cos\left(\frac{a}{R}\right)\cos\left(\frac{b}{R}\right)\cos\left(\frac{c}{R}\right)=$$
+        $$=\sin^2\alpha\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)$$
+
+        $$\frac{2-2\cos\left(\frac{a}{R}\right)}{tg^2\left(\frac{r}{R}\right)\left(1+\cos\left(\frac{b}{R}\right)\right)\left(1+\cos\left(\frac{c}{R}\right)\right)}=\frac{\sin^2\alpha\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)}{\left(1-\cos^2\left(\frac{b}{R}\right)\right)\left(1-\cos^2\left(\frac{c}{R}\right)\right)}$$
+        
+        $$tg^2\left(\frac{r}{R}\right)=\frac{2-2\cos\left(\frac{a}{R}\right)}{4\sin^2\alpha\cos^2\left(\frac{b}{2R}\right)\cos^2\left(\frac{c}{2R}\right)}=\frac{\sin^2\left(\frac{a}{2R}\right)}{\sin^2\alpha\cos^2\left(\frac{b}{2R}\right)\cos^2\left(\frac{c}{2R}\right)}$$
+
+        $$tg\left(\frac{r}{R}\right)=\frac{\sin\left(\frac{a}{2R}\right)}{\sin\alpha\cos\left(\frac{b}{2R}\right)\cos\left(\frac{c}{2R}\right)}$$
+        
+    \end{proof}
     \begin{definition}
         Треугольники называются равными, если существует движение, переводящее один треугольник в другой.
     \end{definition}
     \begin{consequence}[Признаки равенства треугольников]\tab
         \begin{enumerate}
-            \item Если три стороны у двух трекгольников равны, то эти треугольники равны.
-            \item Если двесстороны и угол между ними у двух трекгольников равны, то эти треугольники равны.
-            \item Если два угла и сторона между ними у двух трекгольников равны, то эти треугольники равны.
-            \item Если три угла у двух трекгольников равны, то эти треугольники равны.
+            \item Если три стороны у двух треугольников равны, то эти треугольники равны.
+            \item Если двесстороны и угол между ними у двух треугольников равны, то эти треугольники равны.
+            \item Если два угла и сторона между ними у двух треугольников равны, то эти треугольники равны.
+            \item Если три угла у двух треугольников равны, то эти треугольники равны.
         \end{enumerate}
     \end{consequence}
     \begin{proof}
         Упражнение:
         \begin{enumerate}
             \item Рассмотрим треугольники $ABC$ и $A_1B_1C_1$. Пусть $|AB|=|A_1B_1|$, $|BC|=|B_1C_1|$, $|AC|=|A_1C_1|$. Сначала совместим вершины $A$ и $A_1$ при помощи сдвига, затем совершим поворот, чтобы вершины $B$ и $B_1$ совпали. Если вершины $C$ и $C_1$ совпали, то совпали и треугольники. Если нет, то применяем симметрию относительно дуги $A_1B_1$ и получаем, что вершины $C$ и $C_1$ совпали. Дуги на сфере везде совпадут, так как их длины равны, а расстояние между точками задано однозначно (существует ровно одна дуга большой окружности, соединяющая эти две точки).
-            \item Из равенства двух сторон и угла между ними по теореме косинусов получаем, что третьи стороны у этих треугольников тоже равны. По пункту 1 треугольнии равны.
+            \item Из равенства двух сторон и угла между ними по теореме косинусов получаем, что третьи стороны у этих треугольников тоже равны. По пункту 1 треугольники равны.
             \item Из равенства двух углов и стороны между ними по двойственной теореме косинусов получаем, что третьи углы у этих треугольников тоже равны. Тогда по теореме синусов получаем равенство сторон этих треугольников, а тогда по пункту 1 получаем, что треугольники равны.
-            \item Из равенства трёх углов по двойственной теореме косинусов получаем, что что длина одной из сторон у этих треугольников совпадает. Тогда по пункту 3 получаем, что треугольники равны.
+            \item Из равенства трёх углов по двойственной теореме косинусов получаем, что длина одной из сторон у этих треугольников совпадает. Тогда по пункту 3 получаем, что треугольники равны.
         \end{enumerate}
     \end{proof}
     \begin{theorem}
