@@ -487,14 +487,14 @@
     \end{subtheorem}
     \begin{proof}
         $M:z=r(x)$ --- заданная поверхность, $X=\sum\limits_{i=1}^nX^i(x)\cdot r_i(x)$, $Y=\sum\limits_{j=1}^nY^j(P)\cdot r_j(P)$, $\gamma:x=x(t)$, $Y^j=\dot{x}^j(t_0)$, где $x(t_0)=P$.\\
-        Тогда $$\nabla_YX=\Pi\left(\frac{d}{dt}\vert_{t=t_0}\sum\limits_{i=1}^nX^i(x(t))r_i(x(t))\right)=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial t}r_i+X^i\cdot\frac{\partial r^i}{\partial t}\right)\right)=$$
+        Тогда $$\nabla_YX=\Pi\left(\frac{d}{dt}\vert_{t=t_0}\sum\limits_{i=1}^nX^i(x(t))r_i(x(t))\right)=\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial t}r_i+X^i\cdot\frac{\partial r_i}{\partial t}\right)\right)=$$
         $$=\Pi\left(\sum\limits_{i, \ j}\left(\frac{\partial X^i}{\partial x^j}\cdot\dot{x}^jr_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\dot{x}^j\right)\right)=\sum\limits_j\left(Y^j\cdot\Pi\left(\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}\cdot r_i+X^i\cdot\frac{\partial r_i}{\partial x^j}\right)\right)\right)$$
         Легко видеть, что последнее выражение не зависит от кривой $\gamma$, значит, ковариантная производная не зависит от кривой $\gamma$.
     \end{proof}
     \begin{remark}
         Пусть $r_{ij}=\frac{\partial^2 r}{\partial x^i\partial x^j}=\frac{\partial r_i}{\partial x^j}$, тогда, пользуясь тем, что векторы $r_i$ образуют базис касательного пространства \hyperlink{5}{по утверждению 2.1 и соответствующему определению}, получим $$\nabla_YX=\sum\limits_{j=1}^n\left(Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}r_i+\Pi\left(X^i\frac{\partial r_i}{\partial x^j}\right)\right)\right)=\sum\limits_{j=1}^n\left(Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}r_k+X^k\Pi(r_{jk})\right)\right)$$
         Сделаем замену $\Pi(r_{jk})=\sum\limits_{i=1}^n\Gamma_{jk}^i(x)r_i$. Тогда формула ковариантной прямой будет иметь вид:
-        $$\sum\limits_{j=1}^n\left(Y^j\sum\limits_{i=1}^n\left(\frac{\partial X^i}{\partial x^j}+\sum\limits_{k=1}^n\left(\Gamma_{jk}^i(x)\cdot X^k\right)r_i\right)\right)$$
+        $$\sum\limits_{j=1}^n\left(Y^j\sum\limits_{k=1}^n\left(\frac{\partial X^k}{\partial x^j}+\sum\limits_{i=1}^n\left(\Gamma_{jk}^i(x)\cdot r_i\right)X^k\right)\right)$$
     \end{remark}
     \begin{definition}
         Коэффициенты $\Gamma_{jk}^i$ называются символами Кристоффеля второго рода, а коэффициенты $\Gamma_{ij, \ m}=(r_{ij}, \ r_m)$ --- символами Кристоффеля первого рода.
@@ -656,7 +656,7 @@
         Доказать, что развёртка цилиндра на плоскость является изометрией.
     \end{exercise}
     \begin{proof}
-        Пусть цилиндр лежит на некоторой плоскости. Проведём ось цилиндра и обозначим точками $A$ и $B$ начало и конец орезка этой оси, который полностью лежит внутри цилиндра и имеет длину, равную его высоте. Каждую точку цилиндра будем определять двумя параметрами: первый параметр --- это угол между вектором, соединяющим ближейшую точку на оси с данной, и вектором, соединяющим эту ближайшую точку с ближайшей точкой касания цилиндра и плоскости (угол будем отсчитывать только против часовой стрелки), а второй параметр --- расстояние этой ближайшей точки от точки $A$. Для этого задаим параметризацию $r(\alpha, \ h)=\begin{pmatrix}
+        Пусть цилиндр лежит на некоторой плоскости. Проведём ось цилиндра и обозначим точками $A$ и $B$ начало и конец орезка этой оси, который полностью лежит внутри цилиндра и имеет длину, равную его высоте. Каждую точку цилиндра будем определять двумя параметрами: первый параметр --- это угол между вектором, соединяющим ближайшую точку на оси с данной, и вектором, соединяющим эту ближайшую точку с ближайшей точкой касания цилиндра и плоскости (угол будем отсчитывать только против часовой стрелки), а второй параметр --- расстояние этой ближайшей точки от точки $A$. Для этого задаим параметризацию $r(\alpha, \ h)=\begin{pmatrix}
             R\cos\alpha\\
             R\sin\alpha\\
             h
@@ -710,23 +710,23 @@
     \end{exercise}
     \begin{proof}
         Аналогично с цилиндром. Пусть $O$ --- вершина конуса, $A$ --- конец образующей, лежащей на данной плоскости (плоскости, на которую будем разворачивать конус), $\alpha$ --- угол между осью и любой образуещей конуса. Рассмотрим аналог сферической системы координат $r(s, \ \phi)=\begin{pmatrix}
-            s\cos\alpha\cos\phi\\
-            s\cos\alpha\sin\phi\\
-            s\sin\alpha
+            s\sin\alpha\cos\phi\\
+            s\sin\alpha\sin\phi\\
+            s\cos\alpha
         \end{pmatrix}$, где $s$ --- длина отрезка образующей, соединяющей точку $O$ с данной точкой, $\phi$ --- угол между касательной плоскостью в данной точке и исходной плоскостью (так же как и в случае с цилиндром угол отсчитываем против часовой стрелки). На плоскости зададим полярные координаты $(\rho, \ \theta)$ с центром в точке $O$. Точке с координатами $(s, \ \phi)$ сопоставим точку с координатами $(s, \ k\phi)$. Коэффициент $k=\sin\alpha$, так как длина окружности на конусе на расстоянии $s$ от вершины $l_s=2\pi s\sin\alpha$, а при развёртке она должна сохраниться, то есть $l_s=l_{\rho}=2\pi s\cdot\frac{\psi}{2\pi}=s\psi=2\pi s\sin\alpha$ $\Longrightarrow$ $\psi=2\pi\sin\alpha$, то есть $\frac{\psi}{2\pi}=\sin\alpha$, а значит, $\theta=\phi\sin\alpha$.\\
         Вычислим частные производные
         $$\frac{\partial r}{\partial s}=\begin{pmatrix}
-            \cos\alpha\cos\phi\\
-            \cos\alpha\sin\phi\\
-            \sin\alpha
+            \sin\alpha\cos\phi\\
+            \sin\alpha\sin\phi\\
+            \cos\alpha
         \end{pmatrix}, \ \frac{\partial r}{\partial\phi}=\begin{pmatrix}
-            -s\cos\alpha\sin\phi\\
-            s\cos\alpha\cos\phi\\
+            -s\sin\alpha\sin\phi\\
+            s\sin\alpha\cos\phi\\
             0
         \end{pmatrix}$$
         Тогда $$g=\begin{pmatrix}
             1 & 0\\
-            0 & s^2\cos^2\alpha
+            0 & s^2\sin^2\alpha
         \end{pmatrix}$$
         Для полярных координат на плоскости имеем $\begin{pmatrix}
             x\\
@@ -746,7 +746,7 @@
             1 & 0\\
             0 & \rho^2
         \end{pmatrix}$$
-        Матрица дифференциала (матрица якоби) имеет вид
+        Матрица дифференциала (матрица Якоби) имеет вид
         $$\begin{pmatrix}
             \frac{\partial\rho}{\partial s} & \frac{\partial\rho}{\partial\phi}\\
             \frac{\partial\theta}{\partial s} & \frac{\partial\theta}{\partial\phi}
@@ -758,11 +758,11 @@
             a & b\\
         \end{pmatrix}\begin{pmatrix}
             1 & 0\\
-            0 & s^2\cos^2\alpha
+            0 & s^2\sin^2\alpha
         \end{pmatrix}\begin{pmatrix}
             c\\
             d
-        \end{pmatrix}=ac+bds^2\cos^2\alpha$$
+        \end{pmatrix}=ac+bds^2\sin^2\alpha$$
         $$(d_Pf(X), \ d_Pf(Y))=\begin{pmatrix}
             a & b\sin\alpha\\
         \end{pmatrix}\begin{pmatrix}
@@ -778,7 +778,7 @@
         Поверхности $M$ и $Q$ называются локально изометричными, если $\forall P\in M$ существует $P\in U\subset M$ такая, что существует изометрия $f:U\to V\subset Q$.
     \end{definition}
     \begin{remark}
-        Пусть $x\in M$ $x=(x^1, \ \ldots, \ x^n)$, $Y^i=f^i(x^1, \ \ldots, \ x^n)$, $X=r_i=\frac{\partial r}{\partial x^i}$, $Y=r_j=\frac{\partial r}{\partial x^j}$, $(X, \ Y)=(df(X), \ df(Y))$. Тогда $df(r_i)=\frac{\partial Y_k}{\partial x^i}\rho_k$, $df(r_j)=\frac{\partial Y_s}{\partial x^j}\rho_s$, $g_{ij}(x)=\frac{\partial y_k}{\partial x^i}\cdot\frac{\partial y_s}{\partial x^j}\cdot\tilde{g}_{ks}(y(x))$. Последнее равенство является условием изометричности.
+        Пусть $x\in M$ $x=(x^1, \ \ldots, \ x^n)$, $y=(y^1, \ \ldots, \ y^n)\in Q$ $y^i=f^i(x^1, \ \ldots, \ x^n)$, $X=r_i=\frac{\partial r}{\partial x^i}$, $Y=r_j=\frac{\partial r}{\partial x^j}$, $f(x)=(f^1(x), \ \ldots, \ f^n(x))$, $\{\rho_k\}$ --- базис касательного пространства в точке $x$ для $M$, $\{\rho_s\}$ --- базис касательного пространства в точке $f(x)$ для $Q$. Запишем определение изометричности  $(X, \ Y)=(df(X), \ df(Y))$ Тогда $df(r_i)=\sum\limits_k\frac{\partial y^k}{\partial x^i}\rho_k$, $df(r_j)=\frac{\partial y^s}{\partial x^j}\rho_s$, $g_{ij}(x)=\frac{\partial y^k}{\partial x^i}\cdot\frac{\partial y^s}{\partial x^j}\cdot\tilde{g}_{ks}(f(x))$. Последнее равенство является условием изометричности.
     \end{remark}
     \begin{definition}
         $n$-мерная поверхность в пространстве размерности $N$ называется гиперповерхностью, если $n=N-1$.
@@ -819,7 +819,7 @@
     \begin{proof}
         Пусть $\gamma$ --- нормальное сечение, $t$ --- натуральный параметр, $X=\dot{\gamma}$. Пусть $M:z=r(x)$, $\gamma:x=x(t)$, тогда $\gamma:z=r(x(t))$.\\
         $\dot{\gamma}=\sum\limits_i\frac{\partial r}{\partial x^i}\dot{x}^i$, $\ddot{\gamma}=\sum\limits_{i, \ j}\left(\frac{\partial^2r}{\partial x^i\partial x^j}\cdot\dot{x}^i\cdot\dot{x}^j\right)+\sum\limits_ir_i\ddot{x}^i$.\\
-        Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=\sum\limits_{i, \ j}\left((\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{X}^i\cdot\dot{X}^j\right)=\sum\limits_{i, \ j}b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
+        Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=\sum\limits_{i, \ j}\left((\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{x}^i\cdot\dot{x}^j\right)=\sum\limits_{i, \ j}b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
     \end{proof}
     \begin{remark}
         В каноническом базисе матрица формы $b$ есть $b_{ij}=(r_{ij}, \ n)$.
@@ -1534,7 +1534,7 @@
         Рассмотрим треугольник $ABC$ на сфере, продлим его дуги до полных окружностей. Обозначим площадь области, ограниченной окружностями, проходящими через вершину $A$, $\Sigma_A$. Так как она линейно зависит от $\alpha$, то $\Sigma_A=\lambda\alpha$. Подставив $\alpha=\pi$, получим $\lambda=4R^2$. Тогда $\Sigma_A=4R^2\alpha$, аналогично $\Sigma_B=4R^2\beta$, $\Sigma_C=4R^2\gamma$. Так как эти три области полностью покрывают сферу и пересекаются по данному треугольнику и диаметрально противоположному к нему (их площади совпадут, так как отображение в диаметрально противоположные точки --- изометрия), то $$\Sigma_A+\Sigma_B+\Sigma_C=4\pi R^2+4S=4R^2(\alpha+\beta+\gamma)$$
         $$\alpha+\beta+\gamma=\pi+\frac{S}{R^2}$$
     \end{proof}
-    \subsection{Геометрия Лобочевского}
+    \subsection{Геометрия Лобачевского}
     \begin{definition}
         Пусть $V$ --- векторное пространство, $b$ --- невырожденная симметрическая билинейная форма на нём (псевдоевклидово скалярное произведение). Пару $(V, \ b)$ назовём псевдоевклидовым пространством.
     \end{definition}
@@ -1560,7 +1560,7 @@
         \end{cases}$, где $C$ --- скорость света. Тогда такая кривая называется мировой линией.
     \end{definition}
     \begin{remark}
-        Пусть $\xi=(C, \ \dot{x}_1, \ \ldots, \ \dot{x}_n)$ --- вектор скорости. Тогда $(\xi, \ \xi)=-C^2+\sum\limits_{k=1}^n\dot{x}_k^2=v^2-C^2$.
+        Пусть $\xi=(C, \ \dot{x}^1, \ \ldots, \ \dot{x}^n)$ --- вектор скорости. Тогда $(\xi, \ \xi)=-C^2+\sum\limits_{k=1}^n(\dot{x}^k)^2=v^2-C^2$.
         Из этого следует, что касательный вектор к мировой линии либо изотропный, либо времени подобный.
     \end{remark}
     \begin{definition}
@@ -1585,11 +1585,12 @@
     \begin{definition}\tab
         \begin{enumerate}
             \item Подпространство $W$ называется элиптическим (евклидовым), если $b|_{_W}$ положительно определена.
-            \item Подпространство $W$ называется гиперболическим (подпространством Минковского), если $b|_{_W}$ не вырожденно и не положительно определено.
-            \item Подпространство $W$ называется параболическим, если $b|_{_W}$ вырожденно.
+            \item Подпространство $W$ называется гиперболическим (подпространством Минковского), если $b|_{_W}$ не вырожденна и не положительно определена.
+            \item Подпространство $W$ называется параболическим, если $b|_{_W}$ вырожденна.
         \end{enumerate}
     \end{definition}
     \begin{remark}\tab
+        \hypertarget{16}{}
         \begin{enumerate}
             \item Если $W$ элиптическое подпространство, то $W^{\perp}$ --- гиперболическое подпространство.
             \item Если $W$ гиперболическое подпространство, то $W^{\perp}$ --- элиптическое подпространство.
@@ -1608,4 +1609,194 @@
     \begin{definition}
         Световой конус --- это множество $\{\xi\in M^{n+1}:(\xi, \ \xi)=0\}$.
     \end{definition}
+    \begin{definition}
+        Пусть $\xi$, $\eta$ --- времени подобные векторы, тогда $\xi$ и $\eta$ одинаково ориентированы во времени, если $(\xi, \ \eta)<0$.
+    \end{definition}
+    \begin{subtheorem}
+        Пусть $e_0$, $e_1$, $\ldots$, $e_n$ --- ортонормированный базис, тогда два времени подобных вектора $\xi$, $\eta$ одинаково ориентированы во времени тогда и только тогда, когда $\xi^0$ и $\eta^0$ одного знака.
+    \end{subtheorem}
+    \begin{proof}
+        Рассмотрим $(\xi, \ \xi)=-(\xi^0)^2+\sum\limits_{k=1}^n(\xi^k)^2$, $\xi=\xi_0e_0+\tilde{\xi}$, тогда $$(\xi, \ \xi)<0 \ \Longleftrightarrow \ |\xi^0|>|\tilde{\xi}|_e$$
+        Аналогично $|\eta^0|>|\tilde{\eta}|_e$, тогда $|\xi^0|\cdot|\eta^0|>|\tilde{\xi}|\cdot|\tilde{\eta}|$
+        $$(\xi, \ \eta)=-\xi^0\eta^0+(\tilde{\xi}, \ \tilde{\eta})<-\xi^0\eta^0+|\xi^0\cdot\eta^0|=\begin{cases}
+            0, \ \xi^0\eta^0>0\\
+            -2\xi^0\eta^0>0, \ \xi^0\eta^0<0
+        \end{cases}$$
+        $$(\xi, \ \eta)<0 \ \Longleftrightarrow \ \xi^0\eta^0>0$$
+    \end{proof}
+    \begin{definition}
+        Линейный оператор $A$ в пространстве Минковского называется преобразованием Лоренца, если он сохраняет псевдоевклидово скалярное произведение $\forall\xi$, $\eta\in M^{n+1}$. То есть $(\xi, \ \eta)=(A\xi, \ A\eta)$.
+    \end{definition}
+    Если $A$ --- матрица преобразования Лоренца в ортонормированном базисе, то\\$A^TIA=I$, где $I=\begin{pmatrix}
+        -1 && && && \\
+        && 1 && && \\
+        && && \ddots &&\\
+        && && && 1
+    \end{pmatrix}$
+    \begin{consequence}
+        det$A=\pm1$.
+    \end{consequence}
+    \begin{example}
+        Пусть $n+1=2$, $A=\begin{pmatrix}
+            a & b\\
+            c & d
+        \end{pmatrix}$, тогда $A^{T}=\begin{pmatrix}
+            a & c\\
+            b & d
+        \end{pmatrix}$, $A^{-1}=\pm\begin{pmatrix}
+            d & -b\\
+            -c & a
+        \end{pmatrix}$, $I=\begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}$
+        $$A^TI=\begin{pmatrix}
+            a & c\\
+            b & d
+        \end{pmatrix}\cdot\begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}=\begin{pmatrix}
+            -a & c\\
+            -b & d
+        \end{pmatrix}=IA^{-1}=\begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}\cdot\pm\begin{pmatrix}
+            d & -b\\
+            -c & a
+        \end{pmatrix}=\pm\begin{pmatrix}
+            -d & b\\
+            -c & a
+        \end{pmatrix}$$
+        \begin{enumerate}
+            \item Пусть det$A=1$, тогда $a=d$, $b=c$, тогда $A=\begin{pmatrix}
+                a & b\\
+                b & a
+            \end{pmatrix}$. Так как det$A=1$, то $a^2-b^2=1$.
+            \begin{enumerate}
+                \item Если $a>0$, то $\begin{cases}
+                    a=ch\chi\\
+                    b=sh\chi
+                \end{cases}$ и $A=\begin{pmatrix}
+                    ch\chi & sh\chi\\
+                    sh\chi & ch\chi
+                \end{pmatrix}$ --- матрица гиперболического поворота. При данном повороте времени подобные векторы переходят во времени подобные.
+                \item Если $a<0$, то $\begin{cases}
+                    a=-ch\chi\\
+                    b=-sh\chi
+                \end{cases}$ и $A=\begin{pmatrix}
+                    -ch\chi & -sh\chi\\
+                    -sh\chi & -ch\chi
+                \end{pmatrix}$
+            \end{enumerate}
+            \item Пусть det$A=-1$, тогда $a=-d$, $b=-c$, тогда $A=\begin{pmatrix}
+                a & b\\
+                -b & -a
+            \end{pmatrix}$. Так как det$A=-1$, то $-a^2+b^2=-1$.
+            \begin{enumerate}
+                \item Если $a>0$, то $A=\begin{pmatrix}
+                    ch\chi & sh\chi\\
+                    -sh\chi & -ch\chi
+                \end{pmatrix}$
+                \item Если $a<0$, то $A=\begin{pmatrix}
+                    -ch\chi & sh\chi\\
+                    -sh\chi & ch\chi
+                \end{pmatrix}$
+            \end{enumerate}
+        \end{enumerate}
+    \end{example}
+    \begin{definition}
+        Преобразование Лоренца $A$ называется ортохронным, если для любого времени подобного вектора $\xi$ верно $(A\xi, \ \xi)<0$.
+    \end{definition}
+    \begin{definition}
+        Пусть $\xi$ --- времени подобный вектор, тогда $|\xi|_t=\sqrt{-(\xi, \ \xi)}$ --- длина вектора.
+    \end{definition}
+    \begin{subtheorem}[Неравенство Коши-Буняковского]
+        Пусть $\xi$, $\eta$ --- времени подобные векторы, тогда $|(\xi, \ \eta)|\geqslant|\xi|_t|\eta|_t$.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть без ограничения общности $|\xi|_t=1$ и $\xi=e_0$ (всегда можем выбрать базис, в котором это выполнено). Тогда $|(\xi, \ \eta)|=|\eta^0|$, $|\xi|_t\cdot|\eta|_t=\sqrt{(\eta^0)^2-\sum\limits_{k=1}^n(\eta^k)^2}\geqslant|\eta^0|=|(\xi, \ \eta)|$.
+    \end{proof}
+    \begin{consequence}[Неравенство треугольника]
+        Пусть $\xi$, $\eta$ --- времени подобные векторы, и пусть они одинаково ориентированы во времени, тогда $|\xi+\eta|_t\geqslant|\xi|_t+|\eta|_t$
+    \end{consequence}
+    \begin{proof}
+        $|\xi+\eta|^2_t=-(\xi+\eta, \ \xi+\eta)=-(\xi, \ \xi)-2(\xi, \ \eta)-(\eta, \ \eta)=|\xi|^2_t+|\eta|^2_t-2(\xi, \ \eta)\overset{(1)}{=}|\xi|^2_t+|\eta|^2_t+2|(\xi, \ \eta)|\geqslant|\xi|^2_t+|\eta|^2_t$.\\
+        (1) В силу одинаковой ориентированности во времени.\\
+        Тогда $|\xi+\eta|_t\geqslant\sqrt{|\xi|^2_t+|\eta|^2_t}\geqslant|\xi|_t+|\eta|_t$.
+    \end{proof}
+    \subsubsection{Начальные факты специальной теории относительности}
+    \begin{definition}
+        Пусть $M^{n+1}$ --- пространство Минковского, тогда его векторы называются событиями.
+    \end{definition}
+    \begin{definition}
+        Мировая линия называется инерциальной, если это времени подобная прямая.
+    \end{definition}
+    В данном разделе $\frac{x^0}{C}=t$ --- собственное время, $x^1$, $\ldots$, $x^n$ --- пространственные координаты, $C$ --- скорость света.
+    \begin{propertes}\tab
+        \begin{enumerate}
+            \item Относительность одновременности (Два события, происходящие в двух различных местах в одно время относительно одной системы отсчёта, могут происходить в разное время относительно другой системы отсчёта).
+            \item Замедление времени.
+            \item Сокращение длин.
+            \item Парадокс близнецов.
+        \end{enumerate}
+    \end{propertes}
+    \begin{proof}\tab
+        \begin{enumerate}
+            \item Пусть $\xi=\xi^0e_0+\tilde{\xi}=Cte_0+\tilde{\xi}$, $\eta=\eta^0e_0+\tilde{\eta}=Ct_1e_0+\tilde{\eta}$. Пусть другая система отсчёта движется относительно данной с некоторой скоростью $v$. Пусть для простоты вдоль вектора $e_1$. Пусть $e_0', \ e_1', \ \ldots, \ e_n'$ --- базис новой системы координат. $e_0'=\frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+                1\\
+                \frac{v}{c}\\
+                0\\
+                \vdots\\
+                0
+            \end{pmatrix}$, $e_1'=\frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\begin{pmatrix}
+                \frac{v}{c}\\
+                1\\
+                0\\
+                \vdots\\
+                0
+            \end{pmatrix}$. Тогда в новой системе координат $t_1'=\frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\left(-\frac{vx_1}{c^2}\right)$, $t_2'=\frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\left(-\frac{vx_2}{c^2}\right)$. Получим $t_2'-t_1'=\frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}\left(\frac{vx_1}{c^2}-\frac{vx_2}{c^2}\right)$. Так как $x_1\neq x_2$, то время событий не совпадает.
+            \item Пусть $\eta=0$, $\xi=Cte_0+\tilde{\xi}=Ct'e_0'+\tilde{\xi}'$, $\tilde{\xi}=0$, тогда $Cte_0=Ct'e_0'+\tilde{\xi}'$. Перейдём к равенству длин, тогда $-C^2t^2=-C^2(t')^2+|\tilde{\xi}'|^2_e$ $\Longrightarrow$ $(t')^2=t^2+\frac{|\tilde{\xi}'|^2_e}{C^2}$
+            \item Пусть $\eta=0$, $\xi=Cte_0+\tilde{\xi}=Ct'e_0'+\tilde{\xi}'$, $e_0'=0$, тогда аналогично с пунктом 2 $$|\tilde{\xi}'|^2=|\tilde{\xi}|^2-2Ct$$
+            \item Следует из неравенства треугольника.
+        \end{enumerate}
+    \end{proof}
+    \subsubsection{Плоскость Лобачевского}
+    \begin{definition}
+        Действительная (мнимая) псевдосфера в псевдоевклидовом пространстве --- это множество векторов $\xi$ таких, что $(\xi, \ \xi)=R^2$ ($(\xi, \ \xi)=-R^2$), где $R$ --- радиус сферы.
+    \end{definition}
+    В данном разделе будем рассматривать $M^{3}$ с ортонормированным базисом $e_0$, $e_1$, $e_2$ и мнимую псевдосферу $-(x^0)^2+(x^1)^2+(x^2)^2=-R^2$. Будем считать, что $x^0>0$, $R=1$, $L$ --- половина мнимой псевдосферы.
+    \begin{subtheorem}
+        $\forall P\in L$ $T_PL$ --- элиптическое подпространство.
+    \end{subtheorem}
+    \begin{proof}
+        Рассмотим кривую $\gamma$, проходящую через точку $P$. Пусть она задана $\xi=\xi(t)$. Из определения мнимой псевдосферы $(\xi, \ \xi)=-1$. Так как $\dot{\xi}\perp\xi$, то \hyperlink{16}{из свойств ортогонального дополнения} $(\dot{\xi}, \ \dot{\xi})>0$.
+    \end{proof}
+    \begin{consequence}
+        $b|_{T_PL}$ --- риманова метрика.
+    \end{consequence}
+    \begin{definition}
+        $L$ с данной метрикой называется плоскостью Лобачевского.
+    \end{definition}
+    \begin{subtheorem}
+        Любое ортохронное преобразование Лоренца --- изометрия плоскости Лобачевского.
+    \end{subtheorem}
+    \begin{proof}
+         Из определения ортохронного преобразования для любого времени подобного вектора $\xi$ $(A\xi, \ \xi)<0$. Так как ограничение метрики на плоскость Лобочевского является римановой метрикой, то, $(A\eta, \ A\eta)=(\eta, \ \eta)\geqslant0$ для любого вектора $\eta\in L$, то есть $A$ --- ортогональное преобразование или изометрия.
+    \end{proof}
+    \begin{subtheorem}
+        Геодезические на плоскости Лобачевского --- это пересечение мнимой псевдосферы с плоскостями, проходящими через начало координат.
+    \end{subtheorem}
+    \begin{proof}
+        $\underline{\Longleftarrow}$ Пусть $\gamma$ --- результат пересечения мнимой псевдосферы с двумерной поверхностью, тогда $(\ddot{\gamma}, \ \dot{\gamma})=0$ $\Longrightarrow$ $\ddot{\gamma} \ || \ \gamma$, но $\gamma\perp T_{\gamma}L$, а значит, $\Pi(\ddot{\gamma})=0$, то есть $\gamma$ --- геодезическая.\\
+        $\underline{\Longrightarrow}$ Пусть $P\in L$, $P\in\gamma$, $\gamma$ --- геодезическая, тогда по свойству геодезических для каждой точки и данного вектора направления существует единственная геодезическая. Проведём плоскость через вектор и начало координат --- это будет геодезическая кривая по первому пункту.
+    \end{proof}
+    \begin{propertes}\tab
+        \begin{enumerate}
+            \item Любая геодезическая не компактна и её длина бесконечна.
+            \item Через любые две точки проходит ровно одна геодезическая.
+            \item Пусть $l$ --- геодезическая и $\xi\notin l$, тогда существует бесконечно много геодезических, проходящих через $\xi$ и не пересекающих $l$.
+        \end{enumerate}
+    \end{propertes}
 \end{document}
