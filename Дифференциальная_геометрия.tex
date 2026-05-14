@@ -480,7 +480,7 @@
         Гладкое векторное поле на поверхности $M$ --- это соответствие, сопоставляющее каждой точке $P\in M$ вектор $X(P)\in T_PM$.
     \end{definition}
     \begin{definition}
-        Ковариантная производная поля $X$ в точке $P$ вектора $Y$ --- это $\nabla_YX=\Pi\left(\frac{\partial}{\partial t}\vert_{t=t_0}X(\gamma(t))\right)$.
+        Ковариантная производная поля $X$ в точке $P$ вектора $Y$ --- это $\nabla_YX=\Pi\left(\frac{d}{d t}\vert_{t=t_0}X(\gamma(t))\right)$.
     \end{definition}
     \begin{subtheorem}
         Ковариантная производная не зависит от $\gamma$.
@@ -566,7 +566,7 @@
         \begin{enumerate}
             \item Параллельный перенос линейно зависит от $X_0$.
             \item Параллельный перенос сохранят скалярное произведение.
-            \item Если $M$ и $N$ --- касаются вдоль кривой $\gamma$, то $X(t)$ являестя результатом параллельного переноса вдоль кривой $\gamma$ на $M$ тогда и только тогда, когда оно является результатом параллельного переноса вдоль кривой $\gamma$ на $N$.
+            \item Если $M$ и $N$ --- касаются вдоль кривой $\gamma$, то $X(t)$ является результатом параллельного переноса вдоль кривой $\gamma$ на $M$ тогда и только тогда, когда оно является результатом параллельного переноса вдоль кривой $\gamma$ на $N$.
         \end{enumerate}
     \end{propertes}
     \begin{proof}\tab
@@ -586,7 +586,7 @@
     \begin{remark}
         Семейство данных операторов образует группу, которая называется группой голономий.
     \end{remark}
-    Пусть $M$ --- поверхность, $\gamma\subset M$ --- геодезическая кривая, тогда по определению $\Pi(\ddot{\gamma})\equiv0 \ \Longrightarrow \ \nabla_{\dot{\gamma}}\dot{\gamma}\equiv0$.
+    Пусть $M$ --- поверхность, $\gamma\subset M$ --- геодезическая кривая, тогда по определению $\Pi(\ddot{\gamma})\equiv0 \ \Longleftrightarrow \ \nabla_{\dot{\gamma}}\dot{\gamma}\equiv0$.
     \begin{remark}\hypertarget{9}{}
         Кривая $\gamma$ геодезическая тогда и только тогда, когда при параллельном переносе её вектор скорости остаётся параллельным самому себе (параллельно переносится вдоль кривой $\gamma$).
     \end{remark}
@@ -610,7 +610,7 @@
             \item Следует из теоремы Коши.
             \item По определению кривая $\gamma$ геодезическая, если $\Pi(\ddot{\gamma})\equiv0$. Рассмотрим $(|\dot{\gamma}|^2)'=2(\dot{\gamma}, \ \ddot{\gamma})=2(\dot{\gamma}, \ \Pi(\ddot{\gamma})+\ddot{\gamma}_{\perp})=2(\dot{\gamma}, \ \ddot{\gamma}_{\perp})=0$ (так как $\dot{\gamma}$ --- касательный вектор). Значит, $|\dot{\gamma}|^2=const$, то есть $|\dot{\gamma}|=const$.
             \item Рассмотрим $(X, \ \dot{\gamma})'=(\nabla_{\dot{\gamma}}X, \ \dot{\gamma})+(X, \ \nabla_{\dot{\gamma}}\dot{\gamma})=0$ (первое слагаемое равно нулю по определению параллельного переноса, второе из определения геодезической кривой.
-            \item \hyperlink{6}{Из свойства 3 параллельного переноса} и из свойства 2 геодезической кривой следует данное утверждение.
+            \item \hyperlink{6}{Из свойства 3 параллельного переноса} и из определения геодезической кривой следует данное утверждение.
         \end{enumerate}
     \end{proof}
     \subsection{Изометрии поверхностей}
@@ -812,12 +812,12 @@
     \begin{remark}
         Каждое нормальное сечение определяет и определяется касательным вектором.
     \end{remark}
-    Введём обозначение: $\tilde{k}(x)$ --- кривизна в точке $P$ нормального сечения, проведённого в направлении вектора $x$.
+    Введём обозначение: $\tilde{k}(X)$ --- кривизна в точке $P$ нормального сечения, проведённого в направлении вектора $X$.
     \begin{theorem}
-        $b(x)=|x|^2\cdot\tilde{k}(x)$ --- квадратичная форма на $T_PM$.
+        $b(X)=|X|^2\cdot\tilde{k}(X)$ --- квадратичная форма на $T_PM$.
     \end{theorem}
     \begin{proof}
-        Пусть $\gamma$ --- нормальное сечение, $t$ --- натуральный параметр, $X=\dot{\gamma}$. Пусть $M:z=r(x)$, $\gamma:x=x(t)$, тогда $\gamma:z=r(x(t))$.\\
+        Пусть $\gamma$ --- нормальное сечение, $t$ --- натуральный параметр, $X=\dot{\gamma}$, $|X|=1$. Пусть $M:z=r(x)$, $\gamma:x=x(t)$, тогда $\gamma:z=r(x(t))$.\\
         $\dot{\gamma}=\sum\limits_i\frac{\partial r}{\partial x^i}\dot{x}^i$, $\ddot{\gamma}=\sum\limits_{i, \ j}\left(\frac{\partial^2r}{\partial x^i\partial x^j}\cdot\dot{x}^i\cdot\dot{x}^j\right)+\sum\limits_ir_i\ddot{x}^i$.\\
         Отсюда $\tilde{k}=(\ddot{\gamma}, \ n)=\sum\limits_{i, \ j}\left((\frac{\partial^2r}{\partial x^i\partial x^j}, \ n)\cdot\dot{x}^i\cdot\dot{x}^j\right)=\sum\limits_{i, \ j}b_{ij}X^iX^j$, где $b_{ij}=(r_{ij}, \ n)$.
     \end{proof}
@@ -829,7 +829,7 @@
     \end{definition}
     Пусть $P\in M\subset\R^n$, $P\in\gamma$, где $\gamma$ --- регулярная кривая, $x=\dot{\gamma}$.
     \begin{theorem}[Менье]
-        Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$ в точке $P$, $k=\frac{1}{|\ddot{\gamma}|}$ --- кривизна кривой $\gamma$, тогда $k\cos(\phi)=\tilde{k}(x)=\frac{b(x)}{|X|^2}$, где $\tilde{k}$ --- кривизна нормального сечения в точке $P$, $X=\dot{\gamma}$.
+        Пусть $\phi$ --- угол между вектором нормали к поверхности $M$ и вектором $\ddot{\gamma}$ в точке $P$, $k=\frac{1}{|\ddot{\gamma}|}$ --- кривизна кривой $\gamma$, тогда $k\cos(\phi)=\tilde{k}(X)=\frac{b(X)}{|X|^2}$, где $\tilde{k}$ --- кривизна нормального сечения в точке $P$, $X=\dot{\gamma}$.
     \end{theorem}
     \begin{proof}
         Проведём натуральную параметризацию, тогда $|x|=1$, $t$ --- натуральный параметр. Пусть $x=(x^1, \ \ldots, \ x^n)$, $\gamma : x^i=x^i(t)$, $z=\rho(t)=r(x(t))$.\\Тогда $\dot{\rho}=\sum\limits_i\left(\frac{\partial r}{\partial x^i}\cdot\dot{x}^i\right)=\sum\limits_i\left(r_i\dot{x}^i\right)$, $\ddot{\rho}=\sum\limits_i\left(\sum\limits_j\left(\frac{\partial r_i}{\partial x^j}\cdot\dot{x}^j\right)\cdot\dot{x}^i+r_i\cdot\ddot{x}^i\right)=\sum\limits_{i, \ j}\left(r_{ij}X^iX^j\right)+\sum\limits_i\left(r_i\ddot{x}^i\right)$. Тогда $\sum\limits_{i, \ j}b_{ij}X^iX^j=b(x)$.
@@ -847,19 +847,19 @@
         Пусть $r_1$, $\ldots$, $r_n$ --- базис в $T_PM$, $g_{ij}$ и $b_{ij}$ --- матрицы первой и второй фундаментальной формы соответственно. Тогда корни характеристического многочлена $\chi=det(b-\lambda g)$ являются главными кривизнами, а векторы $e_j$ такие, что $(b-\lambda_jg)e_j=0$ являются главными направлениями.
     \end{remark}
     \begin{theorem}[\hypertarget{7}{Формула Эйлера}]
-        $\tilde{k}(x)=\sum\limits_{j=1}^n\lambda_j\cos^2(\alpha_j)$, где $\lambda_j$ --- главные кривизны, $\alpha_j$ --- углы между вектором $x$ и $j$-м главным направлением.
+        $\tilde{k}(X)=\sum\limits_{j=1}^n\lambda_j\cos^2(\alpha_j)$, где $\lambda_j$ --- главные кривизны, $\alpha_j$ --- углы между вектором $x$ и $j$-м главным направлением.
     \end{theorem}
     \begin{proof}
-        Пусть $|x|=1$, тогда $\tilde{k}(x)=b(x)=\sum\limits_{j=1}^n\lambda_j(\tilde{x}_j)^2$, $\tilde{x}_j=(x, \ e_j)=\cos(\alpha_j)$ (так как $|x|=1$ и $|e_j|=1$).
+        Пусть $|x|=1$, тогда $\tilde{k}(X)=b(X)=\sum\limits_{j=1}^n\lambda_j(\tilde{x}_j)^2$, $\tilde{x}_j=(X, \ e_j)=\cos(\alpha_j)$ (так как $|X|=1$ и $|e_j|=1$).
     \end{proof}
     \begin{consequence}
         $\tilde{k}(e_i)=\lambda_i$.
     \end{consequence}
     \begin{consequence}
-        Пусть $\lambda^+=\max(\lambda_1, \ \ldots, \ \lambda_n)$, $\lambda^-=\min(\lambda_1, \ \ldots, \ \lambda_n)$, тогда\\$\lambda^+=\max(\tilde{k}(x))$ и $\lambda^-=\min(\tilde{k}(x))$.
+        Пусть $\lambda^+=\max(\lambda_1, \ \ldots, \ \lambda_n)$, $\lambda^-=\min(\lambda_1, \ \ldots, \ \lambda_n)$, тогда\\$\lambda^+=\max(\tilde{k}(X))$ и $\lambda^-=\min(\tilde{k}(X))$.
     \end{consequence}
     \begin{proof}
-        Без ограничения общности будем считать, что $\lambda^+=\lambda_1$, тогда \hyperlink{7}{по теореме 2.4} $\tilde{k}(x)=\lambda_1\cos^2(\alpha_1)+\sum\limits_{j=2}^n\lambda_j\cos^2(\alpha_j)$. $\cos^2(\alpha_1)=1-\sum\limits_{j=2}^n\cos^2(\alpha_j)$ $\Longrightarrow$ $\tilde{k}(x)=\lambda^++\sum\limits_{j=2}^n(\cos^2(\alpha_j)(\lambda_j-\lambda^+)\leqslant\lambda^+$. Для $\lambda^-$ аналогично.
+        Без ограничения общности будем считать, что $\lambda^+=\lambda_1$, тогда \hyperlink{7}{по теореме 2.4} $\tilde{k}(X)=\lambda_1\cos^2(\alpha_1)+\sum\limits_{j=2}^n\lambda_j\cos^2(\alpha_j)$. $\cos^2(\alpha_1)=1-\sum\limits_{j=2}^n\cos^2(\alpha_j)$ $\Longrightarrow$ $\tilde{k}(X)=\lambda^++\sum\limits_{j=2}^n(\cos^2(\alpha_j)(\lambda_j-\lambda^+)\leqslant\lambda^+$. Для $\lambda^-$ аналогично.
     \end{proof}
     \begin{definition}
         Гауссовой кривизной называется число $K=\lambda_1\cdot\ldots\cdot\lambda_n$, средней кривизной называется число $H=\sum\limits_{j=1}^n\lambda_j$.
@@ -940,8 +940,8 @@
                 y^{(2)}|_{x^2=x_0^2, \ x^1=x_0^1}=y_0
             \end{cases}$$
             Пусть $\frac{\partial y^{(2)}}{\partial x^1}-f_1=g$ $\Longrightarrow$
-            $$\frac{\partial g}{\partial x^2}=\frac{\partial^2 y^{(2)}}{\partial x^2\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial}{\partial x^1}f_2-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
-            $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
+            $$\frac{\partial g}{\partial x^2}=\frac{\partial^2 y^{(2)}}{\partial x^2\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
+            $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}$$
             $$=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$$
             (1) По условиям совместности $\frac{\partial f_2}{\partial x^1}-\frac{\partial f_1}{\partial x^2}=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}$\\
             Отсюда $\frac{\partial g}{\partial x^2}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$, приичём $g|_{x^2=x_0^2}=\frac{\partial y^{(1)}}{\partial x^1}-f_1(x^1, \ x_0^2, \ x^3_0, \ \ldots, \ x_0^n, \ y^{(1)})=0$\\
@@ -1143,7 +1143,6 @@
     \begin{proof}
         Пусть $f: X \to Y$, $X$ — компакт, $M \subset X$, $M$ замкнуто $\Longrightarrow M$ компактно (по теореме о том, что замкнутое подмножество компакта есть компакт) $\Longrightarrow f(M) \subset Y$, где $f(M)$ тоже компактно (т.к. $f$ непрерывно) $\Longrightarrow f(M)$ замкнуто в $Y$ (по лемме, которая была выше). 
     \end{proof}
-    Далее рассматриваем только хаусдорфовы пространства.
     \begin{definition}
         Отображение $f:X\to Y$ двух топологических пространств называется гомеоморфизмом, если оно биективно, непрерывно и обратное к нему тоже непрерывно.
     \end{definition}
@@ -1179,7 +1178,7 @@
             \item $\R^n$
             \item $S^1\subset\R^2:x^2+y^2=1$ с функциями склейки --- стереографическими проекциями через северный и южный полюс.
             \item $\R P^2:$ $(x_0, \ x_1, \ x_2)\sim(\lambda x_0, \ \lambda x_1, \ \lambda x_2)$ для $\lambda\neq0$ и $(x_0, \ x_1, \ x_2)\neq0$.
-            Тогда рассмотрим $U_1$ --- множество прямых, пересекающих плоскость $x_1=1$, $U_2$ --- множество прямых, пересекающих плоскость $x_2=1$, $U_3$ --- множество прямых, пересекающих плоскость $x_3=1$. Рассмотрим отображения $\phi_i:U_i\to\R^2$. Эти отображения являются гомеоморфизмом.\\
+            Тогда рассмотрим $U_1$ --- множество прямых, пересекающих плоскость $x_1=1$, $U_2$ --- множество прямых, пересекающих плоскость $x_2=1$, $U_3$ --- множество прямых, пересекающих плоскость $x_3=1$. Рассмотрим отображения $\phi_i:U_i\to\R^2$. Эти отображения являются гомеоморфизмами.\\
             Пусть $l\in U_1\cap U_2$, тогда она пересекает $P_1$ в точке $(1, \ y_2, \ y_3)$ и $P_2$ в точке $(y_1, \ 1, \ y_3)$ $\Longrightarrow$ $y_1=\frac{1}{y_2}$, $y_3=y_3$. Это отображение гладкое, значит, склейка $U_1$ и $U_2$ гладкая. Аналогично для двух других. Значит, построенный атлас является гладким, а значит, мы построили гладкую структуру.
         \end{enumerate}
     \end{examples}
@@ -1207,7 +1206,7 @@
         Отображение $f$ называется гладким в окрестности $U$ точки $P$, если $f_i(x)\in C^{\infty}(U)$.
     \end{definition}
     \begin{definition}
-        Отображением называется гладким (гладким всюду), если оно гладкое в окрестности любой точки.
+        Отображение называется гладким (гладким всюду), если оно гладкое в окрестности любой точки.
     \end{definition}
     \begin{definition}
         Гладкая функция на гладком многообразии --- гладкое отображение $f:M\to\R$.
@@ -1216,7 +1215,7 @@
         Пусть $f:M\to Q$ --- гомеоморфизм, тогда $f$ называется диффеоморфизмом, если $f$ и $f^{-1}$ --- гладкие функции.
     \end{definition}
     \begin{definition}
-        Гладкая кривая на многообразии --- гладкое отображение $\gamma:[a, \ b]\to M$. Это соответствие, сопоставляющей каждой точке $t\in[a, \ b]$ точку $\gamma(t)\in M$.
+        Гладкая кривая на многообразии --- гладкое отображение $\gamma:[a, \ b]\to M$. Это соответствие, сопоставляющее каждой точке $t\in[a, \ b]$ точку $\gamma(t)\in M$.
     \end{definition}
     \begin{definition}
         Рассмотрим $\gamma:[a, \ b]\to M$, $\tilde{\gamma}:[\alpha, \ \beta]\to M$, $t_0\in[a, \ b]$, $\tau_0\in[\alpha, \ \beta]$, $\gamma(t_0)=\tilde{\gamma}(\tau_0)$. Пусть $x=(x^1, \ \ldots, \ x^n)$ --- координаты точки из окрестности точки $P=\gamma(t_0)$, тогда $\gamma:x^i=x^i(t)$, $\tilde{\gamma}:x^i=\tilde{x}^i(\tau)$.\\
@@ -1303,7 +1302,7 @@
         Построить отображение из окружности в лемнискату.
     \end{exercise}
     \begin{definition}
-        Отображение $f$ называется влодением, если $f$ --- погружение и $f:M\to f(M)$ --- гомеормеорфизм.
+        Отображение $f$ называется вложением, если $f$ --- погружение и $f:M\to f(M)$ --- гомеоморфизм.
     \end{definition}
     \begin{exercise}
         Доказать, что если $M$ --- компакт, то $f:M\to Q$ --- вложение тогда и только тогда, когда
@@ -1326,7 +1325,7 @@
             0, \ t\leqslant 0
         \end{cases}$ и отображение $\psi(t)=\frac{w(b-a)}{w(t-a)+w(b-t)}$ на отрезке $[a, \ b]$, $0<a<b$ (такая функция называется срезающей функцией).\\
         Пусть $M$ --- гладкое компактное многообразие. Выберем атлас $\{U_{\alpha}, \ \phi_{\alpha}\}$, где $\phi_{\alpha}:U_{\alpha}\to\R^n$, $\alpha\in\{1, \ \ldots, \ N\}$. В силу компактности выберем конечное число его элементов, покрывающих данное многообразие.\\
-        Рассмотрим отображение $\chi:M\to\R^{n(N+1)}$, $P\in M$ такое, что $\chi(P)=\begin{pmatrix}
+        Рассмотрим отображение $\chi:M\to\R^{N(n+1)}$, $P\in M$ такое, что $\chi(P)=\begin{pmatrix}
             \phi_{\alpha_1}(P)\cdot\psi(|\phi_{\alpha_1}(P)|)\\
             \vdots\\
             \phi_{\alpha_{_N}}(P)\cdot\psi(|\phi_{\alpha_{_N}}(P)|)\\
@@ -1334,7 +1333,7 @@
             \vdots\\
             \psi(|\phi_{\alpha_{_N}}(P)|)\\
         \end{pmatrix}$
-        В первых $N$ строках образом является вектор в $\R^n$, в последних $N$ строках образом являются числами.\\
+        В первых $N$ строках образом является вектор в $\R^n$, в последних $N$ строках образом являются числа.\\
         Рассмотрим $\tilde{U}_{\alpha}\subset U_{\alpha}$ такое, что $\chi(P)=0$, если $P\notin\tilde{U}_{\alpha}$. Теперь $\psi(|\phi_{\alpha}(P)|)=1 \ \Longleftrightarrow \ P\in\tilde{U}_{\alpha}$.\\
         Докажем, что $\chi$ --- вложение.
         \begin{enumerate}
@@ -1351,7 +1350,7 @@
                 E\\
                 \vdots
             \end{pmatrix}$. Значит, $rk \ d_P\chi\geqslant n$ $\Longrightarrow$ это погружение.
-            \item Предположим, что существуют $P$ и $Q$ такие, что $\chi(P)=\chi(Q)$ и $P\neq Q$. Так как $P$ и $Q$ принадлежат поверхности $M$, тогда для некоторого $\tilde{U}_{\alpha_i}$, то есть $\psi(|\phi_{\alpha_i}(P)|)>0$ и $\psi(|\phi_{\alpha_i}(Q)|)>0$, тогда $\phi_{\alpha_i}(P)\cdot\psi(|\phi_{\alpha_i}(P)|)=\phi_{\alpha_i}(Q)\cdot\psi(|\phi_{\alpha_i}(Q)|)$ и $\psi(|\phi_{\alpha_i}(P)|)=\psi(|\phi_{\alpha_i}(Q)|)$. Разделим предпоследнее равенство на $\psi(|\phi_{\alpha_i}(Q)|)$, тогда $\phi_{\alpha_i}(P)=\phi_{\alpha_i}(Q)$. Так как $\phi_{\alpha_i}$ --- гомеоморфизм, то $P=Q$.
+            \item Предположим, что существуют $P$ и $Q$ такие, что $\chi(P)=\chi(Q)$ и $P\neq Q$. Так как $P$ и $Q$ принадлежат поверхности $M$, тогда для некоторого $\tilde{U}_{\alpha_i}$ $\psi(|\phi_{\alpha_i}(P)|)>0$ и $\psi(|\phi_{\alpha_i}(Q)|)>0$, тогда $\phi_{\alpha_i}(P)\cdot\psi(|\phi_{\alpha_i}(P)|)=\phi_{\alpha_i}(Q)\cdot\psi(|\phi_{\alpha_i}(Q)|)$ и $\psi(|\phi_{\alpha_i}(P)|)=\psi(|\phi_{\alpha_i}(Q)|)$. Разделим предпоследнее равенство на $\psi(|\phi_{\alpha_i}(Q)|)$, тогда $\phi_{\alpha_i}(P)=\phi_{\alpha_i}(Q)$. Так как $\phi_{\alpha_i}$ --- гомеоморфизм, то $P=Q$.
         \end{enumerate}
     \end{proof}
     \begin{remark}\tab
@@ -1359,8 +1358,8 @@
             \item Теорема верна для гладких многообразий со счётной базой.
             \item На размерность пространства, в которое можно погрузить данное многообразие существуют ограничения:
             \begin{enumerate}
-                \item Гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n+1}$ и погрузить в $\R^{2n}$ (Слабая теорема Уитни).
-                \item Гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n}$ и погрузить в $\R^{2n-1}$ (Сильная теорема Уитни).
+                \item Пусть $M$ --- гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n+1}$ и погрузить в $\R^{2n}$ (Слабая теорема Уитни).
+                \item Пусть $M$ --- гладкое компактное $n$-мерное многообразие, тогда его можно вложить в $\R^{2n}$ и погрузить в $\R^{2n-1}$ (Сильная теорема Уитни).
             \end{enumerate}
         \end{enumerate}
     \end{remark}
@@ -1371,10 +1370,10 @@
     \end{subtheorem}
     \begin{proof}
         Так как для любой точки на любой дуге на сфере радиус, проведённый в эту точку, ортогонален касательной плоскости в этой точке, то дуги больших окружностей являются геодезическими, так как их векторы ускорения направлены к центру сферы.\\
-        Так как через каждую точку на сфере проходит большой круг, а значит, другие кривые, проходящие через данную точку не геодезические, так как их векторы ускорения, направленные к центрам своих окружностей будут не ортогональны касательной плоскости в данной точке, так как вектор нормали для плоскости задан однозначно.
+        Так как через каждую точку на сфере проходит большой круг, а значит, другие кривые, проходящие через данную точку, не геодезические, так как их векторы ускорения, направленные к центрам своих окружностей, будут не ортогональны касательной плоскости в данной точке, так как вектор нормали для плоскости задан однозначно.
     \end{proof}
     \begin{definition}
-        Пусть $M$ --- риманово многообразие. Расстоянием между точками $P$ и $Q$ называется $|PQ|=\inf\limits_{\gamma}|\gamma|$, $\gamma$ --- геодезическая кривая, соединяющая точки $P$ и $Q$.
+        Пусть $M$ --- риманово многообразие. Расстоянием между точками $P$ и $Q$ называется $|PQ|=\inf\limits_{\gamma}|\gamma|$, $\gamma$ --- геодезическая, соединяющая точки $P$ и $Q$.
     \end{definition}
     \begin{subtheorem}
         Пусть $X$ и $Y$ --- радиус-векторы, проведённые к точкам $P$ и $Q$ соответственно. Тогда $\cos\left(\frac{|PQ|}{R}\right)=\frac{(X, \ Y)}{R^2}$.
@@ -1424,7 +1423,7 @@
         $$+\left(\sin^2(\beta)\sin^2\left(\frac{a}{R}\right)-\sin^2(\alpha)\sin^2\left(\frac{b}{R}\right)\right)\sin^2\left(\frac{c}{R}\right)$$
         $$\sin^2(\beta)\sin^2\left(\frac{a}{R}\right)=\sin^2(\alpha)\sin^2\left(\frac{b}{R}\right)$$
         $$\frac{\sin\alpha}{\sin\left(\frac{a}{R}\right)}=\frac{\sin\beta}{\sin\left(\frac{b}{R}\right)}$$
-        (модуль при извлечении корня можем убрать, так как $0<\alpha<\pi$, так как угол между векторами определён от $0$ до $\pi$, а так как длина дуги не может превышать $\pi R$, иначе это не кратчайшее растояние между точками, то $\frac{a}{R}$ и $\frac{b}{R}\in(0, \ \pi$). Второе равенство доказывается аналогично.
+        (модуль при извлечении корня можем убрать, так как $0<\alpha<\pi$, так как угол между векторами определён от $0$ до $\pi$, а так как длина дуги не может превышать $\pi R$, иначе это не кратчайшее расстояние между точками, то $\frac{a}{R}$ и $\frac{b}{R}\in(0, \ \pi$). Второе равенство доказывается аналогично.
     \end{proof}
     \begin{definition}
         Полярным к данному треугольнику $ABC$ на сфере называется треугольник с вершинами $A'$, $B'$, $C'$ такими, что $A'$ является полюсом полусферы, образованной окружностью дуги $BC$, (самой отдалённой точкой от плоскости, в которой лежит окружность дуги $BC$) причём в этой полусфере должна лежать вершина $A$. Остальные вершины выбираются аналогично.
