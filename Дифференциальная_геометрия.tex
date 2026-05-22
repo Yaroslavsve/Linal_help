@@ -523,7 +523,7 @@
         (1) : по определению\\
         (2) : так как векторы $r_m$ являются векторами касательного пространства\\
         (3) : по определению
-        $$\hat{G}_{ij}=g_{km}\hat{\Gamma}_{ij} \ \Longrightarrow \ \Gamma_{ij}^k=\frac{1}{2}\sum\limits_m\left(g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)\right)$$
+        $$\hat{G}_{ij}=g\hat{\Gamma}_{ij} \ \Longrightarrow \ \Gamma_{ij}^k=\frac{1}{2}\sum\limits_m\left(g^{km}\left(\frac{\partial g_{im}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^i}-\frac{\partial g_{ij}}{\partial x^m}\right)\right)$$
     \end{proof}
     \subsubsection{Параллельный перенос касательных векторов}
     \begin{definition}
@@ -539,7 +539,7 @@
         Гладкое семейство $X(t)$ параллельно кривой $\gamma$, если его ковариантная производная тождественно равна нулю.
     \end{definition}
     \begin{remark}
-        Гладкое семейство параллельно кривой $\gamma$, если $\dot{X}^i+\sum\limits_{k, \ j}\Gamma_{jk}^i\dot{x}^jX^k\equiv0 \ \forall i\in\{1, \ \ldots, \ n\}$
+        Гладкое семейство параллельно кривой $\gamma$, если $\dot{X}^i+\sum\limits_{k, \ j}\Gamma_{jk}^i\dot{x}^jX^k\equiv0 \ \forall i\in\{1, \ \ldots, \ n\}$ (следует из линейной независимости векторов $r_i$).
     \end{remark}
     \begin{subtheorem}
         Пусть $P=\gamma(a)$, $X_0\in T_PM$, тогда существует единственное семейство касательных векторов $X(t)$ такое, что
@@ -565,7 +565,7 @@
         \hypertarget{6}{}
         \begin{enumerate}
             \item Параллельный перенос линейно зависит от $X_0$.
-            \item Параллельный перенос сохранят скалярное произведение.
+            \item Параллельный перенос сохраняет скалярное произведение.
             \item Если $M$ и $N$ --- касаются вдоль кривой $\gamma$, то $X(t)$ является результатом параллельного переноса вдоль кривой $\gamma$ на $M$ тогда и только тогда, когда оно является результатом параллельного переноса вдоль кривой $\gamma$ на $N$.
         \end{enumerate}
     \end{propertes}
@@ -790,24 +790,11 @@
         Доказать, что в окрестности точки $P$ нормальное сечение является гладкой регулярной кривой. Указание: использовать теорему о неявной функции.
     \end{exercise}
     \begin{proof}
-        %Пусть $U$ --- окрестность точки $P$, лежащей на поверхности $M$.
-        Из определения ясно, что плоскость, определяющая нормальное сечение в данной точке, задаётся вектором нормали и некоторым вектором $\tilde{r}$ из касательного пространства в этой точке. Пусть поверхность $M$ задана уравнением $z=r(x^1, \ \ldots, \ x^n)$, тогда по определению вектор нормали $m=(m^1, \ \ldots, \ m^n)$ задаётся из $\begin{vmatrix}
-            m^1 & \ldots & m^n\\
-            r_1^1 & \ldots & r^n_1\\
-            \vdots & & \vdots\\
-            r_n^1 & \ldots & r^n_n
-        \end{vmatrix}$ (если он получился не единочной длины, то его ещё нужно будет нормировать)\\
-        Так как все $r_i\in C^{\infty}$, то $m\in C^{\infty}$.\\
-        Зададим плоскость, определяющую данное нормальное сечение. Пусть $\tilde{m}=[\tilde{r}, \ m]$ --- вектор нормали к этой плоскости, тогда он так же является гладкой функцией в некоторой окрестности данной точки $P$ (аналогично с вектором нормали к поверхности). Уравнение плоскости будет иметь вид $(\tilde{m}, \ x-P)=0$, где $x-P=(x^1-x^1_0, \ \ldots, \ x^n-x_0^n)$.
-        Так как нормальное сечение в точке $P$ является пересечением двумерной плоскости, проходящей через данную точку и содержащей вектор нормали, то оно должно будет удовлетворять системе
-        $$\begin{cases}
-            (\tilde{m}, \ x-P)=0\\
-            x=r(x^1, \ \ldots, \ x^n)
-        \end{cases}$$
-        Тогда имеем функцию $(F(x^1, \ \ldots, \ x^n), \ \tilde{m})=0$, которая задаёт нормальное сечение. Эта функция является гладкой, так как $r$ и $\tilde{m}$ гладкие. Так как вектор $\tilde{m}\perp m$, то $\frac{\partial F}{\partial x^i}=\left(\frac{\partial r}{\partial x^i}, \ \tilde{m}\right)\neq0$ для некоторого $i$. Без ограничения общности будем считать, что $\frac{\partial F}{\partial x^n}\neq0$. Тогда по теореме о неявной функции существует функция $h(x^1, \ \ldots, \ x^{n-1})=x^n$, которая является гладкой в некоторой окрестности точки $P$.\\
-        Зададим параметризацию, подставив $h$ в $r$
-        $$\gamma(t^1, \ \ldots, \ t^{n-1})=r(t^1, \ \ldots, \ t^{n-1}, \ h(t^1, \ \ldots, \ t^{n-1}))$$
-        Данное отображение является гладкой регулярной (так как все $r_i$ линейно независимы) параметрической кривой.
+        Рассмотрим точку $P$ на данной гиперповерхности. Без ограничения общности переместим начало координат в эту точку, тогда она будет иметь координаты $(0, \ \ldots, \ 0)$. Расмотрим ортонормированный базис $e_1, \ \ldots, \ e_n$, $m$, где $e_1, \ \ldots, \ e_n$ --- ортонормированный базис касательного пространства, $m$ --- вектор нормали к поверхности в данной точке. Нормальное сечение задаётся как пересечение плоскости, заданной двумя векторами $v\in T_PM$ и $m$, причём $v\neq 0$, и поверхности $M$. Тогда плоскость задаётся $\begin{cases}
+            x^i=\alpha v^i\\
+            x^{n+1}=\beta
+        \end{cases}$, где $v=(v^1, \ \ldots, \ v^n, \ 0)$. Рассмотрим уравнение гиперповерхности в координатах $(\alpha, \ \beta)$. $F(\alpha v^1, \ \ldots, \ \alpha v^n, \ \beta)=0$. Пусть $\Phi(\alpha, \ \beta)=F(\alpha v^1, \ \ldots, \ \alpha v^n, \ \beta)=0$, причём $\Phi(0, \ 0)=0$, так как $P=(0, \ 0)$ в данных координатах. $\frac{\partial\Phi}{\partial\beta}|_{(0, \ 0)}=\frac{\partial F}{\partial x^{n+1}}|_{P}\neq0$. Тогда по теореме о неявной функции в некотрой окрестности $U$ точки $P$ существует единственная функция $\phi(\alpha)=\beta$ такая, что $\phi\in C^{\infty}(U)$, $\phi(0)=0$ и $\Phi(\alpha, \ \phi(\alpha))=0$ $]\forall\alpha\in U$.\\
+        Тогда нормальное сечение имеет такую параметризацию: $r(\alpha)=(\alpha v^1, \ \ldots, \ \alpha v^n, \ \phi(\alpha))$ --- это гладкая параметрическая кривая. Так как $v\neq0$, то $r'(\alpha)\neq0$, то есть кривая регулярная.
     \end{proof}
     \begin{remark}
         Каждое нормальное сечение определяет и определяется касательным вектором.
@@ -1395,10 +1382,11 @@
         $$\cos\left(\frac{a}{R}\right)=\cos\left(\frac{b}{R}\right)\cdot\cos\left(\frac{c}{R}\right)+\sin\left(\frac{b}{R}\right)\cdot\sin\left(\frac{c}{R}\right)\cos\alpha$$
     \end{theorem}
     \begin{proof}
-        Рассмотрим радиус-векторы $\xi_{_A}$ в точку $A$, $\xi_{_B}$ в точку $B$, $\xi_{_C}$ в точку $C$ и рассмотрим два касательных вектора к кривым $c$ и $b$ $\eta_{_B}$ и $\eta_{_C}$ в направлении вершин $B$ и $C$ соответственно из вершины $A$. Тогда $\eta_{_B}=\xi_{_B}+\lambda_{_B}\xi_{_A}$, $\eta_{_C}=\xi_{_C}+\lambda_{_C}\xi_{_A}$.\\
-        Рассмотрим $\left(\eta_{_B}, \ \xi_{_A}\right)\overset{(1)}{=}0=\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_A}\right)\overset{(2)}{=}|\xi_{_B}|\cdot|\xi_{_A}|\cdot\cos\left(\frac{2\pi c}{2\pi R}\right)+\lambda_{_B}|\xi_{_A}|^2=R^2\left(\lambda_{_B}+\cos\left(\frac{c}{R}\right)\right)$.\\
+        Рассмотрим радиус-векторы $\xi_{_A}$ в точку $A$, $\xi_{_B}$ в точку $B$, $\xi_{_C}$ в точку $C$ и рассмотрим два касательных вектора к кривым $b$ и $c$ $\eta_{_B}$ и $\eta_{_C}$ в направлении вершин $B$ и $C$ соответственно из вершины $A$. Тогда $\eta_{_B}=\xi_{_B}+\lambda_{_B}\xi_{_A}$, $\eta_{_C}=\xi_{_C}+\lambda_{_C}\xi_{_A}$.\\
+        Рассмотрим $\left(\eta_{_B}, \ \xi_{_A}\right)\overset{(1)}{=}0=\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_A}\right)=|\xi_{_B}|\cdot|\xi_{_A}|\cdot\cos\left(\frac{2\pi c}{2\pi R}\right)+\lambda_{_B}|\xi_{_A}|^2=R^2\left(\lambda_{_B}+\cos\left(\frac{c}{R}\right)\right)$.\\
         Значит, $\lambda_{_B}=-\cos\left(\frac{c}{R}\right)$.\\
         Аналогично через скалярное произведение для второго равенства с $\xi_{_A}$ получаем $\lambda_{_C}=-\cos\left(\frac{b}{R}\right)$.\\
+        (1) так как $\eta_B$ --- касательный вектор, а радиус ортогонален касательной в данной точке.\\
         Рассмотрим $\left(\eta_{_B}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \eta_{_B}\right)+\lambda_{_B}\left(\xi_{_A}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \xi_{_B}\right)+2\lambda_{_B}\left(\xi_{_A}, \ \xi_{_B}\right)+\lambda_{_B}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
         $=R^2\left(1+\lambda_{_B}^2+2\lambda_{_B}\cos\left(\frac{c}{R}\right)\right)=R^2\left(1+\cos^2\left(\frac{c}{R}\right)-2\cos\left(\frac{c}{R}\right)\cdot\cos\left(\frac{c}{R}\right)\right)=R^2\sin^2\left(\frac{c}{R}\right)$\\
         Аналогично $\left(\eta_{_C}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \eta_{_C}\right)+\lambda_{_C}\left(\xi_{_A}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \xi_{_C}\right)+2\lambda_{_C}\left(\xi_{_A}, \ \xi_{_C}\right)+\lambda_{_C}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
@@ -1615,7 +1603,7 @@
         Пусть $e_0$, $e_1$, $\ldots$, $e_n$ --- ортонормированный базис, тогда два времени подобных вектора $\xi$, $\eta$ одинаково ориентированы во времени тогда и только тогда, когда $\xi^0$ и $\eta^0$ одного знака.
     \end{subtheorem}
     \begin{proof}
-        Рассмотрим $(\xi, \ \xi)=-(\xi^0)^2+\sum\limits_{k=1}^n(\xi^k)^2$, $\xi=\xi_0e_0+\tilde{\xi}$, тогда $$(\xi, \ \xi)<0 \ \Longleftrightarrow \ |\xi^0|>|\tilde{\xi}|_e$$
+        Рассмотрим $(\xi, \ \xi)=-(\xi^0)^2+\sum\limits_{k=1}^n(\xi^k)^2$, $\xi=\xi^0e_0+\tilde{\xi}$, тогда $$(\xi, \ \xi)<0 \ \Longleftrightarrow \ |\xi^0|>|\tilde{\xi}|_e$$
         Аналогично $|\eta^0|>|\tilde{\eta}|_e$, тогда $|\xi^0|\cdot|\eta^0|>|\tilde{\xi}|\cdot|\tilde{\eta}|$
         $$(\xi, \ \eta)=-\xi^0\eta^0+(\tilde{\xi}, \ \tilde{\eta})<-\xi^0\eta^0+|\xi^0\cdot\eta^0|=\begin{cases}
             0, \ \xi^0\eta^0>0\\
@@ -1798,4 +1786,165 @@
             \item Пусть $l$ --- геодезическая и $\xi\notin l$, тогда существует бесконечно много геодезических, проходящих через $\xi$ и не пересекающих $l$.
         \end{enumerate}
     \end{propertes}
+    \begin{definition}
+        Расстояние между точками $A$ и $B$ на плоскости Лобачевского --- это длина геодезической, соединяющей данные точки.
+    \end{definition}
+    \begin{subtheorem}
+        Пусть $\xi$, $\eta$ --- радиус-векторы точек, $\rho$ --- расстояние между точками, тогда $(\xi, \ \eta)=-ch(\rho)$.
+    \end{subtheorem}
+    \begin{proof}
+        Без ограничения общности будем считать, что $\xi=\begin{pmatrix}
+            1\\
+            0\\
+            0
+        \end{pmatrix}$, $\eta=\begin{pmatrix}
+            \eta_0\\
+            \eta_1\\
+            0
+        \end{pmatrix}$, так как ортохронные преобразования Лоренца --- изометрии плоскости Лобачевского.\\
+        Рассмотрим $P\in e_0e_1$, тогда $x:\begin{cases}
+            sh\chi\\
+            ch\chi\cos\phi\\
+            ch\chi\sin\phi
+        \end{cases}$, $\frac{\partial
+         x}{\partial\chi}=\begin{pmatrix}
+            ch\chi\\
+            sh\chi\cos\phi\\
+            sh\chi\sin\phi
+        \end{pmatrix}$, $\frac{\partial
+         x}{\partial\phi}=\begin{pmatrix}
+            0\\
+            -ch\chi\sin\phi\\
+            ch\chi\cos\phi
+        \end{pmatrix}$. Тогда $g=\begin{pmatrix}
+            1 && 0\\
+            0 && sh^2\chi
+        \end{pmatrix}$, $ds^2=d\chi^2+sh^2\chi d\phi^2$.
+        $\eta=\begin{pmatrix}
+            ch\chi_0\\
+            sh\chi_0\\
+            0
+        \end{pmatrix}$, тогда $(\xi, \ \eta)=-ch\chi_0$, $\gamma:\begin{cases}
+            \chi=t\\
+            \phi=0
+        \end{cases}$, $\dot{\gamma}=\begin{pmatrix}
+            1\\
+            0
+        \end{pmatrix}$. Отсюда $|\dot{\gamma}|^2=(1 \ 0)\begin{pmatrix}
+            1 && 0\\
+            0 && sh^2t
+        \end{pmatrix}\begin{pmatrix}
+            1\\
+            0
+        \end{pmatrix}=1$, а значит, $l=\int\limits_0^{\chi_0}|\dot{\gamma}|dt=\chi_0=\rho$, тогда $(\xi, \ \eta)=-ch\rho$.
+    \end{proof}
+    \begin{definition}
+        Окружностью с центром в точке $P$ радиуса $a$ называется множество точек $Q\in L$ таких, что $l(P, \ Q)=a$.
+    \end{definition}
+    \begin{subtheorem}
+        Длина окружности вычисляется по формуле $l=2\pi sh(a)$.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть без ограничения общности плоскость параллельна $e_0e_1$, то есть окружность с вершиной $(1, \ 0, \ 0)$, и пусть $\gamma:\begin{cases}
+            x=const=a\\
+            y=t
+        \end{cases}$, тогда $\dot{\gamma}=\begin{pmatrix}
+            0\\
+            1
+        \end{pmatrix}$, $g=\begin{pmatrix}
+            1 && 0\\
+            0 && sh^2a
+        \end{pmatrix}$ для любой точки данной кривой. Из определения $|\dot{\gamma}|^2=(0 \ 1)\begin{pmatrix}
+            1 && 0\\
+            0 && sh^2a
+        \end{pmatrix}\begin{pmatrix}
+            0\\
+            1
+        \end{pmatrix}=sh^2a \ \Longrightarrow \ |\dot{\gamma}|=sh(a)$. Тогда из определения длины кривой $l=\int\limits_0^{2\pi}sh(a)dt=2\pi sh(a)$.
+    \end{proof}
+    \begin{exercise}
+        Доказать теорему косинусов $ch(a)=ch(b)ch(c)-sh(b)sh(c)\cos\alpha$.
+    \end{exercise}
+    \begin{proof}
+        Рассмотрим радиус-векторы $\xi_{_A}$ в точку $A$, $\xi_{_B}$ в точку $B$, $\xi_{_C}$ в точку $C$ и рассмотрим два касательных вектора к кривым $b$ и $c$ $\eta_{_B}$ и $\eta_{_C}$ в направлении вершин $B$ и $C$ соответственно из вершины $A$. Тогда $\eta_{_B}=\xi_{_B}+\lambda_{_B}\xi_{_A}$, $\eta_{_C}=\xi_{_C}+\lambda_{_C}\xi_{_A}$.\\
+        Рассмотрим $\left(\eta_{_B}, \ \xi_{_A}\right)\overset{(1)}{=}0=\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_A}\right)=-ch(c)-\lambda_{_B}$.\\
+        Значит, $\lambda_{_B}=-ch(c)$.\\
+        Аналогично через скалярное произведение для второго равенства с $\xi_{_A}$ получаем $\lambda_{_C}=-ch(b)$.\\
+        (1) так как они ортогональны относительно псевдоевклидова скалярного произведения\\
+        Рассмотрим $\left(\eta_{_B}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \eta_{_B}\right)+\lambda_{_B}\left(\xi_{_A}, \ \eta_{_B}\right)=\left(\xi_{_B}, \ \xi_{_B}\right)+2\lambda_{_B}\left(\xi_{_A}, \ \xi_{_B}\right)+\lambda_{_B}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=-1-2\lambda_{_B}ch(c)-ch^2(c)=sh^2(c)$\\
+        Аналогично $\left(\eta_{_C}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \eta_{_C}\right)+\lambda_{_C}\left(\xi_{_A}, \ \eta_{_C}\right)=\left(\xi_{_C}, \ \xi_{_C}\right)+2\lambda_{_C}\left(\xi_{_A}, \ \xi_{_C}\right)+\lambda_{_C}^2\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=-1-2\lambda_{_C}ch(b)-ch^2(b)=sh^2(b)$\\
+        Рассмотрим $\left(\eta_{_B}, \ \eta_{_C}\right)=|\eta_{_B}|\cdot|\eta_{_C}|\cdot\cos\alpha=sh(b)sh(c)\cos\alpha$\\
+        $\left(\eta_{_B}, \ \eta_{_C}\right)=\left(\xi_{_B}, \ \eta_{_C}\right)+\lambda_{_B}\left(\xi_{_A}, \ \eta_{_C}\right)=\left(\xi_{_B}, \ \xi_{_C}\right)+\lambda_{_C}\left(\xi_{_B}, \ \xi_{_A}\right)+\lambda_{_B}\left(\xi_{_A}, \ \xi_{_C}\right)+\lambda_{_B}\lambda_{_C}\left(\xi_{_A}, \ \xi_{_A}\right)=$\\
+        $=-ch(a)+2ch(b)ch(c)-ch(b)ch(c)=ch(b)ch(c)-ch(a)$.\\
+        Тогда $ch(a)=ch(b)ch(c)-sh(b)sh(c)\cos\alpha$.
+    \end{proof}
+    \begin{exercise}
+        Доказать теорему синусов $\frac{sh(a)}{\sin\alpha}=\frac{sh(b)}{\sin\beta}=\frac{sh(c)}{\sin\gamma}$.
+    \end{exercise}
+    \begin{proof}
+        $$ch(a)=ch(b)ch(c)-sh(b)sh(c)\cos\alpha$$
+        $$ch(b)=ch(a)ch(c)-sh(a)sh(c)\cos\beta$$
+        Возьведём в квадрат оба равенства и вычтем из первого второе, параллельно применив основное тригонометрическое тождество для углов $\alpha$ и $\beta$.
+        $$ch^2(a)-ch^2(b)=(ch^2(b)-ch^2(a))ch^2(c)+sh^2(c)(sh^2(b)\cos^2\alpha-sh^2(a)\cos^2\beta)-$$
+        $$-2ch(b)ch(c)sh(b)sh(c)\cos\alpha+2ch(a)ch(c)sh(a)sh(c)\cos\beta$$
+        $$-(ch^2(c)+1)(ch^2(b)-ch^2(a))=sh^2(c)(sh^2(b)-sh^2(a))-2ch^2(c)(ch^2(b)-ch^2(a))-$$
+        $$-sh^2(c)(sh^2(b)\sin^2\alpha-sh^2(a)\sin^2\beta)$$
+        $$sh^2(c)(ch^2(b)-ch^2(a))=sh^2(c)(ch^2(b)-ch^2(a))-sh^2(c)(sh^2(b)\sin^2\alpha-sh^2(a)\sin^2\beta)$$
+        $$sh^2(b)\sin^2\alpha-sh^2(a)\sin^2\beta=0$$
+        $$\frac{sh(a)}{\sin\alpha}=\frac{sh(b)}{\sin\beta}$$
+        (модуль при извлечении корня можем убрать, так как $0<\alpha<\pi$, так как угол между векторами определён от $0$ до $\pi$. Второе равенство доказывается аналогично.
+    \end{proof}
+    \begin{exercise}
+        Доказать двойственную теорему косинусов $\cos\alpha=\cos\beta\cos\gamma-\sin\beta\sin\gamma \ ch(a)$.
+    \end{exercise}
+    \begin{exercise}
+        Доказать, что сумма углов треугольника на плоскости Лобачевского меньше $\pi$.
+    \end{exercise}
+    \begin{consequence}[Признаки равенства треугольников]\tab
+        \begin{enumerate}
+            \item Если три стороны у двух треугольников равны, то эти треугольники равны.
+            \item Если двесстороны и угол между ними у двух треугольников равны, то эти треугольники равны.
+            \item Если два угла и сторона между ними у двух треугольников равны, то эти треугольники равны.
+            \item Если три угла у двух треугольников равны, то эти треугольники равны.
+        \end{enumerate}
+    \end{consequence}
+    \subsection{Модель Пуанкаре в круге плоскости Лобачевского}
+    Пусть $\rho, \ \theta$ --- полярные координаты. Рассмотрим стереографическую проекцию, тогда из подобия треугольников $\begin{cases}
+        \theta=\phi\\
+        \frac{\rho}{sh\chi}=\frac{1}{1+ch\chi}
+    \end{cases} \ \Longleftrightarrow \ \begin{cases}
+        \theta=\phi\\
+        \rho=\frac{sh\chi}{1+ch\chi}
+    \end{cases}$\\
+    Рассмотрим $1-\rho^2=1-\frac{sh^2\chi}{(1+ch\chi)^2}=\frac{2}{1+ch\chi}$, тогда $sh^2\chi=\frac{4\rho^2}{(1-\rho^2)^2}$.
+    Рассмотрим $d\rho=d\frac{sh\chi}{1+ch\chi}=\frac{d\chi}{1+ch\chi}$, $d\phi=d\theta$, тогда метрика имеет вид: $$\frac{4d\rho^2}{(1-\rho^2)^2}+\frac{4\rho^2d\theta^2}{(1-\rho^2)^2}=\frac{4(d\rho^2+\rho^2d\theta^2)}{(1-\rho^2)^2}$$
+    Подставив выражение для полярных координат, получим формулу метрики в стандартных координатах.
+    $$\frac{4(dx^2+dy^2)}{(1-x^2-y^2)^2}$$
+    \begin{subtheorem}
+        Геодезическими в модели Пуанкаре являются диаметры круга и дуги окружностей, пересекающих единичную окружность под прямым углом.
+    \end{subtheorem}
+    \begin{proof}
+        Пусть геодезическая задана плоскостью $Ax^1+Bx^2+Cx^0=0$, тогда в координатах поверхности $Ash\chi\cos\phi+Bsh\chi\sin\phi+Cch\chi=0$.\\
+        Рассмотрим $1+\rho^2=1+\frac{sh^2\chi}{(1+ch\chi)^2}=\frac{2ch\chi}{1+ch\chi}$.\\
+        Перепишем уравнение плоскости в полярных координатах модели Пуанкаре $2A\rho\cos\phi+2B\rho\sin\phi+C(\rho^2+1)=0$
+        \begin{enumerate}
+            \item Если $C=0$, то уравнение плоскости имеет вид: $A\rho\cos\phi+B\rho\sin\phi=0$, тогда в стандартных координатах $Ay^1+By^2=0$ --- это уравнение прямой, проходящей через начало координат, то есть это диаметр единичной окружности.
+            \item Если $C\neq0$, то в координатах $y^1, \ y^2$ уравнение плоскости примет вид: $2Ay^1+2By^2+C(1+(y^1)^2+(y^2)^2)=0 \ \Longleftrightarrow \ (y^1+\alpha)^2+(y^2+\beta)^2=\alpha^2+\beta^2-1$ --- это окружности пересекающие единичную окружность.
+        \end{enumerate}
+    \end{proof}
+    \begin{remark}
+        Сделаем замену $w=x+iy$, $\overline{w}=x-iy$ и перепишем форомулу метрики $dw=dx+idy$, $d\overline{w}=dx-idy$, тогда $ds^2=\frac{4dwd\overline{w}}{(1-|w|^2)^2}$
+    \end{remark}
+    \begin{remark}\tab
+        Применим дробно-линейное преобразование $w=\frac{i-z}{i+z}$, $z=x+iy$, $Im \ z>0$. 
+        $$dw=\frac{(-dx-idy)(x+i(y+1))-(dx+idy)(-x-(y-1)i)}{(i+x+iy)^2}=\frac{-2idx+2dy}{(i+z)^2}=-\frac{2idz}{(i+z)^2}$$
+        $$w=\frac{(-x-iy+i)(x-iy-i)}{(x+iy+i)(x-iy-i)}=\frac{-x^2-y^2+2ix+1}{(x+iy+i)(x-iy-i)}$$
+        $$\overline{w}=\frac{-(x+i)^2-y^2}{(x+iy+i)(x-iy-i)}=\frac{-(x-iy+i)(x+iy+i)}{(x+iy+i)(x-iy-i)}=\frac{i+\overline{z}}{i-\overline{z}}$$
+        $$d\overline{w}=\frac{-(dx-idy)(x-iy-i)+(dx-idy)(x-iy-i)}{(i-\overline{z})^2}=\frac{2i(dx-idy)}{(i-\overline{z})^2}=\frac{2id\overline{z}}{(i-\overline{z})^2}$$
+        $$|w|^2=w\overline{w}=\frac{i-z}{i+z}\cdot\frac{i+\overline{z}}{i-\overline{z}}=\frac{-1-iz+i\overline{z}-z\overline{z}}{(i+z)(i-\overline{z})}$$
+        $$dwd\overline{w}=-\frac{2idz}{(i+z)^2}\cdot\frac{2id\overline{z}}{(i-\overline{z})^2}=\frac{4dzd\overline{z}}{(i+z)^2(i-\overline{z})^2}$$
+        $$ds^2=\frac{16dzd\overline{z}}{(i+z)^2(i-\overline{z})^2\cdot\left(1-\frac{-1-iz+i\overline{z}-z\overline{z}}{(i+z)(i-\overline{z})}\right)^2}=\frac{4dzd\overline{z}}{(Im \ z)^2}$$
+    \end{remark}
 \end{document}
