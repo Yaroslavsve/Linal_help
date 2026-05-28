@@ -473,7 +473,7 @@
     \end{subtheorem}
     \begin{proof}
         Пусть $z=r(x)$, $\gamma: x=x(t)$, $f=f(x)$, $r_1$, ..., $r_n$ --- базис касательного пространства, тогда $X=\sum\limits_{i=1}^nX^ir_i(P)$, $X^i=\dot{x}^i$
-        $$\partial_Xf=\frac{\partial}{\partial t}\vert_{t=t_0}f=\sum\limits_{i=1}^{n}X^i\frac{\partial f}{\partial x^i}$$
+        $$\partial_Xf=\frac{d}{dt}\vert_{t=t_0}f=\sum\limits_{i=1}^{n}X^i\frac{\partial f}{\partial x^i}$$
         Легко видеть, что полученное выражение не зависит от кривой $\gamma$.
     \end{proof}
     \begin{definition}
@@ -1899,6 +1899,27 @@
     \begin{exercise}
         Доказать двойственную теорему косинусов $\cos\alpha=\cos\beta\cos\gamma-\sin\beta\sin\gamma \ ch(a)$.
     \end{exercise}
+    \begin{proof}
+        Запишем теоремы косинусов для каждого из углов
+        $$ch(a)=ch(b)ch(c)-sh(b)sh(c)\cos\alpha$$
+        $$ch(b)=ch(a)ch(c)-sh(a)sh(c)\cos\beta$$
+        $$ch(c)=ch(a)ch(b)-sh(a)sh(b)\cos\gamma$$
+        $$\cos\alpha=\frac{ch(b)ch(c)-ch(a)}{sh(b)sh(c)}$$
+        $$\cos\beta=\frac{ch(a)ch(c)-ch(b)}{sh(a)sh(c)}$$
+        $$\cos\gamma=\frac{ch(a)ch(b)-ch(c)}{sh(a)sh(b)}$$
+        $$\sin\beta=\sqrt{1-\left(\frac{ch(a)ch(c)-ch(b)}{sh(a)sh(c)}\right)^2}=$$
+        $$=\sqrt{\frac{sh^2(a)sh^2(c)-ch^2(a)ch^2(c)+2ch(a)ch(b)ch(c)-ch^2(b)}{sh^2(a)sh^2(c)}}$$
+        $$\sin\gamma=\sqrt{1-\left(\frac{ch(a)ch(b)-ch(c)}{sh(a)sh(b)}\right)^2}=$$
+        $$=\sqrt{\frac{sh^2(a)sh^2(b)-ch^2(a)ch^2(b)+2ch(a)ch(b)ch(c)-ch^2(c)}{sh^2(a)sh^2(b)}}$$
+        $$\sin\beta=\sqrt{\frac{1-ch^2(a)-ch^2(b)-ch^2(c)+2ch(a)ch(b)ch(c)}{sh^2(a)sh^2(c)}}$$
+        $$\sin\gamma=\sqrt{\frac{1-ch^2(a)-ch^2(b)-ch^2(c)+2ch(a)ch(b)ch(c)}{sh^2(a)sh^2(b)}}$$
+        $$\cos\beta\cos\gamma=\frac{ch(a)ch(c)-ch(b)}{sh(a)sh(c)}\cdot\frac{ch(a)ch(b)-ch(c)}{sh(a)sh(b)}=$$
+        $$=\frac{ch^2(a)ch(b)ch(c)-ch(a)(ch^2(b)+ch^2(c))+ch(b)ch(c)}{sh^2(a)sh(c)sh(b)}$$
+        $$\sin\beta\sin\gamma=\frac{1-ch^2(a)-ch^2(b)-ch^2(c)+2ch(a)ch(b)ch(c)}{sh^2(a)sh(b)sh(c)}$$
+        $$-\cos\beta\cos\gamma+\sin\beta\sin\gamma \ ch(a)=-\frac{ch^2(a)ch(b)ch(c)-ch(a)(ch^2(b)+ch^2(c))+ch(b)ch(c)}{sh^2(a)sh(c)sh(b)}+$$
+        $$+\frac{(1-ch^2(a)-ch^2(b)-ch^2(c)+2ch(a)ch(b)ch(c))ch(a)}{sh^2(a)sh(b)sh(c)}=$$
+        $$=\frac{ch(a)}{sh^2(a)sh(b)sh(c)}\cdot\left(ch(a)ch(b)ch(c)+1-ch^2(a)-\frac{ch(b)ch(c)}{ch(a)}\right)=\frac{ch(b)ch(c)-ch(a)}{sh(b)sh(c)}=\cos\alpha$$
+    \end{proof}
     \begin{exercise}
         Доказать, что сумма углов треугольника на плоскости Лобачевского меньше $\pi$.
     \end{exercise}
