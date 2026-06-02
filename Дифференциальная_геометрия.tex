@@ -922,16 +922,18 @@
             По теореме существования и единственности в окрестности точки $x_0^1$ существует единственное решение.\\
             Теперь освободим переменную $x^2$, тогда
             $$\begin{cases}
-                \frac{\partial y^{(2)}}{\partial x^2}=f_2(x^1, \ x^2, \ x_0^3, \ \ldots, \ x_0^n, \ y^{(1)})\\
+                \frac{\partial y^{(2)}}{\partial x^2}=f_2(x^1, \ x^2, \ x_0^3, \ \ldots, \ x_0^n, \ y^{(2)})\\
                 y^{(2)}|_{x^2=x_0^2}=y^{(1)}(x^1)\\
                 y^{(2)}|_{x^2=x_0^2, \ x^1=x_0^1}=y_0
             \end{cases}$$
+            Проверим, что решение данной системы является решением первого уравнения, которое рассматривали на первом шаге.\\
             Пусть $\frac{\partial y^{(2)}}{\partial x^1}-f_1=g$ $\Longrightarrow$
-            $$\frac{\partial g}{\partial x^2}=\frac{\partial^2 y^{(2)}}{\partial x^2\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
-            $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}$$
+            $$\frac{\partial g}{\partial x^2}=\frac{\partial}{\partial x^2}\left(\frac{\partial y^{(2)}}{\partial x^1}\right)-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=\frac{\partial}{\partial x^1}\left(\frac{\partial y^{(2)}}{\partial x^2}\right)-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}=$$
+            $$=\frac{\partial f_2}{\partial x^1}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}\overset{(1)}{=}\frac{\partial f_1}{\partial x^2}+\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^2}-\frac{\partial f_1}{\partial x^2}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=$$
             $$=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}+\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot\frac{\partial y^{(2), \ \alpha}}{\partial x^1}-\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$$
             (1) По условиям совместности $\frac{\partial f_2}{\partial x^1}-\frac{\partial f_1}{\partial x^2}=\frac{\partial f_1}{\partial y^{(2), \ \alpha}}\cdot f_2^{\alpha}-\frac{\partial f_2}{\partial y^{(2), \ \alpha}}\cdot f_1^{\alpha}$\\
             Отсюда $\frac{\partial g}{\partial x^2}=\frac{\partial f_2}{\partial y^{\alpha}}\cdot g^{\alpha}$, приичём $g|_{x^2=x_0^2}=\frac{\partial y^{(1)}}{\partial x^1}-f_1(x^1, \ x_0^2, \ x^3_0, \ \ldots, \ x_0^n, \ y^{(1)})=0$\\
+            Тогда данное дифференциальное уравнение имеет только тривиальное решение в силу теоремы существования и единственности. Значит, $\frac{\partial y^{(2)}}{\partial x^1}=f_1$, то есть $\frac{\partial y^{(2)}}{\partial x^1}$ является решением первого уравнения системы с $f_1$.\\
             Теперь повторяем операции выше для трёх и более свободных переменных, пока не дойдём до $n$. Тем самым докажем существование.
             \item $\underline{\textup{Единственность}}$\\
             Рассмотрим $y(x^1, \ x^2_0, \ \ldots, \ x_0^n)$, тогда по первому пункту он удовлетворяет первому уравнению, а значит, по теореме существования и единственности решения задачи Коши $y=y_1$.\\
@@ -981,7 +983,7 @@
         Пусть в окрестности точки $x_0\in\R^n$ заданы $g_{ij}(x)$ и $b_{ij}(x)$ --- гладкие $n\times n$ матричные функции, причём $g_{ij}=g_{ji}$, $b_{ij}=b_{ji}$. Пусть они удовлетворяют соотношениям Гаусса и Петерсона-Майнарди-Кодацци, тогда существует поверхность $M$, задаваемая уравнениями $z=r(x)$, где $x\in B(x_0)$, причём $g_{ij}$ и $b_{ij}$ --- её первая и вторая фундаментальные формы соответственно.
     \end{theorem}
     \begin{proof}
-        Пусть $r_s(x_0)=r^0_s$, $m(x_0)=m^0$ и пусть $(r^0_s, \ r_0^k)=g_{sk}(x_0)$, $(m^0, \ r_s^0)=0$, $(m^0, \ m^0)=1$. Рассмотрим систему $r_j(x)=\frac{\partial r}{\partial x^j}$ с начальными условиями $r(x_0)=r^0$, тогда существует единственное решение $r(x)$ из предыдущей теоремы (условия совместности очевидно выполнены).\\
+        Пусть $r_s(x_0)=r^0_s$, $m(x_0)=m^0$ и пусть $(r^0_s, \ r^0_k)=g_{sk}(x_0)$, $(m^0, \ r_s^0)=0$, $(m^0, \ m^0)=1$. Рассмотрим систему $r_j(x)=\frac{\partial r}{\partial x^j}$ с начальными условиями $r(x_0)=r^0$, тогда существует единственное решение $r(x)$ из предыдущей теоремы (условия совместности очевидно выполнены).\\
         Зададим поверхность параметрическими уравнениями $M: z=r(x)$. $r(x)\in C^{\infty}$ по построению. Рассмотрим $G_{sk}=(r_s, \ r_k)$ и $q_s=(m, \ r_s)$, $\lambda=(m, \ m)$.\\
         $$\frac{\partial G_{sk}}{\partial x^j}=\frac{\partial r_s}{\partial x^j}r_k+\frac{\partial r_k}{\partial x^j}r_s\overset{(1)}{=}\sum\limits_l\Gamma^l_{sj}G_{lk}+b_{sj}q_k+\sum\limits_l\Gamma^l_{kj}G_{sl}+b_{kj}q_s$$
         $$\frac{\partial q_s}{\partial x^j}=\frac{\partial m}{\partial x^j}r_s+\frac{\partial r_s}{\partial x^j}m\overset{(2)}{=}-B_j^lG_{ls}+\sum\limits_l\Gamma^l_{sj}q_l+b_{sj}\lambda$$
@@ -989,7 +991,7 @@
         (1) \hyperlink{8}{Из первой деривационной формулы Гаусса-Вейнгартена}\\
         (2) \hyperlink{8}{Из первой и второй деривационной формул Гаусса-Вейнгартена}\\
         (3) \hyperlink{8}{Из второй деривационной формулы Гаусса-Вейнгартена}\\
-        $G_{sk}(x_0)=g_{sk}(x_0)$, $q_s(x_0)=0$, $\lambda(x_0)=1$. $b_{sj}-B_l^jg_{ls}=0$, что равносильно определению $B^j_l$, $\frac{\partial G_{sk}}{\partial x^j}=\sum\limits_l\left(\Gamma^l_{sj}g_{lk}+\Gamma_{kj}^lg_{sl}\right)$. Тогда \hyperlink{10}{Из утверждения 2.4}
+        $G_{sk}(x_0)=g_{sk}(x_0)$, $q_s(x_0)=0$, $\lambda(x_0)=1$. $b_{sj}-\sum\limits_lB^l_jg_{ls}=0$, что равносильно определению $B_j^l$, $\frac{\partial G_{sk}}{\partial x^j}=\sum\limits_l\left(\Gamma^l_{sj}g_{lk}+\Gamma_{kj}^lg_{sl}\right)$. Тогда \hyperlink{10}{Из утверждения 2.4}
         $$\Gamma_{sj}^l=\frac{1}{2}\sum\limits_m\left(g^{lm}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)\right)$$ где $g^{lm}=g_{sj}^{-1}$. Отсюда
         $$\frac{\partial G_{sk}}{\partial x^j}=\frac{1}{2}\sum\limits_{l, \ m}\left(g^{lm}g_{lk}\left(\frac{\partial g_{sm}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^s}-\frac{\partial g_{sj}}{\partial x^m}\right)+g^{lm}g_{sl}\left(\frac{\partial g_{km}}{\partial x^j}+\frac{\partial g_{jm}}{\partial x^k}-\frac{\partial g_{kj}}{\partial x^m}\right)\right)\overset{(1)}{=}$$
         $$\overset{(1)}{=}\frac{1}{2}\left(2\frac{\partial g_{sk}}{\partial x^j}\right)=\frac{\partial g_{sk}}{\partial x^j}$$
