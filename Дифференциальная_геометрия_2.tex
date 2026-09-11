@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[left=1cm,right=1cm,top=0.5cm,bottom=1.5cm,bindingoffset=0cm]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+% Пакет, необходимый для корректной работы babel
+\usepackage{csquotes}
+\usepackage{graphicx}
+% Описание пути к изображениям.
+\graphicspath{ {./pics} }
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+% Пакет для удобной работы с системами уравнений
+\usepackage{systeme}
+% Пакет, позволяющий рисовать красивые картинки прямо внутри пдф файла
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\definecolor{linkcolor}{HTML}{225ae2}
+\definecolor{urlcolor}{HTML}{225ae2}
+\hypersetup{
+    pdfstartview=FitH, 
+    linkcolor=linkcolor,
+    urlcolor=urlcolor,
+    colorlinks=true
+}
+% Выделение ссылок
+\newcommand\tab[1][.5cm]{\hspace*{#1}}
+%отступ после начала окружения
+\usepackage{bbm}
+\usepackage[normalem]{ulem}
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{consequence}{Следствие}[theorem]
+\newtheorem{subtheorem}{Утверждение}[section]
+\newtheorem{algorithm}{Алгоритм}[section]
+\newtheorem{axiom}{Аксиома}[section]
+\newtheorem*{exercise}{Упражнение}
+\newtheorem{propertes}{Свойства}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{example}{Пример}
+\newtheorem{examples}{Примеры}
+\newtheorem{statement}{Формулировка}
+% Окружение типа ``определение''
+\newtheorem{definition}{Определение}[section]
+\newtheorem{remark}{Замечание}
+% Замечение без нумерации
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\mP}{\mathbf{P}}
+\newcommand{\mE}{\mathbf{E}}
+\newcommand{\mD}{\mathbf{D}}
+\newcommand{\skob}[1]{\left(#1\right)}
+\newcommand{\fig}[1]{\left\{#1\right\}}
+\newcommand{\br}[1]{\left[#1\right]}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\acts}{\curvearrowright}
+\newcommand{\F}{\mathbb F}
+\newcommand{\aug}{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\id}{\mathrm{id}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\E}{\mathcal E}
+\begin{document}
+    \tableofcontents
+    \fontsize{14pt}{20pt}\selectfont
+    \newpage
+    \section{Тензоры и тензорные поля}
+    \begin{definition}
+        Пусть $P\in M^n$ --- точка на многообразии, тогда тензором типа $(p, \ q)$ ранга $p+q$ называется соответствие $(x^1, \ \ldots \ x^n) \ \longrightarrow \ T^{i_1,\ldots,i_p}_{j_1,\ldots,j_q}$ такое, что при замене базиса
+        $$T^{i_1',\ldots,i_p'}_{j_1',\ldots,j_q'}=T^{i_1,\ldots,i_p}_{j_1,\ldots,j_q}\cdot\frac{\partial x^{i_1'}}{\partial x^{i_1}}\cdot\ldots\cdot\frac{\partial x^{i_p'}}{\partial x^{i_p}}\cdot\frac{\partial x^{j_1}}{\partial x^{j_1'}}\cdot\ldots\cdot\frac{\partial x^{j_q}}{\partial x^{j_q'}}$$
+        Мультииндексная запись
+        $$T_{J_q'}^{I_p'}=T_{J_q}^{I_p}\cdot\frac{\partial x^{I_p'}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q'}}$$
+    \end{definition}
+    \begin{examples}\tab
+        \begin{enumerate}
+            \item $T_2^1$, $T^{i'}_{j'k'}=T_{jk}^i\cdot\frac{\partial x^{i'}}{\partial x^{i}}\cdot\frac{\partial x^{j}}{\partial x^{j'}}\cdot\frac{\partial x^{k}}{\partial x^{k'}}$
+            \item $T_0^1$, $(x^1, \ \ldots, \ x^n) \ \longrightarrow \ x^i$ вектор
+            \item $T_1^0$, $(x^1, \ \ldots, \ x^n) \ \longrightarrow \ x_i$ ковектор (линейный функционал)
+            \item $T_2^0$, $(x^1, \ \ldots, \ x^n) \ \longrightarrow \ (a^i_j)$ билинейная форма
+            $$T_{i'j'}=T_{ij}\cdot\frac{\partial x^{i}}{\partial x^{i'}}\cdot\frac{\partial x^{j}}{\partial x^{j'}}$$
+        \end{enumerate}
+    \end{examples}
+    \begin{lemma}
+        Пусть $(x^1, \ \ldots, \ x^n)$ --- система координат в окрестности точки $P\in M$. Рассмотрим соответствие $(x^1, \ \ldots, \ x^n) \ \longrightarrow \ T^{I_p}_{J_q}$. По тензорному закону\\
+        $(x^{1'}, \ \ldots, \ x^{n'})$ $\longrightarrow$ $T^{I_p'}_{J_q'}=T^{I_p}_{J_q}\cdot\frac{\partial x^{I_p'}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q'}}$. Тогда это соответствие тензор $T_q^p$.
+    \end{lemma}
+    \begin{proof}
+        Рассмотрим систему координат $(x^{1''}, \ \ldots, \ x^{n''})$, по тензорному закону
+        $$(x^{1''}, \ \ldots, \ x^{n''}) \ \longrightarrow \ T^{I_p''}_{J_q''}=T^{I_p}_{J_q}\cdot\frac{\partial x^{I_p''}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q''}}$$
+        Заметим, что $T^{I_p'}_{J_q'}=T^{I_p}_{J_q}\cdot\frac{\partial x^{I_p'}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q'}} \ \Longleftrightarrow \ T^{I_p}_{J_q}=T^{I_p'}_{J_q'}\cdot\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}$. Тогда
+        $$T^{I_p''}_{J_q''}=T^{I_p'}_{J_q'}\cdot\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}\cdot\frac{\partial x^{I_p''}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q''}}=T^{I_p'}_{J_q'}\cdot\frac{\partial x^{I_p''}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q''}}$$
+    \end{proof}
+    \begin{definition}
+        Тензорным полем называется соответствие, сопоставляющее каждой точке поверхности тензор.
+    \end{definition}
+    \begin{definition}
+        Пусть $M$ --- поверхность, $T_PM=V$ --- линейное пространство в точке $P\in M$, $V^*=T_P^*M$ --- пространство линейных функций. Пусть $(x^1, \ \ldots, \ x^n)$ --- базис $V$, $(dx^1, \ \ldots, \ dx^n)$ --- базис $V^*$. Рассмотрим $\underbrace{V\times \dots\times V}_p \times \underbrace{V^*\times \dots\times V^*}_q$ и полилинейное отображение $f$, тогда тензором $T^p_q$ называется $f:\underbrace{V\times \dots\times V}_p \times \underbrace{V^*\times \dots\times V^*}_q$.
+    \end{definition}
+    \begin{subtheorem}
+        Определения тензора равносильны.
+    \end{subtheorem}
+    \begin{proof}
+        $\underline{\Longrightarrow}$ Рассмотрим полилинейное отображение\\
+        $L_T(dx^{i_1}, \ \ldots, \ dx^{i_p}, \ \partial x_{j_1}, \ \ldots, \ \partial x_{j_q})=T^{i_1,\ldots,i_p}_{j_1,\ldots,j_q}$ и полилинейное отображение\\
+        $L_T'(dx^{i_1'}, \ \ldots, \ dx^{i_p'}, \ \partial x_{j_1'}, \ \ldots, \ \partial x_{j_q'})=T^{i_1',\ldots,i_p'}_{j_1',\ldots,j_q'}$.
+        $$L_T'(dx^{i_1}, \ \ldots, \ dx^{i_p}, \ \partial x_{j_1}, \ \ldots, \ \partial x_{j_q})=L_T'\left(\frac{\partial x^{i_1}}{\partial x^{i_1'}}dx^{i_1'}, \ \ldots, \ \frac{\partial x^{i_p}}{\partial x^{i_p'}}dx^{i_p'}, \ \frac{\partial x^{j_1'}}{\partial x^{j_1}}\partial x_{j_1'}, \ \ldots, \ \frac{\partial x^{j_q'}}{\partial x^{j_q}}\partial x_{j_q'}\right)=$$
+        $$=\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}\cdot L_T'(dx^{i_1'}, \ \ldots, \ dx^{i_p'}, \ \partial x_{j_1'}, \ \ldots, \ \partial x_{j_q'})=\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}\cdot T_{J_q'}^{I_p'}\overset{(1)}{=}T_{J_q}^{I_p}=$$
+        $$=L_T(dx^{i_1}, \ \ldots, \ dx^{i_p}, \ \partial x_{j_1}, \ \ldots, \ \partial x_{j_q})$$
+        Таким образом $L_T=L_T'$, то есть отображение задано однозначно.\\
+        (1) По первому определению тензора
+        $\underline{\Longleftarrow}$ Пусть $L:\left(T_PM\right)^p\times\left(T_P^*M\right)^q$ --- полилинейное отображение.\\
+        Рассмотрим $(x^{1}, \ \ldots, \ x^{n})\longrightarrow T^{i_1,\ldots,i_p}_{j_1,\ldots,j_q}=L(dx^{i_1}, \ \ldots, \ dx^{i_p}, \partial x^{j_1}, \ \ldots, \ \partial x^{j_q})$,\\$(x^{1'}, \ \ldots, \ x^{n'})\longrightarrow T^{i_1',\ldots,i_p'}_{j_1',\ldots,j_q'}=L(dx^{i_1'}, \ \ldots, \ dx^{i_p'}, \partial x^{j_1'}, \ \ldots, \ \partial x^{j_q'})$
+        $$T^{I_p}_{J_q}=L_T(dx^{i_1}, \ \ldots, \ dx^{i_p}, \ \partial x_{j_1}, \ \ldots, \ \partial x_{j_q})=$$
+        $$=L_T\left(\frac{\partial x^{i_1}}{\partial x^{i_1'}}dx^{i_1'}, \ \ldots, \ \frac{\partial x^{i_p}}{\partial x^{i_p'}}dx^{i_p'}, \ \frac{\partial x^{j_1'}}{\partial x^{j_1}}\partial x_{j_1'}, \ \ldots, \ \frac{\partial x^{j_q'}}{\partial x^{j_q}}\partial x_{j_q'}\right)=$$
+        $$=\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}\cdot L_T(dx^{i_1'}, \ \ldots, \ dx^{i_p'}, \ \partial x_{j_1'}, \ \ldots, \ \partial x_{j_q'})=\frac{\partial x^{I_p}}{\partial x^{I_p'}}\cdot\frac{\partial x^{J_q'}}{\partial x^{J_q}}\cdot T_{J_q'}^{I_p'}$$
+        Это равносильно $T_{J_q'}^{I_p'}= T_{J_q}^{I_p}\cdot\frac{\partial x^{I_p'}}{\partial x^{I_p}}\cdot\frac{\partial x^{J_q}}{\partial x^{J_q'}}$.
+    \end{proof}
+    \begin{lemma}\tab
+        \begin{enumerate}
+            \item dim$T_q^p=n^{p+q}$
+            \item $T=T^{I_p}_{J_q}\cdot D^{J_q}_{I_p}$ и $D^{J_q}_{I_p}$ линейно независимы, где\\ $D^{J_q}_{I_p}(dx^{a_1}, \ \ldots, \ dx^{a_p}, \ \partial x^{b_1}, \ \ldots, \ x^{b_q})=\begin{cases}
+                1, \ \textup{только на одном наборе}\\
+                0, \ \textup{на остальных}
+            \end{cases}$
+        \end{enumerate}
+    \end{lemma}
+    \begin{proof}
+        $T^{I_p}_{J_q}\cdot D^{J_q}_{I_p}(dx^{a_1}, \ \ldots, \ dx^{a_p}, \ \partial x^{b_1}, \ \ldots, \ x^{b_q})=T^{a_1,\ldots a_p}_{b_1,\ldots,b_q}$, так как все слагаемые, кроме одного, будут равны нулю. А так как слагаемых $n^{p+q}$, то dim$T^p_q=n^{p+q}$.
+    \end{proof}
+\end{document}
